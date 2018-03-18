@@ -45,7 +45,7 @@ app.post('/getPatientKeys', routes.get_patient_keys);
 app.post('/getAllChronic', routes.get_all_chronic);
 app.post('/chronicProblem', routes.submit_chronic);
 app.post('/getAllAcute', routes.get_all_acute);
-app.post('/chronicAcute', routes.submit_acute);
+app.post('/acuteProblem', routes.submit_acute);
 
 /* Run the server */
 console.log('Author: Connor Chong (conchong)');
