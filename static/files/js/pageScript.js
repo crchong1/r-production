@@ -15,21 +15,6 @@ $(document).ready(function(){
 	Stickyfill.add(elements);
 
 
-	// Initial Page Load
-	$.ajax({
-		type: 'POST',
-		url: '/getPatientKeys',
-		data: {
-			search: '',
-			field: 'lastName',
-		},
-		success: function(result) {
-			patients = result.patient;
-			getPatientData(result.patient);
-		}
-	});
-
-
      // Show and hide buttons and forms on click
 	      $('form').hide();
 	      $('.add').on('click', function() {
@@ -85,7 +70,7 @@ $(document).ready(function(){
 	      	$('.editBtn').show();
 	  });
 
-	      // Handles for submission for adding new entry
+	      /* Handles for submission for adding new entry
 	      $('.section').on('submit', '.addForm', function(event) {
 	      	event.preventDefault();
 	      	console.log("on submit");
@@ -116,7 +101,6 @@ $(document).ready(function(){
 	      	});
 
 	      });
-		/*
 	       // Handles for submission for editing existing entry
 	       $('.section').on('submit', '.editForm', function(event) {
 	       	event.preventDefault();
