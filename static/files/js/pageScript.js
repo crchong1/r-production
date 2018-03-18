@@ -116,7 +116,7 @@ $(document).ready(function(){
 	      	});
 
 	      });
-
+		/*
 	       // Handles for submission for editing existing entry
 	       $('.section').on('submit', '.editForm', function(event) {
 	       	event.preventDefault();
@@ -152,7 +152,7 @@ $(document).ready(function(){
 	       		}
 	       	});
 
-	       });
+	       });*/
 
 	   });
 
