@@ -42,11 +42,11 @@ var problemListSchema = mongoose.Schema({
             type: String,
             required: true,
         },
-        acuteMedTreatment:{
+        acuteTreatment:{
             type: String,
             required: true,
         },
-        acuteMedDetails:{
+        acuteDetails:{
             type: String,
             required: true,
         },
@@ -54,7 +54,7 @@ var problemListSchema = mongoose.Schema({
             type: String,
             required: true,
         },
-        acuteMedEndDate:{
+        acuteEndDate:{
             type: String,
             required: true,
         }
