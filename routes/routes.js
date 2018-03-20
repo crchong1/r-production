@@ -418,7 +418,7 @@ var submitNewAcute = function(req, res) {
                 // if there is already data in the table so we need to update it
                 else {
                     // this function takes in existing data and updates it
-                    allergyDB.putChronicEntry(req.body.id, req.body.allergen, 
+                    allergyDB.putAllergyEntry(req.body.id, req.body.allergen, 
                         req.body.allergySymptoms, req.body.allergySeverity, req.body.allergyDateOnset,
                         req.body.allergyNotes, function(data, err) {
                       if(err){
