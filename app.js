@@ -47,6 +47,10 @@ app.post('/chronicProblem', routes.submit_chronic);
 app.post('/getAllAcute', routes.get_all_acute);
 app.post('/acuteProblem', routes.submit_acute);
 
+//allergy page
+app.post('/getAllAllergy', routes.get_all_allergy);
+app.post('/allergy', routes.submit_allergy);
+
 /* Run the server */
 console.log('Author: Connor Chong (conchong)');
 app.listen(8080);
