@@ -1,6 +1,8 @@
 var patientsDB = require('../database/patientsDB.js');
 var weightDB = require('../database/weightDB.js');
 var problemListDB = require('../database/problemListDB.js');
+var allergyDB = require('../database/allergyDB.js');
+
 // this function renders login.ejs first now
 var getMain = function(req, res) {
 	res.render('login.ejs');
@@ -324,7 +326,7 @@ var submitNewWeight = function(req, res) {
             });
     };
 
-//functions for chronic problems
+//functions for acute problems
 var getAllAcute = function(req, res) {
   var id = req.body.id;
   problemListDB.getAllAcute(id, function(data, err) {
@@ -377,6 +379,63 @@ var submitNewAcute = function(req, res) {
           });
   };
 
+     //functions for allergy problems
+     var getAllAllergy = function(req, res) {
+      console.log("getAllAllergy called in routes")
+      var id = req.body.id;
+      allergyDB.getAllAllergy(id, function(data, err) {
+        if(err) {
+          console.log(err);
+        } else {
+          console.log("allergy routes data: " + data);
+          res.send({data: data});
+        }
+      });
+    };
+  
+    
+    var submitNewAllergy = function(req, res) {
+      console.log("submitNewAllergy called in routes")
+      var id = req.body.id;
+        // check to see if there is already data in the table
+        allergyDB.getAllAllergy(id, function(data, err) {
+          if(err) {
+            console.log(err);
+          } else {
+                // if there is no data in the table yet
+                if(data.length == 0){
+                    // we create a new entry here
+                    allergyDB.putNewAllergy(req.body.id, req.body.allergen, 
+                      req.body.allergySymptoms, req.body.allergySeverity, req.body.allergyDateOnset,
+                      req.body.allergyNotes, function(data, err) {
+                      if(err) {
+                        console.log(err);
+                      } else {
+                        res.send({data: data});
+                      }
+                    });
+                  }
+                // if there is already data in the table so we need to update it
+                else {
+                    // this function takes in existing data and updates it
+                    allergyDB.putChronicEntry(req.body.id, req.body.allergen, 
+                        req.body.allergySymptoms, req.body.allergySeverity, req.body.allergyDateOnset,
+                        req.body.allergyNotes, function(data, err) {
+                      if(err){
+                        console.log("error")
+                      }
+                      else if(data){
+                        res.send({
+                          data: data
+                        });
+                      }
+                    });
+                  }
+                }
+              });
+      };
+  
+
 // this method handles the get_main request from app.js and reroutes it to the getMain function above
 var routes = { 
   get_main: getMain,
@@ -402,7 +461,9 @@ var routes = {
   get_all_chronic: getAllChronic,
   submit_chronic: submitNewChronic,
   get_all_acute: getAllAcute,
-  submit_acute: submitNewAcute
+  submit_acute: submitNewAcute,
+  get_all_allergy: getAllAllergy,
+  submit_allergy: submitNewAllergy
 };
 
 module.exports = routes;
