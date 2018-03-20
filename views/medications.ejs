@@ -97,33 +97,23 @@
 									</tr>
 								</thead>
 								<tbody id="chronicMedTableBody" >
-									<tr>
-										<td>Ceterizine</td>
-										<td>2.5 mL</td>
-										<td>Daily 8am</td>
-										<td>PO</td>
-										<td>01/02/2001</td>
-										<td>cont</td>
-										<td>Itching</td>
-										<td><button class="editBtn btn">Edit</button></td>
-									</tr>
 								</tbody>
 							</table>
-							<form id="chronicMedForm" class="tr addForm" method="post" >
+							<form id="chronicMedForm" class="tr addForm">
 								<span class="td"><input type="text" name="chronicMedDrugName" placeholder="Drug Name"></span>
 								<span class="td"><input type="text" name="chronicMedDose" placeholder="Dose"></span>
 								<span class="td"><input type="text" name="chronicMedTime"	placeholder="Time"></span>
 								<span class="td"><input type="text" name="chronicMedRoute" placeholder="Route"></span>
 								<span class="td"><input type="text" name="chronicMedStartDate" class="datepicker form-control"></span>
 								<span class="td"><input type="text" name="chronicMedEndDate" class="datepicker form-control" ></span>
-								<span class="td"><input type="text" name="chronicMedDescription" placeholder="Description"></span>
+								<span class="td"><input type="text" name="chronicMedDiagnosis" placeholder="Diagnosis"></span>
 
-								<input type="submit" value="Submit" name="chronicMedSubmit" class="formSubmit">
-								<input type="button" value="Cancel" name="cancel" class="formSubmit cancel">
+								<input type="submit" value="Submit" id="chronicMedSubmit" name="chronicMedSubmit" class="btn btn-primary formSubmit">
+								<input type="button" value="Cancel" name="cancel" class="btn btn-danger formSubmit cancel" data-toggle="collapse" data-target="#chronicMedForm">
 							</form>
 
 							<div>                               
-								<button id="addChronicMed" class="add"> + </button>
+								<button id="addChronicMed" class="add" data-toggle="collapse" data-target="#chronicMedForm" aria-expanded="false" aria-controls="collapseExample"> + </button>
 							</div>
 						</div>
 
@@ -147,33 +137,23 @@
 									</tr>
 								</thead>
 								<tbody id="acuteMedTableBody" >
-									<tr>
-										<td>Ceterizine</td>
-										<td>2.5 mL</td>
-										<td>Daily 8am</td>
-										<td>PO</td>
-										<td>01/02/2001</td>
-										<td>cont</td>
-										<td>Itching</td>
-										<td><button class="editBtn btn">Edit</button></td>
-									</tr>
 								</tbody>
 							</table>
-							<form id="acuteMedForm" class="tr addForm" method="post" >
+							<form id="acuteMedForm" class="tr addForm">
 								<span class="td"><input type="text" name="acuteMedDrugName" placeholder="Drug Name" ></span>
 								<span class="td"><input type="text" name="acuteMedDose" placeholder="Dose"></span>
 								<span class="td"><input type="text" name="acuteMedTime" placeholder="Time"></span>
 								<span class="td"><input type="text" name="acuteMedRoute" placeholder="Route"></span>
 								<span class="td"><input type="text" name="acuteMedStartDate" class="datepicker form-control" ></span>
 								<span class="td"><input type="text" name="acuteMedEndDate" class="datepicker form-control" ></span>
-								<span class="td"><input type="text" name="acuteMedDescription" placeholder="Description"></span>
+								<span class="td"><input type="text" name="acuteMedDiagnosis" placeholder="Diagnosis"></span>
 
-								<input type="submit" value="Submit" name="acuteMedSubmit" class="formSubmit">
-								<input type="button" value="Cancel" name="cancel" class="formSubmit cancel">
+								<input type="submit" value="Submit" id="acuteMedSubmit" name="acuteMedSubmit" class="btn btn-primary formSubmit">
+								<input type="button" value="Cancel" name="cancel" class="btn btn-danger formSubmit cancel" data-toggle="collapse" data-target="#acuteMedForm">
 							</form>
 
 							<div>                               
-								<button id="addAcuteMed" class="add"> + </button>
+								<button id="addAcuteMed" class="add" data-toggle="collapse" data-target="#acuteMedForm" aria-expanded="false" aria-controls="collapseExample"> + </button>
 							</div>
 						</div>
 
@@ -184,11 +164,128 @@
 	</div>
 </div>
 </body>
-
-<script>
-
-
-</script>
+<script type="text/javascript">
+	var patientId = <%=data.id%>;
+	$('document').ready(function() {
+	  console.log("document.ready ajax call: ");
+		// // ajax call to render the original table, where we post to getAllChronicMed
+		// // we return a JSON in which we call updateTable with 
+		 $.ajax({
+			 type: "POST",
+			 url: "/getAllChronicMed",
+			 data : {
+			   id: patientId
+			 },
+			 success: function(data) {
+			   console.log(data);
+			   if(data.data.length != 0){
+				updateTableChronicMed(data.data[0].chronicMedEntries);
+			   }
+			 }
+		 });
+		 $.ajax({
+			 type: "POST",
+			 url: "/getAllAcuteMed",
+			 data : {
+			   id: patientId
+			 },
+			 success: function(data) {
+			   console.log(data);
+			   if(data.data.length != 0){
+				updateTableAcuteMed(data.data[0].acuteMedEntries);
+			   }
+			 }
+		 });
+		// ajax call that on submit will send the new chronic problem values to the database
+		$('#chronicMedSubmit').click(function(e) {
+		  e.preventDefault();
+		  var input = $("#chronicMedForm").serializeArray();
+		  $.ajax({
+			  type: "POST",
+			  url: "/chronicMed",
+			  data : {
+				id: patientId, 
+				chronicMedName: input[0].value,
+				chronicMedDose: input[1].value, 
+				chronicMedTime: input[2].value,
+				chronicMedRoute: input[3].value,  
+				chronicMedStartDate: input[4].value,
+				chronicMedEndDate: input[5].value,
+				chronicMedDiagnosis: input[6].value,  
+			  },
+			  success: function(data) {
+				console.log("New chronic med data: ");
+				console.log(data);
+				updateTableChronicMed(data.data[0].chronicMedEntries);
+				$('#chronicMedForm')[0].reset();
+              $('#chronicMedForm').hide();           
+              $('#chronicMedForm').parent().find('button').show();
+			  }
+		  });
+		});
+		$('#acuteMedSubmit').click(function(e) {
+		  e.preventDefault();
+		  var input = $("#acuteMedForm").serializeArray();
+		  $.ajax({
+			  type: "POST",
+			  url: "/acuteMed",
+			  data : {
+				id: patientId, 
+				acuteMedName: input[0].value,
+				acuteMedDose: input[1].value, 
+				acuteMedTime: input[2].value,
+				acuteMedRoute: input[3].value,  
+				acuteMedStartDate: input[4].value,
+				acuteMedEndDate: input[5].value,
+				acuteMedDiagnosis: input[6].value,  
+			  },
+			  success: function(data) {
+				console.log("New acute med data: ");
+				console.log(data);
+				updateTableAcuteMed(data.data[0].acuteMedEntries);
+				$('#acuteMedForm')[0].reset();
+              $('#acuteMedForm').hide();           
+              $('#acuteMedForm').parent().find('button').show();
+			  }
+		  });
+		});
+	});
+	
+	// function that takes in JSON with chronic med fields and renders the table as such
+	var updateTableChronicMed = function(data) {
+		 console.log(data);
+		 var table1 = '';
+		 for(var i = 0; i < data.length; i++) {
+			 var line = '<tr><td>' +  data[i].chronicMedName + '</td>';
+			 line += '<td>' + data[i].chronicMedDose + '</td>';
+			 line += '<td>' + data[i].chronicMedTime + '</td>';
+			 line += '<td>' + data[i].chronicMedRoute + '</td>';
+			 line += '<td>' + data[i].chronicMedStartDate + '</td>';
+			 line += '<td>' + data[i].chronicMedEndDate + '</td>';
+			 line += '<td>' + data[i].chronicMedDiagnosis + '</td>';
+			 line += '<td><button class="editBtn btn">Edit</button></td></tr>';
+			 table1 += line;
+		 }
+		 document.getElementById('chronicMedTableBody').innerHTML = table1;
+	};
+	var updateTableAcuteMed = function(data) {
+		 console.log(data);
+		 var table1 = '';
+		 for(var i = 0; i < data.length; i++) {
+		  var line = '<tr><td>' +  data[i].acuteMedName + '</td>';
+		  line += '<td>' + data[i].acuteMedDose + '</td>';
+		  line += '<td>' + data[i].acuteMedTime + '</td>';
+		  line += '<td>' + data[i].acuteMedRoute + '</td>';
+		  line += '<td>' + data[i].acuteMedStartDate + '</td>';
+		  line += '<td>' + data[i].acuteMedEndDate + '</td>';
+		  line += '<td>' + data[i].acuteMedDiagnosis + '</td>';
+			 line += '<td><button class="editBtn btn">Edit</button></td></tr>';
+			 table1 += line;
+		 }
+		 document.getElementById('acuteMedTableBody').innerHTML = table1;
+	};
+  
+	</script>
 </html>
 
 
