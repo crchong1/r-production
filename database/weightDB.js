@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var weight = mongoose.createConnection('mongodb://localhost/weight');
+var weight = mongoose.createConnection('mongodb://127.0.0.1/weight');
 
 
 weight.on('error', console.error.bind(console, 'connection error:'));

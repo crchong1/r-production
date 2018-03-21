@@ -42,10 +42,21 @@ app.post('/addTest', routes.submit_test);
 app.post('/form', routes.submit_patient);
 app.post('/getPatientKeys', routes.get_patient_keys);
 
+//problem list page
 app.post('/getAllChronic', routes.get_all_chronic);
 app.post('/chronicProblem', routes.submit_chronic);
 app.post('/getAllAcute', routes.get_all_acute);
 app.post('/acuteProblem', routes.submit_acute);
+
+//allergy page
+app.post('/getAllAllergy', routes.get_all_allergy);
+app.post('/allergy', routes.submit_allergy);
+
+//medication page
+app.post('/getAllChronicMed', routes.get_all_chronic_med);
+app.post('/chronicMed', routes.submit_chronic_med);
+app.post('/getAllAcuteMed', routes.get_all_acute_med);
+app.post('/acuteMed', routes.submit_acute_med);
 
 /* Run the server */
 console.log('Author: Connor Chong (conchong)');
