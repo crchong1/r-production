@@ -16,138 +16,19 @@ var getSearchPatients = function(req, res) {
   res.render('patientSearch.ejs');
 }
 
-// renders the allergy page  BUT WE NEED TO FIX THIS AT A LATER DATE TO MAKE IT UNIQUE DEPENEDING ON PATIENT
-var getHistoryPage = function(req, res) {
-   var id = decodeURI(req.params.id); // gets id from url
+var getAnyPatientPage = function(req, res) {
+  var id = decodeURI(req.params.id); // gets id from url
    patientsDB.getPatientById(id, function(data, err) {
     if(err) {
       console.log(err);
     } else {
         // render the patientPage with the returned data
-        res.render('history.ejs', {data: data[0]}); 
+        res.render('template.ejs', {data: data[0]}); 
       }
     });
- };
-
-// renders the allergy page  BUT WE NEED TO FIX THIS AT A LATER DATE TO MAKE IT UNIQUE DEPENEDING ON PATIENT
-var getAllergiesPage = function(req, res) {
-   var id = decodeURI(req.params.id); // gets id from url
-   patientsDB.getPatientById(id, function(data, err) {
-    if(err) {
-      console.log(err);
-    } else {
-        // render the patientPage with the returned data
-        res.render('allergies.ejs', {data: data[0]}); 
-      }
-    });
- };
-
-  // renders the immunization page  BUT WE NEED TO FIX THIS AT A LATER DATE TO MAKE IT UNIQUE DEPENEDING ON PATIENT
-  var getImmunizationPage = function(req, res) {
-   var id = decodeURI(req.params.id); // gets id from url
-   patientsDB.getPatientById(id, function(data, err) {
-    if(err) {
-      console.log(err);
-    } else {
-        // render the patientPage with the returned data
-        res.render('immunization.ejs', {data: data[0]}); 
-      }
-    });
- };
-    // renders the immunization page  BUT WE NEED TO FIX THIS AT A LATER DATE TO MAKE IT UNIQUE DEPENEDING ON PATIENT
-    var getMedicationsPage = function(req, res) {
-   var id = decodeURI(req.params.id); // gets id from url
-   patientsDB.getPatientById(id, function(data, err) {
-    if(err) {
-      console.log(err);
-    } else {
-        // render the patientPage with the returned data
-        res.render('medications.ejs', {data: data[0]}); 
-      }
-    });
- };
+}
 
 
-// renders the problem list page BUT WE NEED TO FIX THIS AT A LATER DATE TO MAKE IT UNIQUE DEPENEDING ON PATIENT
-var getProblemList = function(req, res) {
-    var id = decodeURI(req.params.id); // gets id from url
-    patientsDB.getPatientById(id, function(data, err) {
-      if(err) {
-        console.log(err);
-      } else {
-        // render the patientPage with the returned data
-        res.render('problemList.ejs', {data: data[0]}); 
-      }
-    });
-  };
-
-
-  // renders the testing page  BUT WE NEED TO FIX THIS AT A LATER DATE TO MAKE IT UNIQUE DEPENEDING ON PATIENT
-  var getTestingPage = function(req, res) {
-   var id = decodeURI(req.params.id); // gets id from url
-   patientsDB.getPatientById(id, function(data, err) {
-    if(err) {
-      console.log(err);
-    } else {
-        // render the patientPage with the returned data
-        res.render('testingPage.ejs', {data: data[0]}); 
-      }
-    });
- };
-
-
-  // renders the growth charts page  BUT WE NEED TO FIX THIS AT A LATER DATE TO MAKE IT UNIQUE DEPENEDING ON PATIENT
-  var getGrowthChartsPage = function(req, res) {
-   var id = decodeURI(req.params.id); // gets id from url
-   patientsDB.getPatientById(id, function(data, err) {
-    if(err) {
-      console.log(err);
-    } else {
-        // render the patientPage with the returned data
-        res.render('growthCharts.ejs', {data: data[0]}); 
-      }
-    });
- };
-
-
-// renders the well child check page BUT WE NEED TO FIX THIS AT A LATER DATE TO MAKE IT UNIQUE DEPENEDING ON PATIENT
-var getWellChildCheckPage = function(req, res) {
-    var id = decodeURI(req.params.id); // gets id from url
-    patientsDB.getPatientById(id, function(data, err) {
-      if(err) {
-        console.log(err);
-      } else {
-        // render the patientPage with the returned data
-        res.render('wellChildCheckPage.ejs', {data: data[0]}); 
-      }
-    });
-  };
-
-  // renders the well child check form BUT WE NEED TO FIX THIS AT A LATER DATE TO MAKE IT UNIQUE DEPENEDING ON PATIENT
-  var getWellChildCheckForm = function(req, res) {
-    var id = decodeURI(req.params.id); // gets id from url
-    patientsDB.getPatientById(id, function(data, err) {
-      if(err) {
-        console.log(err);
-      } else {
-        // render the patientPage with the returned data
-        res.render('wellChildCheckForm.ejs', {data: data[0]}); 
-      }
-    });
-  };
-
-    // renders the well child check  BUT WE NEED TO FIX THIS AT A LATER DATE TO MAKE IT UNIQUE DEPENEDING ON PATIENT
-  var getWellChildCheck = function(req, res) {
-    var id = decodeURI(req.params.id); // gets id from url
-    patientsDB.getPatientById(id, function(data, err) {
-      if(err) {
-        console.log(err);
-      } else {
-        // render the patientPage with the returned data
-        res.render('wellChildCheck.ejs', {data: data[0]}); 
-      }
-    });
-  };
 
 // saves a new patient to the database, and returns patient data 
 // params: a JSON of data from form
@@ -180,7 +61,7 @@ var getPatient = function(req, res) {
         console.log(err);
       } else {
         // render the patientPage with the returned data
-        res.render('patientPage.ejs', {data: data[0]}); 
+        res.render('template.ejs', {data: data[0], url: 'patientPage'}); 
       }
     });
   };
@@ -297,12 +178,12 @@ var submitNewWeight = function(req, res) {
                   problemListDB.putNewChronic(req.body.id, req.body.chronicDiagnosis, 
                     req.body.chronicDetails, req.body.chronicTreatment, req.body.chronicDateOnset,
                     req.body.chronicEndDate, function(data, err) {
-                    if(err) {
-                      console.log(err);
-                    } else {
-                      res.send({data: data});
-                    }
-                  });
+                      if(err) {
+                        console.log(err);
+                      } else {
+                        res.send({data: data});
+                      }
+                    });
                 }
               // if there is already data in the table so we need to update it
               else {
@@ -310,15 +191,15 @@ var submitNewWeight = function(req, res) {
                   problemListDB.putChronicEntry(req.body.id, req.body.chronicDiagnosis, 
                     req.body.chronicDetails, req.body.chronicTreatment, req.body.chronicDateOnset,
                     req.body.chronicEndDate, function(data, err) {
-                    if(err){
-                      console.log("error")
-                    }
-                    else if(data){
-                      res.send({
-                        data: data
-                      });
-                    }
-                  });
+                      if(err){
+                        console.log("error")
+                      }
+                      else if(data){
+                        res.send({
+                          data: data
+                        });
+                      }
+                    });
                 }
               }
             });
@@ -350,12 +231,12 @@ var submitNewAcute = function(req, res) {
                 problemListDB.putNewAcute(req.body.id, req.body.acuteDiagnosis, 
                   req.body.acuteDetails, req.body.acuteTreatment, req.body.acuteDateOnset,
                   req.body.acuteEndDate, function(data, err) {
-                  if(err) {
-                    console.log(err);
-                  } else {
-                    res.send({data: data});
-                  }
-                });
+                    if(err) {
+                      console.log(err);
+                    } else {
+                      res.send({data: data});
+                    }
+                  });
               }
             // if there is already data in the table so we need to update it
             else {
@@ -363,15 +244,15 @@ var submitNewAcute = function(req, res) {
                 problemListDB.putAcuteEntry(req.body.id, req.body.acuteDiagnosis, 
                   req.body.acuteDetails, req.body.acuteTreatment, req.body.acuteDateOnset,
                   req.body.acuteEndDate, function(data, err) {
-                  if(err){
-                    console.log("error")
-                  }
-                  else if(data){
-                    res.send({
-                      data: data
-                    });
-                  }
-                });
+                    if(err){
+                      console.log("error")
+                    }
+                    else if(data){
+                      res.send({
+                        data: data
+                      });
+                    }
+                  });
               }
             }
           });
@@ -379,20 +260,12 @@ var submitNewAcute = function(req, res) {
 
 // this method handles the get_main request from app.js and reroutes it to the getMain function above
 var routes = { 
+  get_any_patient_page: getAnyPatientPage,
+ 
   get_main: getMain,
   get_form:getForm,
   get_weight_page: getWeightPage,
   get_patient_page: getPatient,
-  get_history_page: getHistoryPage,
-  get_problem_list: getProblemList,
-  get_medications_page: getMedicationsPage,
-  get_allergies: getAllergiesPage,
-  get_immunization_page: getImmunizationPage,
-  get_testing_page: getTestingPage,
-  get_growth_charts_page: getGrowthChartsPage,
-  get_well_child_check_page: getWellChildCheckPage,
-  get_well_child_check_form: getWellChildCheckForm,
-    get_well_child_check: getWellChildCheck,
   submit_patient: submitPatient,
   get_patient_keys: getPatientKeys,
   get_patient_search: getSearchPatients,
