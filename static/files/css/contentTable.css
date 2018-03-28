@@ -1,12 +1,10 @@
 
 
-
-
 .w3-table-all tr:nth-child(even) {
   background-color: #f1f1f161 !important;
 }
 .w3-table-all {
-  padding-right: 10px !important;
+  border: none !important;
 }
 th {
   font-style: italic;
@@ -21,24 +19,7 @@ th {
   background-color: #f1f1f1!important;
 }
 
-.row {
-  margin-right: 0px;
-}
-.wccDateDue {
-  float: right;
-  display: inline;
-}
 
-.labels {
-  border-bottom: 1px solid black;
-}
-.labels .col {
-  font-style: italic;
-}
-.pageTitle {
-  align-self: center;
-  font-weight: bold;
-}
 .add {
   float: right;
   -webkit-appearance: listitem;
@@ -50,30 +31,79 @@ th {
   color: #FF6363;
 
 }
-
-
-
-.addForm {
+.formSubmit {
+  float: right;
+  margin-top: 10px;
 }
-.addForm .col {
+
+DIV.table {
+  display:table;
+}
+FORM.tr, DIV.tr {
+  display:table-row;
+}
+SPAN.td {
+  display:table-cell;
+}
+
+
+
+.table { display: table; } 
+.thGrp {display: table-header-group;}
+.trGrp { display: table-row-group; }
+.td {display: table-cell; }
+.tr {display: table-row; }
+
+
+
+.more {
+  display:none;
+}
+.showMore {
+  float: right;
+}
+
+
+.addForm .td {
   padding-left: 5px !important;
 }
 form > span > input {
   border-width: 2px !important;
   padding-left: 5px;
-    border-color: #aaa;
+  border-color: #aaa;
 }
 form > span > select {
   border-width: 2px;
   padding-left: 5px;
   padding-right: 5px;
-    border-color: #aaa;
+  border-color: #aaa;
 }
 
 input[type="text"] {
   border-style: solid;
   border-color: #ccc;
 }
+
+
+.edit, .editBtn{
+  float: right;
+}
+.edit {
+  margin-right: 15px;
+}
+.editBtn {
+  font-size: 14px;
+}
+
+
+.form-control{
+  width: 500px !important;
+}
+
+
+
+
+
 
 
 
