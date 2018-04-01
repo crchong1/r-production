@@ -1,0 +1,46 @@
+
+
+<div class = "">
+	<div class = "card box summary">
+		<h3 class="pageTitle"> Nurse Notes </h3>
+	</div>
+</div>
+
+
+<div class = "card box content-container">
+	<div class = "heading">
+		<div> Miscellaneous </div>
+	</div>
+
+
+	<div id="addNote">
+		<form id="miscellaneousForm">
+			<div>
+				<div class='box2'>
+					<textarea class="note" name='miscellaneous'></textarea>
+				</div>
+			</div>
+		
+		</form>
+	</div>
+</div>
+
+<div id="submitNote" class="content-container card box" style="margin-bottom: 20px;">
+	<div class="titleFont"> Exam Date: <span style="display: inline-block;"><input type="text" name="examDate" class="datepicker form-control" ></span>
+	</div>
+	<div class="titleFont"> Provider Signature:  <span style="display: inline-block;"><input type="text" name="signature" class="underlineInput"></span>
+	</div>
+	<div class="box2">
+		<div>
+			<input type="radio" class="notesRadio" name="problem" id="newProblem" value="newProblem"/><label class="radioLabel" for="newProblem"> New Problem</label></div>
+			<div><input type="radio" class="notesRadio" name="problem" id="correspondingProblem" value="correspondingProblem"><label class="radioLabel" for="correspondingProblem"> Corresponding Problem </label></div>
+			<input class="notesSubmit" type="submit" form="symptomAnalysisForm" value="submit"  />
+		</div>
+
+	</div>
+
+</div>
+
+
+
+

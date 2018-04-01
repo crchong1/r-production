@@ -1,0 +1,232 @@
+
+<div class = "content-container">
+    <div class = "card summary">
+      <h3 class="pageTitle"> Problem List </h3>
+    </div>
+  </div>
+
+  <div id="chronicProb" class="box card section">
+    <table class="w3-table-all">
+      <div class="subTitle">
+       Chronic Problems 
+     </div>
+     <thead>
+      <tr class="w3-light-grey">
+        <th>Diagnosis</th>
+        <th>Details</th>
+        <th>Treatment</th>
+        <th>Date of Onset</th>
+        <th>Date of Resolution</th>
+        <th class="edit">Edit</th>
+      </tr>
+    </thead>
+    <tbody id="chronicTableBody" >
+    </tbody>
+  </table>
+  <form id="chronicForm" class="tr addForm collapse">
+    <span class="td"><input type="text" name="chronicDiagnosis" placeholder="Diagnosis"></span>
+    <span class="td"><input type="text" name="chronicDetails" placeholder="Details"></span>
+    <span class="td"><input type="text" name="chronicTreatment" placeholder="Treatment"></span>
+    <span class="td"><input type="text" name="chronicOnset" class="datepicker form-control" ></span>
+    <span class="td"><input type="text" name="chronicResolution" placeholder="Resolution"></span>
+    <input type="submit" value="Submit" id="chronicSubmit" name="chronicSubmit" class="btn btn-primary formSubmit">
+    <input type="button" value="Cancel" name="cancel" class="btn btn-danger formSubmit cancel" data-toggle="collapse" data-target="#chronicForm">
+  </form>
+  <div>                               
+    <button id="addChronicProb" class="add" data-toggle="collapse" data-target="#chronicForm" aria-expanded="false" aria-controls="collapseExample"> + </button>
+  </div>
+</div>
+
+<div id="acuteProb" class="box card section">
+  <table class="w3-table-all">
+    <div class="subTitle">
+     Acute Problems 
+   </div>
+   <thead>
+    <tr class="w3-light-grey">
+      <th>Diagnosis</th>
+      <th>Details</th>
+      <th>Treatment</th>
+      <th>Date of Onset</th>
+      <th>Date of Resolution</th>
+      <th class="edit">Edit</th>
+    </tr>
+  </thead>
+  <tbody id="acuteTableBody" >
+  </tbody>
+</table>
+<form id="acuteForm" class="tr addForm collapse">
+  <span class="td"><input type="text" name="acuteDiagnosis" placeholder="Diagnosis"></span>
+  <span class="td"><input type="text" name="acuteDetails" placeholder="Details"></span>
+  <span class="td"><input type="text" name="acuteTreatment" placeholder="Treatment"></span>
+  <span class="td"><input type="text" name="acuteOnset" class="datepicker form-control" ></span>
+  <span class="td"><input type="text" name="acuteResolution" placeholder="Resolution"></span>
+  <input type="submit" value="Submit" id="acuteSubmit" name="acuteSubmit" class="btn btn-primary formSubmit">
+  <input type="button" value="Cancel" name="cancel" class="btn btn-danger formSubmit cancel">
+</form>
+<div>                               
+  <button id="addAcuteProb" class="add" data-toggle="collapse" data-target="#acuteForm" aria-expanded="false" aria-controls="collapseExample"> + </button>
+</div>
+</div>
+
+<script type="text/javascript">
+  $('document').ready(function() {
+    console.log("document.ready ajax call: ");
+      // // ajax call to render the original table, where we post to getAllWeights
+      // // we return a JSON in which we call updateTable with 
+      $.ajax({
+       type: "POST",
+       url: "/getAllChronic",
+       data : {
+         id: patientId
+       },
+       success: function(data) {
+         console.log(data);
+         console.log(this)
+         if(data.data.length != 0){
+          updateTableGeneric(data.data[0].chronicEntries, 'chronicTableBody');
+        }
+      }
+    });
+      $.ajax({
+       type: "POST",
+       url: "/getAllAcute",
+       data : {
+         id: patientId
+       },
+       success: function(data) {
+         console.log(data);
+         if(data.data.length != 0){
+          updateTableGeneric(data.data[0].acuteEntries, 'acuteTableBody');
+        }
+      }
+    });
+      // ajax call that on submit will send the new chronic problem values to the database
+      $('#chronicSubmit').click(function(e) {
+        e.preventDefault();
+        var input = $("#chronicForm").serializeArray();
+
+        console.log("got here: ");
+        console.log(input);
+        $.ajax({
+          type: "POST",
+          url: "/chronicProblem",
+          data : {
+            id: patientId, 
+            chronicDiagnosis: input[0].value,
+            chronicDetails: input[1].value, 
+            chronicTreatment: input[2].value,
+            chronicDateOnset: input[3].value,  
+            chronicEndDate: input[4].value,  
+          },
+          success: function(data) {
+            console.log("New chronic data: ");
+            console.log(data);
+            updateTableGeneric(data.data[0].chronicEntries, 'chronicTableBody');
+            $('#chronicForm')[0].reset();
+            $('#chronicForm').hide();
+            $('#chronicForm').parent().find('button').show();
+          }
+        });
+      });
+      $('#acuteSubmit').click(function(e) {
+        e.preventDefault();
+        var input = $("#acuteForm").serializeArray();
+        console.log("got here: ");
+        console.log(input);
+        $.ajax({
+          type: "POST",
+          url: "/acuteProblem",
+          data : {
+            id: patientId, 
+            acuteDiagnosis: input[0].value,
+            acuteDetails: input[1].value, 
+            acuteTreatment: input[2].value,
+            acuteDateOnset: input[3].value,  
+            acuteEndDate: input[4].value,  
+          },
+          success: function(data) {
+            console.log("New chronic data: ");
+            console.log(data);
+            updateTableGeneric(data.data[0].acuteEntries, 'acuteTableBody');
+            $('#acuteForm')[0].reset();
+            $('#acuteForm').hide();
+            $('#acuteForm').parent().find('button').show();
+          }
+        });
+      });
+    });
+
+ var updateTableGeneric = function(data, target) {
+    var identifiers = Object.keys(data[0]);
+    var table1 = '';
+    for(var i = 0; i < data.length; i++) {
+      var line = '<tr>'
+      for(var j = 1; j < identifiers.length; j++) {
+        line += '<td>' +  data[i][identifiers[j].toString()] + '</td>';
+      }
+      line += '<td><button class="editBtn btn">Edit</button></td></tr>';
+      table1 += line;
+    }
+    document.getElementById(target).innerHTML = table1;
+}
+
+  // function that takes in JSON with two fields: height and date and renders the table as such
+  var updateTableChronic = function(data) {
+    var identifiers = Object.keys(data[0]);
+    var table1 = '';
+    for(var i = 0; i < data.length; i++) {
+      var line = '<tr>'
+      for(var j = 1; j < identifiers.length; j++) {
+        line += '<td>' +  data[i][identifiers[j].toString()] + '</td>';
+      }
+      line += '<td><button class="editBtn btn">Edit</button></td></tr>';
+      table1 += line;
+    }
+    document.getElementById('chronicTableBody').innerHTML = table1;
+
+        /*
+   var table1 = '';
+    for(var i = 0; i < data.length; i++) {
+      var line = '<tr>'
+      for(var j = 1; j < identifiers.length; j++) {
+      line += '<td>' +  data[i][identifiers[j].toString()] + '</td>';
+  }
+
+     line += '<td>' + data[i].chronicDetails + '</td>';
+     line += '<td>' + data[i].chronicTreatment + '</td>';
+     line += '<td>' + data[i].chronicDateOnset + '</td>';
+     line += '<td>' + data[i].chronicEndDate + '</td>';
+     line += '<td><button class="editBtn btn">Edit</button></td></tr>';
+     
+          line += '<td><button class="editBtn btn">Edit</button></td></tr>';
+     table1 += line;
+   }
+   
+   for(var i = 0; i < data.length; i++) {
+     var line = '<tr><td>' +  data[i].chronicDiagnosis + '</td>';
+     line += '<td>' + data[i].chronicDetails + '</td>';
+     line += '<td>' + data[i].chronicTreatment + '</td>';
+     line += '<td>' + data[i].chronicDateOnset + '</td>';
+     line += '<td>' + data[i].chronicEndDate + '</td>';
+     line += '<td><button class="editBtn btn">Edit</button></td></tr>';
+     table1 += line;
+   } 
+      document.getElementById('chronicTableBody').innerHTML = table1;
+      */
+    };
+    var updateTableAcute = function(data) {
+     console.log(data);
+     var table1 = '';
+     for(var i = 0; i < data.length; i++) {
+       var line = '<tr><td>' +  data[i].acuteDiagnosis + '</td>';
+       line += '<td>' + data[i].acuteDetails + '</td>';
+       line += '<td>' + data[i].acuteTreatment + '</td>';
+       line += '<td>' + data[i].acuteDateOnset + '</td>';
+       line += '<td>' + data[i].acuteEndDate + '</td>';
+       line += '<td><button class="editBtn btn">Edit</button></td></tr>';
+       table1 += line;
+     }
+     document.getElementById('acuteTableBody').innerHTML = table1;
+   };
+ </script>

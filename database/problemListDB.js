@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-var problemList = mongoose.createConnection('mongodb://127.0.0.1/problemList');
+var problemList = mongoose.createConnection('mongodb://localhost/problemList');
 
 problemList.on('error', console.error.bind(console, 'connection error:'));
 problemList.once('open', function() {

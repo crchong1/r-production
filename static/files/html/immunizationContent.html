@@ -1,0 +1,55 @@
+  <script type="text/javascript" src="/files/js/pageScript.js"></script>
+
+<div class = "content-container">
+    <div class = "card summary">
+      <h3 class="pageTitle"> Immunization Record </h3>
+    </div>
+  </div>
+
+
+  	<div id="immunizations" class="box card section">
+  		<table class="w3-table-all">
+  			<div class="subTitle">
+  				Immunizations 
+  			</div>
+  			<thead>
+  				<tr class="w3-light-grey">
+  					<th>Age</th>
+  					<th>Immunization</th>
+  					<th>Lot #</th>
+  					<th>Due Date</th>
+  					<th>Date Completed</th>
+  					<th class="edit">Edit</th>
+  				</tr>
+  			</thead>
+  			<tbody id="immunizationTableBody" >
+  				<tr>
+  					<td> 6 weeks</td>
+  					<td>TB Vaccine</td>
+  					<td>7JEH4</td>
+  					<td>10/6/2013</td>
+  					<td>1/4/2015</td>
+  					<td><button class="editBtn btn">Edit</button></td>
+  				</tr>
+  			</tbody>
+
+  		</table>
+
+  		<form id="immunizationForm" class="tr addForm" method="post" >
+  			<span class="td"><input type="text" name="immunizationAge" placeholder="Age"></span>
+  			<span class="td"><input type="text" name="immunization" placeholder="Immunization"></span>
+  			<span class="td"><input type="text" name="immunizationLotNum" placeholder="Lot #"></span>
+  			<span class="td"><input type="text" name="immunizationDueDate" class="datepicker form-control" ></span>
+  			<span class="td"><input type="text" name="immunizationCompleted" class="datepicker form-control" ></span>
+  			<input type="submit" value="Submit" name="immunizationSubmit" class="formSubmit">
+  			<input type="button" value="Cancel" name="cancel" class="formSubmit cancel">
+  		</form>
+  		<div>                               
+  			<button id="addImmunization" class="add"> + </button>
+  		</div>
+  	</div>
+
+
+
+  </div>
+</div>
