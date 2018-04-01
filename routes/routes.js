@@ -18,17 +18,20 @@ var getSearchPatients = function(req, res) {
 
 var getAnyPatientPage = function(req, res) {
   var id = decodeURI(req.params.id); // gets id from url
-          var age = 'undefined';
+  var age = 'undefined';
 
   patientsDB.getPatientById(id, function(data, err) {
+
     if(err) {
       console.log(err);
     } else {
         // render the patientPage with the returned data
+
         res.render('template.ejs', {data: data[0], age}); 
       }
     });
 }
+
 
 var getWccForm = function(req, res) {
   console.log('here')
@@ -46,6 +49,7 @@ var getWccForm = function(req, res) {
       }
     });
 }
+
 
 
 // saves a new patient to the database, and returns patient data 

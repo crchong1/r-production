@@ -38,7 +38,6 @@ body {
   position: sticky;
   top: 0;
   height: 100vh;
-}
 
 .sticky:before,
 .sticky:after {
@@ -52,6 +51,7 @@ body {
   background: #24345E;
   color: white;
   padding-right: 0px !important;
+
 
 }
 .basicInfo {

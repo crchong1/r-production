@@ -46,6 +46,7 @@ margin: 15px 0px 10px 20px;
   margin: 15px 10px 10px 20px;
   font-weight: bolder;
   font-size: 20px;
+
   color: #24345E;
 }
 .titleFont {
@@ -185,6 +186,7 @@ padding: .3rem 1.25rem;
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
 }
+
 
 
 .labels {
