@@ -20,18 +20,23 @@ app.use(express.static('static'));
 
 app.get('/', routes.get_main);
 app.get('/patientSearch', routes.get_patient_search);
-app.get('/patientPage/:id', routes.get_patient_page);
-app.get('/patientPage/:id/history', routes.get_history_page);
-app.get('/patientPage/:id/problemList', routes.get_problem_list);
-app.get('/patientPage/:id/medications', routes.get_medications_page);
-app.get('/patientPage/:id/allergies', routes.get_allergies);
-app.get('/patientPage/:id/immunization', routes.get_immunization_page);
-app.get('/patientPage/:id/testing', routes.get_testing_page);
-app.get('/patientPage/:id/growthCharts', routes.get_growth_charts_page);
-app.get('/patientPage/:id/wellChildCheckPage', routes.get_well_child_check_page);
-app.get('/patientPage/:id/wellChildCheck', routes.get_well_child_check);
-
-app.get('/patientPage/:id/wellChildCheckForm', routes.get_well_child_check_form);
+app.get('/patientPage/:id', routes.get_any_patient_page);
+app.get('/patientPage/:id/history', routes.get_any_patient_page);
+app.get('/patientPage/:id/problemList', routes.get_any_patient_page);
+app.get('/patientPage/:id/medications', routes.get_any_patient_page);
+app.get('/patientPage/:id/allergies', routes.get_any_patient_page);
+app.get('/patientPage/:id/immunization', routes.get_any_patient_page);
+app.get('/patientPage/:id/testing', routes.get_any_patient_page);
+app.get('/patientPage/:id/growthCharts', routes.get_any_patient_page);
+app.get('/patientPage/:id/wellChildCheck', routes.get_any_patient_page);
+app.get('/patientPage/:id/wellChildCheck/form', routes.get_any_patient_page);
+app.get('/patientPage/:id/wellChildCheck/page', routes.get_any_patient_page);
+app.get('/patientPage/:id/nurseNotes', routes.get_any_patient_page);
+app.get('/patientPage/:id/nurseNotes/vitalSigns', routes.get_any_patient_page);
+app.get('/patientPage/:id/nurseNotes/symptomAnalysis', routes.get_any_patient_page);
+app.get('/patientPage/:id/nurseNotes/systemAssessments', routes.get_any_patient_page);
+app.get('/patientPage/:id/nurseNotes/miscellaneous', routes.get_any_patient_page);
+app.get('/patientPage/:id/scans', routes.get_any_patient_page);
 
 app.get('/weight', routes.get_weight_page);
 app.get('/form', routes.get_form);
