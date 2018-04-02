@@ -29,7 +29,10 @@ app.get('/patientPage/:id/immunization', routes.get_any_patient_page);
 app.get('/patientPage/:id/testing', routes.get_any_patient_page);
 app.get('/patientPage/:id/growthCharts', routes.get_any_patient_page);
 app.get('/patientPage/:id/wellChildCheck', routes.get_any_patient_page);
-app.get('/patientPage/:id/wellChildCheck/form', routes.get_any_patient_page);
+app.get('/patientPage/:id/wellChildCheck/form', routes.get_wcc_form);
+app.post('/patientPage/:id/wellChildCheck/form', routes.get_wcc_form);
+app.get('/patientPage/:id/wellChildCheck/formBaby', routes.get_any_patient_page);
+
 app.get('/patientPage/:id/wellChildCheck/page', routes.get_any_patient_page);
 app.get('/patientPage/:id/nurseNotes', routes.get_any_patient_page);
 app.get('/patientPage/:id/nurseNotes/vitalSigns', routes.get_any_patient_page);
@@ -47,21 +50,10 @@ app.post('/addTest', routes.submit_test);
 app.post('/form', routes.submit_patient);
 app.post('/getPatientKeys', routes.get_patient_keys);
 
-//problem list page
 app.post('/getAllChronic', routes.get_all_chronic);
 app.post('/chronicProblem', routes.submit_chronic);
 app.post('/getAllAcute', routes.get_all_acute);
 app.post('/acuteProblem', routes.submit_acute);
-
-//allergy page
-app.post('/getAllAllergy', routes.get_all_allergy);
-app.post('/allergy', routes.submit_allergy);
-
-//medication page
-app.post('/getAllChronicMed', routes.get_all_chronic_med);
-app.post('/chronicMed', routes.submit_chronic_med);
-app.post('/getAllAcuteMed', routes.get_all_acute_med);
-app.post('/acuteMed', routes.submit_acute_med);
 
 /* Run the server */
 console.log('Author: Connor Chong (conchong)');

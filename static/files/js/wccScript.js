@@ -3,6 +3,7 @@
 $(document).ready(function() {
 
 
+
 	console.log('wccscript')
 	$('#showMoreUpcoming').on('click', function() {
 		var val = $(this).attr('value')
