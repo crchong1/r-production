@@ -38,7 +38,8 @@ body {
   position: sticky;
   top: 0;
   height: 100vh;
-  
+}
+
 .sticky:before,
 .sticky:after {
   content: '';
@@ -51,6 +52,7 @@ body {
   background: #24345E;
   color: white;
   padding-right: 0px !important;
+
 }
 .basicInfo {
   margin: 60px 20px 40px 20px;
