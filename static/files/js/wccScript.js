@@ -2,8 +2,7 @@
 
 $(document).ready(function() {
 
-	var replaced = $("#all").html().replace(/patientId/g, patientId);
-	$("#all").html(replaced);
+
 
 	console.log('wccscript')
 	$('#showMoreUpcoming').on('click', function() {
