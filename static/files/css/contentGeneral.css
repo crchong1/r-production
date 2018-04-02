@@ -44,8 +44,8 @@ margin: 15px 0px 10px 20px;
 
 .title {
   margin: 15px 10px 10px 20px;
-  font-weight: bold;
-  font-size: 18px;
+  font-weight: bolder;
+  font-size: 20px;
   color: #24345E;
 }
 .titleFont {
@@ -186,4 +186,30 @@ padding: .3rem 1.25rem;
     transform: rotate(45deg);
 }
 
+
+.labels {
+  border-bottom: 1px solid black;
+  margin: 0px 1px;
+}
+.labels .col {
+  font-style: italic;
+}
+ .col.edit {
+  text-align: right;
+}
+
+
+.linkBtn {
+ background:none!important;
+ border:none; 
+ padding:0!important;
+ font-size: 0.95em;
+ cursor: pointer;
+}
+.linkBtn:hover {
+    text-decoration:underline;
+}
+.linkBtn:focus {
+  outline: none;
+}
 

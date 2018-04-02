@@ -2,78 +2,13 @@
 
 
 
-.w3-table-all tr:nth-child(even) {
-  background-color: #f1f1f161 !important;
-}
-.w3-table-all {
-  padding-right: 10px !important;
-}
-th {
-  font-style: italic;
-}
-
-.subTitle {
-  padding-top: 10px;
-  padding-left: 15px;
-  font-size: 20px;
-  font-weight: 500;
-
-  background-color: #f1f1f1!important;
-}
-
-.row {
-  margin-right: 0px;
-}
-.wccDateDue {
-  float: right;
-  display: inline;
-}
-
 .labels {
   border-bottom: 1px solid black;
+  margin: 0px 1px;
 }
 .labels .col {
   font-style: italic;
 }
-.pageTitle {
-  align-self: center;
-  font-weight: bold;
+ .col.edit {
+  text-align: right;
 }
-.add {
-  float: right;
-  -webkit-appearance: listitem;
-  padding-right: 10px;
-  margin: 0px;
-  font-size: 30px;
-  font-weight: bolder;
-  line-height: 80%;
-  color: #FF6363;
-
-}
-
-
-
-.addForm {
-}
-.addForm .col {
-  padding-left: 5px !important;
-}
-form > span > input {
-  border-width: 2px !important;
-  padding-left: 5px;
-    border-color: #aaa;
-}
-form > span > select {
-  border-width: 2px;
-  padding-left: 5px;
-  padding-right: 5px;
-    border-color: #aaa;
-}
-
-input[type="text"] {
-  border-style: solid;
-  border-color: #ccc;
-}
-
-
-
