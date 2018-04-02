@@ -1,14 +1,14 @@
 
 $(document).ready(function(){
-	      $('#header').load('/files/html/header.html');
+	$('#header').load('/files/html/header.html');
 
 
-		$(function () {
-			$('.datepicker').datepicker({ 
-				autoclose: true, 
-				todayHighlight: true
-			}).datepicker('update', new Date());
-		});
+	$(function () {
+		$('.datepicker').datepicker({ 
+			autoclose: true, 
+			todayHighlight: true
+		}).datepicker('update', new Date());
+	});
 
 	// Make sidebar sticky
 	var elements = document.querySelectorAll('.sticky');
@@ -16,44 +16,50 @@ $(document).ready(function(){
 
 
      // Show and hide buttons and forms on click
-	      $('form').hide();
-	      $('.add').on('click', function() {
-	      	$(this).hide();
-	      	$(this).closest('.section').find('.addForm').show();
-    setCss(this);
+     $('.addForm').hide();
+          $('.editForm').hide();
+     $('.add').on('click', function() {
+     	$(this).closest('.section').find('.addForm').show();
+
+     	$(this).hide();
+     	setCss(this);
 
 
-	      });
+     });
 
-	$('.section').on('click', '.editBtn', function() {
-		$('.editBtn').hide()
-		var row = $(this).parent().parent();
-		$(this).parent().parent().attr('id', 'editingRow');
-		setCss(this);
-		console.log(row)
-		row.hide();
+     var index;
+     $('.section').on('click', '.editBtn', function() {
+     	var edits = $(this).closest('.section').find('.editBtn');
+     	index = ($(edits).index(this));
+
+     	$('.editBtn').hide()
+     	var row = $(this).parent().parent();
+     	$(this).parent().parent().attr('id', 'editingRow');
+     	setCss(this);
+     	console.log(row)
+     	row.hide();
 	//	editEntry(row);
 	editEntryGeneric(row);
 		// row.remove();
-
+		console.log(index)
 	});
 
-	
-	 
+     
+     
 
 	      // Cancel edit and re-display entry
 	      $('.section').on('click', '.cancelEdit',function(event) {
 	      	console.log('cancel edit')
-	      var form = '#' + $(this).closest('.section').find('form').attr('id');
-	      $(form).remove();
-	      $('#editingRow').show();
-	      $('.editBtn').show();
-	      $('#editingRow').removeAttr('id');
-	  });
+	      	var form = '#' + $(this).closest('.section').find('form').attr('id');
+	      	$(form).remove();
+	      	$('#editingRow').show();
+	      	$('.editBtn').show();
+	      	$('#editingRow').removeAttr('id');
+	      });
 
 	      // Cancel new entry
 	      $('.section').on('click', '.cancel',function(event) {
-	      var form = '#' + $(this).closest('.section').find('form').attr('id');
+	      	var form = '#' + $(this).closest('.section').find('form').attr('id');
 	      	console.log('cancel')
 	      	$(form)[0].reset();
 	      	$(form).hide();
@@ -63,12 +69,12 @@ $(document).ready(function(){
 	      // Handles deletion of entry
 	      $('.section').on('click', '.delete',function(event) {
 	      	console.log('delete entry')
-	      var form = '#' + $(this).closest('.section').find('form').attr('id');
+	      	var form = '#' + $(this).closest('.section').find('form').attr('id');
 	      	$(form).remove();
 	      	alert('Are you sure you want to delete this entry?')
 	      	$('#editingRow').remove();
 	      	$('.editBtn').show();
-	  });
+	      });
 
 	      /* Handles for submission for adding new entry
 	      $('.section').on('submit', '.addForm', function(event) {
@@ -101,13 +107,17 @@ $(document).ready(function(){
 	      	});
 
 	      });
+	      */
 	       // Handles for submission for editing existing entry
 	       $('.section').on('submit', '.editForm', function(event) {
 	       	event.preventDefault();
-	       	console.log("on submit");
 	       	var formData = $(this).serializeArray();
 	       	var form = this.id;
 	       	var type = form.substring(0, ((form.length)-4));
+	       	var edits = $(this).closest('.section').find('.editBtn');
+	       	var editBtn = $('#editingRow').find('.editBtn');
+	       	index = ($(edits).index(editBtn));
+	       	console.log('index: ' + index);
 
 	       	$.ajax({
 	       		type: 'POST',
@@ -136,7 +146,7 @@ $(document).ready(function(){
 	       		}
 	       	});
 
-	       });*/
+	       });
 
 	   });
 
@@ -153,17 +163,17 @@ $(document).ready(function(){
 	}
 
 	
- var setCss = function(thiss) {
-    var form = $(thiss).closest('.section').find('form');
-    var formElms = $(form).children('span')
-    var items = $(thiss).closest('.section').find('tr').children('th'); 
-    for (var i = 0; i < items.length - 1; i++) {
-      var width = items[i].offsetWidth.toString() + 'px';
-      var elm = formElms[i];
-      $(elm).css({'width': width, 'padding': '4px'})
-       $(elm).children().css({'background':'#f6f6f7', 'max-width':width,'border-width':'2px', 'border-radius': '3px'});
-    }
-  }
+	var setCss = function(thiss) {
+		var form = $(thiss).closest('.section').find('form');
+		var formElms = $(form).children('span')
+		var items = $(thiss).closest('.section').find('tr').children('th'); 
+		for (var i = 0; i < items.length - 1; i++) {
+			var width = items[i].offsetWidth.toString() + 'px';
+			var elm = formElms[i];
+			$(elm).css({'width': width, 'padding': '4px'})
+			$(elm).children().css({'background':'#f6f6f7', 'max-width':width,'border-width':'2px', 'border-radius': '3px'});
+		}
+	}
 
 	var editEntryGeneric = function(row) {
 		// getting values from row
@@ -177,7 +187,7 @@ $(document).ready(function(){
 		var form = $('#editingRow').closest('.section').find('form')[0].outerHTML;
 		$(row).after(form);
 		$(row).next().attr('id', 'editForm')
-
+		console.log($('#editForm'))
 		// getting form input name fields
 		var items = $("#editForm :input").map(function(index, elm) {
 			return {name: elm.name, type:elm.type, value: $(elm).val()};
@@ -238,7 +248,6 @@ $(document).ready(function(){
  	$('#dob').text(patient.birthdate);
  	$('#heightWeight').text(patient.height + " cm, " + patient.weight + " kgs");
  	$('#allergiesSide').text('Allergies: ' + allergies[0].allergen );
-
  }
 
  function getAge(fromdate, todate){
