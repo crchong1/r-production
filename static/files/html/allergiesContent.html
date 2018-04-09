@@ -1,67 +1,246 @@
-  <script type="text/javascript" src="/files/js/pageScript.js"></script>
+<script type="text/javascript" src="/files/js/pageScript.js"></script>
 
 
-<div class = "content-container">
- <div class = "card box summary">
-  <h3 class="title"> Allergies </h3>
-</div>
+<div class="content-container">
+  <div class="card box summary">
+    <h3 class="title"> Allergies </h3>
+  </div>
 
 
-<div id="allergies" class="box card section">
-  <table class="w3-table-all">
-    <div class="subTitle">
-      Allergies 
+  <div id="allergies" class="box card section">
+    <table class="w3-table-all">
+      <div class="subTitle">
+        Allergies
+      </div>
+      <thead>
+        <tr class="w3-light-grey">
+          <th>Allergen</th>
+          <th>Symptoms of Reaction</th>
+          <th>Severity</th>
+          <th>Date of Onset</th>
+          <th>Notes</th>
+          <td class="edit">Edit</td>
+        </tr>
+      </thead>
+      <tbody id="allergyTableBody">
+      </tbody>
+    </table>
+    <form id="allergyForm" class="tr addForm">
+      <span class="td">
+        <input type="text" name="allergyType" placeholder="Allergen">
+      </span>
+      <span class="td">
+        <input type="text" name="allergySymptoms" placeholder="Symptoms">
+      </span>
+      <span class="td">
+        <input type="text" name="allergySeverity" placeholder="Severity">
+      </span>
+      <span class="td">
+        <input type="text" readonly name="allergyOnset" class="datepicker form-control">
+      </span>
+      <span class="td">
+        <input type="text" name="allergyNotes" placeholder="Notes">
+      </span>
+
+      <input type="submit" value="Submit" id="allergySubmit" name="allergySubmit" class="btn btn-primary formSubmit">
+      <input type="button" value="Cancel" name="cancel" class="btn btn-danger formSubmit cancel" data-toggle="collapse" data-target="#allergyForm">
+
+    </form>
+    <div>
+      <button id="addAllergy" class="add" data-toggle="collapse" data-target="#allergyForm" aria-expanded="false" aria-controls="collapseExample">
+        + </button>
     </div>
-    <thead>
-      <tr class="w3-light-grey">
-        <th>Allergen</th>
-        <th>Symptoms of Reaction</th>
-        <th>Severity</th>
-        <th>Date of Onset</th>
-        <th>Notes</th>
-        <td class="edit">Edit</td>
-      </tr>
-    </thead>
-    <tbody id="allergyTableBody" >
-      <tr>
-        <td>Peanut</td>
-        <td>Throat closure</td>
-        <td>Mild</td>
-        <td>01-01-12</td>
-        <td>Avoid tree nuts</td>
-        <td><button class="editBtn btn">Edit</button></td>
-      </tr>
-    </tbody>
-  </table>
-  <form id="allergyForm" class="tr addForm" method="post" >
-    <span class="td"><input type="text" name="allergyType" placeholder="Allergen"></span>
-    <span class="td"><input type="text" name="allergySymptoms" placeholder="Symptoms"></span>
-    <span class="td"><input type="text" name="allergySeverity" placeholder="Severity"></span>
-    <span class="td"><input type="text" readonly name="allergyOnset" class="datepicker form-control"></span>
-    <span class="td"><input type="text" name="allergyNotes" placeholder="Notes"></span>
-
-    <input type="submit" value="Submit" name="allergySubmit" class="formSubmit">
-    <input type="button" value="Cancel" name="cancel" class="formSubmit cancel">
-
-  </form>
-  <div>                               
-    <button id="addAllergy" class="add"> + </button>
   </div>
-</div>
 
-<div id = "chronicProb" class="card box">
-  <div class="card-header">
-   <h3> Other card? </h3>
-   <div class="row">
-    <div class="col-sm"> Diagnosis </div>
-    <div class="col-sm"> Treatment </div>
-    <div class="col-sm"> Dose </div>
-    <div class="col-sm"> Time </div>
-    <div class="col-sm"> Route </div>
-    <div class="col-sm"> Date of Onset </div>
-    <div class="col-sm"> Date of Resolution </div>
-    <div class="col-sm"> Duration </div>
+  <div id="chronicProb" class="card box">
+    <div class="card-header">
+      <h3> Other card? </h3>
+      <div class="row">
+        <div class="col-sm"> Diagnosis </div>
+        <div class="col-sm"> Treatment </div>
+        <div class="col-sm"> Dose </div>
+        <div class="col-sm"> Time </div>
+        <div class="col-sm"> Route </div>
+        <div class="col-sm"> Date of Onset </div>
+        <div class="col-sm"> Date of Resolution </div>
+        <div class="col-sm"> Duration </div>
+      </div>
+    </div>
+
   </div>
-</div>
+
+<script type="text/javascript">
+  // var patientId = <%=data.id%>;
+  $('document').ready(function () {
+    console.log("document.ready ajax call: ");
+    // // ajax call to render the original table, where we post to getAllAllergy
+    // // we return a JSON in which we call updateTable with 
+    $.ajax({
+      type: "POST",
+      url: "/getAllAllergy",
+      data: {
+        id: patientId
+      },
+      success: function (data) {
+        console.log(data);
+        if (data.data.length != 0) {
+          updateTableAllergy(data.data[0].entries);
+        }
+      }
+    });
+    // ajax call that on submit will send the new allergy values to the database
+    // use bootstrap- click button, open editForm within collapse 
+    // different button, same form allergyForm
 
 
+    //ignore top
+    // copy generic edit function for this page 
+
+    //adding new entry
+    $('#allergySubmit').click(function (e) {
+      e.preventDefault();
+      var input = $("#allergyForm").serializeArray();
+      $.ajax({
+        type: "POST",
+        url: "/allergy",
+        data: {
+          id: patientId,
+          allergen: input[0].value,
+          allergySymptoms: input[1].value,
+          allergySeverity: input[2].value,
+          allergyDateOnset: input[3].value,
+          allergyNotes: input[4].value,
+        },
+        success: function (data) {
+          console.log("New allergy data: ");
+          console.log(data);
+          updateTableAllergy(data.data[0].entries);
+          $('#allergyForm')[0].reset();
+          $('#allergyForm').hide();
+          $('#allergyForm').parent().find('button').show();
+        }
+      });
+    });
+
+    //This function saves preEditData when the edit button is clicked 
+    var preEditData;
+    $('.section').on('click', '.editBtn', function (event) {
+      event.preventDefault();
+      var edits = $(this).closest('.section').find('.editBtn');
+      index = ($(edits).index(this));
+
+      console.log("preEditData when editBtn is clicked: " + preEditData);
+      $('.editBtn').hide()
+      var row = $(this).parent().parent();
+      $(this).parent().parent().attr('id', 'editingRow');
+      setCss(this);
+      console.log(row)
+      row.hide();
+      //	editEntry(row);
+      editEntryGeneric(row);
+
+      var data = [];
+      var table = document.getElementById("editingRow");
+      var cells = table.getElementsByTagName("td");
+      for (var i = 0; i < cells.length; i++) {
+        data.push(cells[i].innerHTML);
+      }
+      preEditData = {
+        allergen: data[0],
+        allergySymptoms: data[1],
+        allergySeverity: data[2],
+        allergyDateOnset: data[3],
+        allergyNotes: data[4]
+      }
+      console.log("preEditData allergen after clicking editBtn: " + preEditData.allergen);
+      console.log("preEditData allergySymptoms after clicking editBtn: " + preEditData.allergySymptoms);
+      console.log("preEditData allergySeverity after clicking editBtn: " + preEditData.allergySeverity);
+      console.log("preEditData allergyDateOnset after clicking editBtn: " + preEditData.allergyDateOnset);
+      console.log("preEditData allergyNotes after clicking editBtn: " + preEditData.allergyNotes);
+    });
+
+    //Edit existing entry
+    $('.section').on('submit', '.editForm', function (event) {
+      event.preventDefault();
+      //'this' is editForm (targetted form)
+      var input = $(this).serializeArray();
+      $.ajax({
+        type: 'POST',
+        url: '/editAllergy',
+        data: {
+          id: patientId,
+          allergen: input[0].value,
+          allergySymptoms: input[1].value,
+          allergySeverity: input[2].value,
+          allergyDateOnset: input[3].value,
+          allergyNotes: input[4].value,
+          preEditData: preEditData,
+        },
+        success: function (result) {
+          console.log("preEditData allergen in submit in allergies.ejs: " + preEditData.allergen);
+          console.log(result);
+          var form = '#' + result.data.form;
+          var hiddenRow = $(form).prev();
+          hiddenRow.remove();
+
+          console.log(result.data.type)
+          // $(form).hide();
+          $('.editBtn').show();
+          $('#editForm').remove();
+
+          updateTableAllergy(result.data, result.data.type);
+
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+          console.error("error: " + errorThrown);
+        }
+      });
+
+    });
+
+    //Delete existing entry
+    $('.section').on('click', '.delete', function (event) {
+      console.log("delete clicked in allergies.ejs");
+      var form = '#' + $(this).closest('.section').find('form').attr('id');
+      $(form).remove();
+      alert('Are you sure you want to delete this entry?')
+      $('#editingRow').remove();
+      $('.editBtn').show();
+      //'this' is editForm (targetted form)
+      $.ajax({
+        type: 'POST',
+        url: '/deleteAllergy',
+        data: {
+          preEditData: preEditData,
+        },
+        success: function (result) {
+          console.log("preEditData allergen in delete in allergies.ejs: " + preEditData.allergen);
+          console.log(result);
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+          console.error("error: " + errorThrown);
+        }
+      });
+
+    });
+  });
+
+  // function that takes in JSON with two fields: height and date and renders the table as such
+  var updateTableAllergy = function (data) {
+    console.log(data);
+    var table1 = '';
+    for (var i = 0; i < data.length; i++) {
+      var line = '<tr><td>' + data[i].allergen + '</td>';
+      line += '<td>' + data[i].allergySymptoms + '</td>';
+      line += '<td>' + data[i].allergySeverity + '</td>';
+      line += '<td>' + data[i].allergyDateOnset + '</td>';
+      line += '<td>' + data[i].allergyNotes + '</td>';
+      line += '<td><button id = "editBtn" class="editBtn btn">Edit</button></td></tr>';
+      table1 += line;
+    }
+    document.getElementById('allergyTableBody').innerHTML = table1;
+  };
+
+
+
+</script>

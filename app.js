@@ -7,6 +7,8 @@
 var express = require('express');
 var routes = require('./routes/routes.js');
 var app = express();
+app.use(express.bodyParser());
+app.use(express.logger("default"));
 app.use(express.static('static'));
 
 
@@ -52,6 +54,12 @@ app.post('/getAllChronic', routes.get_all_chronic);
 app.post('/chronicProblem', routes.submit_chronic);
 app.post('/getAllAcute', routes.get_all_acute);
 app.post('/acuteProblem', routes.submit_acute);
+
+//allergy page
+app.post('/getAllAllergy', routes.get_all_allergy);
+app.post('/allergy', routes.submit_allergy);
+app.post('/editAllergy', routes.edit_allergy);
+app.post('/deleteAllergy', routes.delete_allergy);
 
 /* Run the server */
 console.log('Author: Connor Chong (conchong)');

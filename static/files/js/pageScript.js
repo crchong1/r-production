@@ -108,50 +108,52 @@ $(document).ready(function(){
 
 	      });
 	      */
-	       // Handles for submission for editing existing entry
-	       $('.section').on('submit', '.editForm', function(event) {
-	       	event.preventDefault();
-	       	var formData = $(this).serializeArray();
-	       	var form = this.id;
-	       	var type = form.substring(0, ((form.length)-4));
-	       	var edits = $(this).closest('.section').find('.editBtn');
-	       	var editBtn = $('#editingRow').find('.editBtn');
-	       	index = ($(edits).index(editBtn));
-	       	console.log('index: ' + index);
+	    //    // Handles for submission for editing existing entry
+	    //    $('.section').on('submit', '.editForm', function(event) {
+	    //    	event.preventDefault();
+	    //    	var formData = $(this).serializeArray();
+	    //    	var form = this.id;
+	    //    	var type = form.substring(0, ((form.length)-4));
+	    //    	var edits = $(this).closest('.section').find('.editBtn');
+	    //    	var editBtn = $('#editingRow').find('.editBtn');
+	    //    	index = ($(edits).index(editBtn));
+	    //    	console.log('index: ' + index);
 
-	       	$.ajax({
-	       		type: 'POST',
-	       		url: '/addTest',
-	       		data: { 
-	       			formData,
-	       			form: form,
-	       			type: type
-	       		},
-	       		success: function (result) {
-	       			console.log(result);
-	       			var form = '#' + result.data.form;
-	       			var hiddenRow = $(form).prev();
-	       			hiddenRow.remove();
+	    //    	$.ajax({
+	    //    		type: 'POST',
+	    //    		url: '/addTest',
+	    //    		data: { 
+	    //    			formData,
+	    //    			form: form,
+	    //    			type: type
+	    //    		},
+	    //    		success: function (result) {
+	    //    			console.log(result);
+	    //    			var form = '#' + result.data.form;
+	    //    			var hiddenRow = $(form).prev();
+	    //    			hiddenRow.remove();
 
-	       			console.log(result.data.type)
-	       			// $(form).hide();
-	       			$('.editBtn').show();
-	       			$('#editForm').remove();
+	    //    			console.log(result.data.type)
+	    //    			// $(form).hide();
+	    //    			$('.editBtn').show();
+	    //    			$('#editForm').remove();
 
-	       			updateTable(result.data, result.data.type);
+	    //    			updateTable(result.data, result.data.type);
 
-	       		},
-	       		error: function(XMLHttpRequest, textStatus, errorThrown) {
-	       			console.error("error: " + errorThrown);
-	       		}
-	       	});
+	    //    		},
+	    //    		error: function(XMLHttpRequest, textStatus, errorThrown) {
+	    //    			console.error("error: " + errorThrown);
+	    //    		}
+	    //    	});
 
-	       });
+	    //    });
 
 	   });
 
 	// Not right, need to update based on all data in the patient, not just append as most recent
 	var updateTable = function(data, type ) {
+		console.log("data in updateTable in pageScript: " + data);
+		console.log("data.formData in updateTable in pageScript: " + data.formData);
 		var formData = data.formData;
 		var table = '#' + type + 'TableBody'
 		var tableData = '<tr>';
