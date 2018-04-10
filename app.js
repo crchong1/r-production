@@ -50,10 +50,16 @@ app.post('/addTest', routes.submit_test);
 app.post('/form', routes.submit_patient);
 app.post('/getPatientKeys', routes.get_patient_keys);
 
+//problem list page 
 app.post('/getAllChronic', routes.get_all_chronic);
 app.post('/chronicProblem', routes.submit_chronic);
+app.post('/editChronic', routes.edit_chronic);
+app.post('/deleteChronic', routes.delete_chronic);
+
 app.post('/getAllAcute', routes.get_all_acute);
 app.post('/acuteProblem', routes.submit_acute);
+app.post('/editAcute', routes.edit_acute);
+app.post('/deleteAcute', routes.delete_acute);
 
 //allergy page
 app.post('/getAllAllergy', routes.get_all_allergy);
