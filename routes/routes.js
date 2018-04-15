@@ -266,6 +266,7 @@ var routes = {
   get_any_patient_page: getAnyPatientPage,
   get_main: getMain,
   get_form: getForm,
+  get_wcc_form: getWccForm,
   get_weight_page: getWeightPage,
   get_patient_page: getPatient,
   submit_patient: submitPatient,
