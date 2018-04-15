@@ -43,6 +43,13 @@ var medicationSchema = mongoose.Schema({
         chronicMedDiagnosis: {
             type: String,
             required: true,
+<<<<<<< HEAD
+        },
+        chronicMedNotes: {
+            type: String,
+            required: true,
+=======
+>>>>>>> e81b08ff875b634ca1de8884cb05e9ef844452ed
         }
     }],
     acuteMedEntries: [{
@@ -73,6 +80,13 @@ var medicationSchema = mongoose.Schema({
         acuteMedDiagnosis: {
             type: String,
             required: true,
+<<<<<<< HEAD
+        },
+        acuteMedNotes: {
+            type: String,
+            required: true,
+=======
+>>>>>>> e81b08ff875b634ca1de8884cb05e9ef844452ed
         }
     }]
 });
@@ -80,7 +94,11 @@ var medicationSchema = mongoose.Schema({
 var Medication = medication.model('Medication', medicationSchema);
 
 var putNewChronicMed = function (id, chronicMedName, chronicMedDose, chronicMedTime,
+<<<<<<< HEAD
+    chronicMedRoute, chronicMedStartDate, chronicMedEndDate, chronicMedDiagnosis, chronicMedNotes,
+=======
     chronicMedRoute, chronicMedStartDate, chronicMedEndDate, chronicMedDiagnosis,
+>>>>>>> e81b08ff875b634ca1de8884cb05e9ef844452ed
     route_callback) {
     console.log("putNewChronicMed called in medicationDB")
     // what is unique about the data is now that it is all stored in an array
@@ -91,7 +109,12 @@ var putNewChronicMed = function (id, chronicMedName, chronicMedDose, chronicMedT
         chronicMedRoute: chronicMedRoute,
         chronicMedStartDate: chronicMedStartDate,
         chronicMedEndDate: chronicMedEndDate,
+<<<<<<< HEAD
+        chronicMedDiagnosis: chronicMedDiagnosis,
+        chronicMedNotes: chronicMedNotes
+=======
         chronicMedDiagnosis: chronicMedDiagnosis
+>>>>>>> e81b08ff875b634ca1de8884cb05e9ef844452ed
     }];
     var newChronicMed = new Medication({
         id: id,
@@ -115,7 +138,11 @@ var putNewChronicMed = function (id, chronicMedName, chronicMedDose, chronicMedT
 
 // this function updates the data
 var putChronicMedEntry = function (id, chronicMedName, chronicMedDose, chronicMedTime,
+<<<<<<< HEAD
+    chronicMedRoute, chronicMedStartDate, chronicMedEndDate, chronicMedDiagnosis, chronicMedNotes,
+=======
     chronicMedRoute, chronicMedStartDate, chronicMedEndDate, chronicMedDiagnosis,
+>>>>>>> e81b08ff875b634ca1de8884cb05e9ef844452ed
     route_callback) {
     console.log("putChronicMedEntry called in medicationDB")
     // create a new JSON object to put into the table; NOT an array
@@ -126,7 +153,12 @@ var putChronicMedEntry = function (id, chronicMedName, chronicMedDose, chronicMe
         chronicMedRoute: chronicMedRoute,
         chronicMedStartDate: chronicMedStartDate,
         chronicMedEndDate: chronicMedEndDate,
+<<<<<<< HEAD
+        chronicMedDiagnosis: chronicMedDiagnosis,
+        chronicMedNotes: chronicMedNotes
+=======
         chronicMedDiagnosis: chronicMedDiagnosis
+>>>>>>> e81b08ff875b634ca1de8884cb05e9ef844452ed
     };
     Medication.findOneAndUpdate(
         { id: id }, //find a document with id
@@ -167,8 +199,109 @@ var getAllChronicMed = function (id, route_callback) {
     });
 };
 
+<<<<<<< HEAD
+// this function edits an existing entry in the data 
+var editChronicMed = function (id, chronicMedName, chronicMedDose,
+    chronicMedTime, chronicMedRoute, chronicMedStartDate, chronicMedEndDate,
+    chronicMedDiagnosis, chronicMedNotes, preEditData, route_callback) {
+    console.log("editChronicMed called in medicationDB");
+    console.log("preEditData chronicMedName in editChronicMed in medicationDB: " + preEditData.chronicMedName);
+    Medication.findOneAndUpdate(
+        {
+            id: id,
+            'chronicMedEntries.chronicMedName': preEditData.medName,
+            'chronicMedEntries.chronicMedDose': preEditData.medDose,
+            'chronicMedEntries.chronicMedTime': preEditData.medTime,
+            'chronicMedEntries.chronicMedRoute': preEditData.medRoute,
+            'chronicMedEntries.chronicMedStartDate': preEditData.medStartDate,
+            'chronicMedEntries.chronicMedEndDate': preEditData.medEndDate,
+            'chronicMedEntries.chronicMedDiagnosis': preEditData.medDiagnosis,
+            'chronicMedEntries.chronicMedNotes': preEditData.medNotes
+        }, //find a document with the pre-edit data 
+        {
+            $set: {
+                'chronicMedEntries.$.chronicMedName': chronicMedName,
+                'chronicMedEntries.$.chronicMedDose': chronicMedDose,
+                'chronicMedEntries.$.chronicMedTime': chronicMedTime,
+                'chronicMedEntries.$.chronicMedRoute': chronicMedRoute,
+                'chronicMedEntries.$.chronicMedStartDate': chronicMedStartDate,
+                'chronicMedEntries.$.chronicMedEndDate': chronicMedEndDate,
+                'chronicMedEntries.$.chronicMedDiagnosis': chronicMedDiagnosis,
+                'chronicMedEntries.$.chronicMedNotes': chronicMedNotes
+            }
+        },
+        function (err, doc) { //callback
+            if (err) {
+                console.log("error in finding and updating chronic problems for "
+                    + id);
+                console.log('error: ' + err);
+                route_callback(null, "error" + { error: err })
+            }
+            else {
+                Medication.find({ id: id }, function (err, res) {
+                    if (err) {
+                        console.log(err);
+                    }
+                    else {
+                        console.log('medicationDB editChronicMed response: ' + res);
+                        route_callback(res, null);
+                    }
+                });
+            }
+        }
+    )
+};
+
+// this function deletes an existing entry 
+var deleteChronicMed = function (id, preEditData, route_callback) {
+    console.log("deleteChronicMed called in medicationDB");
+    console.log("preEditData chronicMedName in deleteChronicMed in medicationDB: " + preEditData.medName);
+    Medication.findOneAndUpdate(
+        {},
+        {
+            $pull: {
+                chronicMedEntries: {
+                    chronicMedName: preEditData.medName,
+                    chronicMedDose: preEditData.medDose,
+                    chronicMedTime: preEditData.medTime,
+                    chronicMedRoute: preEditData.medRoute,
+                    chronicMedStartDate: preEditData.medStartDate,
+                    chronicMedEndDate: preEditData.medEndDate,
+                    chronicMedDiagnosis: preEditData.medDiagnosis,
+                    chronicMedNotes: preEditData.medNotes
+                }
+            }
+        },
+        function (err, doc) { //callback
+            if (err) {
+                console.log("error in finding and updating chronic problems for "
+                    + id);
+                console.log('error: ' + err);
+                route_callback(null, "error" + { error: err })
+            }
+            else {
+                Medication.find({ id: id }, function (err, res) {
+                    if (err) {
+                        console.log(err);
+                    }
+                    else {
+                        console.log('medicationDB deleteChronicMed response: ' + res);
+                        route_callback(res, null);
+                    }
+                });
+            }
+        }
+    )
+};
+
+
+//acute medication functions
+var putNewAcuteMed = function (id, acuteMedName, acuteMedDose, acuteMedTime,
+    acuteMedRoute, acuteMedStartDate, acuteMedEndDate, acuteMedDiagnosis, acuteMedNotes,
+=======
 var putNewAcuteMed = function (id, acuteMedName, acuteMedDose, acuteMedTime,
     acuteMedRoute, acuteMedStartDate, acuteMedEndDate, acuteMedDiagnosis,
+>>>>>>> e81b08ff875b634ca1de8884cb05e9ef844452ed
     route_callback) {
     console.log("putNewAcuteMed called in medicationDB")
     // what is unique about the data is now that it is all stored in an array
@@ -179,7 +312,12 @@ var putNewAcuteMed = function (id, acuteMedName, acuteMedDose, acuteMedTime,
         acuteMedRoute: acuteMedRoute,
         acuteMedStartDate: acuteMedStartDate,
         acuteMedEndDate: acuteMedEndDate,
+<<<<<<< HEAD
+        acuteMedDiagnosis: acuteMedDiagnosis,
+        acuteMedNotes: acuteMedNotes
+=======
         acuteMedDiagnosis: acuteMedDiagnosis
+>>>>>>> e81b08ff875b634ca1de8884cb05e9ef844452ed
     }];
     var newAcuteMed = new Medication({
         id: id,
@@ -203,7 +341,11 @@ var putNewAcuteMed = function (id, acuteMedName, acuteMedDose, acuteMedTime,
 
 // this function updates the data
 var putAcuteMedEntry = function (id, acuteMedName, acuteMedDose, acuteMedTime,
+<<<<<<< HEAD
+    acuteMedRoute, acuteMedStartDate, acuteMedEndDate, acuteMedDiagnosis, acuteMedNotes,
+=======
     acuteMedRoute, acuteMedStartDate, acuteMedEndDate, acuteMedDiagnosis,
+>>>>>>> e81b08ff875b634ca1de8884cb05e9ef844452ed
     route_callback) {
     console.log("putAcuteMedEntry called in medicationDB")
     // create a new JSON object to put into the table; NOT an array
@@ -214,7 +356,12 @@ var putAcuteMedEntry = function (id, acuteMedName, acuteMedDose, acuteMedTime,
         acuteMedRoute: acuteMedRoute,
         acuteMedStartDate: acuteMedStartDate,
         acuteMedEndDate: acuteMedEndDate,
+<<<<<<< HEAD
+        acuteMedDiagnosis: acuteMedDiagnosis,
+        acuteMedNotes: acuteMedNotes
+=======
         acuteMedDiagnosis: acuteMedDiagnosis
+>>>>>>> e81b08ff875b634ca1de8884cb05e9ef844452ed
     };
     Medication.findOneAndUpdate(
         { id: id }, //find a document with id
@@ -254,14 +401,123 @@ var getAllAcuteMed = function (id, route_callback) {
     });
 };
 
+<<<<<<< HEAD
+// this function edits an existing entry in the data 
+var editAcuteMed = function (id, acuteMedName, acuteMedDose,
+    acuteMedTime, acuteMedRoute, acuteMedStartDate, acuteMedEndDate,
+    acuteMedDiagnosis, acuteMedNotes, preEditData, route_callback) {
+    console.log("editAcuteMed called in medicationDB");
+    console.log("preEditData acuteMedName in editAcuteMed in medicationDB: " + preEditData.acuteMedName);
+    Medication.findOneAndUpdate(
+        {
+            id: id,
+            'acuteMedEntries.acuteMedName': preEditData.medName,
+            'acuteMedEntries.acuteMedDose': preEditData.medDose,
+            'acuteMedEntries.acuteMedTime': preEditData.medTime,
+            'acuteMedEntries.acuteMedRoute': preEditData.medRoute,
+            'acuteMedEntries.acuteMedStartDate': preEditData.medStartDate,
+            'acuteMedEntries.acuteMedEndDate': preEditData.medEndDate,
+            'acuteMedEntries.acuteMedDiagnosis': preEditData.medDiagnosis,
+            'acuteMedEntries.acuteMedNotes': preEditData.medNotes
+        }, //find a document with the pre-edit data 
+        {
+            $set: {
+                'acuteMedEntries.$.acuteMedName': acuteMedName,
+                'acuteMedEntries.$.acuteMedDose': acuteMedDose,
+                'acuteMedEntries.$.acuteMedTime': acuteMedTime,
+                'acuteMedEntries.$.acuteMedRoute': acuteMedRoute,
+                'acuteMedEntries.$.acuteMedStartDate': acuteMedStartDate,
+                'acuteMedEntries.$.acuteMedEndDate': acuteMedEndDate,
+                'acuteMedEntries.$.acuteMedDiagnosis': acuteMedDiagnosis,
+                'acuteMedEntries.$.acuteMedNotes': acuteMedNotes
+            }
+        },
+        function (err, doc) { //callback
+            if (err) {
+                console.log("error in finding and updating acute problems for "
+                    + id);
+                console.log('error: ' + err);
+                route_callback(null, "error" + { error: err })
+            }
+            else {
+                Medication.find({ id: id }, function (err, res) {
+                    if (err) {
+                        console.log(err);
+                    }
+                    else {
+                        console.log('medicationDB editAcuteMed response: ' + res);
+                        route_callback(res, null);
+                    }
+                });
+            }
+        }
+    )
+};
+
+// this function deletes an existing entry 
+var deleteAcuteMed = function (id, preEditData, route_callback) {
+    console.log("deleteAcuteMed called in medicationDB");
+    console.log("preEditData acuteMedName in deleteAcuteMed in medicationDB: " + preEditData.medName);
+    Medication.findOneAndUpdate(
+        {},
+        {
+            $pull: {
+                acuteMedEntries: {
+                    acuteMedName: preEditData.medName,
+                    acuteMedDose: preEditData.medDose,
+                    acuteMedTime: preEditData.medTime,
+                    acuteMedRoute: preEditData.medRoute,
+                    acuteMedStartDate: preEditData.medStartDate,
+                    acuteMedEndDate: preEditData.medEndDate,
+                    acuteMedDiagnosis: preEditData.medDiagnosis,
+                    acuteMedNotes: preEditData.medNotes
+                }
+            }
+        },
+        function (err, doc) { //callback
+            if (err) {
+                console.log("error in finding and updating acute problems for "
+                    + id);
+                console.log('error: ' + err);
+                route_callback(null, "error" + { error: err })
+            }
+            else {
+                Medication.find({ id: id }, function (err, res) {
+                    if (err) {
+                        console.log(err);
+                    }
+                    else {
+                        console.log('medicationDB deleteAcuteMed response: ' + res);
+                        route_callback(res, null);
+                    }
+                });
+            }
+        }
+    )
+};
+
+
+=======
+>>>>>>> e81b08ff875b634ca1de8884cb05e9ef844452ed
 
 var medicationDB = {
     putNewChronicMed: putNewChronicMed,
     putChronicMedEntry: putChronicMedEntry,
     getAllChronicMed: getAllChronicMed,
+<<<<<<< HEAD
+    editChronicMed: editChronicMed,
+    deleteChronicMed: deleteChronicMed,
+
+    putNewAcuteMed: putNewAcuteMed,
+    putAcuteMedEntry: putAcuteMedEntry,
+    getAllAcuteMed: getAllAcuteMed,
+    editAcuteMed: editAcuteMed,
+    deleteAcuteMed: deleteAcuteMed
+=======
     putNewAcuteMed: putNewAcuteMed,
     putAcuteMedEntry: putAcuteMedEntry,
     getAllAcuteMed: getAllAcuteMed
+>>>>>>> e81b08ff875b634ca1de8884cb05e9ef844452ed
 };
 
 module.exports = medicationDB;

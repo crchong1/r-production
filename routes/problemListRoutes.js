@@ -1,3 +1,17 @@
+<<<<<<< HEAD
+var problemListDB = require('../database/problemListDB.js');
+
+//functions for chronic problems
+var getAllChronic = function (req, res) {
+  console.log("getAllChronic called in routes")
+  var id = req.body.id;
+  problemListDB.getAllChronic(id, function (data, err) {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log("chronic routes data: " + data);
+      res.send({ data: data });
+=======
 var patientsDB = require('../database/patientsDB.js');
 var weightDB = require('../database/weightDB.js');
 var problemListDB = require('../database/problemListDB.js');
@@ -12,10 +26,34 @@ var getAllChronic = function(req, res) {
     } else {
       console.log("chronic routes data: " + data);
       res.send({data: data});
+>>>>>>> e81b08ff875b634ca1de8884cb05e9ef844452ed
     }
   });
 };
 
+<<<<<<< HEAD
+
+var submitNewChronic = function (req, res) {
+  console.log("submitNewChronic called in routes")
+  var id = req.body.id;
+  // check to see if there is already data in the table
+  problemListDB.getAllChronic(id, function (data, err) {
+    if (err) {
+      console.log(err);
+    } else {
+      // if there is no data in the table yet
+      if (data.length == 0) {
+        // we create a new entry here
+        problemListDB.putNewChronic(req.body.id, req.body.chronicDiagnosis,
+          req.body.chronicDetails, req.body.chronicTreatment, req.body.chronicDateOnset,
+          req.body.chronicEndDate, req.body.chronicNotes, function (data, err) {
+            if (err) {
+              console.log(err);
+            } else {
+              res.send({ data: data });
+            }
+          });
+=======
   
 var submitNewChronic = function(req, res) {
   console.log("submitNewChronic called in routes");
@@ -37,10 +75,58 @@ var submitNewChronic = function(req, res) {
             res.send({data: data});
           }
         });
+>>>>>>> e81b08ff875b634ca1de8884cb05e9ef844452ed
       }
       // if there is already data in the table so we need to update it
       else {
         // this function takes in existing data and updates it
+<<<<<<< HEAD
+        problemListDB.putChronicEntry(req.body.id, req.body.chronicDiagnosis,
+          req.body.chronicDetails, req.body.chronicTreatment, req.body.chronicDateOnset,
+          req.body.chronicEndDate, req.body.chronicNotes, function (data, err) {
+            if (err) {
+              console.log("error")
+            }
+            else if (data) {
+              res.send({
+                data: data
+              });
+            }
+          });
+      }
+    }
+  });
+};
+
+var editChronic = function (req, res) {
+  console.log("editChronic called in routes")
+  // this function takes in existing data and edits it
+  problemListDB.editChronic(req.body.id, req.body.chronicDiagnosis,
+    req.body.chronicDetails, req.body.chronicTreatment, req.body.chronicDateOnset,
+    req.body.chronicEndDate, req.body.chronicNotes, req.body.preEditData, function (data, err) {
+      if (err) {
+        console.log("error")
+      }
+      else if (data) {
+        res.send({
+          data: data
+        });
+      }
+    });
+};
+
+var deleteChronic = function (req, res) {
+  console.log("deleteChronic called in routes")
+  // this function takes in existing data and updates it
+  problemListDB.deleteChronic(req.body.id, req.body.preEditData, function (data, err) {
+    if (err) {
+      console.log("error")
+    }
+    else if (data) {
+      res.send({
+        data: data
+      });
+=======
         problemListDB.putChronicEntry(req.body.id, req.body.chronicDiagnosis, 
           req.body.chronicDetails, req.body.chronicTreatment, req.body.chronicDateOnset,
           req.body.chronicEndDate, function(data, err) {
@@ -54,10 +140,21 @@ var submitNewChronic = function(req, res) {
           }
         });
       }
+>>>>>>> e81b08ff875b634ca1de8884cb05e9ef844452ed
     }
   });
 };
 
+<<<<<<< HEAD
+//functions for acute problems
+var getAllAcute = function (req, res) {
+  var id = req.body.id;
+  problemListDB.getAllAcute(id, function (data, err) {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send({ data: data });
+=======
 //functions for chronic problems
 var getAllAcute = function(req, res) {
   var id = req.body.id;
@@ -66,11 +163,44 @@ var getAllAcute = function(req, res) {
       console.log(err);
     } else {
       res.send({data: data});
+>>>>>>> e81b08ff875b634ca1de8884cb05e9ef844452ed
     }
   });
 };
 
 
+<<<<<<< HEAD
+var submitNewAcute = function (req, res) {
+  var id = req.body.id;
+  // check to see if there is already data in the table
+  problemListDB.getAllAcute(id, function (data, err) {
+    if (err) {
+      console.log(err);
+    } else {
+      // if there is no data in the table yet
+      if (data.length == 0) {
+        // we create a new entry here
+        problemListDB.putNewAcute(req.body.id, req.body.acuteDiagnosis,
+          req.body.acuteDetails, req.body.acuteTreatment, req.body.acuteDateOnset,
+          req.body.acuteEndDate, req.body.acuteNotes, function (data, err) {
+            if (err) {
+              console.log(err);
+            } else {
+              res.send({ data: data });
+            }
+          });
+      }
+      // if there is already data in the table so we need to update it
+      else {
+        // this function takes in existing data and updates it
+        problemListDB.putAcuteEntry(req.body.id, req.body.acuteDiagnosis,
+          req.body.acuteDetails, req.body.acuteTreatment, req.body.acuteDateOnset,
+          req.body.acuteEndDate, req.body.acuteNotes, function (data, err) {
+            if (err) {
+              console.log("error")
+            }
+            else if (data) {
+=======
 var submitNewAcute = function(req, res) {
   var id = req.body.id;
   // check to see if there is already data in the table
@@ -101,6 +231,7 @@ var submitNewAcute = function(req, res) {
               console.log("error")
             }
             else if(data){
+>>>>>>> e81b08ff875b634ca1de8884cb05e9ef844452ed
               res.send({
                 data: data
               });
@@ -111,6 +242,38 @@ var submitNewAcute = function(req, res) {
   });
 };
 
+<<<<<<< HEAD
+var editAcute = function (req, res) {
+  console.log("editAcute called in routes")
+  // this function takes in existing data and edits it
+  problemListDB.editAcute(req.body.id, req.body.acuteDiagnosis,
+    req.body.acuteDetails, req.body.acuteTreatment, req.body.acuteDateOnset,
+    req.body.acuteEndDate, req.body.acuteNotes, req.body.preEditData, function (data, err) {
+      if (err) {
+        console.log("error")
+      }
+      else if (data) {
+        res.send({
+          data: data
+        });
+      }
+    });
+};
+
+var deleteAcute = function (req, res) {
+  console.log("deleteAcute called in routes")
+  // this function takes in existing data and updates it
+  problemListDB.deleteAcute(req.body.id, req.body.preEditData, function (data, err) {
+    if (err) {
+      console.log("error")
+    }
+    else if (data) {
+      res.send({
+        data: data
+      });
+    }
+  });
+=======
 var editChronic = function (req, res) {
     console.log("editChronic called in routes")
     // this function takes in existing data and edits it
@@ -172,17 +335,28 @@ var deleteAcute = function (req, res) {
             });
         }
     });
+>>>>>>> e81b08ff875b634ca1de8884cb05e9ef844452ed
 };
 
 var problemListRoutes = {
   get_all_chronic: getAllChronic,
   submit_chronic: submitNewChronic,
+<<<<<<< HEAD
+  edit_chronic: editChronic,
+  delete_chronic: deleteChronic,
+
+  get_all_acute: getAllAcute,
+  submit_acute: submitNewAcute,
+  edit_acute: editAcute,
+  delete_acute: deleteAcute
+=======
   get_all_acute: getAllAcute,
   submit_acute: submitNewAcute,
   edit_chronic: editChronic,
   delete_chronic: deleteChronic,
   edit_acute: editAcute,
   delete_acute: deleteAcute,
+>>>>>>> e81b08ff875b634ca1de8884cb05e9ef844452ed
 };
 
 module.exports = problemListRoutes;
