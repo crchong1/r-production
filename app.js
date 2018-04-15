@@ -7,10 +7,8 @@
 var express = require('express');
 var app = express();
 app.use(express.static('static'));
-
-var formidable = require('formidable');
-var fs = require('fs');
-var path = require('path');
+app.use(express.bodyParser());
+app.use(express.logger("default"));
 
 var routes = require('./routes/routes.js');
 var problemListRoutes = require('./routes/problemListRoutes.js');
