@@ -25,20 +25,7 @@
       <div class="row">
         <nav class="col-sm-2 sidebar">
           <div class="sidebar sticky ">
-            <div class="basicInfo">
-              <h2 id="name"><%= data.firstName%> <%= data.lastName%></h2>
-              <br>
-              <p id="ageSex"> (Age) 19,
-                <%=data.sex%>
-              </p>
-              <p id="dob">
-                <%= data.birthdate%>
-              </p>
-              <p id="weightHeight">
-                <%= data.weight%> kg,
-                  <%= data.height%> cm </p>
-              <p id="allergiesSide"> Allergies: (loop patient.allergies[i]) </p>
-            </div>
+            
         <div class = "list-group" id = "sideScroll">
           <a class="list-group-item list-group-item-action" href="#list-allergy">Allergy Medication</a>
             <a class="list-group-item list-group-item-action" href="#list-antiBiotics">Antibiotics</a>
@@ -485,7 +472,7 @@
 </body>
 
 <script type="text/javascript">
-  var patientId = <%=data.id%>;
+
   $('document').ready(function() {
     console.log("document.ready ajax call: ");
     // // ajax call to render the original table, where we post to getAllAllergy
