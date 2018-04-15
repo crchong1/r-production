@@ -228,6 +228,38 @@ var submitNewAllergy = function (req, res) {
   });
 };
 
+var editAllergy = function (req, res) {
+  console.log("editAllergy called in routes")
+  // this function takes in existing data and updates it
+  allergyDB.editAllergy(req.body.id, req.body.allergen,
+    req.body.allergySymptoms, req.body.allergySeverity, req.body.allergyDateOnset,
+    req.body.allergyNotes, req.body.preEditData, function (data, err) {
+      if (err) {
+        console.log("error")
+      }
+      else if (data) {
+        res.send({
+          data: data
+        });
+      }
+    });
+};
+
+
+var deleteAllergy = function (req, res) {
+  console.log("deleteAllergy called in routes")
+  allergyDB.deleteAllergy(req.body.id, req.body.preEditData, function (data, err) {
+    if (err) {
+      console.log("error")
+    }
+    else if (data) {
+      res.send({
+        data: data
+      });
+    }
+  });
+};
+
 
 // this method handles the get_main request from app.js and reroutes it to the getMain function above
 var routes = {
@@ -244,6 +276,8 @@ var routes = {
   submit_test: submitNewTest,
   get_all_allergy: getAllAllergy,
   submit_allergy: submitNewAllergy,
+  delete_allergy: deleteAllergy,
+  edit_allergy: editAllergy
 };
 
 module.exports = routes;

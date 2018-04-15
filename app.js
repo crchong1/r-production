@@ -60,12 +60,20 @@ app.post('/getPatientKeys', routes.get_patient_keys);
 //problem list page
 app.post('/getAllChronic', problemListRoutes.get_all_chronic);
 app.post('/chronicProblem', problemListRoutes.submit_chronic);
+app.post('/editChronic', problemListRoutes.edit_chronic);
+app.post('/deleteChronic', problemListRoutes.delete_chronic);
+
 app.post('/getAllAcute', problemListRoutes.get_all_acute);
 app.post('/acuteProblem', problemListRoutes.submit_acute);
+app.post('/editAcute', problemListRoutes.edit_acute);
+app.post('/deleteAcute', problemListRoutes.delete_acute);
+
 
 //allergy page
 app.post('/getAllAllergy', routes.get_all_allergy);
 app.post('/allergy', routes.submit_allergy);
+app.post('/editAllergy', routes.edit_allergy);
+app.post('/deleteAllergy', routes.delete_allergy);
 
 //medication page
 app.post('/getAllChronicMed', medicationRoutes.get_all_chronic_med);

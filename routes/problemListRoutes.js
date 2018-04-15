@@ -111,11 +111,78 @@ var submitNewAcute = function(req, res) {
   });
 };
 
+var editChronic = function (req, res) {
+    console.log("editChronic called in routes")
+    // this function takes in existing data and edits it
+    problemListDB.editChronic(req.body.id, req.body.chronicDiagnosis,
+        req.body.chronicDetails, req.body.chronicTreatment, req.body.chronicDateOnset,
+        req.body.chronicEndDate, req.body.preEditData, function (data, err) {
+        if (err) {
+            console.log("error")
+        }
+        else if (data) {
+            res.send({
+                data: data
+            });
+        }
+    });
+};
+var deleteChronic = function (req, res) {
+    console.log("deleteChronic called in routes")
+    // this function takes in existing data and updates it
+    problemListDB.deleteChronic(req.body.id, req.body.preEditData, function (data, err) {
+        if (err) {
+            console.log("error")
+        }
+        else if (data) {
+            res.send({
+                data: data
+            });
+        }
+    });
+};
+
+var editAcute = function (req, res) {
+    console.log("editAcute called in routes")
+    // this function takes in existing data and edits it
+    problemListDB.editAcute(req.body.id, req.body.acuteDiagnosis,
+        req.body.acuteDetails, req.body.acuteTreatment, req.body.acuteDateOnset,
+        req.body.acuteEndDate, req.body.preEditData, function (data, err) {
+        if (err) {
+            console.log("error")
+        }
+        else if (data) {
+            res.send({
+                data: data
+            });
+        }
+    });
+};
+    
+var deleteAcute = function (req, res) {
+    console.log("deleteAcute called in routes")
+    // this function takes in existing data and updates it
+    problemListDB.deleteAcute(req.body.id, req.body.preEditData, function (data, err) {
+        if (err) {
+            console.log("error")
+        }
+        else if (data) {
+            res.send({
+                data: data
+            });
+        }
+    });
+};
+
 var problemListRoutes = {
   get_all_chronic: getAllChronic,
   submit_chronic: submitNewChronic,
   get_all_acute: getAllAcute,
-  submit_acute: submitNewAcute
+  submit_acute: submitNewAcute,
+  edit_chronic: editChronic,
+  delete_chronic: deleteChronic,
+  edit_acute: editAcute,
+  delete_acute: deleteAcute,
 };
 
 module.exports = problemListRoutes;
