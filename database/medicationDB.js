@@ -43,10 +43,13 @@ var medicationSchema = mongoose.Schema({
         chronicMedDiagnosis: {
             type: String,
             required: true,
+<<<<<<< HEAD
         },
         chronicMedNotes: {
             type: String,
             required: true,
+=======
+>>>>>>> e81b08ff875b634ca1de8884cb05e9ef844452ed
         }
     }],
     acuteMedEntries: [{
@@ -77,10 +80,13 @@ var medicationSchema = mongoose.Schema({
         acuteMedDiagnosis: {
             type: String,
             required: true,
+<<<<<<< HEAD
         },
         acuteMedNotes: {
             type: String,
             required: true,
+=======
+>>>>>>> e81b08ff875b634ca1de8884cb05e9ef844452ed
         }
     }]
 });
@@ -88,7 +94,11 @@ var medicationSchema = mongoose.Schema({
 var Medication = medication.model('Medication', medicationSchema);
 
 var putNewChronicMed = function (id, chronicMedName, chronicMedDose, chronicMedTime,
+<<<<<<< HEAD
     chronicMedRoute, chronicMedStartDate, chronicMedEndDate, chronicMedDiagnosis, chronicMedNotes,
+=======
+    chronicMedRoute, chronicMedStartDate, chronicMedEndDate, chronicMedDiagnosis,
+>>>>>>> e81b08ff875b634ca1de8884cb05e9ef844452ed
     route_callback) {
     console.log("putNewChronicMed called in medicationDB")
     // what is unique about the data is now that it is all stored in an array
@@ -99,8 +109,12 @@ var putNewChronicMed = function (id, chronicMedName, chronicMedDose, chronicMedT
         chronicMedRoute: chronicMedRoute,
         chronicMedStartDate: chronicMedStartDate,
         chronicMedEndDate: chronicMedEndDate,
+<<<<<<< HEAD
         chronicMedDiagnosis: chronicMedDiagnosis,
         chronicMedNotes: chronicMedNotes
+=======
+        chronicMedDiagnosis: chronicMedDiagnosis
+>>>>>>> e81b08ff875b634ca1de8884cb05e9ef844452ed
     }];
     var newChronicMed = new Medication({
         id: id,
@@ -124,7 +138,11 @@ var putNewChronicMed = function (id, chronicMedName, chronicMedDose, chronicMedT
 
 // this function updates the data
 var putChronicMedEntry = function (id, chronicMedName, chronicMedDose, chronicMedTime,
+<<<<<<< HEAD
     chronicMedRoute, chronicMedStartDate, chronicMedEndDate, chronicMedDiagnosis, chronicMedNotes,
+=======
+    chronicMedRoute, chronicMedStartDate, chronicMedEndDate, chronicMedDiagnosis,
+>>>>>>> e81b08ff875b634ca1de8884cb05e9ef844452ed
     route_callback) {
     console.log("putChronicMedEntry called in medicationDB")
     // create a new JSON object to put into the table; NOT an array
@@ -135,8 +153,12 @@ var putChronicMedEntry = function (id, chronicMedName, chronicMedDose, chronicMe
         chronicMedRoute: chronicMedRoute,
         chronicMedStartDate: chronicMedStartDate,
         chronicMedEndDate: chronicMedEndDate,
+<<<<<<< HEAD
         chronicMedDiagnosis: chronicMedDiagnosis,
         chronicMedNotes: chronicMedNotes
+=======
+        chronicMedDiagnosis: chronicMedDiagnosis
+>>>>>>> e81b08ff875b634ca1de8884cb05e9ef844452ed
     };
     Medication.findOneAndUpdate(
         { id: id }, //find a document with id
@@ -177,6 +199,7 @@ var getAllChronicMed = function (id, route_callback) {
     });
 };
 
+<<<<<<< HEAD
 // this function edits an existing entry in the data 
 var editChronicMed = function (id, chronicMedName, chronicMedDose,
     chronicMedTime, chronicMedRoute, chronicMedStartDate, chronicMedEndDate,
@@ -275,6 +298,10 @@ var deleteChronicMed = function (id, preEditData, route_callback) {
 //acute medication functions
 var putNewAcuteMed = function (id, acuteMedName, acuteMedDose, acuteMedTime,
     acuteMedRoute, acuteMedStartDate, acuteMedEndDate, acuteMedDiagnosis, acuteMedNotes,
+=======
+var putNewAcuteMed = function (id, acuteMedName, acuteMedDose, acuteMedTime,
+    acuteMedRoute, acuteMedStartDate, acuteMedEndDate, acuteMedDiagnosis,
+>>>>>>> e81b08ff875b634ca1de8884cb05e9ef844452ed
     route_callback) {
     console.log("putNewAcuteMed called in medicationDB")
     // what is unique about the data is now that it is all stored in an array
@@ -285,8 +312,12 @@ var putNewAcuteMed = function (id, acuteMedName, acuteMedDose, acuteMedTime,
         acuteMedRoute: acuteMedRoute,
         acuteMedStartDate: acuteMedStartDate,
         acuteMedEndDate: acuteMedEndDate,
+<<<<<<< HEAD
         acuteMedDiagnosis: acuteMedDiagnosis,
         acuteMedNotes: acuteMedNotes
+=======
+        acuteMedDiagnosis: acuteMedDiagnosis
+>>>>>>> e81b08ff875b634ca1de8884cb05e9ef844452ed
     }];
     var newAcuteMed = new Medication({
         id: id,
@@ -310,7 +341,11 @@ var putNewAcuteMed = function (id, acuteMedName, acuteMedDose, acuteMedTime,
 
 // this function updates the data
 var putAcuteMedEntry = function (id, acuteMedName, acuteMedDose, acuteMedTime,
+<<<<<<< HEAD
     acuteMedRoute, acuteMedStartDate, acuteMedEndDate, acuteMedDiagnosis, acuteMedNotes,
+=======
+    acuteMedRoute, acuteMedStartDate, acuteMedEndDate, acuteMedDiagnosis,
+>>>>>>> e81b08ff875b634ca1de8884cb05e9ef844452ed
     route_callback) {
     console.log("putAcuteMedEntry called in medicationDB")
     // create a new JSON object to put into the table; NOT an array
@@ -321,8 +356,12 @@ var putAcuteMedEntry = function (id, acuteMedName, acuteMedDose, acuteMedTime,
         acuteMedRoute: acuteMedRoute,
         acuteMedStartDate: acuteMedStartDate,
         acuteMedEndDate: acuteMedEndDate,
+<<<<<<< HEAD
         acuteMedDiagnosis: acuteMedDiagnosis,
         acuteMedNotes: acuteMedNotes
+=======
+        acuteMedDiagnosis: acuteMedDiagnosis
+>>>>>>> e81b08ff875b634ca1de8884cb05e9ef844452ed
     };
     Medication.findOneAndUpdate(
         { id: id }, //find a document with id
@@ -362,6 +401,7 @@ var getAllAcuteMed = function (id, route_callback) {
     });
 };
 
+<<<<<<< HEAD
 // this function edits an existing entry in the data 
 var editAcuteMed = function (id, acuteMedName, acuteMedDose,
     acuteMedTime, acuteMedRoute, acuteMedStartDate, acuteMedEndDate,
@@ -457,11 +497,14 @@ var deleteAcuteMed = function (id, preEditData, route_callback) {
 };
 
 
+=======
+>>>>>>> e81b08ff875b634ca1de8884cb05e9ef844452ed
 
 var medicationDB = {
     putNewChronicMed: putNewChronicMed,
     putChronicMedEntry: putChronicMedEntry,
     getAllChronicMed: getAllChronicMed,
+<<<<<<< HEAD
     editChronicMed: editChronicMed,
     deleteChronicMed: deleteChronicMed,
 
@@ -470,6 +513,11 @@ var medicationDB = {
     getAllAcuteMed: getAllAcuteMed,
     editAcuteMed: editAcuteMed,
     deleteAcuteMed: deleteAcuteMed
+=======
+    putNewAcuteMed: putNewAcuteMed,
+    putAcuteMedEntry: putAcuteMedEntry,
+    getAllAcuteMed: getAllAcuteMed
+>>>>>>> e81b08ff875b634ca1de8884cb05e9ef844452ed
 };
 
 module.exports = medicationDB;

@@ -3,6 +3,10 @@
 <div class="content-container">
   <div class="card summary">
     <h3 class="pageTitle"> Problem List </h3>
+<<<<<<< HEAD
+=======
+
+>>>>>>> e81b08ff875b634ca1de8884cb05e9ef844452ed
   </div>
 </div>
 
@@ -19,7 +23,10 @@
         <th>Treatment</th>
         <th>Date of Onset</th>
         <th>Date of Resolution</th>
+<<<<<<< HEAD
         <th>Notes</th>
+=======
+>>>>>>> e81b08ff875b634ca1de8884cb05e9ef844452ed
         <th class="edit">Edit</th>
       </tr>
     </thead>
@@ -42,9 +49,12 @@
     <span class="td">
       <input type="text" name="chronicResolution" placeholder="Resolution">
     </span>
+<<<<<<< HEAD
     <span class="td">
       <input type="text" name="chronicNotes" placeholder="Notes">
     </span>
+=======
+>>>>>>> e81b08ff875b634ca1de8884cb05e9ef844452ed
     <input type="submit" value="Submit" id="chronicSubmit" name="chronicSubmit" class="btn btn-primary formSubmit">
     <input type="button" value="Cancel" name="cancel" class="btn btn-danger formSubmit cancel" data-toggle="collapse" data-target="#chronicForm">
   </form>
@@ -66,7 +76,10 @@
         <th>Treatment</th>
         <th>Date of Onset</th>
         <th>Date of Resolution</th>
+<<<<<<< HEAD
         <th>Notes</th>
+=======
+>>>>>>> e81b08ff875b634ca1de8884cb05e9ef844452ed
         <th class="edit">Edit</th>
       </tr>
     </thead>
@@ -89,9 +102,12 @@
     <span class="td">
       <input type="text" name="acuteResolution" placeholder="Resolution">
     </span>
+<<<<<<< HEAD
     <span class="td">
       <input type="text" name="acuteNotes" placeholder="Notes">
     </span>
+=======
+>>>>>>> e81b08ff875b634ca1de8884cb05e9ef844452ed
     <input type="submit" value="Submit" id="acuteSubmit" name="acuteSubmit" class="btn btn-primary formSubmit">
     <input type="button" value="Cancel" name="cancel" class="btn btn-danger formSubmit cancel">
   </form>
@@ -150,7 +166,10 @@
           chronicTreatment: input[2].value,
           chronicDateOnset: input[3].value,
           chronicEndDate: input[4].value,
+<<<<<<< HEAD
           chronicNotes: input[5].value,
+=======
+>>>>>>> e81b08ff875b634ca1de8884cb05e9ef844452ed
         },
         success: function (data) {
           console.log("New chronic data: ");
@@ -177,7 +196,10 @@
           acuteTreatment: input[2].value,
           acuteDateOnset: input[3].value,
           acuteEndDate: input[4].value,
+<<<<<<< HEAD
           acuteNotes: input[5].value
+=======
+>>>>>>> e81b08ff875b634ca1de8884cb05e9ef844452ed
         },
         success: function (data) {
           console.log("New chronic data: ");
@@ -221,8 +243,12 @@
       details: data[1],
       treatment: data[2],
       dateOnset: data[3],
+<<<<<<< HEAD
       endDate: data[4],
       notes: data[5]
+=======
+      endDate: data[4]
+>>>>>>> e81b08ff875b634ca1de8884cb05e9ef844452ed
     }
     console.log("preEditData when editBtn is clicked: " + preEditData);
 
@@ -248,7 +274,10 @@
         chronicTreatment: input[2].value,
         chronicDateOnset: input[3].value,
         chronicEndDate: input[4].value,
+<<<<<<< HEAD
         chronicNotes: input[5].value,
+=======
+>>>>>>> e81b08ff875b634ca1de8884cb05e9ef844452ed
         preEditData: preEditData
       },
       success: function (result) {
@@ -314,7 +343,10 @@
       acuteTreatment: input[2].value,
       acuteDateOnset: input[3].value,
       acuteEndDate: input[4].value,
+<<<<<<< HEAD
       acuteNotes: input[5].value,
+=======
+>>>>>>> e81b08ff875b634ca1de8884cb05e9ef844452ed
       preEditData: preEditData
     },
     success: function (result) {
@@ -391,7 +423,10 @@ $('#acuteProb').on('click', '.delete', function (event) {
       line += '<td>' + data[i].chronicTreatment + '</td>';
       line += '<td>' + data[i].chronicDateOnset + '</td>';
       line += '<td>' + data[i].chronicEndDate + '</td>';
+<<<<<<< HEAD
       line += '<td>' + data[i].chronicNotes + '</td>';
+=======
+>>>>>>> e81b08ff875b634ca1de8884cb05e9ef844452ed
       line += '<td><button id = "editBtn" class="editBtn btn">Edit</button></td></tr>';
       table1 += line;
     }
@@ -450,7 +485,10 @@ document.getElementById('chronicTableBody').innerHTML = table1;
       line += '<td>' + data[i].acuteTreatment + '</td>';
       line += '<td>' + data[i].acuteDateOnset + '</td>';
       line += '<td>' + data[i].acuteEndDate + '</td>';
+<<<<<<< HEAD
       line += '<td>' + data[i].acuteNotes + '</td>';
+=======
+>>>>>>> e81b08ff875b634ca1de8884cb05e9ef844452ed
       line += '<td><button class="editBtn btn">Edit</button></td></tr>';
       table1 += line;
     }

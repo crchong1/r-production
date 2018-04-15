@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <script type="text/javascript" src="/files/js/pageScript.js"></script>
 
 <div class="content-container">
@@ -432,3 +433,112 @@
 	};
 
 </script>
+=======
+
+
+<div class = "content-container">
+    <div class = "card summary">
+      <h3 class="pageTitle"> Medications </h3>
+    </div>
+  </div>
+
+	<div class="box card section">
+		<table class="w3-table-all">
+			<div class="subTitle">
+				Chronic Medications 
+			</div>
+			<thead>
+				<tr class="w3-light-grey">
+					<th>Name of Rx</th>
+					<th>Dose</th>
+					<th>Time</th>
+					<th>Route</th>
+					<th>Start Date</th>
+					<th>End Date</th>
+					<th>Diagnosis</th>
+					<th class='edit'>Edit</th>
+				</tr>
+			</thead>
+			<tbody id="chronicMedTableBody" >
+				<tr>
+					<td>Ceterizine</td>
+					<td>2.5 mL</td>
+					<td>Daily 8am</td>
+					<td>PO</td>
+					<td>01/02/2001</td>
+					<td>cont</td>
+					<td>Itching</td>
+					<td><button class="editBtn btn">Edit</button></td>
+				</tr>
+			</tbody>
+		</table>
+		<form id="chronicMedForm" class="tr addForm" method="post" >
+			<span class="td"><input type="text" name="chronicMedDrugName" placeholder="Drug Name"></span>
+			<span class="td"><input type="text" name="chronicMedDose" placeholder="Dose"></span>
+			<span class="td"><input type="text" name="chronicMedTime"	placeholder="Time"></span>
+			<span class="td"><input type="text" name="chronicMedRoute" placeholder="Route"></span>
+			<span class="td"><input type="text" name="chronicMedStartDate" class="datepicker form-control"></span>
+			<span class="td"><input type="text" name="chronicMedEndDate" class="datepicker form-control" ></span>
+			<span class="td"><input type="text" name="chronicMedDescription" placeholder="Description"></span>
+
+			<input type="submit" value="Submit" name="chronicMedSubmit" class="formSubmit">
+			<input type="button" value="Cancel" name="cancel" class="formSubmit cancel">
+		</form>
+
+		<div>                               
+			<button id="addChronicMed" class="add"> + </button>
+		</div>
+	</div>
+
+
+
+	<div class="box card section">
+		<table class="w3-table-all">
+			<div class="subTitle">
+				Acute Medications 
+			</div>
+			<thead>
+				<tr class="w3-light-grey">
+					<th>Name of Rx</th>
+					<th>Dose</th>
+					<th>Time</th>
+					<th>Route</th>
+					<th>Start Date</th>
+					<th>End Date</th>
+					<th>Diagnosis</th>
+					<th class='edit'>Edit</th>
+				</tr>
+			</thead>
+			<tbody id="acuteMedTableBody" >
+				<tr>
+					<td>Ceterizine</td>
+					<td>2.5 mL</td>
+					<td>Daily 8am</td>
+					<td>PO</td>
+					<td>01/02/2001</td>
+					<td>cont</td>
+					<td>Itching</td>
+					<td><button class="editBtn btn">Edit</button></td>
+				</tr>
+			</tbody>
+		</table>
+		<form id="acuteMedForm" class="tr addForm" method="post" >
+			<span class="td"><input type="text" name="acuteMedDrugName" placeholder="Drug Name" ></span>
+			<span class="td"><input type="text" name="acuteMedDose" placeholder="Dose"></span>
+			<span class="td"><input type="text" name="acuteMedTime" placeholder="Time"></span>
+			<span class="td"><input type="text" name="acuteMedRoute" placeholder="Route"></span>
+			<span class="td"><input type="text" name="acuteMedStartDate" class="datepicker form-control" ></span>
+			<span class="td"><input type="text" name="acuteMedEndDate" class="datepicker form-control" ></span>
+			<span class="td"><input type="text" name="acuteMedDescription" placeholder="Description"></span>
+
+			<input type="submit" value="Submit" name="acuteMedSubmit" class="formSubmit">
+			<input type="button" value="Cancel" name="cancel" class="formSubmit cancel">
+		</form>
+
+		<div>                               
+			<button id="addAcuteMed" class="add"> + </button>
+		</div>
+	</div>
+
+</div>
+>>>>>>> e81b08ff875b634ca1de8884cb05e9ef844452ed
