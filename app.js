@@ -5,11 +5,18 @@
    to access the routes. */
 
 var express = require('express');
-var routes = require('./routes/routes.js');
 var app = express();
-app.use(express.bodyParser());
-app.use(express.logger("default"));
 app.use(express.static('static'));
+
+var formidable = require('formidable');
+var fs = require('fs');
+var path = require('path');
+
+var routes = require('./routes/routes.js');
+var problemListRoutes = require('./routes/problemListRoutes.js');
+var medicationRoutes = require('./routes/medicationRoutes.js');
+var historyRoutes = require('./routes/historyRoutes.js');
+var scans = require('./routes/scans.js');
 
 
 /* Below we install the routes. The first argument is the URL that we
@@ -48,20 +55,28 @@ app.post('/form', routes.submit_patient);
 app.post('/getPatientKeys', routes.get_patient_keys);
 
 //problem list page
-app.post('/getAllChronic', routes.get_all_chronic);
-app.post('/chronicProblem', routes.submit_chronic);
-app.post('/getAllAcute', routes.get_all_acute);
-app.post('/acuteProblem', routes.submit_acute);
+app.post('/getAllChronic', problemListRoutes.get_all_chronic);
+app.post('/chronicProblem', problemListRoutes.submit_chronic);
+app.post('/getAllAcute', problemListRoutes.get_all_acute);
+app.post('/acuteProblem', problemListRoutes.submit_acute);
 
 //allergy page
 app.post('/getAllAllergy', routes.get_all_allergy);
 app.post('/allergy', routes.submit_allergy);
 
 //medication page
-app.post('/getAllChronicMed', routes.get_all_chronic_med);
-app.post('/chronicMed', routes.submit_chronic_med);
-app.post('/getAllAcuteMed', routes.get_all_acute_med);
-app.post('/acuteMed', routes.submit_acute_med);
+app.post('/getAllChronicMed', medicationRoutes.get_all_chronic_med);
+app.post('/chronicMed', medicationRoutes.submit_chronic_med);
+app.post('/getAllAcuteMed', medicationRoutes.get_all_acute_med);
+app.post('/acuteMed', medicationRoutes.submit_acute_med);
+
+//Patient History page
+app.post('/getAllFeedingHistory', historyRoutes.get_all_feeding_history);
+app.post('/submitFeeding', historyRoutes.submit_feeding);
+app.post('/getAllLivingHistory', historyRoutes.get_all_living_history);
+app.post('/submitLiving', historyRoutes.submit_living);
+app.post('/updateSocialHistory', historyRoutes.update_social_history);
+app.post('/updateBackground', historyRoutes.update_background);
 
 /* Run the server */
 console.log('Author: Connor Chong (conchong)');
