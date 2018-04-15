@@ -1,0 +1,235 @@
+
+  <script type="text/javascript" src="/files/js/pageScript.js"></script>
+  <link rel="stylesheet" type="text/css" href="/files/css/growthCharts.css">  
+
+
+  <div class = "box2 otent-container">
+    <div class = "card summary">
+      <h3 class="pageTitle"> Growth Charts </h3>
+    </div>
+  </div>
+
+<div class="  conent-container">
+
+<div class = "card box section">
+  <div class = "header">
+    <div class="title"> 2 - 20 Years </div>
+  </div>
+
+  <div class="row labels">
+    <div class="col"></div>
+    <div class="col"> Date last measured </div>
+    <div class="col"> Age </div>
+    <div class="col"> Percentile </div>
+  </div>
+
+  <div class="row forAge">
+    <div class="col">
+      <div> Stature-for-age</div>
+      <div> Weight-for-age </div>
+    </div>
+
+    <div class="col">
+      <div> 10-10-2015 </div>
+      <div> 10-10-2015 </div>
+    </div>
+    <div class="col">
+      <div> 6 y </div>
+      <div> 6 y </div>
+    </div>
+    <div class="col">
+      <div> 85 </div>
+      <div> 80 </div>
+    </div>
+  </div>
+
+  <table class="w3-table-all">
+   <thead>
+    <tr class="w3-light-grey">
+      <th>Date</th>
+      <th>Age</th>
+      <th>Weight</th>
+      <th>Height</th>
+      <th>BMI</th>
+      <th>Percentile</th>
+      <th class="edit">Edit</th>
+    </tr>
+  </thead>
+  <tbody id="growthTableBody" >
+    <tr>
+      <td>10/12/2001</td>
+      <td>6 m</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td><button class="editBtn btn">Edit</button></td>
+    </tr>
+    <tr>
+      <td>10/12/2001</td>
+      <td>6 m</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td><button class="editBtn btn">Edit</button></td>
+    </tr>
+  </tbody>
+</table>
+<form id="growthForm" class="tr addForm " method="post" >
+  <span class="td"><input type="text" name="growthDate" class="datepicker form-control"></span>
+  <span class="td"><input type="text" name="growthAge" placeholder="Age"></span>
+  <span class="td"><input type="text" name="growthWeight" placeholder="Weight"></span>
+  <span class="td"><input type="text" name="growthHeight" placeholder="Height" ></span>
+  <span class="td"><input type="text" name="growthBMI" placeholder="BMI"></span>
+  <span class="td"><input type="text" name="growthPercentile" placeholder="Percentile"></span>
+  <input type="submit" value="Submit" name="growthSubmit" class="formSubmit">
+  <input type="button" value="Cancel" name="cancel" class="formSubmit cancel">
+
+</form>
+<div>                               
+  <button id="addGrowth" class="add"> + </button>
+</div>
+
+</div>
+
+
+<div class = "card box section">
+  <div class = "header">
+    <div class="title"> Birth - 36 Months </div>
+  </div>
+
+  <div class="row labels">
+    <div class="col"></div>
+    <div class="col"> Date last measured </div>
+    <div class="col"> Age </div>
+    <div class="col"> Percentile </div>
+  </div>
+
+  <div class="row forAge">
+    <div class="col">
+      <div> Head circumference-for-age</div>
+      <div> Weight-for-age </div>
+    </div>
+
+    <div class="col">
+      <div> 10-10-2015 </div>
+      <div> 10-10-2015 </div>
+    </div>
+    <div class="col">
+      <div> 6 m </div>
+      <div> 6 m </div>
+    </div>
+    <div class="col">
+      <div> 85 </div>
+      <div> 80 </div>
+    </div>
+  </div>
+
+
+  <div class="row subForAge section">
+    <div class="col"> Length-for-age </div>
+    <div class="col"> 10-10-2015 </div>
+    <div class="col"> 36 m </div>
+    <div class="col"> 55 </div>
+
+  </div>
+
+  <table class="w3-table-all">
+   <thead>
+    <tr class="w3-light-grey">
+      <th>Date</th>
+      <th>Age</th>
+      <th>Height</th>
+      <th>Percentile</th>
+      <th class="edit">Edit</th>
+    </tr>
+  </thead>
+  <tbody id="growthLYoungTableBody" >
+    <tr>
+      <td>10/12/2001</td>
+      <td>6 m</td>
+      <td>1</td>
+      <td>1</td>
+      <td style="width: 50px;"><button class="editBtn btn">Edit</button></td>
+    </tr>
+    <tr>
+      <td>10/12/2001</td>
+      <td>6 m</td>
+      <td>1</td>
+      <td>1</td>
+      <td><button class="editBtn btn">Edit</button></td>
+    </tr>
+  </tbody>
+</table>
+<form id="growthLYoungForm" class="tr addForm " method="post" >
+  <span class="td"><input type="text" name="growthLYoungDate" class="datepicker form-control"></span>
+  <span class="td"><input type="text" name="growthLYoungAge" placeholder="Age"></span>
+  <span class="td"><input type="text" name="growthLYoungHeight" placeholder="Height" ></span>
+  <span class="td"><input type="text" name="growthLYoungPercentile" placeholder="Percentile"></span>
+  <input type="submit" value="Submit" name="growthLYoungSubmit" class="formSubmit">
+  <input type="button" value="Cancel" name="cancel" class="formSubmit cancel">
+
+</form>
+<div class="divider">                               
+  <button id="addGrowthLYoung" class="add"> + </button>
+</div>
+
+
+<div class="row subForAge section">
+  <div class="col"> Weight-for-age </div>
+  <div class="col"> 10-10-2015 </div>
+  <div class="col"> 36 m </div>
+  <div class="col"> 53 </div>
+
+</div>
+
+
+<table class="w3-table-all">
+ <thead>
+  <tr class="w3-light-grey">
+    <th>Date</th>
+    <th>Age</th>
+    <th>Height</th>
+    <th>Percentile</th>
+    <th class="edit">Edit</th>
+  </tr>
+</thead>
+<tbody id="growthWYoungTableBody" >
+  <tr>
+    <td>10/12/2001</td>
+    <td>6 m</td>
+    <td>1</td>
+    <td>1</td>
+    <td style="width: 50px;"><button class="editBtn btn">Edit</button></td>
+  </tr>
+  <tr>
+    <td>10/12/2001</td>
+    <td>6 m</td>
+    <td>1</td>
+    <td>1</td>
+    <td><button class="editBtn btn">Edit</button></td>
+  </tr>
+</tbody>
+</table>
+<form id="growthWYoungForm" class="tr addForm " method="post" >
+  <span class="td"><input type="text" name="growthWYoungDate" class="datepicker form-control"></span>
+  <span class="td"><input type="text" name="growthWYoungAge" placeholder="Age"></span>
+  <span class="td"><input type="text" name="growthWYoungWeight" placeholder="Weight" ></span>
+  <span class="td"><input type="text" name="growthWYoungPercentile" placeholder="Percentile"></span>
+  <input type="submit" value="Submit" name="growthWYoungSubmit" class="formSubmit">
+  <input type="button" value="Cancel" name="cancel" class="formSubmit cancel">
+
+</form>
+<div class="">                               
+  <button id="addGrowthWYoung" class="add"> + </button>
+</div>
+</div>
+
+
+<div class="box card">
+  CHART
+
+</div>
+</div>
+

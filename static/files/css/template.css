@@ -1,0 +1,171 @@
+
+
+body {
+  background-color: #E1EBF2;
+  font-family: Nunito, sans-serif !important;
+}
+
+.nav {
+  background-color:rgba(0,0,0,0.2) !important;
+  border-color: transparent !important;
+  background-image:none !important;
+  color:white !important;
+}
+.nav .btn {
+  background-color: rgba(255, 255, 255, 0) !important;
+  color: rgb(255, 255, 255);
+  border-color: rgba(255, 255, 255, 0.205)!important;
+}
+.nav li{
+  padding-left:30px;
+  padding-right:20px;
+}
+.nav a{
+  color:white !important;
+}
+.nav input{
+  background-color: rgba(255, 255, 255, 0.171);
+  border-color: transparent !important;
+}
+.nav ::placeholder {
+  color:white !important;
+}
+
+
+
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+.sticky:before,
+.sticky:after {
+  content: '';
+  display: table;
+}
+.sidebarContainer {
+}
+.sidebar {
+  fill: solid;
+  background: #24345E;
+  color: white;
+  padding-right: 0px !important;
+
+}
+.basicInfo {
+  margin: 60px 20px 40px 20px;
+ 
+}
+.basicInfo p {
+  margin-bottom: 10px;
+  line-height: 100%;
+}
+.current {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  margin-bottom: 10px;
+}
+.links {
+  background-color: #3D5982;
+  display: block !important;
+
+}
+
+.subLink {
+  list-style-type: none;
+  margin-left: -20px;
+  display: none;
+}
+.subLink li > a {
+  font-weight: 100;
+  color: #ffffffde !important;
+  font-size: 0.95em;
+}
+
+.subLinkBtn {
+ background:none!important;
+ color: #ffffffde !important;
+ border:none; 
+ padding:0!important;
+ font-size: 0.95em;
+ cursor: pointer;
+}
+.subLinkBtn:hover {
+    text-decoration:underline;
+}
+.subLinkBtn:focus {
+  outline: none;
+}
+
+.top-nav {
+  font-size: 20px;
+  font-weight: 400;
+  color: black;
+  padding: 10px;
+
+}
+.label{
+  display: inline-block;
+  font-weight: bold;
+  color: black;
+}
+#R-plus{
+  font-size: 35px;
+  margin-left: 20px;
+  font-weight: bold;
+  color: #FF6363;
+}
+#Childrens{
+  font-size: 35px
+}
+#pharmacy{
+  margin-left: 80px;
+}
+
+.topRight {
+  position: absolute;
+  top: 5px;
+  right:10px;
+
+}
+
+.content-container{
+  margin: 5px 20px;
+}
+.col-sm-9{
+  padding-left: 0 !important;
+} 
+.col-lg{
+  padding-left: 0 !important;
+}
+.summary {
+  box-shadow: 2px 2px grey;
+}
+.pageTitle {
+  align-self: center;
+  font-weight: bold;
+}
+
+
+
+.input-group-addon{
+  width:100px;
+  background-color:#24345E;
+  color: white;
+}
+
+
+.border1 {
+  border: 1px #24345E solid ;
+  padding: 10px 5px 0px 15px;
+margin-top: 5px;
+}
+
+
+
+
+

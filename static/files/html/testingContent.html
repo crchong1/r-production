@@ -1,0 +1,186 @@
+
+	<script type="text/javascript" src="/files/js/pageScript.js"></script>
+
+<div class = "content-container">
+    <div class = "card summary">
+      <h3 class="pageTitle"> Testing </h3>
+    </div>
+  </div>
+
+
+	<div class="box card section">
+		<table class="w3-table-all">
+			<div class="subTitle">
+				HIV 
+			</div>
+			<thead>
+				<tr class="w3-light-grey">
+					<th>Test</th>
+					<th>Date</th>
+					<th>Type</th>
+					<th>Result</th>
+					<th class='edit'>Edit</th>
+				</tr>
+			</thead>
+			<tbody id="hivTableBody" >
+				<tr>
+					<td>Test #1</td>
+					<td>02/12/2018</td>
+					<td>Rapid</td>
+					<td>Negative</td>
+					<td><button class="editBtn btn">Edit</button></td>
+				</tr>
+			</tbody>
+		</table>
+		<form id="hivForm" class="tr addForm" method="post" >
+			<span class="td"><input type="text" name="hivTestNum" value="Test #"></span>
+			<span class="td"><input type="text" name="hivDate" class="datepicker form-control" ></span>
+			<span class="td">
+				<select class="form-control" name="hivTest">
+					<option value="Select Type">Select Type</option>
+					<option value="Rapid">Rapid</option>
+					<option value="PCR">PCR</option>
+				</select>
+			</span>
+			<span class="td">
+				<select class="form-control" name="hivResult">
+					<option value="Select Result">Select Result</option>
+					<option value="Positive">Positive</option>
+					<option value="Negative">Negative</option>
+					<option value="Unknown">Unknown</option>
+				</select>
+			</span>
+			<input type="submit" value="Submit" name="hivSubmit" class="formSubmit">
+			<input type="button" value="Cancel" name="cancel" class="formSubmit cancel">
+		</form>
+
+		<div>                               
+			<button id="addHivTest" class="add"> + </button>
+		</div>
+	</div>
+
+
+	<div class="box card section">
+		<div class="subTitle">
+			Tuberculosis 
+		</div>
+		<table class="w3-table-all">
+			<thead>
+				<tr class="w3-light-grey">
+					<th>Test</th>
+					<th>Date</th>
+					<th>Type</th>
+					<th>Result</th>
+					<th class='edit'>Edit</th>
+				</tr>
+			</thead>
+			<tbody id="tbTableBody">
+				<tr>
+					<td>Test #1</td>
+					<td>01/09/2014</td>
+					<td>PPD Skin Test</td>
+					<td>Negative</td>
+					<td><button class="editBtn btn">Edit</button></td>
+				</tr>
+				<tr>
+					<td>Test #2</td>
+					<td>11/19/2014</td>
+					<td>IGRA Blood Test</td>
+					<td>Positive</td>
+					<td><button class="editBtn btn">Edit</button></td>
+				</tr>
+
+
+			</tbody>
+		</table>
+		<form id="tbForm" class="addForm" method="post" >
+			<span class="td"><input  name="tbTestNum" value="Test #" type="text" readonly></span>
+			<span class="td"><input type="text" readonly name="tbDate" class="datepicker form-control"></span>
+			<span class="td">
+				<select class="form-control" name="tbTest">
+					<option value="Select Type">Select Type</option>
+					<option value="PPD Skin Test">PPD Skin Test</option>
+					<option value="IGRA Blood Test">IGRA Blood Test</option>
+				</select>
+			</span>
+			<span class="td">
+				<select class="form-control" name="tbResult">
+					<option value="Select Result">Select Result</option>
+					<option value="Positive">Positive</option>
+					<option value="Negative">Negative</option>
+					<option value="Unknown">Unknown</option>
+				</select>
+			</span>
+			<input type="submit" value="Submit" name="tbSubmit" class="formSubmit">
+			<input type="button" value="Cancel" name="cancel" class="formSubmit cancel">
+
+		</form>
+		<div>                               
+			<button id="addTbTest" class="add"> + </button>
+		</div>
+
+	</div>
+
+	<div class="box card section">
+		<div class="subTitle">
+			Hemoglobin 
+		</div>
+		<table class="w3-table-all ">
+			<thead>
+
+				<tr class="w3-light-grey">
+					<th>Test</th>
+					<th>Date Due</th>
+					<th>Date Administered</th>
+					<th>Result</th>
+					<th>Taking Iron?</th>
+
+					<th class="edit">Edit</th>
+				</tr>
+			</thead>
+			<tbody id="hgbTableBody">
+				<tr>
+					<td>Test # 1</td>
+					<td>01/09/2014</td>
+					<td> 01/01/2014</td>
+					<td>10.5 g/dL</td>
+					<td>Yes</td>
+					<td><button class="editBtn btn">Edit</button></td>
+				</tr>
+				<tr>
+					<td>Test #2</td>
+					<td>11/19/2014</td>
+					<td>12/01/204</td>
+					<td>11.0 g/dL</td>
+					<td>No</td>
+					<td><button class="editBtn btn">Edit</button></td>
+				</tr>
+			</tbody>
+
+		</table>
+		<form id="hgbForm" class="tr addForm" method="post" >
+
+			<span class="td"><input name="hgbTestNum" value="Test #" type="text" readonly></span>
+			<span class="td"><input name="hgbDateDue" class="datepicker form-control" type="text" readonly /></span>
+			<span class="td"><input name="hgbDateAdministered" class="datepicker form-control" type="text" readonly /></span>
+			<span class="td"><input type="text" name="hgbResult" placeholder="Result"></span>
+			<span class="td">  
+				<div class="radio">
+					<label><input type="radio" name="iron" value="Yes"> Yes</label>
+				</div>
+				<div class="radio">
+					<label><input type="radio" name="iron" value="No"> No</label>
+				</div>
+			</span>
+
+			<input type="submit" value="Submit" name="hgbSubmit" class="formSubmit">
+			<input type="button" value="Cancel" name="cancel" class="formSubmit cancel">
+		</form>
+		<div>                               
+			<button id="addHgbTest" class="add"> + </button>
+		</div>
+	</div>
+
+</div>
+
+
