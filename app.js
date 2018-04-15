@@ -39,6 +39,8 @@ app.get('/patientPage/:id/wellChildCheck', routes.get_any_patient_page);
 app.get('/patientPage/:id/wellChildCheck/form', routes.get_wcc_form);
 app.post('/patientPage/:id/wellChildCheck/form', routes.get_wcc_form);
 app.get('/patientPage/:id/wellChildCheck/formBaby', routes.get_any_patient_page);
+app.get('/pharmacy', routes.get_pharmacy_page);
+app.get('/dispensary', routes.get_dispenary);
 
 app.get('/patientPage/:id/wellChildCheck/page', routes.get_any_patient_page);
 app.get('/patientPage/:id/nurseNotes', routes.get_any_patient_page);
