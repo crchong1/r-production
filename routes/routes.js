@@ -2,7 +2,6 @@ var patientsDB = require('../database/patientsDB.js');
 var weightDB = require('../database/weightDB.js');
 var problemListDB = require('../database/problemListDB.js');
 var allergyDB = require('../database/allergyDB.js');
-var medicationDB = require('../database/medicationDB.js');
 
 // this function renders login.ejs first now
 var getMain = function (req, res) {
@@ -19,16 +18,38 @@ var getSearchPatients = function (req, res) {
   res.render('patientSearch.ejs');
 }
 
-var getAnyPatientPage = function(req, res) {
+var getAnyPatientPage = function (req, res) {
   var id = decodeURI(req.params.id); // gets id from url
-   patientsDB.getPatientById(id, function(data, err) {
-    if(err) {
+  var age = 'undefined';
+
+  patientsDB.getPatientById(id, function (data, err) {
+
+    if (err) {
       console.log(err);
     } else {
-        // render the patientPage with the returned data
-        res.render('template.ejs', {data: data[0]}); 
-      }
-    });
+      // render the patientPage with the returned data
+
+      res.render('template.ejs', { data: data[0], age });
+    }
+  });
+}
+
+
+var getWccForm = function (req, res) {
+  console.log('here')
+  console.log(req.body)
+  var id = decodeURI(req.params.id); // gets id from url
+  var age = req.body.age;
+  console.log('age: ' + age);
+  patientsDB.getPatientById(id, function (data, err) {
+    if (err) {
+      console.log(err);
+    } else {
+      // render the patientPage with the returned data
+      console.log('here')
+      res.render('template.ejs', { data: data[0], age: req.body.age });
+    }
+  });
 }
 
 
@@ -57,18 +78,18 @@ var submitPatient = function (req, res) {
 
 //used to render the patient page depending on the url of the patient that was clicked
 //params: patient url with id embedded in url
-var getPatient = function(req, res) {
-    var id = decodeURI(req.params.id); // gets id from url
-    patientsDB.getPatientById(id, function(data, err) {
-      if(err) {
-        console.log(err);
-      } else {
-        // render the patientPage with the returned data
-        res.render('template.ejs', {data: data[0], url: 'patientPage'}); 
-      }
-    });
-  };
-  
+var getPatient = function (req, res) {
+  var id = decodeURI(req.params.id); // gets id from url
+  patientsDB.getPatientById(id, function (data, err) {
+    if (err) {
+      console.log(err);
+    } else {
+      // render the patientPage with the returned data
+      res.render('template.ejs', { data: data[0], url: 'patientPage' });
+    }
+  });
+};
+
 // this function finds all the patients starting with the input
 // it will then return the data back in JSON format
 var getPatientKeys = function (req, res) {
@@ -209,7 +230,7 @@ var submitNewAllergy = function (req, res) {
 
 
 // this method handles the get_main request from app.js and reroutes it to the getMain function above
-var routes = { 
+var routes = {
   get_any_patient_page: getAnyPatientPage,
   get_main: getMain,
   get_form: getForm,

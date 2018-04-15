@@ -1,0 +1,336 @@
+  <link rel="stylesheet" type="text/css" href="/files/css/wcc.css">
+
+  <div class = "content-container">
+  	<div class = "card summary">
+  		<h3 class="pageTitle"> Well Child Check Form </h3>
+  	</div>
+  </div>
+
+  <div class = "card box content-container">
+  	<div class = "header wccHeader underline ">
+  		<span id="wccTitle" class="heading"> 5 Year WCC </span>
+  		<span class="wccDateDue"> Date Due: 01/03/2015 </span>
+  	</div>
+  	<form id="wccForm" method="post">
+  		<div class="row">
+  			<div class="col-md-5">
+  				<div>
+  					<div class="title">Generals and vitals</div>
+            <div id="generals"></div>
+          </div>
+
+
+        </div>
+        <div class="col-md-7">
+          <div class="title"> Development Milestones</div>
+          <div class = "milestones row">
+           <div class="col">
+            <div id="development"></div>
+
+          </div>
+          <div class="col">
+            <div class="row">
+             <div class=""> Development Comments </div>
+             <textarea type="text" name="milestonesComment" rows="3" cols="24"></textarea>
+           </div>
+           <div class="row border1 milestonesResult">
+             <div> Result: </div>
+             <div class="col">
+              <label class="ckbxContainer"> Normal
+               <input type="radio" name="milestonesResult" value="normal">
+               <span class="checkmark"></span>
+             </label>
+             <label class="ckbxContainer"> Abnormal
+               <input type="radio" name="milestonesResult" value="abnormal">
+               <span class="checkmark"></span>
+             </label>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>
+
+ <div class="row">
+   <div class="col-md-5">
+    <div class="title">Interval History</div>
+    <div class="row box">
+     <div class="box interval">
+      <div class="formLine">
+       <label>Diet: </label>
+       <span><input type="text" name="diet"></span>
+     </div>
+     <div class="formLine">
+       <label>Illness:</label>
+       <span><input type="text" name="illness"></span>
+     </div>
+     <div class="formLine">
+       <label>BP:</label>
+       <span><input type="text" name="BP"></span>
+     </div>
+     <div class="formLine">
+       <label>Problems:</label>
+       <span><input type="text" name="problems"></span>
+     </div>
+     <div class="formLine">
+       <label>Immun. reaction:</label>
+       <span><input type="text" name="immunRxn"></span>
+     </div>
+     <div class="formLine">
+       <label>Caretaker reactions:</label>
+       <span><input type="text" name="caretakerRxn"></span>
+     </div>
+
+   </div>
+
+ </div>
+</div>
+
+<div class="col-md-7 ">
+  <div id="visionUrine"> </div>
+</div>
+
+</div>
+
+
+<div class="">
+ <div class="title">Physical Examination</div>
+
+ <table class="w3-table-all">
+
+  <thead>
+   <tr class="w3-light-grey">
+    <th class=physExType> </th>
+    <th class="physExRadio">N</th>
+    <th class="physExRadio">AB</th>
+    <th>Abnormalities / Comments</th>
+    <th class=physExType> </th>
+    <th class="physExRadio">N</th>
+    <th class="physExRadio">AB</th>
+    <th>Abnormalities / Comments</th>
+  </tr>
+</thead>
+<tbody id="physExTableBody">
+ <tr>
+  <td>General Apearance</td>
+  <td><input type="radio" name="appearance"></td>
+  <td><input type="radio" name="appearance"></td>
+  <td><input type="text" name="appearanceComm" ></td>	
+
+  <td>Chest / Lungs</td>
+  <td><input type="radio" name="chest"></td>
+  <td><input type="radio" name="chest"></td>
+  <td><input type="text" name="chestComm" ></td>	
+</tr>
+<tr>
+  <td>Nutrition</td>
+  <td><input type="radio" name="nutrition"></td>
+  <td><input type="radio" name="nutrition"></td>
+  <td><input type="text" name="nutrititionComm" ></td>	
+  <td>Heart</td>
+  <td><input type="radio" name="heart"></td>
+  <td><input type="radio" name="heart"></td>
+  <td><input type="text" name="heartComm" ></td>	
+</tr>
+<tr>
+  <td>Skin</td>
+  <td><input type="radio" name="skin"></td>
+  <td><input type="radio" name="skin"></td>
+  <td><input type="text" name="skinComm" ></td>	
+  <td>Abdomen</td>
+  <td><input type="radio" name="ab"></td>
+  <td><input type="radio" name="ab"></td>
+  <td><input type="text" name="abComm" ></td>	
+</tr>
+<tr>
+  <td>Head, Neck, and Nodes</td>
+  <td><input type="radio" name="hnn"></td>
+  <td><input type="radio" name="hnn"></td>
+  <td><input type="text" name="hnnComm" ></td>	
+  <td>External Genitalia</td>
+  <td><input type="radio" name="genit"></td>
+  <td><input type="radio" name="genit"></td>
+  <td><input type="text" name="genitComm" ></td>	
+</tr>
+<tr>
+  <td>Eyes / Eq Reflex</td>
+  <td><input type="radio" name="eyes"></td>
+  <td><input type="radio" name="eyes"></td>
+  <td><input type="text" name="eyesComm" ></td>	
+  <td>Back</td>
+  <td><input type="radio" name="back"></td>
+  <td><input type="radio" name="back"></td>
+  <td><input type="text" name="backComm" ></td>	
+</tr>
+<tr>
+  <td>ENT / Hearing</td>
+  <td><input type="radio" name="ent"></td>
+  <td><input type="radio" name="ent"></td>
+  <td><input type="text" name="entComm" ></td>	
+  <td>Extremities / Hips</td>
+  <td><input type="radio" name="hips"></td>
+  <td><input type="radio" name="hips"></td>
+  <td><input type="text" name="hipsComm" ></td>	
+</tr>
+<tr>
+  <td>Mouth / Dental</td>
+  <td><input type="radio" name="mouth"></td>
+  <td><input type="radio" name="mouth"></td>
+  <td><input type="text" name="mouthComm" ></td>	
+  <td>Femoral Pulses</td>
+  <td><input type="radio" name="femPulse"></td>
+  <td><input type="radio" name="femPulse"></td>
+  <td><input type="text" name="femPulseComm" ></td>	
+</tr>
+<tr>
+  <td>Neurological</td>
+  <td><input type="radio" name="neuro"></td>
+  <td><input type="radio" name="neuro"></td>
+  <td><input type="text" name="neuroComm" ></td>	
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+
+
+</tbody>
+</table>
+
+</div>
+<div class="row">
+	<div class="col-md-4">
+   <div class="title"> Plan </div>
+   <div class="row box">
+     <div class="box plan">
+      <label class="ckbxContainer"> Refer to OT
+       <input type="checkbox" name="plan" value="referToOT">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Start antibiotics
+       <input type="checkbox" name="plan" value="antibiotics">
+       <span class="checkmark"></span>
+     </label>
+     <textarea type="text" name="planComment" rows="4" cols="25"></textarea>
+   </div>
+ </div>
+</div>
+<div class=" col-md-8">
+ <div class="row wccSubmission">
+  <div class="col-md-7">
+   <div class="row">
+    <div class="title"> Exam Date </div>
+    <input type="text" name="wccDate" class="datepicker form-control" >
+    <div class=" title"> Provider Signature 
+     <input class="inputUnderline" type="text">
+   </div>
+ </div>
+</div>
+<div class="col-md-3">
+ <div class="title"> WCC Result </div>
+ <div class="col">
+  <label class="ckbxContainer"> Normal
+   <input type="radio" name="wccResult" value="normal">
+   <span class="checkmark"></span>
+ </label>
+ <label class="ckbxContainer"> Abnormal
+   <input type="radio" name="wccResult" value="abnormal">
+   <span class="checkmark"></span>
+ </label>
+</div>
+
+</div>
+<div class="col-md-2">
+ <div class="submitLocation">
+  <input type="submit" name="Submit" class="wccSubmit">
+</div>
+</div>
+</div>
+</div> 
+</div>
+</form>
+</div>
+
+
+
+
+</div>
+
+<script type="text/javascript">
+  console.log('age in form content: '+ age);
+  var age = age.split(" ");
+
+  console.log(age[1])
+  if (age[1] == 'y') {
+    console.log(age[0]);
+    if (age[0] > 2) {
+      $('#visionUrine').load('/files/html/wcc/visionUrine.html')
+    }
+    if (age[0] > 3) {
+      console.log('greater than 3 age 0, years')
+      var content = "generalsOver3Yrs";
+    // head circ -> BP
+  } else {
+    // head circ and HCT BP
+    var content = "generals2Yrs";
+  }
+} else {
+  console.log(age[1]);
+  if (age[0] > 5) {
+    console.log('greater than ten age 0')
+    var content = "generals7to23Months";
+  } else {
+    console.log('age 0 less than 10')
+    var content = "generalsLessThan6Months";
+  }
+
+} 
+
+$('#generals').load('/files/html/wcc/general/'+content+'.html')
+loadDevelopment();
+
+
+function loadDevelopment() {
+
+  var devContentm1 = [["1 to 2 Months"],["Vocalizes", "Smiles Responsively", "Kicks", "Lifts Head 45 degrees", "Follows Past Midline"]];
+  var devContentm3 = [["3 to 4 Months"],["Prone lifts head 90 degrees", "Laughts/Squeals", "Follows to 180 degrees", "Head steady sitting", "Grasps rattle", "Rolls over one way"]];
+  var devContentm5 = [["5 to 6 Months"],["Pulled to sit - no head lag", "Reaches for object", "Smiles spontaneously", "Rolls over both ways", "Sits briefly alone", "Gums objects", "Babbles", "Turns to sound"]];
+  var devContentm7 = [["7 to 9 Months"],["Sits without support", "Feeds self cracker", "Transfers objects from one hand to another", "Turns to voice", "Bangs objects", "Creeps and crawls"]];
+  var devContentm10 = [["10 to 12 Months"],["Stands momentarily", "Walks holding furniture", "Bangs objects", '"Mama", "DaDa" (now specific)', "Thumb-finger grasp", "Holds cup to drink", "Looks for falling object", 'Waves bye-bye, Understands "No"']];
+  var devContentm13 = [["13 to 15 Months"],["Stands alone", "Walks", "Builds two cube tower", "Indicates wants/Pulls, points", "Cup - little spillage", "Stoops to recover toy", "3-word vocabulary"]];
+  var devContentm16 = [["16 to 23 Months"],["Mimics household chores", "Walks well - climbs", "4-10 word vocabulary", "Scribbles"]];
+  var devContenty2 = [["2 Years"],["Kicks ball", "Points to body parts", "Simple household tasks", "Walks up and down stairs", "Handles spoon well", "Plays hide and seek", "Runs well", "Follows simples directions"]];
+  var devContenty3 = [["3 Years"],["Knows name, age, sex", "Short sentences, speech understood by family, plurals", "Helps dress self/ Washes hands", "Climbs stairs, alternating feet", "Knows one color"]];
+  var devContenty4 = [["4 to 5 Years"],["Buttons up (4.2 yr)", "Copies square (4.4 yr)", "Recognizes 3 colors", "Throws ball", "Hops on 1 foot (4.9 yr)", "Draws man", "Follows 3 commands", "Fully potty trained", "Speech understandable"]];
+  var devContenty6 = [["6 to 8 Years"], ["School progress", "Grade", "Names 3 animals", "Sports", "Peer relationships", "Hobbies", "Rides bicycle"]];
+  var devContenty9 = [["9 to 12 Years"], ["School progress", "Grade", "Sports", "Peer relationship", "Hobbies"]];
+
+
+  var development = {m1: devContentm1, m3: devContentm3, m5: devContentm5, m7: devContentm7, m10: devContentm10, m13: devContentm13, m16: devContentm16, y2: devContenty2, y3: devContenty3, y4: devContenty4, y6: devContenty6, y9: devContenty9};
+  var match = age[1]+age[0]
+  var keys = Object.keys(development);
+  for (var i = 0; i < keys.length; i++) {
+    if (keys[i] == match) { 
+      var title = development[keys[i]][0];
+      $("#wccTitle").text(title);
+
+      var devContent = development[keys[i]][1];
+      var developmentHTML = "";
+      for (var j = 0; j < devContent.length; j++) {
+        developmentHTML +=  '<label class="ckbxContainer">' + devContent[j] +
+        '<input type="checkbox" name="milestones" value="' + devContent[j].split(" ")[0] + '">' +
+        '<span class="checkmark"></span></label>'
+      }  
+      $("#development").append(developmentHTML);   
+      console.log(development[keys[i]])
+    }
+  }
+}
+</script>
+
+
+
+
+
+
+

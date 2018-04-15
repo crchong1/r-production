@@ -51,7 +51,7 @@ body {
   background: #24345E;
   color: white;
   padding-right: 0px !important;
-
+  height: 100vh;
 }
 .basicInfo {
   padding-left: 30px;
@@ -76,31 +76,6 @@ body {
 
 }
 
-.subLink {
-  list-style-type: none;
-  margin-left: -20px;
-  display: none;
-}
-.subLink li > a {
-  font-weight: 100;
-  color: #ffffffde !important;
-  font-size: 0.95em;
-}
-
-.subLinkBtn {
- background:none!important;
- color: #ffffffde !important;
- border:none; 
- padding:0!important;
- font-size: 0.95em;
- cursor: pointer;
-}
-.subLinkBtn:hover {
-    text-decoration:underline;
-}
-.subLinkBtn:focus {
-  outline: none;
-}
 
 .top-nav {
   font-size: 20px;
@@ -226,7 +201,7 @@ SPAN.td {
 
 
 .more {
-  display:none;
+    display:none;
 }
 .showMore {
   float: right;
@@ -239,13 +214,13 @@ SPAN.td {
 form > span > input {
   border-width: 2px !important;
   padding-left: 5px;
-  border-color: #aaa;
+    border-color: #aaa;
 }
 form > span > select {
   border-width: 2px;
   padding-left: 5px;
   padding-right: 5px;
-  border-color: #aaa;
+    border-color: #aaa;
 }
 
 input[type="text"] {
@@ -270,12 +245,12 @@ input[type="text"] {
 
 
 .form-control{
-  width: 500px !important;
+    width: 500px !important;
 }
 .input-group-addon{
-  width:100px;
-  background-color:#24345E;
-  color: white;
+    width:100px;
+    background-color:#24345E;
+    color: white;
 }
 
 

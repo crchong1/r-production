@@ -2,26 +2,20 @@
 <html>
 <head>
   <title>Patient Page</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-  integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-  crossorigin="anonymous"></script>
+  
+    <script src="/files/js/jquery-3.3.1.js"></script>
+   <script src="/files/js/popper.min.js"></script>
   <script type="text/javascript" src="/files/js/stickyfillmin.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
+   <script src="/files/js/datepicker.js"></script>
 
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Nunito"/>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="/files/bootstrap-4/css/bootstrap.css" />
+  <link rel="stylesheet" type="text/css" href="/files/css/w3.css">
+
   <link rel="stylesheet" type="text/css" href="/files/css/contentTable.css">
   <link rel="stylesheet" type="text/css" href="/files/css/contentGeneral.css">
   <link rel="stylesheet" type="text/css" href="/files/css/template.css">
 
-
-
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css" rel="stylesheet" type="text/css" />
 </head>
 <body> 
   <h2 style="display:none;" id="url"></h2>
@@ -52,7 +46,7 @@
                 </ul>
                 <li><a href="/patientPage/<%=data.id%>/immunization">Immunization Record</a></li>
                 <li><a href="/patientPage/<%=data.id%>/allergies">Allergies</a></li>
-                <li><a href="/patientPage/<%=data.id%>/wellChildCheck">Well Child Check Page</a></li>
+                <li><a href="/patientPage/<%=data.id%>/wellChildCheck">Well Child Check</a></li>
                 <ul class="subLink">
                   <li> <button class="subLinkBtn"> Upcoming </button> </li>
                   <li> <button class="subLinkBtn"> Past </button> </li>
@@ -103,72 +97,39 @@
               </div>
             </div>
 
-            <div id="containers">
-              <div id="patientPageContainer"></div>
-              <div id="historyContainer"></div>
-              <div id="problemListContainer"></div>
-              <div id="medicationsContainer"></div>
-              <div id="immunizationContainer"></div>
-              <div id="allergiesContainer"></div>
-              <div id="wellChildCheckContainer"></div>
-              <div id="wccFormContainer"></div>
-              <div id="wccPageContainer"></div>
-              <div id="testingContainer"></div>
-              <div id="growthChartsContainer"></div>
-              <div id="nurseNotesContainer"></div>
-              <div id="vitalSignsContainer"></div>
-              <div id="symptomAnalysisContainer"></div>
-              <div id="systemAssessmentsContainer"></div>
-              <div id="miscellaneousContainer"></div>
-              <div id="scansContainer"></div>
-              <div id="wellChildCheckContainer"></div>
+            <div id="container">
 
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</body>
+  </body>
+  <script type="text/javascript" src="/files/js/pageScript.js"></script>
 
-<script type="text/javascript">
+  <script type="text/javascript">
 
-  var patientId = <%=data.id%>;
-  console.log(patientId);
+    var patientId = <%=data.id%>;
+    console.log(patientId);
+var age =  <%- JSON.stringify(age) %>;
+       console.log('age in template: ' + age)
 
+    $('document').ready(function() {
 
-  $('document').ready(function() {
     // Getting specific page from URL
     var url = window.location.href;
     var index = url.lastIndexOf('/')
     var subUrl = url.slice(index+1, url.length)
     console.log(subUrl)
+
     // Loading page content
-    if (subUrl == patientId) {
-      subUrl = 'patientPage'
-    } else if (url.indexOf('wellChildCheck') >= 0 ) {
-      var css = "/files/css/wcc.css";
-     $.getScript(css);
-      if (subUrl == 'form') {
-        subUrl = 'wccForm';
-      } else if (subUrl == 'page')
-      subUrl = 'wccPage'
-    }
-    $('#'+subUrl+'Container').attr('class','loaded')
-    $('#'+subUrl+'Container').load('/files/html/'+subUrl+'Content.html')
+    loadPage(url, subUrl);
+    
+  // Make sidebar sticky
+  var elements = document.querySelectorAll('.sticky');
+  Stickyfill.add(elements);
 
 
-    if (url.indexOf('nurseNotes') >= 0 ) {
-     var script = "/files/js/nurseNotesScript.js";
-     $.getScript(script);
-     var css = "/files/css/nurseNotes.css";
-     $.getScript(css);
-     console.log('here')
-   } else {
-    var script = "/files/js/pageScript.js";
-    $.getScript(script);
-    console.log(url)
-  }
 
     // Updating sidebar date of birth and age
     var DOB = $("#dob").html(); 
@@ -191,6 +152,51 @@
     });
 
   });
+
+    // loads the html content, css, and javascript of the specific page
+    // url: full url
+    // subUrl: text after the last "/" in URL
+    function loadPage(url, subUrl) {
+      var data = "";
+     if (subUrl == patientId) {
+      subUrl = 'patientPage';
+      // if well child check, go to wcc folder
+    } else if (url.indexOf('wellChildCheck') >= 0 ) {
+      var css = "/files/css/wcc.css";
+      $.getScript(css);
+      if (subUrl == 'form') {
+        subUrl = 'wccForm';
+        data = age;
+
+      } else if (subUrl == 'formBaby') {
+        subUrl = 'wccFormBaby';
+      } else if (subUrl == 'page') {
+        subUrl = 'wccPage';
+      }
+      subUrl = "wcc/" + subUrl;
+   //  console.log('getting script wcc')
+    //   var script = "/files/js/wccScript.js";
+  //   $.getScript(script);
+      // if nurse notes, go to nurseNotes folder
+    } else if (url.indexOf('nurseNotes') >= 0 ) {
+     var script = "/files/js/nurseNotesScript.js";
+     $.getScript(script);
+     var css = "/files/css/nurseNotes.css";
+     $.getScript(css);
+     subUrl = "nurseNotes/" + subUrl;
+  } 
+    
+   $('#container').attr('class','loaded')
+   $('#container').load('/files/html/'+subUrl+'Content.html', data)
+   var script = "/files/js/pageScript.js";
+   // $.getScript(script);
+    console.log(url)
+   
+     var script = "/files/js/wccScript.js";
+     $.getScript(script);
+     console.log('getting wccScript')
+}
+
 
   // bolds the current link in the sidebar
   function updateSidebarLink(url) {
@@ -275,122 +281,5 @@ function getAge(fromdate, todate){
                   return age.join('');
                 }
 
-/*
-  $('document').ready(function() {
-    console.log("document.ready ajax call: ");
-      // // ajax call to render the original table, where we post to getAllWeights
-      // // we return a JSON in which we call updateTable with 
-      $.ajax({
-       type: "POST",
-       url: "/getAllChronic",
-       data : {
-         id: patientId
-       },
-       success: function(data) {
-         console.log(data);
-         if(data.data.length != 0){
-          updateTableChronic(data.data[0].chronicEntries);
-        }
-      }
-    });
-      $.ajax({
-       type: "POST",
-       url: "/getAllAcute",
-       data : {
-         id: patientId
-       },
-       success: function(data) {
-         console.log(data);
-         if(data.data.length != 0){
-          updateTableAcute(data.data[0].acuteEntries);
-        }
-      }
-    });
-      // ajax call that on submit will send the new chronic problem values to the database
-      $('#chronicSubmit').click(function(e) {
-        e.preventDefault();
-        var input = $("#chronicForm").serializeArray();
-
-        console.log("got here: ");
-        console.log(input);
-        $.ajax({
-          type: "POST",
-          url: "/chronicProblem",
-          data : {
-            id: patientId, 
-            chronicDiagnosis: input[0].value,
-            chronicDetails: input[1].value, 
-            chronicTreatment: input[2].value,
-            chronicDateOnset: input[3].value,  
-            chronicEndDate: input[4].value,  
-          },
-          success: function(data) {
-            console.log("New chronic data: ");
-            console.log(data);
-            updateTableChronic(data.data[0].chronicEntries);
-            $('#chronicForm')[0].reset();
-            $('#chronicForm').hide();
-            $('#chronicForm').parent().find('button').show();
-          }
-        });
-      });
-      $('#acuteSubmit').click(function(e) {
-        e.preventDefault();
-        var input = $("#acuteForm").serializeArray();
-        console.log("got here: ");
-        console.log(input);
-        $.ajax({
-          type: "POST",
-          url: "/acuteProblem",
-          data : {
-            id: patientId, 
-            acuteDiagnosis: input[0].value,
-            acuteDetails: input[1].value, 
-            acuteTreatment: input[2].value,
-            acuteDateOnset: input[3].value,  
-            acuteEndDate: input[4].value,  
-          },
-          success: function(data) {
-            console.log("New chronic data: ");
-            console.log(data);
-            updateTableAcute(data.data[0].acuteEntries);
-            $('#acuteForm')[0].reset();
-            $('#acuteForm').hide();
-            $('#acuteForm').parent().find('button').show();
-          }
-        });
-      });
-    });
-
-  // function that takes in JSON with two fields: height and date and renders the table as such
-  var updateTableChronic = function(data) {
-   console.log(data);
-   var table1 = '';
-   for(var i = 0; i < data.length; i++) {
-     var line = '<tr><td>' +  data[i].chronicDiagnosis + '</td>';
-     line += '<td>' + data[i].chronicDetails + '</td>';
-     line += '<td>' + data[i].chronicTreatment + '</td>';
-     line += '<td>' + data[i].chronicDateOnset + '</td>';
-     line += '<td>' + data[i].chronicEndDate + '</td>';
-     line += '<td><button class="editBtn btn">Edit</button></td></tr>';
-     table1 += line;
-   }
-   document.getElementById('chronicTableBody').innerHTML = table1;
- };
- var updateTableAcute = function(data) {
-   console.log(data);
-   var table1 = '';
-   for(var i = 0; i < data.length; i++) {
-     var line = '<tr><td>' +  data[i].acuteDiagnosis + '</td>';
-     line += '<td>' + data[i].acuteDetails + '</td>';
-     line += '<td>' + data[i].acuteTreatment + '</td>';
-     line += '<td>' + data[i].acuteDateOnset + '</td>';
-     line += '<td>' + data[i].acuteEndDate + '</td>';
-     line += '<td><button class="editBtn btn">Edit</button></td></tr>';
-     table1 += line;
-   }
-   document.getElementById('acuteTableBody').innerHTML = table1;
- };
- */
 </script>
 </html>

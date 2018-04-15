@@ -36,7 +36,10 @@ app.get('/patientPage/:id/immunization', routes.get_any_patient_page);
 app.get('/patientPage/:id/testing', routes.get_any_patient_page);
 app.get('/patientPage/:id/growthCharts', routes.get_any_patient_page);
 app.get('/patientPage/:id/wellChildCheck', routes.get_any_patient_page);
-app.get('/patientPage/:id/wellChildCheck/form', routes.get_any_patient_page);
+app.get('/patientPage/:id/wellChildCheck/form', routes.get_wcc_form);
+app.post('/patientPage/:id/wellChildCheck/form', routes.get_wcc_form);
+app.get('/patientPage/:id/wellChildCheck/formBaby', routes.get_any_patient_page);
+
 app.get('/patientPage/:id/wellChildCheck/page', routes.get_any_patient_page);
 app.get('/patientPage/:id/nurseNotes', routes.get_any_patient_page);
 app.get('/patientPage/:id/nurseNotes/vitalSigns', routes.get_any_patient_page);
