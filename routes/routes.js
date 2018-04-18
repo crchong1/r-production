@@ -18,8 +18,6 @@ var getSearchPatients = function (req, res) {
   res.render('patientSearch.ejs');
 }
 
-<<<<<<< HEAD
-=======
 var getPharmacy = function(req, res) {
 	res.render('pharmacy.ejs');
 }
@@ -27,7 +25,6 @@ var getDispensary = function(req, res){
 	res.render('dispensary.ejs');
 }
 
->>>>>>> e81b08ff875b634ca1de8884cb05e9ef844452ed
 var getAnyPatientPage = function (req, res) {
   var id = decodeURI(req.params.id); // gets id from url
   var age = 'undefined';
@@ -279,11 +276,8 @@ var routes = {
   get_wcc_form: getWccForm,
   get_weight_page: getWeightPage,
   get_patient_page: getPatient,
-<<<<<<< HEAD
-=======
   get_pharmacy_page: getPharmacy,
-	get_dispenary: getDispensary,
->>>>>>> e81b08ff875b634ca1de8884cb05e9ef844452ed
+  get_dispenary: getDispensary,
   submit_patient: submitPatient,
   get_patient_keys: getPatientKeys,
   get_patient_search: getSearchPatients,
