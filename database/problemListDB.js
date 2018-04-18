@@ -35,13 +35,10 @@ var problemListSchema = mongoose.Schema({
         chronicEndDate: {
             type: String,
             required: true,
-<<<<<<< HEAD
         },
         chronicNotes: {
             type: String,
             required: true,
-=======
->>>>>>> e81b08ff875b634ca1de8884cb05e9ef844452ed
         }
     }],
     acuteEntries: [{
@@ -64,13 +61,10 @@ var problemListSchema = mongoose.Schema({
         acuteEndDate: {
             type: String,
             required: true,
-<<<<<<< HEAD
         },
         acuteNotes: {
             type: String,
             required: true,
-=======
->>>>>>> e81b08ff875b634ca1de8884cb05e9ef844452ed
         }
     }]
 });
@@ -78,11 +72,7 @@ var problemListSchema = mongoose.Schema({
 var ProblemList = problemList.model('ProblemList', problemListSchema);
 
 var putNewChronic = function (id, chronicDiagnosis, chronicDetails,
-<<<<<<< HEAD
     chronicTreatment, chronicDateOnset, chronicEndDate, chronicNotes, route_callback) {
-=======
-    chronicTreatment, chronicDateOnset, chronicEndDate, route_callback) {
->>>>>>> e81b08ff875b634ca1de8884cb05e9ef844452ed
     console.log("putNewChronic called in problemListDB")
     // what is unique about the data is now that it is all stored in an array
     newJSON = [{
@@ -90,12 +80,8 @@ var putNewChronic = function (id, chronicDiagnosis, chronicDetails,
         chronicDetails: chronicDetails,
         chronicTreatment: chronicTreatment,
         chronicDateOnset: chronicDateOnset,
-<<<<<<< HEAD
         chronicEndDate: chronicEndDate,
         chronicNotes: chronicNotes
-=======
-        chronicEndDate: chronicEndDate
->>>>>>> e81b08ff875b634ca1de8884cb05e9ef844452ed
     }];
     var newChronic = new ProblemList({
         id: id,
@@ -119,11 +105,7 @@ var putNewChronic = function (id, chronicDiagnosis, chronicDetails,
 
 // this function updates the data
 var putChronicEntry = function (id, chronicDiagnosis, chronicDetails,
-<<<<<<< HEAD
     chronicTreatment, chronicDateOnset, chronicEndDate, chronicNotes, route_callback) {
-=======
-    chronicTreatment, chronicDateOnset, chronicEndDate, route_callback) {
->>>>>>> e81b08ff875b634ca1de8884cb05e9ef844452ed
     console.log("putChronicEntry called in problemListDB")
     // create a new JSON object to put into the table
     newJSON = {
@@ -131,12 +113,8 @@ var putChronicEntry = function (id, chronicDiagnosis, chronicDetails,
         chronicDetails: chronicDetails,
         chronicTreatment: chronicTreatment,
         chronicDateOnset: chronicDateOnset,
-<<<<<<< HEAD
         chronicEndDate: chronicEndDate,
         chronicNotes: chronicNotes
-=======
-        chronicEndDate: chronicEndDate
->>>>>>> e81b08ff875b634ca1de8884cb05e9ef844452ed
     };
     ProblemList.findOneAndUpdate(
         { id: id }, //find a document with id
@@ -179,11 +157,7 @@ var getAllChronic = function (id, route_callback) {
 
 // this function edits an existing entry in the data 
 var editChronic = function (id, chronicDiagnosis, chronicDetails,
-<<<<<<< HEAD
     chronicTreatment, chronicDateOnset, chronicEndDate, chronicNotes, preEditData, route_callback) {
-=======
-    chronicTreatment, chronicDateOnset, chronicEndDate, preEditData, route_callback) {
->>>>>>> e81b08ff875b634ca1de8884cb05e9ef844452ed
     console.log("editChronic called in problemListDB");
     console.log("preEditData chronicDiagnosis in editChronic in problemListDB: " + preEditData.chronicDiagnosis);
     ProblemList.findOneAndUpdate(
@@ -193,12 +167,8 @@ var editChronic = function (id, chronicDiagnosis, chronicDetails,
             'chronicEntries.chronicDetails': preEditData.details,
             'chronicEntries.chronicTreatment': preEditData.treatment,
             'chronicEntries.chronicDateOnset': preEditData.dateOnset,
-<<<<<<< HEAD
             'chronicEntries.chronicEndDate': preEditData.endDate,
             'chronicEntries.chronicNotes': preEditData.notes
-=======
-            'chronicEntries.chronicEndDate': preEditData.endDate
->>>>>>> e81b08ff875b634ca1de8884cb05e9ef844452ed
         }, //find a document with the pre-edit data 
         {
             $set: {
@@ -206,12 +176,8 @@ var editChronic = function (id, chronicDiagnosis, chronicDetails,
                 'chronicEntries.$.chronicDetails': chronicDetails,
                 'chronicEntries.$.chronicTreatment': chronicTreatment,
                 'chronicEntries.$.chronicDateOnset': chronicDateOnset,
-<<<<<<< HEAD
                 'chronicEntries.$.chronicEndDate': chronicEndDate,
                 'chronicEntries.$.chronicNotes': chronicNotes
-=======
-                'chronicEntries.$.chronicEndDate': chronicEndDate
->>>>>>> e81b08ff875b634ca1de8884cb05e9ef844452ed
             }
         },
         function (err, doc) { //callback
@@ -239,11 +205,6 @@ var editChronic = function (id, chronicDiagnosis, chronicDetails,
 // this function deletes an existing entry 
 var deleteChronic = function (id, preEditData, route_callback) {
     console.log("deleteChronic called in problemListDB");
-<<<<<<< HEAD
-    console.log("preEditData chronicDiagnosis in deleteChronic in problemListDB: " + preEditData.diagnosis);
-=======
-    console.log("preEditData chronicDiagnosis in deleteChronic in problemListDB: " + preEditData.chronicDiagnosis);
->>>>>>> e81b08ff875b634ca1de8884cb05e9ef844452ed
     ProblemList.findOneAndUpdate(
         {},
         {
@@ -253,12 +214,8 @@ var deleteChronic = function (id, preEditData, route_callback) {
                     chronicDetails: preEditData.details,
                     chronicTreatment: preEditData.treatment,
                     chronicDateOnset: preEditData.dateOnset,
-<<<<<<< HEAD
                     chronicEndDate: preEditData.endDate,
                     chronicNotes: preEditData.notes
-=======
-                    chronicEndDate: preEditData.endDate
->>>>>>> e81b08ff875b634ca1de8884cb05e9ef844452ed
                 }
             }
         },
@@ -285,23 +242,15 @@ var deleteChronic = function (id, preEditData, route_callback) {
 };
 
 var putNewAcute = function (id, acuteDiagnosis, acuteDetails,
-<<<<<<< HEAD
     acuteTreatment, acuteDateOnset, acuteEndDate, acuteNotes, route_callback) {
-=======
-    acuteTreatment, acuteDateOnset, acuteEndDate, route_callback) {
->>>>>>> e81b08ff875b634ca1de8884cb05e9ef844452ed
     // what is unique about the data is now that it is all stored in an array
     newJSON = [{
         acuteDiagnosis: acuteDiagnosis,
         acuteDetails: acuteDetails,
         acuteTreatment: acuteTreatment,
         acuteDateOnset: acuteDateOnset,
-<<<<<<< HEAD
         acuteEndDate: acuteEndDate,
         acuteNotes: acuteNotes
-=======
-        acuteEndDate: acuteEndDate
->>>>>>> e81b08ff875b634ca1de8884cb05e9ef844452ed
     }];
     var newAcute = new ProblemList({
         id: id,
@@ -325,23 +274,15 @@ var putNewAcute = function (id, acuteDiagnosis, acuteDetails,
 
 // this function updates the data
 var putAcuteEntry = function (id, acuteDiagnosis, acuteDetails,
-<<<<<<< HEAD
     acuteTreatment, acuteDateOnset, acuteEndDate, acuteNotes, route_callback) {
-=======
-    acuteTreatment, acuteDateOnset, acuteEndDate, route_callback) {
->>>>>>> e81b08ff875b634ca1de8884cb05e9ef844452ed
     // create a new JSON object to put into the table
     newJSON = {
         acuteDiagnosis: acuteDiagnosis,
         acuteDetails: acuteDetails,
         acuteTreatment: acuteTreatment,
         acuteDateOnset: acuteDateOnset,
-<<<<<<< HEAD
         acuteEndDate: acuteEndDate,
         acuteNotes: acuteNotes
-=======
-        acuteEndDate: acuteEndDate
->>>>>>> e81b08ff875b634ca1de8884cb05e9ef844452ed
     };
     ProblemList.findOneAndUpdate(
         { id: id }, //find a document with id
@@ -383,11 +324,7 @@ var getAllAcute = function (id, route_callback) {
 
 // this function edits an existing entry in the data 
 var editAcute = function (id, acuteDiagnosis, acuteDetails,
-<<<<<<< HEAD
     acuteTreatment, acuteDateOnset, acuteEndDate, acuteNotes, preEditData, route_callback) {
-=======
-    acuteTreatment, acuteDateOnset, acuteEndDate, preEditData, route_callback) {
->>>>>>> e81b08ff875b634ca1de8884cb05e9ef844452ed
     console.log("editAcute called in problemListDB");
     console.log("preEditData acuteDiagnosis in editAcute in problemListDB: " + preEditData.acuteDiagnosis);
     ProblemList.findOneAndUpdate(
@@ -397,12 +334,8 @@ var editAcute = function (id, acuteDiagnosis, acuteDetails,
             'acuteEntries.acuteDetails': preEditData.details,
             'acuteEntries.acuteTreatment': preEditData.treatment,
             'acuteEntries.acuteDateOnset': preEditData.dateOnset,
-<<<<<<< HEAD
             'acuteEntries.acuteEndDate': preEditData.endDate,
             'acuteEntries.acuteNotes': preEditData.notes
-=======
-            'acuteEntries.acuteEndDate': preEditData.endDate
->>>>>>> e81b08ff875b634ca1de8884cb05e9ef844452ed
         }, //find a document with the pre-edit data 
         {
             $set: {
@@ -410,12 +343,8 @@ var editAcute = function (id, acuteDiagnosis, acuteDetails,
                 'acuteEntries.$.acuteDetails': acuteDetails,
                 'acuteEntries.$.acuteTreatment': acuteTreatment,
                 'acuteEntries.$.acuteDateOnset': acuteDateOnset,
-<<<<<<< HEAD
                 'acuteEntries.$.acuteEndDate': acuteEndDate,
                 'acuteEntries.$.acuteNotes': acuteNotes
-=======
-                'acuteEntries.$.acuteEndDate': acuteEndDate
->>>>>>> e81b08ff875b634ca1de8884cb05e9ef844452ed
             }
         },
         function (err, doc) { //callback
@@ -453,12 +382,8 @@ var deleteAcute = function (id, preEditData, route_callback) {
                     acuteDetails: preEditData.details,
                     acuteTreatment: preEditData.treatment,
                     acuteDateOnset: preEditData.dateOnset,
-<<<<<<< HEAD
                     acuteEndDate: preEditData.endDate,
                     acuteNotes: preEditData.notes
-=======
-                    acuteEndDate: preEditData.endDate
->>>>>>> e81b08ff875b634ca1de8884cb05e9ef844452ed
                 }
             }
         },
