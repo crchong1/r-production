@@ -4,6 +4,7 @@ var immRecord = mongoose.createConnection('mongodb://127.0.0.1/immRecord');
 
 immRecord.on('error', console.error.bind(console, 'connection error:'));
 immRecord.once('open', function () {
+    console.log('immRecordDB started');
 });
 
 
@@ -33,21 +34,26 @@ var immRecordSchema = mongoose.Schema({
         dateCompleted: {
             type: Date,
             required: true,
-        }
+        },
+        notes: {
+            type: String,
+            required: true
+        },
     }],
 });
 
-var ImmRecord = immRecordSchema.model('Immunization Record', immRecordSchema);
+var ImmRecord = immRecord.model('Immunization Record', immRecordSchema);
 
 var putNewRecord = function (id, age, immunization,
-    lot, dueDate, dateCompleted, route_callback) {
+    lot, dueDate, dateCompleted, notes, route_callback) {
     // what is unique about the data is now that it is all stored in an array
     newJSON = [{
         age: age,
         immunization: immunization,
         lot: lot,
         dueDate: dueDate,
-        dateCompleted: dateCompleted
+        dateCompleted: dateCompleted,
+        notes: notes,
     }];
     var newRecord = new ImmRecord({
         id: id,
@@ -71,14 +77,15 @@ var putNewRecord = function (id, age, immunization,
 
 // this function updates the data
 var putRecordEntry = function (id, age, immunization,
-    lot, dueDate, dateCompleted, route_callback) {
+    lot, dueDate, dateCompleted, notes, route_callback) {
     // create a new JSON object to put into the table
     newJSON = {
         age: age,
         immunization: immunization,
         lot: lot,
         dueDate: dueDate,
-        dateCompleted: dateCompleted
+        dateCompleted: dateCompleted,
+        notes: notes
     };
     ImmRecord.findOneAndUpdate(
         { id: id }, //find a document with id
@@ -107,20 +114,24 @@ var putRecordEntry = function (id, age, immunization,
 };
 
 var getAllRecords = function (id, route_callback) {
-    // console.log("getting all weights");
+    console.log("!!!getting all immune records");
+    console.log(id);
     ImmRecord.find({ id: id }, function (err, res) {
         if (err) {
+            console.log("get all records failed in DB");
             route_callback(null, "Patient's chronic problem list not found" + err);
         }
         else {
+            console.log("get all records SUCCESS in DB");
             route_callback(res, null);
         }
     });
 };
 
+
 // this function edits an existing entry in the data 
 var editRecord = function (id, age, immunization,
-    lot, dueDate, dateCompleted, preEditData, route_callback) {
+    lot, dueDate, dateCompleted, notes, preEditData, route_callback) {
     console.log("editChronic called in problemListDB");
     console.log("preEditData chronicDiagnosis in editChronic in problemListDB: " + preEditData.chronicDiagnosis);
     ImmRecord.findOneAndUpdate(
@@ -130,7 +141,8 @@ var editRecord = function (id, age, immunization,
             'record.immunization': preEditData.immunization,
             'record.lot': preEditData.lot,
             'record.dueDate': preEditData.dueDate,
-            'record.dateCompleted': preEditData.dateCompleted
+            'record.dateCompleted': preEditData.dateCompleted,
+            'record.notes': preEditData.notes,
         }, //find a document with the pre-edit data 
         {
             $set: {
@@ -138,7 +150,8 @@ var editRecord = function (id, age, immunization,
                 'record.$.immunization': immunization,
                 'record.$.lot': lot,
                 'record.$.dueDate': dueDate,
-                'record.$.dateCompleted': dateCompleted
+                'record.$.dateCompleted': dateCompleted,
+                'record.$.notes': notes
             }
         },
         function (err, doc) { //callback
@@ -154,6 +167,7 @@ var editRecord = function (id, age, immunization,
                         console.log(err);
                     }
                     else {
+                        console.log("edit route callback!!");
                         console.log('problemListDB editChronic response: ' + res);
                         route_callback(res, null);
                     }
@@ -170,11 +184,12 @@ var deleteImmRecord = function (id, preEditData, route_callback) {
         {
             $pull: {
                 record: {
-                    age: age,
+                    age: preEditData.age,
                     immunization: preEditData.immunization,
                     lot: preEditData.lot,
                     dueDate: preEditData.dueDate,
-                    dateCompleted: preEditData.dateCompleted
+                    dateCompleted: preEditData.dateCompleted,
+                    notes: preEditData.notes
                 }
             }
         },
@@ -191,7 +206,7 @@ var deleteImmRecord = function (id, preEditData, route_callback) {
                         console.log(err);
                     }
                     else {
-                        console.log('imm record deleteChronic response: ' + res);
+                        console.log('imm delete SUCCESS in db' + res);
                         route_callback(res, null);
                     }
                 });
@@ -205,7 +220,7 @@ var immRecordDB = {
     putNewRecord: putNewRecord,
     getAllRecords: getAllRecords,
     editRecord: editRecord,
-    deleteRecord: deleteImmRecord,
+    deleteImmRecord: deleteImmRecord,
 };
 
 module.exports = immRecordDB;

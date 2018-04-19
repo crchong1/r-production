@@ -1,0 +1,28 @@
+table {
+    table-layout: fixed;
+}
+
+th.age, th.lot, th.notes {
+	width: 170px;
+}
+
+th.dueDate, th.dateCompleted {
+	width: 138px;
+}
+
+th.immunization {
+	width: 240px;
+}
+
+.form-control {
+	padding: 0rem 0.25rem !important;
+	margin-right: 30px;
+}
+
+input.age, input.lot, textarea.notes {
+	width: 145px;
+}
+
+input.immunization {
+	width: 215px;
+}

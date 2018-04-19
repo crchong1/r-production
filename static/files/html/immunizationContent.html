@@ -1,56 +1,269 @@
   <script type="text/javascript" src="/files/js/pageScript.js"></script>
+  <link rel="stylesheet" type="text/css" href="/files/css/immunization.css">  
 
-<div class = "content-container">
+  <div class = "content-container">
     <div class = "card summary">
       <h3 class="pageTitle"> Immunization Record </h3>
     </div>
   </div>
 
+  <div id="immunizations" class="box card section">
+    <table class="w3-table-all">
+      <div class="subTitle">
+        Required Immunizations 
+      </div>
+      <thead>
+        <tr class="w3-light-grey">
+          <th class="age">Age</th>
+          <th class="immunization">Immunization</th>
+          <th class="lot">Lot #</th>
+          <th class="dueDate">Due Date</th>
+          <th class="dateCompleted">Date Completed</th>
+          <th class="notes">Notes</th>
+          <th class="edit">Edit</th>
+        </tr>
+      </thead>
+      <tbody id="immRecordTableBody" >
+      </tbody>
+    </table>
+    <form id="immunizationForm" class="tr addForm">
+     <span class="td"><input class="age" type="text" name="age" placeholder="Age"></span>
+     <span class="td"><input class="immunization" type="text" name="immunization" placeholder="Immunization"></span>
+     <span class="td"><input class="lot" type="text" name="lot" placeholder="Lot #"></span>
+     <span class="td"><input class="dueDate datepicker form-control" type="text" name="dueDate"></span>
+     <span class="td"><input class="dateCompleted datepicker form-control" type="text" name="dateCompleted"></span>
+     <span class="td"><textarea class="notes" name="notes" placeholder="Enter text here..."/></span> 
+     <input type="submit" value="Submit" id="immunizationSubmit" name="immunizationSubmit" class="btn btn-primary formSubmit">
+     <input type="button" value="Cancel" name="cancel" class="btn btn-danger formSubmit cancel">
+   </form>
+   <div>                               
+     <button id="addImmunization" class="add"> + </button>
+   </div>
+ </div>
 
-
-  	<div id="immunizations" class="box card section">
-  		<table class="w3-table-all">
-  			<div class="subTitle">
-  				Immunizations 
-  			</div>
-  			<thead>
-  				<tr class="w3-light-grey">
-  					<th>Age</th>
-  					<th>Immunization</th>
-  					<th>Lot #</th>
-  					<th>Due Date</th>
-  					<th>Date Completed</th>
-  					<th class="edit">Edit</th>
-  				</tr>
-  			</thead>
-  			<tbody id="immunizationTableBody" >
-  				<tr>
-  					<td> 6 weeks</td>
-  					<td>TB Vaccine</td>
-  					<td>7JEH4</td>
-  					<td>10/6/2013</td>
-  					<td>1/4/2015</td>
-  					<td><button class="editBtn btn">Edit</button></td>
-  				</tr>
-  			</tbody>
-
-  		</table>
-
-  		<form id="immunizationForm" class="tr addForm" method="post" >
-  			<span class="td"><input type="text" name="immunizationAge" placeholder="Age"></span>
-  			<span class="td"><input type="text" name="immunization" placeholder="Immunization"></span>
-  			<span class="td"><input type="text" name="immunizationLotNum" placeholder="Lot #"></span>
-  			<span class="td"><input type="text" name="immunizationDueDate" class="datepicker form-control" ></span>
-  			<span class="td"><input type="text" name="immunizationCompleted" class="datepicker form-control" ></span>
-  			<input type="submit" value="Submit" name="immunizationSubmit" class="formSubmit">
-  			<input type="button" value="Cancel" name="cancel" class="formSubmit cancel">
-  		</form>
-  		<div>                               
-  			<button id="addImmunization" class="add"> + </button>
-  		</div>
-  	</div>
-
-
-
-  </div>
+ <div id="additionalImmunizations" class="box card section">
+  <table class="w3-table-all">
+    <div class="subTitle">
+      Additional Immunizations 
+    </div>
+    <thead>
+      <tr class="w3-light-grey">
+        <th class="age">Age</th>
+        <th class="immunization">Immunization</th>
+        <th class="lot">Lot #</th>
+        <th class="dueDate">Due Date</th>
+        <th class="dateCompleted">Date Completed</th>
+        <th class="notes">Notes</th>
+        <th class="edit">Edit</th>
+      </tr>
+    </thead>
+    <tbody id="immRecordTableBody" >
+    </tbody>
+  </table>
+  <form id="additionalImmunizationsForm" class="tr addForm">
+   <span class="td"><input class="age" type="text" name="age" placeholder="Age"></span>
+   <span class="td"><input class="immunization" type="text" name="immunization" placeholder="Immunization"></span>
+   <span class="td"><input class="lot" type="text" name="lot" placeholder="Lot #"></span>
+   <span class="td"><input class="dueDate datepicker form-control" type="text" name="dueDate"></span>
+   <span class="td"><input class="dateCompleted datepicker form-control" type="text" name="dateCompleted"></span>
+   <span class="td"><textarea class="notes" name="notes" placeholder="Enter text here..."/></span> 
+   <input type="submit" value="Submit" id="immunizationSubmit" name="immunizationSubmit" class="btn btn-primary formSubmit">
+   <input type="button" value="Cancel" name="cancel" class="btn btn-danger formSubmit cancel">
+ </form>
+ <div>                               
+   <button id="addImmunization" class="add"> + </button>
+ </div>
 </div>
+
+
+<script type="text/javascript">
+  $('document').ready(function () {
+    console.log("\n\ndocument.ready ajax call: ");
+// // we return a JSON in which we call updateTable with 
+
+// get all immunizations
+$.ajax({
+  type: "POST",
+  url: "/getAllImmRecords",
+  data : {
+    id: patientId
+  },
+  success: function(data) {
+    console.log("get all records success");
+    console.log(data);
+    if(data.data.length != 0){
+      updateTableImmune(data.data[0].record);
+    }
+  }
+});
+
+  // ajax call that on submit will send the new immunization values to the database
+  $('#immunizationSubmit').click(function(e) {
+    console.log("submit");
+    e.preventDefault();
+    var input = $("#immunizationForm").serializeArray();
+    console.log("input: ");
+    console.log(input);
+    $.ajax({
+      type: "POST",
+      url: "/submitImmRecord",
+      data: {
+        id: patientId, 
+        age: input[0].value,
+        immunization: input[1].value, 
+        lot: input[2].value,
+        dueDate: input[3].value,  
+        dateCompleted: input[4].value, 
+        notes: input[5].value, 
+      },
+      success: function(data) {
+        console.log("submit success");
+        console.log(data);
+        updateTableImmune(data.data[0].record);
+      }
+    });
+  });
+});  
+
+
+
+//This function saves preEditData when the edit button is clicked 
+var preEditData;
+$('.section').on('click', '.editBtn', function (event) {
+  console.log("edit button clicked");
+  event.preventDefault();
+  // find and hide the edit button
+  var edits = $(this).closest('.section').find('.editBtn');
+  index = ($(edits).index(this));
+  console.log("index: " + index);
+  $('.editBtn').hide();
+
+  var row = $(this).parent().parent();
+  $(this).parent().parent().attr('id', 'editingRow');
+  setCss(this);
+  console.log("row");
+  console.log(row);
+  row.hide();
+    //  editEntry(row);
+    editEntryGeneric(row);
+
+    var data = [];
+    var table = document.getElementById("editingRow");
+    var cells = table.getElementsByTagName("td");
+    console.log(cells);
+    for (var i = 0; i < cells.length; i++) {
+      data.push(cells[i].innerHTML);
+    }
+    console.log(data[0]);
+    preEditData = {
+      age: data[0],
+      immunization: data[1], 
+      lot: data[2],
+      dueDate: data[3],  
+      dateCompleted: data[4], 
+      notes: data[5], 
+    }
+    console.log("PRE ENTRY DATA");
+    console.log("preEditData when editBtn is clicked: " + preEditData);
+    console.log("preEditData age: " + preEditData.age);
+    console.log("preEditData lot: " + preEditData.immunization);
+    console.log("preEditData immunization: " + preEditData.lot);
+    console.log("preEditData dueDate: " + preEditData.dueDate);
+    console.log("preEditData dateCompleted: " + preEditData.dateCompleted);
+    console.log("preEditData : " + preEditData.notes);
+  });
+
+// Edit existing entry
+$('#immunizations').on('submit', '.editForm', function (event) {
+  event.preventDefault();
+  //'this' is editForm (targetted form)
+  var input = $(this).serializeArray();
+  console.log("edit immune record");
+  console.log(input);
+  $.ajax({
+    type: 'POST',
+    url: '/editImmRecord',
+    data: {
+      id: patientId, 
+      age: input[0].value,
+      immunization: input[1].value, 
+      lot: input[2].value,
+      dueDate: input[3].value,  
+      dateCompleted: input[4].value, 
+      notes: input[5].value, 
+      preEditData: preEditData,
+    },
+    success: function (result) {
+      console.log("EDIT SUCESS HTML");
+      //console.log(result);
+      var form = '#' + result.data.form;
+      var hiddenRow = $(form).prev();
+      hiddenRow.remove();
+
+      // console.log(result.data.type)
+      // $(form).hide();
+      $('.editBtn').show();
+      $('#editForm').remove();
+      console.log("data: ");
+      console.log(result.data);
+      updateTableImmune(result.data[0].record);
+
+    },
+    error: function (XMLHttpRequest, textStatus, errorThrown) {
+      console.log("EDIT ERROR");
+      console.error("error: " + errorThrown);
+    }
+  });
+});
+
+// Delete existing entry
+$('#immunizations').on('click', '.delete', function (event) {
+  var form = '#' + $(this).closest('.section').find('form').attr('id');
+  $(form).remove();
+  alert('Are you sure you want to delete this entry?')
+  $('#editingRow').remove();
+  $('.editBtn').show();
+  //'this' is editForm (targetted form)
+  $.ajax({
+    type: 'POST',
+    url: '/deleteImmRecord',
+    data: {
+      preEditData: preEditData,
+    },
+    success: function (result) {
+      console.log("DELETE SUCCESS HTML");
+      console.log(result);
+    },
+    error: function (XMLHttpRequest, textStatus, errorThrown) {
+      console.log("DELETE FAIL HTML");
+      console.error("error: " + errorThrown);
+    }
+  });
+});
+
+// function that takes in JSON and updates table with new info
+var updateTableImmune = function(data) {
+  var table1 = '';
+  for(var i = 0; i < data.length; i++) {
+    // format dates
+    var dueDate = data[i].dueDate;
+    var T = dueDate.indexOf("T");
+    dueDate = dueDate.substring(0, T);
+    var dateCompleted = data[i].dateCompleted;
+    T = dateCompleted.indexOf("T");
+    dateCompleted = dateCompleted.substring(0, T);
+    var line = '<tr><td>' +  data[i].age + '</td>';
+    line += '<td>' + data[i].immunization + '</td>';
+    line += '<td>' + data[i].lot + '</td>';
+    line += '<td>' + dueDate + '</td>';
+    line += '<td>' + dateCompleted + '</td>';
+    line += '<td>' + data[i].notes + '</td>';
+    line += '<td><button class="editBtn btn">Edit</button></td></tr>';
+    table1 += line;
+  }
+  document.getElementById('immRecordTableBody').innerHTML = table1;
+};
+
+</script>
+
+

@@ -2,6 +2,7 @@ var patientsDB = require('../database/patientsDB.js');
 var weightDB = require('../database/weightDB.js');
 var problemListDB = require('../database/problemListDB.js');
 var allergyDB = require('../database/allergyDB.js');
+var immRecordDB = require('../database/immRecordDB.js');
 
 // this function renders login.ejs first now
 var getMain = function (req, res) {
@@ -72,6 +73,7 @@ var submitPatient = function (req, res) {
       console.log("error")
     }
     else if (data) {
+      console.log("send")
       res.send({
         message: '',
         patient: data

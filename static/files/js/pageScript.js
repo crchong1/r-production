@@ -1,7 +1,9 @@
 
 $(document).ready(function () {
-	$('#header').load('/files/html/header.html');
 
+	//console.log("ready");
+
+	$('#header').load('/files/html/header.html');
 
 	$(function () {
 		$('.datepicker').datepicker({
@@ -14,17 +16,13 @@ $(document).ready(function () {
 	var elements = document.querySelectorAll('.sticky');
 	Stickyfill.add(elements);
 
-
 	// Show and hide buttons and forms on click
 	$('.addForm').hide();
 	$('.editForm').hide();
 	$('.add').on('click', function () {
 		$(this).closest('.section').find('.addForm').show();
-
 		$(this).hide();
 		setCss(this);
-
-
 	});
 
 	//  var index;
@@ -164,7 +162,7 @@ var updateTable = function (data, type) {
 	$(table).append(tableData);
 }
 
-
+// "thiss" is not a typo
 var setCss = function (thiss) {
 	var form = $(thiss).closest('.section').find('form');
 	var formElms = $(form).children('span')

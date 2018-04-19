@@ -14,6 +14,7 @@ var routes = require('./routes/routes.js');
 var problemListRoutes = require('./routes/problemListRoutes.js');
 var medicationRoutes = require('./routes/medicationRoutes.js');
 var historyRoutes = require('./routes/historyRoutes.js');
+var immRecordRoutes = require('./routes/immRecordRoutes.js');
 var scans = require('./routes/scans.js');
 
 
@@ -57,6 +58,13 @@ app.post('/addTest', routes.submit_test);
 app.post('/form', routes.submit_patient);
 app.post('/getPatientKeys', routes.get_patient_keys);
 
+
+//immunization page
+app.post('/getAllImmRecords', immRecordRoutes.get_all_immune_records);
+app.post('/submitImmRecord', immRecordRoutes.submit_immunization);
+app.post('/editImmRecord', immRecordRoutes.edit_immunization);
+app.post('/deleteImmRecord', immRecordRoutes.delete_immunization);
+
 //problem list page
 app.post('/getAllChronic', problemListRoutes.get_all_chronic);
 app.post('/chronicProblem', problemListRoutes.submit_chronic);
@@ -88,6 +96,7 @@ app.post('/getAllLivingHistory', historyRoutes.get_all_living_history);
 app.post('/submitLiving', historyRoutes.submit_living);
 app.post('/updateSocialHistory', historyRoutes.update_social_history);
 app.post('/updateBackground', historyRoutes.update_background);
+
 
 /* Run the server */
 console.log('Author: Connor Chong (conchong)');
