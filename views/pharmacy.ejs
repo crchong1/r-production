@@ -103,7 +103,7 @@
                 <tbody id="allergyMedicineTableBody"></tbody>
                 <th></th>
               </table>
-              <form id="pharmacyForm" class="tr addForm collapse">
+                            <form id="pharmacyForm" class="tr addForm collapse">
                 <span class="td">
                   <input type="text" name="genericName" placeholder="Generic Drug Name">
                 </span>
@@ -845,58 +845,65 @@
 
   $('document').ready(function () {
     console.log("document.ready ajax call: ");
-    // // ajax call to render the original table, where we post to getAllAllergy
+    // // ajax call to render the original table, where we post to getAllPharmacy
     // // we return a JSON in which we call updateTable with
     $.ajax({
       type: "POST",
-      url: "/getAllAllergy",
+      url: "/getAllPharmacy",
       data: {
         id: patientId
       },
       success: function (data) {
         console.log(data);
         if (data.data.length != 0) {
-          updateTableAllergy(data.data[0].entries);
+          updateTablePharmacy(data.data[0].entries);
         }
       }
     });
     // ajax call that on submit will send the new allergy values to the database
-    $('#allergySubmit').click(function (e) {
+    $('#pharmacySubmit').click(function (e) {
       e.preventDefault();
-      var input = $("#allergyForm").serializeArray();
+      var input = $("#pharmacyForm").serializeArray();
       $.ajax({
         type: "POST",
         url: "/allergy",
         data: {
           id: patientId,
-          allergen: input[0].value,
-          allergySymptoms: input[1].value,
-          allergySeverity: input[2].value,
-          allergyDateOnset: input[3].value,
-          allergyNotes: input[4].value,
+          section: input[0].value,
+          genericName: input[1].value,
+          proprietaryName: input[2].value,
+          drugClass: input[3].value,
+          type: input[4].value,
+          description: input[5].value,
+          manufactureDate: input[6].value,
+          expirationDate: input[7].value,
+          lotNumber: input[8].value,
+          concentration: input[9].value,
+          amountPerUnit: input[10].value,
+          unitsRemaining: input[11].value
         },
         success: function (data) {
           console.log("New allergy data: ");
           console.log(data);
-          updateTableAllergy(data.data[0].entries);
-          $('#allergyForm')[0].reset();
-          $('#allergyForm').hide();
-          $('#allergyForm').parent().find('button').show();
+          updateTablePharmacy(data.data[0].entries);
+          $('#pharmacyForm')[0].reset();
+          $('#pharmacyForm').hide();
+          $('#pharmacyForm').parent().find('button').show();
         }
       });
     });
   });
 
   // function that takes in JSON with two fields: height and date and renders the table as such
-  var updateTableAllergy = function (data) {
+  var updateTablePharmacy = function (data) {
     console.log(data);
     var table1 = '';
     for (var i = 0; i < data.length; i++) {
-      var line = '<tr><td>' + data[i].allergen + '</td>';
-      line += '<td>' + data[i].allergySymptoms + '</td>';
-      line += '<td>' + data[i].allergySeverity + '</td>';
-      line += '<td>' + data[i].allergyDateOnset + '</td>';
-      line += '<td>' + data[i].allergyNotes + '</td>';
+      var line = '<tr><td>' + data[i].section + '</td>';
+      line += '<td>' + data[i].genericName + '</td>';
+      line += '<td>' + data[i].proprietaryName + '</td>';
+      line += '<td>' + data[i].drugClass + '</td>';
+      line += '<td>' + data[i].type + '</td>';
       line += '<td><button class="editBtn btn">Edit</button></td></tr>';
       table1 += line;
     }

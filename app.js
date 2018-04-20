@@ -95,6 +95,12 @@ app.post('/submitLiving', historyRoutes.submit_living);
 app.post('/updateSocialHistory', historyRoutes.update_social_history);
 app.post('/updateBackground', historyRoutes.update_background);
 
+//Pharmacy page
+app.post('/getAllPharmacy', routes.get_all_pharmacy);
+app.post('/pharmacy', routes.submit_pharmacy);
+app.post('/editPharmacy', routes.edit_pharmacy);
+app.post('/deletePharmacy', routes.delete_pharmacy);
+
 /* Run the server */
 console.log('Author: Connor Chong (conchong)');
 app.listen(8080);
