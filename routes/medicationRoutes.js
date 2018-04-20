@@ -1,3 +1,4 @@
+var medicationDB = require('../database/medicationDB.js');
 
 //functions for chronic Med problems
 var getAllChronicMed = function (req, res) {
@@ -123,5 +124,4 @@ var medicationRoutes = {
     get_all_acute_med: getAllAcuteMed,
     submit_acute_med: submitNewAcuteMed
   };
-  
   module.exports = medicationRoutes;

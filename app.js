@@ -7,10 +7,8 @@
 var express = require('express');
 var app = express();
 app.use(express.static('static'));
-
-var formidable = require('formidable');
-var fs = require('fs');
-var path = require('path');
+app.use(express.bodyParser());
+app.use(express.logger("default"));
 
 var routes = require('./routes/routes.js');
 var problemListRoutes = require('./routes/problemListRoutes.js');
@@ -78,8 +76,13 @@ app.post('/deleteAllergy', routes.delete_allergy);
 //medication page
 app.post('/getAllChronicMed', medicationRoutes.get_all_chronic_med);
 app.post('/chronicMed', medicationRoutes.submit_chronic_med);
+//app.post('/editChronicMed', medicationRoutes.edit_chronic_med);
+//app.post('/deleteChronicMed', medicationRoutes.delete_chronic_med);
+
 app.post('/getAllAcuteMed', medicationRoutes.get_all_acute_med);
 app.post('/acuteMed', medicationRoutes.submit_acute_med);
+//app.post('/editAcuteMed', medicationRoutes.edit_chronic_med);
+//app.post('/deleteAcuteMed', medicationRoutes.delete_chronic_med);
 
 //Patient History page
 app.post('/getAllFeedingHistory', historyRoutes.get_all_feeding_history);

@@ -268,6 +268,8 @@ crossorigin="anonymous"></script>
          var patients;
 
          $(document).ready(function(){
+          console.log("here");
+
             // Initial Page Load
             /*
             $.ajax({
@@ -298,6 +300,8 @@ crossorigin="anonymous"></script>
 
             // On Search
             $('#search').bind('input', function(){
+              console.log("here");
+              console.log($('#search').val());
               var searchstring = $('#search').val();
               $.ajax({
                 type: 'POST',
