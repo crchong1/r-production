@@ -53,11 +53,11 @@ var pharmacySchema = mongoose.Schema({
             required: true,
         },
         concentration: {
-            type: Number,
+            type: String,
             required: true,
         },
         amountPerUnit: {
-            type: Number,
+            type: String,
             required: true,
         },
         unitsRemaining: {
