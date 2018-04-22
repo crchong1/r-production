@@ -37,7 +37,7 @@ var immRecordSchema = mongoose.Schema({
         },
         notes: {
             type: String,
-            required: true
+            required: false,
         },
     }],
 });
@@ -131,18 +131,12 @@ var getAllRecords = function (id, route_callback) {
 
 // this function edits an existing entry in the data 
 var editRecord = function (id, age, immunization,
-    lot, dueDate, dateCompleted, notes, preEditData, route_callback) {
-    console.log("editChronic called in problemListDB");
-    console.log("preEditData chronicDiagnosis in editChronic in problemListDB: " + preEditData.chronicDiagnosis);
+    lot, dueDate, dateCompleted, notes, record_id, route_callback) {
+    console.log("editRecord called in problemListDB");
     ImmRecord.findOneAndUpdate(
         {
             id: id,
-            'record.age': preEditData.age,
-            'record.immunization': preEditData.immunization,
-            'record.lot': preEditData.lot,
-            'record.dueDate': preEditData.dueDate,
-            'record.dateCompleted': preEditData.dateCompleted,
-            'record.notes': preEditData.notes,
+            'record._id': record_id, 
         }, //find a document with the pre-edit data 
         {
             $set: {
@@ -178,41 +172,26 @@ var editRecord = function (id, age, immunization,
 };
 
 // this function deletes an existing entry 
-var deleteImmRecord = function (id, preEditData, route_callback) {
-    ImmRecord.findOneAndUpdate(
-        {},
+var deleteImmRecord = function (patient_id, record_id) {
+    console.log("deleteImmRecord in DB");
+    // console.log(id);
+        ImmRecord.findOneAndUpdate(
+        {id: patient_id},
         {
             $pull: {
                 record: {
-                    age: preEditData.age,
-                    immunization: preEditData.immunization,
-                    lot: preEditData.lot,
-                    dueDate: preEditData.dueDate,
-                    dateCompleted: preEditData.dateCompleted,
-                    notes: preEditData.notes
+                    _id: record_id
                 }
             }
         },
-        function (err, doc) { //callback
+        function (err, res) {
             if (err) {
-                console.log("error in finding and updating imm record for "
-                    + id);
-                console.log('error: ' + err);
-                route_callback(null, "error" + { error: err })
+                console.log(err);
             }
             else {
-                ImmRecord.find({ id: id }, function (err, res) {
-                    if (err) {
-                        console.log(err);
-                    }
-                    else {
-                        console.log('imm delete SUCCESS in db' + res);
-                        route_callback(res, null);
-                    }
-                });
+                console.log(res);
             }
-        }
-    )
+        });
 };
 
 var immRecordDB = {

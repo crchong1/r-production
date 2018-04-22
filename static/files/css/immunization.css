@@ -2,27 +2,42 @@ table {
     table-layout: fixed;
 }
 
-th.age, th.lot, th.notes {
+/* table headers */
+th.age {
+	width: 100px;
+}
+
+
+th.lot, th.notes {
 	width: 170px;
 }
 
 th.dueDate, th.dateCompleted {
-	width: 138px;
+	width: 180px;
 }
 
 th.immunization {
-	width: 240px;
+	width: 220px;
 }
 
+/* table inputs */
 .form-control {
 	padding: 0rem 0.25rem !important;
-	margin-right: 30px;
+	margin-right: 15px;
 }
 
-input.age, input.lot, textarea.notes {
-	width: 145px;
+input.age {
+	width: 90px;
+}
+
+input.lot, textarea.notes {
+	width: 160px;
+}
+
+input.dueDate, input.dateCompleted {
+	width: 170px !important; 
 }
 
 input.immunization {
-	width: 215px;
+	width: 210px;
 }

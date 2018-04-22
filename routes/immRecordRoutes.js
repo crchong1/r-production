@@ -63,7 +63,7 @@ var submitImmunization = function(req, res) {
     console.log("editImmunization called in routes");
     // this function takes in existing data and edits it
     immRecordDB.editRecord(req.body.id, req.body.age, req.body.immunization,
-      req.body.lot, req.body.dueDate, req.body.dateCompleted, req.body.notes, req.body.preEditData,
+      req.body.lot, req.body.dueDate, req.body.dateCompleted, req.body.notes, req.body.record_id,
       function (data, err) {
         if (err) {
           console.log("error in editImmunization route");
@@ -77,19 +77,21 @@ var submitImmunization = function(req, res) {
   };
 
   var deleteImmunization = function (req, res) {
-    console.log("deleteAcute called in routes");
+    console.log("deleteImmunization called in routes");
     // this function takes in existing data and updates it
-    immRecordDB.deleteImmRecord(req.body.id, req.body.preEditData,
-      function (data, err) {
-        if (err) {
-          console.log("error in deleteImmunization route");
-        }
-        else if (data) {
-          res.send({
-            data: data
-          });
-        }
-      });
+    console.log("id in routes delete: ");
+    // console.log(req.body.id);
+    immRecordDB.deleteImmRecord(req.body.patient_id, req.body.record_id);
+      // function (data, err) {
+      //   if (err) {
+      //     console.log("error in deleteImmunization route");
+      //   }
+      //   else if (data) {
+      //     res.send({
+      //       data: data
+      //     });
+      //   }
+      // });
   };
 
   var immRecordRoutes = {

@@ -48,11 +48,11 @@ $(document).ready(function () {
 	// Cancel edit and re-display entry
 	$('.section').on('click', '.cancelEdit', function (event) {
 		console.log('cancel edit')
+		var row = $(this).parent().prev();
 		var form = '#' + $(this).closest('.section').find('form').attr('id');
 		$(form).remove();
-		$('#editingRow').show();
+		$(row).show();
 		$('.editBtn').show();
-		$('#editingRow').removeAttr('id');
 	});
 
 	// Cancel new entry
@@ -63,89 +63,6 @@ $(document).ready(function () {
 		$(form).hide();
 		$(form).parent().find('button').show();
 	});
-
-	// // Handles deletion of entry
-	// $('.section').on('click', '.delete', function (event) {
-	// 	console.log('delete entry')
-	// 	var form = '#' + $(this).closest('.section').find('form').attr('id');
-	// 	$(form).remove();
-	// 	alert('Are you sure you want to delete this entry?')
-	// 	$('#editingRow').remove();
-	// 	$('.editBtn').show();
-	// });
-
-	/* Handles for submission for adding new entry
-	$('.section').on('submit', '.addForm', function(event) {
-		  event.preventDefault();
-		  console.log("on submit");
-		  var formData = $(this).serializeArray();
-		  var form = this.id;
-		  var type = form.substring(0, ((form.length)-4));
-
-		  $.ajax({
-			  type: 'POST',
-			  url: '/addTest',
-			  data: { 
-				  formData,
-				  form: form,
-				  type: type
-			  },
-
-			  success: function (result) {
-				  var form = '#' + result.data.form;
-				  $(form)[0].reset();
-				  $(form).hide();
-				  console.log('add form reset')
-				  $(form).parent().find('button').show();
-				  updateTable(result.data, result.data.type);
-			  },
-			  error: function(XMLHttpRequest, textStatus, errorThrown) {
-				  console.error("error: " + errorThrown);
-			  }
-		  });
-
-	});
-	*/
-	//    // Handles for submission for editing existing entry
-	//    $('.section').on('submit', '.editForm', function(event) {
-	//    	event.preventDefault();
-	//    	var formData = $(this).serializeArray();
-	//    	var form = this.id;
-	//    	var type = form.substring(0, ((form.length)-4));
-	//    	var edits = $(this).closest('.section').find('.editBtn');
-	//    	var editBtn = $('#editingRow').find('.editBtn');
-	//    	index = ($(edits).index(editBtn));
-	//    	console.log('index: ' + index);
-
-	//    	$.ajax({
-	//    		type: 'POST',
-	//    		url: '/addTest',
-	//    		data: { 
-	//    			formData,
-	//    			form: form,
-	//    			type: type
-	//    		},
-	//    		success: function (result) {
-	//    			console.log(result);
-	//    			var form = '#' + result.data.form;
-	//    			var hiddenRow = $(form).prev();
-	//    			hiddenRow.remove();
-
-	//    			console.log(result.data.type)
-	//    			// $(form).hide();
-	//    			$('.editBtn').show();
-	//    			$('#editForm').remove();
-
-	//    			updateTable(result.data, result.data.type);
-
-	//    		},
-	//    		error: function(XMLHttpRequest, textStatus, errorThrown) {
-	//    			console.error("error: " + errorThrown);
-	//    		}
-	//    	});
-
-	//    });
-
 });
 
 // Not right, need to update based on all data in the patient, not just append as most recent
@@ -178,13 +95,12 @@ var setCss = function (thiss) {
 var editEntryGeneric = function (row) {
 	// getting values from row
 	var data = [];
-	var table = document.getElementById("editingRow");
-	var cells = table.getElementsByTagName("td");
-	for (var i = 0; i < cells.length; i++) {
-		data.push(cells[i].innerHTML);
-	}
 
-	var form = $('#editingRow').closest('.section').find('form')[0].outerHTML;
+	$(row).children("td").each(function(index, td){
+		data.push($(td).html());
+	})
+
+	var form = $(row).closest('.section').find('form')[0].outerHTML;
 	$(row).after(form);
 	$(row).next().attr('id', 'editForm')
 	console.log($('#editForm'))
@@ -202,9 +118,9 @@ var editEntryGeneric = function (row) {
 			var itemName = items[i].name.toString();
 			var name = '[name="' + itemName + '"] option[value="' + match + '"]';
 			$(name).attr("selected", "selected")
-
-			// For radio boxes
-		} else if (items[i].type === 'radio') {
+		} 
+		// For radio boxes
+		else if (items[i].type === 'radio') {
 			var match = data[i].toString();
 			var name = '[value="' + match + '"]';
 			if (data[i] === 'Yes') {
@@ -212,13 +128,26 @@ var editEntryGeneric = function (row) {
 			} else {
 				$(name).prop('checked', true)
 			}
-			// For text boxes and date
-		} else {
+		} 
+		// date
+		else if (items[i].type == 'date') {
 			var name = '#editForm input[name=' + items[i].name;
 			var val = data[i];
-			$(name).attr('value', val)
-		}
 
+			//turns date string into html value readable value
+			$(name).val(new Date(val).toISOString().substr(0, 10));
+		}
+		// For text boxes 
+		else if (items[i].type == 'textarea') {
+			var name = '#editForm textarea[name=' + items[i].name;
+			var val = data[i];
+			$(name).val(val);
+		// for other inputs
+		}else {
+			var name = '#editForm input[name=' + items[i].name;
+			var val = data[i];
+			$(name).val(val);
+		}
 	}
 	// finalizing form appearance
 	$('#editForm').attr('class', 'tr editForm')
