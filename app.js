@@ -12,6 +12,7 @@ app.use(express.static('static'));
 
 var routes = require('./routes/routes.js');
 var problemListRoutes = require('./routes/problemListRoutes.js');
+var pharmacyRoutes = require('./routes/pharmacyRoutes.js');
 var medicationRoutes = require('./routes/medicationRoutes.js');
 var historyRoutes = require('./routes/historyRoutes.js');
 var scans = require('./routes/scans.js');
@@ -96,10 +97,10 @@ app.post('/updateSocialHistory', historyRoutes.update_social_history);
 app.post('/updateBackground', historyRoutes.update_background);
 
 //Pharmacy page
-app.post('/getAllPharmacy', routes.get_all_pharmacy);
-app.post('/pharmacy', routes.submit_pharmacy);
-app.post('/editPharmacy', routes.edit_pharmacy);
-app.post('/deletePharmacy', routes.delete_pharmacy);
+app.post('/getAllPharmacy', pharmacyRoutes.get_all_pharmacy);
+app.post('/pharmacy', pharmacyRoutes.submit_pharmacy);
+app.post('/editPharmacy', pharmacyRoutes.edit_pharmacy);
+app.post('/deletePharmacy', pharmacyRoutes.delete_pharmacy);
 
 /* Run the server */
 console.log('Author: Connor Chong (conchong)');
