@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <style>
-  .filter {
-    padding: 1rem;
-  }
-  .btn {
-    padding: .1em ;
-    font-size: .5rem;
-  }
 
   .sort {
     padding: 1rem;
@@ -107,8 +99,6 @@
   margin: 15px;
   padding: 10px !important;
  }
-
-
 </style>
 <title>Welcome!</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -123,12 +113,10 @@ crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 
 </head>
-<body style="background-color: #E1EBF2" > 
+<body style="background-color: #E1EBF2" >
   <div class="background">
-    <h1> Welcome to R+ </h1>
-<div class="row">
-<div class="card text-center col">
-  <div class="card-block">
+    <h1 id = "loginHeader"> R+ </h1>
+<div class="card text-center col" id = "loginCard">
     <h4 class="card-title">Childrens Campus</h4>
     <p class="card-text">Username: </p>
      <div class="input-group">
@@ -138,12 +126,12 @@ crossorigin="anonymous"></script>
              <div class="input-group">
         <input type="text" id="password" class="form-control" name="password" placeholder="Password...">
 </div>
-  <a href="/patientSearch" class="btn btn-primary loginBtn">Login to Children's Campus</a>
+  <a href="/patientSearch" class="btn btn-primary loginBtn">Enter</a>
     <!--
     <form action="/form" method="get">
                     <a class="btn btn-primary loginBtn" href="/form">Login to Childrens Campus</a>
             </form> -->
-  </div>
+
 </div>
 
 <div class="card text-center col">

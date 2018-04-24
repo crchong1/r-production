@@ -6,16 +6,18 @@
   <title>Patient Page</title>
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Nunito" />
   <link rel="stylesheet" href="/files/bootstrap-4/css/bootstrap.css" />
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Pacifico" />
-    <link rel="stylesheet" type="text/css" href="/files/css/views.css">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Pacifico" />
+  <link rel="stylesheet" type="text/css" href="/files/css/views.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css" rel="stylesheet" type="text/css"
+  />
 
   <script src="/files/js/jquery-3.3.1.js"></script>
   <script type="text/javascript" src="/files/js/pageScript.js"></script>
   <script src="/files/js/popper.min.js"></script>
   <script type="text/javascript" src="/static/files/js/stickyfillmin.js"></script>
   <script src="/files/bootstrap-4/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
 
 </head>
 
@@ -26,23 +28,23 @@
         <nav class="col-sm-2 sidebar">
           <div class="sidebar sticky ">
 
-        <div class = "list-group" id = "sideScroll">
-          <a class="list-group-item list-group-item-action" href="#list-allergy">Allergy Medication</a>
-            <a class="list-group-item list-group-item-action" href="#list-antiBiotics">Antibiotics</a>
-            <a class="list-group-item list-group-item-action" href="#list-antiEpileptics">Anti-Epileptics</a>
-            <a class="list-group-item list-group-item-action" href="#list-antiFungal">Antifungals</a>
-            <a class="list-group-item list-group-item-action" href="#list-antiVirals">Antivirals</a>
+            <div class="list-group" id="sideScroll">
+              <a class="list-group-item list-group-item-action" href="#list-allergy">Allergy Medication</a>
+              <a class="list-group-item list-group-item-action" href="#list-antiBiotics">Antibiotics</a>
+              <a class="list-group-item list-group-item-action" href="#list-antiEpileptics">Anti-Epileptics</a>
+              <a class="list-group-item list-group-item-action" href="#list-antiFungal">Antifungals</a>
+              <a class="list-group-item list-group-item-action" href="#list-antiVirals">Antivirals</a>
               <a class="list-group-item list-group-item-action" href="#list-asthmaBreathing">Asthma/Breathing Treatments</a>
               <a class="list-group-item list-group-item-action" href="#list-decogestants">Decongestants</a>
               <a class="list-group-item list-group-item-action" href="#list-steroids">Steroids</a>
               <a class="list-group-item list-group-item-action" href="#list-supplements">Supplements</a>
               <a class="list-group-item list-group-item-action" href="#list-other">Other</a>
 
+            </div>
+
+
+
           </div>
-
-
-
-        </div>
 
 
         </nav>
@@ -50,7 +52,7 @@
 
           <div class="card header">
             <div class="topRight">
-              <a> Welcome, "*User Name*"  | </a>
+              <a> Welcome, "*User Name*" | </a>
               <a href="/" class="btn btn-outline-success"> Logout </a>
             </div>
             <div>
@@ -73,7 +75,6 @@
               <h3 class="title"> Pharmacy </h3>
             </div>
 
-
             <div id="list-allergy" class="box card section">
               <table class="w3-table-all" id="medtable">
                 <div class="subTitle">
@@ -81,7 +82,156 @@
                 </div>
                 <thead>
                   <tr class="w3-light-grey">
-                    <th> Show More</th>
+                    <th>Generic Drug Name</th>
+                    <th>Proprietary Drug Name</th>
+                    <th>Drug Class</th>
+                    <th>Type of Drug</th>
+                    <th>Description</th>
+                    <th>Manufacture Date</th>
+                    <th>Expiration Date</th>
+                    <th>Lot Number </th>
+                    <th>Concentration</th>
+                    <th>Amount Per Unit</th>
+                    <th>Number of Units Remaining</th>
+                    <th>Total Amount Remaining</th>
+                    <td>
+                      <button id="editPharmacy" class=b tn-outline-primary> Edit </button>
+                    </td>
+                  </tr>
+
+                </thead>
+                <tbody id="allergyMedicineTableBody"></tbody>
+                <th></th>
+              </table>
+                            <form id="pharmacyForm" class="tr addForm collapse">
+                <span class="td">
+                  <input type="text" name="genericName" placeholder="Generic Drug Name">
+                </span>
+                <span class="td">
+                  <input type="text" name="proprietaryName" placeholder="Proprietary Drug Name">
+                </span>
+                <span class="td">
+                  <input type="text" name="drugClass" placeholder="Drug Class">
+                </span>
+                <span class="td">
+                  <input type="text" readonly name="type" placeholder="Type of Drug">
+                </span>
+                <span class="td">
+                  <input type="text" name="description" placeholder="Description">
+                </span>
+                <span class="td">
+                  <input type="text" readonly name="manufactureDate" class="datepicker form-control">
+                </span>
+                <span class="td">
+                  <input type="text" readonly name="expirationDate" class="datepicker form-control">
+                </span>
+                <span class="td">
+                  <input type="text" name="lotNumber" placeholder="Lot Number">
+                </span>
+                <span class="td">
+                  <input type="text" name="concentration" placeholder="Concentration">
+                </span>
+                <span class="td">
+                  <input type="text" name="amountPerUnit" placeholder="Amount Per Unit">
+                </span>
+                <span class="td">
+                  <input type="text" name="unitsRemaining" placeholder="Number of Units Remaining">
+                </span>
+
+                <input type="submit" value="Submit" id="pharmacySubmit" name="pharmacySubmit" class="btn btn-primary formSubmit">
+                <input type="button" value="Cancel" name="cancel" class="btn btn-danger formSubmit cancel" data-toggle="collapse" data-target="#pharmacyForm">
+
+              </form>
+              <div>
+                <button id="addPharmacy" class="add" data-toggle="collapse" data-target="#pharmacyForm" aria-expanded="false" aria-controls="collapseExample">
+                  + </button>
+              </div>
+            </div>
+
+
+            <div id="list-antiBiotics" class="box card section">
+              <table class="w3-table-all" id="medtable">
+                <div class="subTitle">
+                  Antibiotics
+                </div>
+                <thead>
+                  <tr class="w3-light-grey">
+
+                    <th>Generic Drug Name</th>
+                    <th>Proprietary Drug Name</th>
+                    <th>Drug Class</th>
+                    <th>Type of Drug</th>
+                    <th>Description</th>
+                    <th>Manufacture Date</th>
+                    <th>Expiration Date</th>
+                    <th>Lot Number </th>
+                    <th>Concentration</th>
+                    <th>Amount Per Unit</th>
+                    <th>Number of Units Remaining</th>
+                    <th>Total Amount Remaining</th>
+                    <td>
+                      <button id="editPharmacy" class=b tn-outline-primary> Edit </button>
+                    </td>
+                  </tr>
+
+                </thead>
+                <tbody id="antibioticsTableBody">
+                  <th></th>
+                </tbody>
+              </table>
+              <form id="pharmacyForm" class="tr addForm collapse">
+                <span class="td">
+                  <input type="text" name="genericName" placeholder="Generic Drug Name">
+                </span>
+                <span class="td">
+                  <input type="text" name="proprietaryName" placeholder="Proprietary Drug Name">
+                </span>
+                <span class="td">
+                  <input type="text" name="drugClass" placeholder="Drug Class">
+                </span>
+                <span class="td">
+                  <input type="text" readonly name="type" placeholder="Type of Drug">
+                </span>
+                <span class="td">
+                  <input type="text" name="description" placeholder="Description">
+                </span>
+                <span class="td">
+                  <input type="text" readonly name="manufactureDate" class="datepicker form-control">
+                </span>
+                <span class="td">
+                  <input type="text" readonly name="expirationDate" class="datepicker form-control">
+                </span>
+                <span class="td">
+                  <input type="text" name="lotNumber" placeholder="Lot Number">
+                </span>
+                <span class="td">
+                  <input type="text" name="concentration" placeholder="Concentration">
+                </span>
+                <span class="td">
+                  <input type="text" name="amountPerUnit" placeholder="Amount Per Unit">
+                </span>
+                <span class="td">
+                  <input type="text" name="unitsRemaining" placeholder="Number of Units Remaining">
+                </span>
+
+                <input type="submit" value="Submit" id="pharmacySubmit" name="pharmacySubmit" class="btn btn-primary formSubmit">
+                <input type="button" value="Cancel" name="cancel" class="btn btn-danger formSubmit cancel" data-toggle="collapse" data-target="#pharmacyForm">
+
+              </form>
+              <div>
+                <button id="addPharmacy" class="add" data-toggle="collapse" data-target="#pharmacyForm" aria-expanded="false" aria-controls="collapseExample">
+                  + </button>
+              </div>
+
+            </div>
+            <div id="list-antiEpileptics" class="box card section">
+              <table class="w3-table-all" id="medtable">
+                <div class="subTitle">
+                  Anti-Epileptics
+                </div>
+                <thead>
+                  <tr class="w3-light-grey">
+
                     <th>Generic Drug Name</th>
                     <th>Proprietary Drug Name</th>
                     <th>Drug Class</th>
@@ -95,344 +245,594 @@
                     <th>Number of Units Remaining</th>
                     <th>Total Amount Remaining</th>
 
-                    <td class="edit">Edit</td>
+                    <td>
+                      <button id="editPharmacy" class=b tn-outline-primary> Edit </button>
+                    </td>
                   </tr>
 
+                </thead>
+                <tbody id="antiEpilepticsTableBody">
+                  <th></th>
+                </tbody>
+              </table>
+              <form id="pharmacyForm" class="tr addForm collapse">
+                <span class="td">
+                  <input type="text" name="genericName" placeholder="Generic Drug Name">
+                </span>
+                <span class="td">
+                  <input type="text" name="proprietaryName" placeholder="Proprietary Drug Name">
+                </span>
+                <span class="td">
+                  <input type="text" name="drugClass" placeholder="Drug Class">
+                </span>
+                <span class="td">
+                  <input type="text" readonly name="type" placeholder="Type of Drug">
+                </span>
+                <span class="td">
+                  <input type="text" name="description" placeholder="Description">
+                </span>
+                <span class="td">
+                  <input type="text" readonly name="manufactureDate" class="datepicker form-control">
+                </span>
+                <span class="td">
+                  <input type="text" readonly name="expirationDate" class="datepicker form-control">
+                </span>
+                <span class="td">
+                  <input type="text" name="lotNumber" placeholder="Lot Number">
+                </span>
+                <span class="td">
+                  <input type="text" name="concentration" placeholder="Concentration">
+                </span>
+                <span class="td">
+                  <input type="text" name="amountPerUnit" placeholder="Amount Per Unit">
+                </span>
+                <span class="td">
+                  <input type="text" name="unitsRemaining" placeholder="Number of Units Remaining">
+                </span>
 
+                <input type="submit" value="Submit" id="pharmacySubmit" name="pharmacySubmit" class="btn btn-primary formSubmit">
+                <input type="button" value="Cancel" name="cancel" class="btn btn-danger formSubmit cancel" data-toggle="collapse" data-target="#pharmacyForm">
 
+              </form>
+              <div>
+                <button id="addPharmacy" class="add" data-toggle="collapse" data-target="#pharmacyForm" aria-expanded="false" aria-controls="collapseExample">
+                  + </button>
+              </div>
+
+            </div>
+            <div id="list-antiFungal" class="box card section">
+              <table class="w3-table-all" id="medtable">
+                <div class="subTitle">
+                  Antifungals
+                </div>
+                <thead>
+                  <tr class="w3-light-grey">
+
+                    <th>Generic Drug Name</th>
+                    <th>Proprietary Drug Name</th>
+                    <th>Drug Class</th>
+                    <th>Type of Drug</th>
+                    <th>Description</th>
+                    <th>Manufacture Date</th>
+                    <th>Expiration Date</th>
+                    <th>Lot Number </th>
+                    <th>Concentration</th>
+                    <th>Amount Per Unit</th>
+                    <th>Number of Units Remaining</th>
+                    <th>Total Amount Remaining</th>
+                    <td>
+                      <button id="editPharmacy" class=b tn-outline-primary> Edit </button>
+                    </td>
+                  </tr>
+                </thead>
+                <tbody id="antifungalTableBody">
+                  <th></th>
+                </tbody>
+              </table>
+              <form id="pharmacyForm" class="tr addForm collapse">
+                <span class="td">
+                  <input type="text" name="genericName" placeholder="Generic Drug Name">
+                </span>
+                <span class="td">
+                  <input type="text" name="proprietaryName" placeholder="Proprietary Drug Name">
+                </span>
+                <span class="td">
+                  <input type="text" name="drugClass" placeholder="Drug Class">
+                </span>
+                <span class="td">
+                  <input type="text" readonly name="type" placeholder="Type of Drug">
+                </span>
+                <span class="td">
+                  <input type="text" name="description" placeholder="Description">
+                </span>
+                <span class="td">
+                  <input type="text" readonly name="manufactureDate" class="datepicker form-control">
+                </span>
+                <span class="td">
+                  <input type="text" readonly name="expirationDate" class="datepicker form-control">
+                </span>
+                <span class="td">
+                  <input type="text" name="lotNumber" placeholder="Lot Number">
+                </span>
+                <span class="td">
+                  <input type="text" name="concentration" placeholder="Concentration">
+                </span>
+                <span class="td">
+                  <input type="text" name="amountPerUnit" placeholder="Amount Per Unit">
+                </span>
+                <span class="td">
+                  <input type="text" name="unitsRemaining" placeholder="Number of Units Remaining">
+                </span>
+
+                <input type="submit" value="Submit" id="pharmacySubmit" name="pharmacySubmit" class="btn btn-primary formSubmit">
+                <input type="button" value="Cancel" name="cancel" class="btn btn-danger formSubmit cancel" data-toggle="collapse" data-target="#pharmacyForm">
+
+              </form>
+              <div>
+                <button id="addPharmacy" class="add" data-toggle="collapse" data-target="#pharmacyForm" aria-expanded="false" aria-controls="collapseExample">
+                  + </button>
+              </div>
+
+            </div>
+            <div id="list-antiVirals" class="box card section">
+              <table class="w3-table-all" id="medtable">
+                <div class="subTitle">
+                  Antivirals
+                </div>
+                <thead>
+                  <tr class="w3-light-grey">
+
+                    <th>Generic Drug Name</th>
+                    <th>Proprietary Drug Name</th>
+                    <th>Drug Class</th>
+                    <th>Type of Drug</th>
+                    <th>Description</th>
+                    <th>Manufacture Date</th>
+                    <th>Expiration Date</th>
+                    <th>Lot Number </th>
+                    <th>Concentration</th>
+                    <th>Amount Per Unit</th>
+                    <th>Number of Units Remaining</th>
+                    <th>Total Amount Remaining</th>
+
+                    <td>
+                      <button id="editPharmacy" class=b tn-outline-primary> Edit </button>
+                    </td>
+                  </tr>
 
                 </thead>
-                <tbody id="allergyMedicineTableBody">
-                  <tr>
-                
-                  <th>Cetirizine</th>
-                  <th>Allecet</th>
-                  <th>Piperazine</th>
-                  <th>Syrup</th>
-                  <th>for allergy, cold</th>
-                  <th>01-01-2009</th>
-                  <th>02-12-2010</th>
-                  <th>49AM5</th>
-                  <th>5 mg/5 mL</th>
-                  <th>150 mL</th>
-                  <th>5</th>
-                  <th>750 mL</th>
+                <tbody id="antiviralsTableBody">
+                  <th></th>
+                </tbody>
+              </table>
+              <form id="pharmacyForm" class="tr addForm collapse">
+                <span class="td">
+                  <input type="text" name="genericName" placeholder="Generic Drug Name">
+                </span>
+                <span class="td">
+                  <input type="text" name="proprietaryName" placeholder="Proprietary Drug Name">
+                </span>
+                <span class="td">
+                  <input type="text" name="drugClass" placeholder="Drug Class">
+                </span>
+                <span class="td">
+                  <input type="text" readonly name="type" placeholder="Type of Drug">
+                </span>
+                <span class="td">
+                  <input type="text" name="description" placeholder="Description">
+                </span>
+                <span class="td">
+                  <input type="text" readonly name="manufactureDate" class="datepicker form-control">
+                </span>
+                <span class="td">
+                  <input type="text" readonly name="expirationDate" class="datepicker form-control">
+                </span>
+                <span class="td">
+                  <input type="text" name="lotNumber" placeholder="Lot Number">
+                </span>
+                <span class="td">
+                  <input type="text" name="concentration" placeholder="Concentration">
+                </span>
+                <span class="td">
+                  <input type="text" name="amountPerUnit" placeholder="Amount Per Unit">
+                </span>
+                <span class="td">
+                  <input type="text" name="unitsRemaining" placeholder="Number of Units Remaining">
+                </span>
 
-                </tr>
-                <tr>
+                <input type="submit" value="Submit" id="pharmacySubmit" name="pharmacySubmit" class="btn btn-primary formSubmit">
+                <input type="button" value="Cancel" name="cancel" class="btn btn-danger formSubmit cancel" data-toggle="collapse" data-target="#pharmacyForm">
 
-                  <th>Mepyramine</th>
-                  <th>Allergex</th>
-                  <th>Antihistamine</th>
-                  <th>Cream</th>
-                  <th>for allergic rash</th>
-                  <th>02-02-2008</th>
-                  <th>05-07-2013</th>
-                  <th>1049621</th>
-                  <th>2%</th>
-                  <th>25 g</th>
-                  <th>10</th>
-                  <th>250 g</th>
+              </form>
+              <div>
+                <button id="addPharmacy" class="add" data-toggle="collapse" data-target="#pharmacyForm" aria-expanded="false" aria-controls="collapseExample">
+                  + </button>
+              </div>
 
+            </div>
+            <div id="list-asthmaBreathing" class="box card section">
+              <table class="w3-table-all" id="medtable">
+                <div class="subTitle">
+                  Asthma/Breathing Treatments
+                </div>
+                <thead>
+                  <tr class="w3-light-grey">
 
+                    <th>Generic Drug Name</th>
+                    <th>Proprietary Drug Name</th>
+                    <th>Drug Class</th>
+                    <th>Type of Drug</th>
+                    <th>Description</th>
+                    <th>Manufacture Date</th>
+                    <th>Expiration Date</th>
+                    <th>Lot Number </th>
+                    <th>Concentration</th>
+                    <th>Amount Per Unit</th>
+                    <th>Number of Units Remaining</th>
+                    <th>Total Amount Remaining</th>
 
+                    <td>
+                      <button id="editPharmacy" class=b tn-outline-primary> Edit </button>
+                    </td>
+                  </tr>
 
-                </tr>
+                </thead>
+                <tbody id="asthmaTableBody">
+                  <th></th>
+                </tbody>
+              </table>
+              <form id="pharmacyForm" class="tr addForm collapse">
+                <span class="td">
+                  <input type="text" name="genericName" placeholder="Generic Drug Name">
+                </span>
+                <span class="td">
+                  <input type="text" name="proprietaryName" placeholder="Proprietary Drug Name">
+                </span>
+                <span class="td">
+                  <input type="text" name="drugClass" placeholder="Drug Class">
+                </span>
+                <span class="td">
+                  <input type="text" readonly name="type" placeholder="Type of Drug">
+                </span>
+                <span class="td">
+                  <input type="text" name="description" placeholder="Description">
+                </span>
+                <span class="td">
+                  <input type="text" readonly name="manufactureDate" class="datepicker form-control">
+                </span>
+                <span class="td">
+                  <input type="text" readonly name="expirationDate" class="datepicker form-control">
+                </span>
+                <span class="td">
+                  <input type="text" name="lotNumber" placeholder="Lot Number">
+                </span>
+                <span class="td">
+                  <input type="text" name="concentration" placeholder="Concentration">
+                </span>
+                <span class="td">
+                  <input type="text" name="amountPerUnit" placeholder="Amount Per Unit">
+                </span>
+                <span class="td">
+                  <input type="text" name="unitsRemaining" placeholder="Number of Units Remaining">
+                </span>
 
+                <input type="submit" value="Submit" id="pharmacySubmit" name="pharmacySubmit" class="btn btn-primary formSubmit">
+                <input type="button" value="Cancel" name="cancel" class="btn btn-danger formSubmit cancel" data-toggle="collapse" data-target="#pharmacyForm">
 
+              </form>
+              <div>
+                <button id="addPharmacy" class="add" data-toggle="collapse" data-target="#pharmacyForm" aria-expanded="false" aria-controls="collapseExample">
+                  + </button>
+              </div>
+
+            </div>
+            <div id="list-decogestants" class="box card section">
+              <table class="w3-table-all" id="medtable">
+                <div class="subTitle">
+                  Decongestants
+                </div>
+                <thead>
+                  <tr class="w3-light-grey">
+
+                    <th>Generic Drug Name</th>
+                    <th>Proprietary Drug Name</th>
+                    <th>Drug Class</th>
+                    <th>Type of Drug</th>
+                    <th>Description</th>
+                    <th>Manufacture Date</th>
+                    <th>Expiration Date</th>
+                    <th>Lot Number </th>
+                    <th>Concentration</th>
+                    <th>Amount Per Unit</th>
+                    <th>Number of Units Remaining</th>
+                    <th>Total Amount Remaining</th>
+
+                    <td>
+                      <button id="editPharmacy" class=b tn-outline-primary> Edit </button>
+                    </td>
+                  </tr>
+
+                </thead>
+                <tbody id="decongestantsTableBody">
+                  <th></th>
+                </tbody>
+              </table>
+              <form id="pharmacyForm" class="tr addForm collapse">
+                <span class="td">
+                  <input type="text" name="genericName" placeholder="Generic Drug Name">
+                </span>
+                <span class="td">
+                  <input type="text" name="proprietaryName" placeholder="Proprietary Drug Name">
+                </span>
+                <span class="td">
+                  <input type="text" name="drugClass" placeholder="Drug Class">
+                </span>
+                <span class="td">
+                  <input type="text" readonly name="type" placeholder="Type of Drug">
+                </span>
+                <span class="td">
+                  <input type="text" name="description" placeholder="Description">
+                </span>
+                <span class="td">
+                  <input type="text" readonly name="manufactureDate" class="datepicker form-control">
+                </span>
+                <span class="td">
+                  <input type="text" readonly name="expirationDate" class="datepicker form-control">
+                </span>
+                <span class="td">
+                  <input type="text" name="lotNumber" placeholder="Lot Number">
+                </span>
+                <span class="td">
+                  <input type="text" name="concentration" placeholder="Concentration">
+                </span>
+                <span class="td">
+                  <input type="text" name="amountPerUnit" placeholder="Amount Per Unit">
+                </span>
+                <span class="td">
+                  <input type="text" name="unitsRemaining" placeholder="Number of Units Remaining">
+                </span>
+
+                <input type="submit" value="Submit" id="pharmacySubmit" name="pharmacySubmit" class="btn btn-primary formSubmit">
+                <input type="button" value="Cancel" name="cancel" class="btn btn-danger formSubmit cancel" data-toggle="collapse" data-target="#pharmacyForm">
+
+              </form>
+              <div>
+                <button id="addPharmacy" class="add" data-toggle="collapse" data-target="#pharmacyForm" aria-expanded="false" aria-controls="collapseExample">
+                  + </button>
+              </div>
+
+            </div>
+            <div id="list-steroids" class="box card section">
+              <table class="w3-table-all" id="medtable">
+                <div class="subTitle">
+                  Steroids
+                </div>
+                <thead>
+                  <tr class="w3-light-grey">
+
+                    <th>Generic Drug Name</th>
+                    <th>Proprietary Drug Name</th>
+                    <th>Drug Class</th>
+                    <th>Type of Drug</th>
+                    <th>Description</th>
+                    <th>Manufacture Date</th>
+                    <th>Expiration Date</th>
+                    <th>Lot Number </th>
+                    <th>Concentration</th>
+                    <th>Amount Per Unit</th>
+                    <th>Number of Units Remaining</th>
+                    <th>Total Amount Remaining</th>
+
+                    <td>
+                      <button id="editPharmacy" class=b tn-outline-primary> Edit </button>
+                    </td>
+                  </tr>
+
+                </thead>
+                <tbody id="steroidsTableBody">
+                  <th></th>
+                </tbody>
+              </table>
+              <form id="pharmacyForm" class="tr addForm collapse">
+                <span class="td">
+                  <input type="text" name="genericName" placeholder="Generic Drug Name">
+                </span>
+                <span class="td">
+                  <input type="text" name="proprietaryName" placeholder="Proprietary Drug Name">
+                </span>
+                <span class="td">
+                  <input type="text" name="drugClass" placeholder="Drug Class">
+                </span>
+                <span class="td">
+                  <input type="text" readonly name="type" placeholder="Type of Drug">
+                </span>
+                <span class="td">
+                  <input type="text" name="description" placeholder="Description">
+                </span>
+                <span class="td">
+                  <input type="text" readonly name="manufactureDate" class="datepicker form-control">
+                </span>
+                <span class="td">
+                  <input type="text" readonly name="expirationDate" class="datepicker form-control">
+                </span>
+                <span class="td">
+                  <input type="text" name="lotNumber" placeholder="Lot Number">
+                </span>
+                <span class="td">
+                  <input type="text" name="concentration" placeholder="Concentration">
+                </span>
+                <span class="td">
+                  <input type="text" name="amountPerUnit" placeholder="Amount Per Unit">
+                </span>
+                <span class="td">
+                  <input type="text" name="unitsRemaining" placeholder="Number of Units Remaining">
+                </span>
+
+                <input type="submit" value="Submit" id="pharmacySubmit" name="pharmacySubmit" class="btn btn-primary formSubmit">
+                <input type="button" value="Cancel" name="cancel" class="btn btn-danger formSubmit cancel" data-toggle="collapse" data-target="#pharmacyForm">
+
+              </form>
+              <div>
+                <button id="addPharmacy" class="add" data-toggle="collapse" data-target="#pharmacyForm" aria-expanded="false" aria-controls="collapseExample">
+                  + </button>
+              </div>
+
+            </div>
+            <div id="list-supplements" class="box card section">
+              <table class="w3-table-all" id="medtable">
+                <div class="subTitle">
+                  Supplements
+                </div>
+                <thead>
+                  <tr class="w3-light-grey">
+
+                    <th>Generic Drug Name</th>
+                    <th>Proprietary Drug Name</th>
+                    <th>Drug Class</th>
+                    <th>Type of Drug</th>
+                    <th>Description</th>
+                    <th>Manufacture Date</th>
+                    <th>Expiration Date</th>
+                    <th>Lot Number </th>
+                    <th>Concentration</th>
+                    <th>Amount Per Unit</th>
+                    <th>Number of Units Remaining</th>
+                    <th>Total Amount Remaining</th>
+
+                    <td>
+                      <button id="editPharmacy" class=b tn-outline-primary> Edit </button>
+                    </td>
+                  </tr>
+
+                </thead>
+                <tbody id="supplementsTableBody">
+                  <th></th>
+                </tbody>
+              </table>
+              <form id="pharmacyForm" class="tr addForm collapse">
+                <span class="td">
+                  <input type="text" name="genericName" placeholder="Generic Drug Name">
+                </span>
+                <span class="td">
+                  <input type="text" name="proprietaryName" placeholder="Proprietary Drug Name">
+                </span>
+                <span class="td">
+                  <input type="text" name="drugClass" placeholder="Drug Class">
+                </span>
+                <span class="td">
+                  <input type="text" readonly name="type" placeholder="Type of Drug">
+                </span>
+                <span class="td">
+                  <input type="text" name="description" placeholder="Description">
+                </span>
+                <span class="td">
+                  <input type="text" readonly name="manufactureDate" class="datepicker form-control">
+                </span>
+                <span class="td">
+                  <input type="text" readonly name="expirationDate" class="datepicker form-control">
+                </span>
+                <span class="td">
+                  <input type="text" name="lotNumber" placeholder="Lot Number">
+                </span>
+                <span class="td">
+                  <input type="text" name="concentration" placeholder="Concentration">
+                </span>
+                <span class="td">
+                  <input type="text" name="amountPerUnit" placeholder="Amount Per Unit">
+                </span>
+                <span class="td">
+                  <input type="text" name="unitsRemaining" placeholder="Number of Units Remaining">
+                </span>
+
+                <input type="submit" value="Submit" id="pharmacySubmit" name="pharmacySubmit" class="btn btn-primary formSubmit">
+                <input type="button" value="Cancel" name="cancel" class="btn btn-danger formSubmit cancel" data-toggle="collapse" data-target="#pharmacyForm">
+
+              </form>
+              <div>
+                <button id="addPharmacy" class="add" data-toggle="collapse" data-target="#pharmacyForm" aria-expanded="false" aria-controls="collapseExample">
+                  + </button>
+              </div>
+
+            </div>
+            <div id="list-other" class="box card section">
+              <table class="w3-table-all">
+                <div class="subTitle">
+                  Other
+                </div>
+                <thead>
+                  <tr class="w3-light-grey">
+
+                    <th>Generic Drug Name</th>
+                    <th>Proprietary Drug Name</th>
+                    <th>Drug Class</th>
+                    <th>Type of Drug</th>
+                    <th>Description</th>
+                    <th>Manufacture Date</th>
+                    <th>Expiration Date</th>
+                    <th>Lot Number </th>
+                    <th>Concentration</th>
+                    <th>Amount Per Unit</th>
+                    <th>Number of Units Remaining</th>
+                    <th>Total Amount Remaining</th>
+
+                    <td>
+                      <button id="editPharmacy" class=b tn-outline-primary> Edit </button>
+                    </td>
+                  </tr>
+
+                </thead>
+                <tbody id="otherTableBody">
+                  <th></th>
                 </tbody>
               </table>
 
+              <form id="pharmacyForm" class="tr addForm collapse">
+                <span class="td">
+                  <input type="text" name="genericName" placeholder="Generic Drug Name">
+                </span>
+                <span class="td">
+                  <input type="text" name="proprietaryName" placeholder="Proprietary Drug Name">
+                </span>
+                <span class="td">
+                  <input type="text" name="drugClass" placeholder="Drug Class">
+                </span>
+                <span class="td">
+                  <input type="text" readonly name="type" placeholder="Type of Drug">
+                </span>
+                <span class="td">
+                  <input type="text" name="description" placeholder="Description">
+                </span>
+                <span class="td">
+                  <input type="text" readonly name="manufactureDate" class="datepicker form-control">
+                </span>
+                <span class="td">
+                  <input type="text" readonly name="expirationDate" class="datepicker form-control">
+                </span>
+                <span class="td">
+                  <input type="text" name="lotNumber" placeholder="Lot Number">
+                </span>
+                <span class="td">
+                  <input type="text" name="concentration" placeholder="Concentration">
+                </span>
+                <span class="td">
+                  <input type="text" name="amountPerUnit" placeholder="Amount Per Unit">
+                </span>
+                <span class="td">
+                  <input type="text" name="unitsRemaining" placeholder="Number of Units Remaining">
+                </span>
 
+                <input type="submit" value="Submit" id="pharmacySubmit" name="pharmacySubmit" class="btn btn-primary formSubmit">
+                <input type="button" value="Cancel" name="cancel" class="btn btn-danger formSubmit cancel" data-toggle="collapse" data-target="#pharmacyForm">
 
-
-
+              </form>
+              <div>
+                <button id="addPharmacy" class="add" data-toggle="collapse" data-target="#pharmacyForm" aria-expanded="false" aria-controls="collapseExample">
+                  + </button>
+              </div>
 
             </div>
 
           </div>
-
-
-          <div id="list-antiBiotics" class="box card section">
-            <table class="w3-table-all" id="medtable">
-              <div class="subTitle">
-                Antibiotics
-              </div>
-              <thead>
-                <tr class="w3-light-grey">
-                  <th> Show More</th>
-                  <th>Generic Drug Name</th>
-                  <th>Proprietary Drug Name</th>
-                  <th>Drug Class</th>
-                  <th>Type of Drug</th>
-                  <th>Description</th>
-                  <th>Manufacture Date</th>
-                  <th>Expiration Date</th>
-                  <th>Lot Number </th>
-                  <th>Concentration</th>
-                  <th>Amount Per Unit</th>
-                  <th>Number of Units Remaining</th>
-                  <th>Total Amount Remaining</th>
-
-                  <td class="edit">Edit</td>
-                </tr>
-
-              </thead>
-              <tbody id="antibioticsTableBody">
-                <th></th>
-              </tbody>
-            </table>
-
-          </div>
-          <div id="list-antiEpileptics" class="box card section">
-            <table class="w3-table-all" id="medtable">
-              <div class="subTitle">
-                Anti-Epileptics
-              </div>
-              <thead>
-                <tr class="w3-light-grey">
-                  <th> Show More</th>
-                  <th>Generic Drug Name</th>
-                  <th>Proprietary Drug Name</th>
-                  <th>Drug Class</th>
-                  <th>Type of Drug</th>
-                  <th>Description</th>
-                  <th>Manufacture Date</th>
-                  <th>Expiration Date</th>
-                  <th>Lot Number </th>
-                  <th>Concentration</th>
-                  <th>Amount Per Unit</th>
-                  <th>Number of Units Remaining</th>
-                  <th>Total Amount Remaining</th>
-
-                  <td class="edit">Edit</td>
-                </tr>
-
-              </thead>
-              <tbody id="antiEpilepticsTableBody">
-                <th></th>
-              </tbody>
-            </table>
-
-          </div>
-          <div id="list-antiFungal" class="box card section">
-            <table class="w3-table-all" id="medtable">
-              <div class="subTitle">
-                Antifungals
-              </div>
-              <thead>
-                <tr class="w3-light-grey">
-                  <th> Show More</th>
-                  <th>Generic Drug Name</th>
-                  <th>Proprietary Drug Name</th>
-                  <th>Drug Class</th>
-                  <th>Type of Drug</th>
-                  <th>Description</th>
-                  <th>Manufacture Date</th>
-                  <th>Expiration Date</th>
-                  <th>Lot Number </th>
-                  <th>Concentration</th>
-                  <th>Amount Per Unit</th>
-                  <th>Number of Units Remaining</th>
-                  <th>Total Amount Remaining</th>
-                  <td class="edit">Edit</td>
-                </tr>
-              </thead>
-              <tbody id="antifungalTableBody">
-                <th></th>
-              </tbody>
-            </table>
-
-          </div>
-          <div id="list-antiVirals" class="box card section">
-            <table class="w3-table-all" id="medtable">
-              <div class="subTitle">
-                Antivirals
-              </div>
-              <thead>
-                <tr class="w3-light-grey">
-                  <th> Show More</th>
-                  <th>Generic Drug Name</th>
-                  <th>Proprietary Drug Name</th>
-                  <th>Drug Class</th>
-                  <th>Type of Drug</th>
-                  <th>Description</th>
-                  <th>Manufacture Date</th>
-                  <th>Expiration Date</th>
-                  <th>Lot Number </th>
-                  <th>Concentration</th>
-                  <th>Amount Per Unit</th>
-                  <th>Number of Units Remaining</th>
-                  <th>Total Amount Remaining</th>
-
-                  <td class="edit">Edit</td>
-                </tr>
-
-              </thead>
-              <tbody id="antiviralsTableBody">
-                <th></th>
-              </tbody>
-            </table>
-
-          </div>
-          <div id="list-asthmaBreathing" class="box card section">
-            <table class="w3-table-all" id="medtable">
-              <div class="subTitle">
-                Asthma/Breathing Treatments
-              </div>
-              <thead>
-                <tr class="w3-light-grey">
-                  <th> Show More</th>
-                  <th>Generic Drug Name</th>
-                  <th>Proprietary Drug Name</th>
-                  <th>Drug Class</th>
-                  <th>Type of Drug</th>
-                  <th>Description</th>
-                  <th>Manufacture Date</th>
-                  <th>Expiration Date</th>
-                  <th>Lot Number </th>
-                  <th>Concentration</th>
-                  <th>Amount Per Unit</th>
-                  <th>Number of Units Remaining</th>
-                  <th>Total Amount Remaining</th>
-
-                  <td class="edit">Edit</td>
-                </tr>
-
-              </thead>
-              <tbody id="asthmaTableBody">
-                <th></th>
-              </tbody>
-            </table>
-
-          </div>
-          <div id="list-decogestants" class="box card section">
-            <table class="w3-table-all" id="medtable">
-              <div class="subTitle">
-                Decongestants
-              </div>
-              <thead>
-                <tr class="w3-light-grey">
-                  <th> Show More</th>
-                  <th>Generic Drug Name</th>
-                  <th>Proprietary Drug Name</th>
-                  <th>Drug Class</th>
-                  <th>Type of Drug</th>
-                  <th>Description</th>
-                  <th>Manufacture Date</th>
-                  <th>Expiration Date</th>
-                  <th>Lot Number </th>
-                  <th>Concentration</th>
-                  <th>Amount Per Unit</th>
-                  <th>Number of Units Remaining</th>
-                  <th>Total Amount Remaining</th>
-
-                  <td class="edit">Edit</td>
-                </tr>
-
-              </thead>
-              <tbody id="decongestantsTableBody">
-                <th></th>
-              </tbody>
-            </table>
-
-          </div>
-          <div id="list-steroids" class="box card section">
-            <table class="w3-table-all" id="medtable">
-              <div class="subTitle">
-                Steroids
-              </div>
-              <thead>
-                <tr class="w3-light-grey">
-                  <th> Show More</th>
-                  <th>Generic Drug Name</th>
-                  <th>Proprietary Drug Name</th>
-                  <th>Drug Class</th>
-                  <th>Type of Drug</th>
-                  <th>Description</th>
-                  <th>Manufacture Date</th>
-                  <th>Expiration Date</th>
-                  <th>Lot Number </th>
-                  <th>Concentration</th>
-                  <th>Amount Per Unit</th>
-                  <th>Number of Units Remaining</th>
-                  <th>Total Amount Remaining</th>
-
-                  <td class="edit">Edit</td>
-                </tr>
-
-              </thead>
-              <tbody id="steroidsTableBody">
-                <th></th>
-              </tbody>
-            </table>
-
-          </div>
-          <div id="list-supplements" class="box card section">
-            <table class="w3-table-all" id="medtable">
-              <div class="subTitle">
-                Supplements
-              </div>
-              <thead>
-                <tr class="w3-light-grey">
-                  <th> Show More</th>
-                  <th>Generic Drug Name</th>
-                  <th>Proprietary Drug Name</th>
-                  <th>Drug Class</th>
-                  <th>Type of Drug</th>
-                  <th>Description</th>
-                  <th>Manufacture Date</th>
-                  <th>Expiration Date</th>
-                  <th>Lot Number </th>
-                  <th>Concentration</th>
-                  <th>Amount Per Unit</th>
-                  <th>Number of Units Remaining</th>
-                  <th>Total Amount Remaining</th>
-
-                  <td class="edit">Edit</td>
-                </tr>
-
-              </thead>
-              <tbody id="supplementsTableBody">
-                <th></th>
-              </tbody>
-            </table>
-
-          </div>
-          <div id="list-other" class="box card section">
-            <table class="w3-table-all">
-              <div class="subTitle">
-                Other
-              </div>
-              <thead>
-                <tr class="w3-light-grey">
-                  <th> Show More</th>
-                  <th>Generic Drug Name</th>
-                  <th>Proprietary Drug Name</th>
-                  <th>Drug Class</th>
-                  <th>Type of Drug</th>
-                  <th>Description</th>
-                  <th>Manufacture Date</th>
-                  <th>Expiration Date</th>
-                  <th>Lot Number </th>
-                  <th>Concentration</th>
-                  <th>Amount Per Unit</th>
-                  <th>Number of Units Remaining</th>
-                  <th>Total Amount Remaining</th>
-
-                  <td class="edit">Edit</td>
-                </tr>
-
-              </thead>
-              <tbody id="otherTableBody">
-                <th></th>
-              </tbody>
-            </table>
-
-          </div>
-
-        </div>
-        </div>
         </div>
       </div>
     </div>
@@ -443,60 +843,74 @@
 
 <script type="text/javascript">
 
-  $('document').ready(function() {
+  $('document').ready(function () {
     console.log("document.ready ajax call: ");
-    // // ajax call to render the original table, where we post to getAllAllergy
+    // // ajax call to render the original table, where we post to getAllPharmacy
     // // we return a JSON in which we call updateTable with
     $.ajax({
       type: "POST",
-      url: "/getAllAllergy",
+      url: "/getAllPharmacy",
       data: {
         id: patientId
       },
-      success: function(data) {
+      success: function (data) {
         console.log(data);
         if (data.data.length != 0) {
-          updateTableAllergy(data.data[0].entries);
+          updateTablePharmacy(data.data[0].entries);
         }
       }
     });
     // ajax call that on submit will send the new allergy values to the database
-    $('#allergySubmit').click(function(e) {
+    $('#pharmacySubmit').click(function (e) {
       e.preventDefault();
-      var input = $("#allergyForm").serializeArray();
+      var input = $("#pharmacyForm").serializeArray();
       $.ajax({
         type: "POST",
         url: "/allergy",
         data: {
           id: patientId,
-          allergen: input[0].value,
-          allergySymptoms: input[1].value,
-          allergySeverity: input[2].value,
-          allergyDateOnset: input[3].value,
-          allergyNotes: input[4].value,
+          section: input[0].value,
+          genericName: input[1].value,
+          proprietaryName: input[2].value,
+          drugClass: input[3].value,
+          type: input[4].value,
+          description: input[5].value,
+          manufactureDate: input[6].value,
+          expirationDate: input[7].value,
+          lotNumber: input[8].value,
+          concentration: input[9].value,
+          amountPerUnit: input[10].value,
+          unitsRemaining: input[11].value
         },
-        success: function(data) {
+        success: function (data) {
           console.log("New allergy data: ");
           console.log(data);
-          updateTableAllergy(data.data[0].entries);
-          $('#allergyForm')[0].reset();
-          $('#allergyForm').hide();
-          $('#allergyForm').parent().find('button').show();
+          updateTablePharmacy(data.data[0].entries);
+          $('#pharmacyForm')[0].reset();
+          $('#pharmacyForm').hide();
+          $('#pharmacyForm').parent().find('button').show();
         }
       });
     });
   });
 
   // function that takes in JSON with two fields: height and date and renders the table as such
-  var updateTableAllergy = function(data) {
+  var updateTablePharmacy = function (data) {
     console.log(data);
     var table1 = '';
     for (var i = 0; i < data.length; i++) {
-      var line = '<tr><td>' + data[i].allergen + '</td>';
-      line += '<td>' + data[i].allergySymptoms + '</td>';
-      line += '<td>' + data[i].allergySeverity + '</td>';
-      line += '<td>' + data[i].allergyDateOnset + '</td>';
-      line += '<td>' + data[i].allergyNotes + '</td>';
+      var line = '<tr><td>' + data[i].section + '</td>';
+      line += '<td>' + data[i].genericName + '</td>';
+      line += '<td>' + data[i].proprietaryName + '</td>';
+      line += '<td>' + data[i].drugClass + '</td>';
+      line += '<td>' + data[i].type + '</td>';
+      line += '<td>' + data[i].description + '</td>';
+      line += '<td>' + data[i].manufactureDate + '</td>';
+      line += '<td>' + data[i].expirationDate + '</td>';
+      line += '<td>' + data[i].lotNumber + '</td>';
+      line += '<td>' + data[i].concentration + '</td>';
+      line += '<td>' + data[i].amountPerUnit + '</td>';
+      line += '<td>' + data[i].unitsRemaining + '</td>';
       line += '<td><button class="editBtn btn">Edit</button></td></tr>';
       table1 += line;
     }
@@ -507,4 +921,4 @@
 </html>
 
 
- </body>
+</body>
