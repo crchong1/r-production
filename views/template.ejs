@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Patient Page</title>
+  
+    <script src="/files/js/jquery-3.3.1.js"></script>
+   <script src="/files/js/popper.min.js"></script>
+  <script type="text/javascript" src="/files/js/stickyfillmin.js"></script>
+   <script src="/files/js/datepicker.js"></script>
+   <script src="/files/bootstrap-4/js/bootstrap.bundle.min.js"></script>
+   <script src="/files/bootstrap-4/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Nunito"/>
+  <link rel="stylesheet" href="/files/bootstrap-4/css/bootstrap.css" />
+  <link rel="stylesheet" type="text/css" href="/files/css/w3.css">
+
+  <link rel="stylesheet" type="text/css" href="/files/css/contentTable.css">
+  <link rel="stylesheet" type="text/css" href="/files/css/contentGeneral.css">
+  <link rel="stylesheet" type="text/css" href="/files/css/template.css">
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+</head>
+<body> 
+  <h2 style="display:none;" id="url"></h2>
+  <div class="background">
+    <div class="sidebarContainer">
+      <div class="row">
+        <nav class="col-sm-2 sidebar">
+          <div class = "sidebar sticky " >
+            <div class = "basicInfo"> 
+              <h2 id = "name"><%= data.firstName%> <%= data.lastName%></h2>
+              <br>
+              <p id="ageSex"> , <%=data.sex%></p>
+              <p id="dob"><%= data.birthdate%> </p>
+              <p id="weightHeight"> <%= data.weight%> kg, <%= data.height%> cm </p>
+              <p id="allergiesSide"> Allergies: (loop patient.allergies[i]) </p>
+            </div>
+            <ul class="nav nav-pills nav-stacked links">
+              <li class="active current"><a href='/patientPage/<%=data.id%>'>Patient Summary</a></li>
+              <li><a href="/patientPage/<%=data.id%>/history">Information &amp; History </a></li>
+              <li><a href="/patientPage/<%=data.id%>/problemList">Problem List</a></li>
+              <ul class="subLink">
+                <li> <button class="subLinkBtn"> Chronic </button> </li>
+                <li> <button class="subLinkBtn"> Acute </button> </li>              </ul>
+                <li><a href="/patientPage/<%=data.id%>/medications">Medication List</a></li>
+                <ul class="subLink">
+                  <li> <button class="subLinkBtn"> Chronic </button> </li>
+                  <li> <button class="subLinkBtn"> Acute </button> </li>
+                  <li> <button class="subLinkBtn"> Allergies </button> </li>
+                </ul>
+                <li><a href="/patientPage/<%=data.id%>/immunization">Immunization Record</a></li>
+                <li><a href="/patientPage/<%=data.id%>/wellChildCheck">Well Child Check</a></li>
+                <ul class="subLink">
+                  <li> <button class="subLinkBtn"> Upcoming </button> </li>
+                  <li> <button class="subLinkBtn"> Past </button> </li>
+                </ul>
+                <li><a href="/patientPage/<%=data.id%>/testing">Testing</a></li>
+                <ul class="subLink">
+                  <li> <button class="subLinkBtn"> HIV </button> </li>
+                  <li> <button class="subLinkBtn"> TB </button> </li>
+                  <li> <button class="subLinkBtn"> Hemoglobin </button> </li>
+                                    <li> <button class="subLinkBtn"> Syphilis </button> </li>
+                  <li> <button class="subLinkBtn"> Miscellaneous </button> </li>
+
+                </ul>
+                <li><a href="/patientPage/<%=data.id%>/growthCharts">Growth Charts</a></li>
+                <li><a href="/patientPage/<%=data.id%>/nurseNotes">Nurse Notes</a></li>
+                <ul class="subLink">
+                  <li><a href="/patientPage/<%=data.id%>/nurseNotes/vitalSigns">Vital Signs</a></li>
+                  <li><a href="/patientPage/<%=data.id%>/nurseNotes/symptomAnalysis"> Symptom Analysis</a></li>
+                  <li><a href="/patientPage/<%=data.id%>/nurseNotes/systemAssessments">System Assessments</a></li>
+                  <li><a href="/patientPage/<%=data.id%>/nurseNotes/miscellaneous">Miscellaneous</a></li>
+<!--
+                  <li> <button class="subLinkBtn"> Vital Signs </button> </li>
+                  <li> <button type = "submit" class="subLinkBtn"> Symptom Analysis </button></li>
+                  <li> <button class="subLinkBtn"> System Assessments </button> </li>
+                  <li> <button class="subLinkBtn"> Miscellaneous </button> </li> -->
+                </ul>
+                <li><a href="/patientPage/<%=data.id%>/scans">Scans</a></li>
+                <ul class="subLink">
+                  <li> <button class="subLinkBtn"> Doctor's Notes/Referrals </button> </li>
+                  <li> <button class="subLinkBtn"> Laboratory Results </button> </li>
+                  <li> <button class="subLinkBtn"> Government Documents </button> </li>
+                  <li> <button class="subLinkBtn"> Past Nurse Notes </button> </li>
+                  <li> <button class="subLinkBtn"> Other </button> </li>
+                </ul>
+              </ul>
+            </div>
+          </nav>
+          <div class="col-lg">   
+            <div class = "card header">
+             <div class = "topRight">
+              <a> Welcome, "*User Name*"  | </a>
+              <a href="/" class="btn btn-outline-success"> Logout </a>
+            </div>
+            <div>
+              <a href="/patientSearch" style="text-decoration : none "> <p class = "label" id = "R-plus"> R+ </p>
+                <p class = "label" id = "Childrens">Childrens</p> </a>
+                <a href="#Pharmacy" class = "top-nav" id = "pharmacy">Pharmacy</a>
+                <a href="#AllPatients" class = "top-nav" id = "rec-pat">Recent Patients</a>
+                <a href="/patientSearch" class = "top-nav" id = "search-pat">Search Patients</a>
+                <a href="/form" class = "top-nav" id = "search-pat">Add Patient</a>
+              </div>
+            </div>
+
+            <div id="container">
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+    <script type="text/javascript" src="/files/js/pageScript.js"></script>
+
+  <script type="text/javascript">
+
+    var patientId = <%=data.id%>;
+    console.log(patientId);
+    var age =  <%- JSON.stringify(age) %>;
+    console.log('age in template: ' + age)
+
+    $('document').ready(function() {
+
+    // Getting specific page from URL
+    var url = window.location.href;
+    var index = url.lastIndexOf('/')
+    var subUrl = url.slice(index+1, url.length)
+    console.log(subUrl)
+
+    // Loading page content
+    loadPage(url, subUrl);
+    
+  // Make sidebar sticky
+  var elements = document.querySelectorAll('.sticky');
+  Stickyfill.add(elements);
+
+
+
+    // Updating sidebar date of birth and age
+    var DOB = $("#dob").html(); 
+    $("#dob").html(convertDOB(DOB));
+    $('#ageSex').prepend(getAge(DOB));
+
+    updateSidebarLink(subUrl)
+
+
+    // Shifts page focus to the specfic section
+    $(".subLinkBtn").on('click',function() {
+      var subLinks = $(this).closest('ul').find('li');
+      var subLink = $(this).closest('li');
+      var index = ($(subLinks).index(subLink));
+      $('.loaded').find('.section');
+      var element = $('.loaded').find('.section')[index];
+      $('html, body').animate({
+        scrollTop: $(element).offset().top
+      }, 500);
+    });
+
+  });
+
+    // loads the html content, css, and javascript of the specific page
+    // url: full url
+    // subUrl: text after the last "/" in URL
+    function loadPage(url, subUrl) {
+      var data = "";
+      if (subUrl == patientId) {
+        subUrl = 'patientPage';
+      // if well child check, go to wcc folder
+    } else if (url.indexOf('wellChildCheck') >= 0 ) {
+      var css = "/files/css/wcc.css";
+      $.getScript(css);
+      if (subUrl == 'form') {
+        subUrl = 'wccForm';
+        data = age;
+
+      } else if (subUrl == 'formBaby') {
+        subUrl = 'wccFormBaby';
+      } else if (subUrl == 'page') {
+        subUrl = 'wccPage';
+      }
+      subUrl = "wcc/" + subUrl;
+   //  console.log('getting script wcc')
+    //   var script = "/files/js/wccScript.js";
+  //   $.getScript(script);
+      // if nurse notes, go to nurseNotes folder
+    } else if (url.indexOf('nurseNotes') >= 0 ) {
+     var script = "/files/js/nurseNotesScript.js";
+     $.getScript(script);
+     var css = "/files/css/nurseNotes.css";
+    // $.getScript(css);
+    subUrl = "nurseNotes/" + subUrl;
+  } 
+  
+  $('#container').attr('class','loaded')
+  $('#container').load('/files/html/'+subUrl+'Content.html', data)
+  var script = "/files/js/pageScript.js";
+   // $.getScript(script);
+   console.log(url)
+   
+   var script = "/files/js/wccScript.js";
+   $.getScript(script);
+   console.log('getting wccScript')
+ }
+
+
+  // bolds the current link in the sidebar
+  function updateSidebarLink(url) {
+   var links = $('.links').find('a');
+   var url2 = window.location.href;
+   var index = url2.lastIndexOf('/')
+   var subUrl = url2.slice(index+1, url2.length)
+
+   var urlSub = url.substring(0,4).toLowerCase();
+   if (url2.indexOf('nurseNotes') >= 0 ) {
+    urlSub = 'nurs'
+  }
+  console.log(links)
+  for (i = 0; i < links.length; i++) {
+    var link = links[i].text.toLowerCase();
+    console.log( link.indexOf(urlSub) )
+      if (link.indexOf(urlSub) >= 0 ) {// true
+        console.log(links[i])
+        // Bold current page in sidebar
+        $(links[i]).css({'font-weight': 'bolder', 'font-size': '1.1em'})
+        // Display subLinks 
+        $(links[i]).parent().next().show();
+      }
+    }
+  }
+
+  // takes data.birthdate and converts to MM/DD/YYYY
+  function convertDOB(dob) {
+    var dobSplit = dob.split(' ')
+    return getMonthFromString(dobSplit[1]) + '/' + dobSplit[2] + '/' + dobSplit[3];
+  }
+  // Converts 3 letter month abbreviation to the month number
+  function getMonthFromString(mon){
+   var d = Date.parse(mon + "1, 2012");
+   if(!isNaN(d)){
+    return new Date(d).getMonth() + 1;
+  }
+  return -1;
+}
+
+
+function getAge(fromdate, todate){
+  if(todate) todate= new Date(todate);
+  else todate= new Date();
+
+  var age= [], fromdate= new Date(fromdate),
+  y= [todate.getFullYear(), fromdate.getFullYear()],
+  ydiff= y[0]-y[1],
+  m= [todate.getMonth() + 1, fromdate.getMonth()],
+  mdiff= m[0]-m[1],
+  d= [todate.getDate(), fromdate.getDate()],
+  ddiff= d[0]-d[1];
+
+  if(mdiff < 0 || (mdiff=== 0 && ddiff<0))--ydiff;
+  if(mdiff<0) mdiff+= 12;
+  if(ddiff<0){
+    fromdate.setMonth(m[1]+1, 0);
+    ddiff= fromdate.getDate()-d[1]+d[0];
+    --mdiff;
+  }
+  w = Math.floor(ddiff/7);
+  ddiff = ddiff % 7;
+                  // 3 or older -> show year
+                  if (ydiff > 2) age.push(ydiff+ ' year'+(ydiff> 1? 's ':' '));
+                  else if (ydiff> 0) {
+                    // Over a year -> show year and month
+                    age.push(ydiff+ ' year'+(ydiff> 1? 's ':' '));
+                    if(mdiff> 0) age.push(mdiff+ ' month'+(mdiff> 1? 's':''));
+                    // Less than a year -> show month and day
+                  } else if (mdiff> 3) {
+                    age.push(mdiff+ ' month'+(mdiff> 1? 's':''));
+                    if (w> 0) age.push(w+ ' week' + (w> 1? 's':''));
+                  } else if (mdiff>0) {
+                    age.push(mdiff+ ' month'+(mdiff> 1? 's ':' '));
+                    if(w> 0) age.push(w+ ' week'+(w> 1? 's':''));
+                  } else {
+                    if(w> 0) age.push(w+ ' week'+(w> 1? 's':''));
+                    if(ddiff> 0) age.push(ddiff+ ' day'+(ddiff> 1? 's':''));
+                  }
+
+                  if(age.length>1) age.splice(age.length-1,0,' and ');    
+                  return age.join('');
+                }
+
+              </script>
+              </html>

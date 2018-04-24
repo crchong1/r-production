@@ -1,0 +1,262 @@
+
+
+body {
+  background-color: #E1EBF2;
+  font-family: Nunito, sans-serif !important;
+}
+
+.nav {
+  background-color:rgba(0,0,0,0.2) !important;
+  border-color: transparent !important;
+  background-image:none !important;
+  color:white !important;
+}
+.nav .btn {
+  background-color: rgba(255, 255, 255, 0) !important;
+  color: rgb(255, 255, 255);
+  border-color: rgba(255, 255, 255, 0.205)!important;
+}
+.nav li{
+  padding-left:30px;
+  padding-right:20px;
+}
+.nav a{
+  color:white !important;
+}
+.nav input{
+  background-color: rgba(255, 255, 255, 0.171);
+  border-color: transparent !important;
+}
+.nav ::placeholder {
+  color:white !important;
+}
+
+
+
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
+.sticky:before,
+.sticky:after {
+  content: '';
+  display: table;
+}
+.sidebarContainer {
+}
+.sidebar {
+  fill: solid;
+  background: #24345E;
+  color: white;
+  padding-right: 0px !important;
+  height: 100vh;
+}
+.basicInfo {
+  padding-left: 30px;
+  padding-right: 40px;
+  padding-top: 66px;
+  padding-bottom: 30%; 
+}
+.basicInfo p {
+  margin-bottom: 10px;
+  line-height: 100%;
+}
+.current {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  margin-bottom: 10px;
+}
+.links {
+  background-color: #3D5982;
+  display: block !important;
+
+}
+
+
+.top-nav {
+  font-size: 20px;
+  font-weight: 400;
+  color: black;
+  padding: 10px;
+
+}
+.label{
+  display: inline-block;
+  font-weight: bold;
+  color: black;
+}
+#R-plus{
+  font-size: 35px;
+  margin-left: 20px;
+  font-weight: bold;
+  color: #FF6363;
+}
+#Childrens{
+  font-size: 35px
+}
+#pharmacy{
+  margin-left: 80px;
+}
+
+.topRight {
+  position: absolute;
+  top: 5px;
+  right:10px;
+
+}
+
+.content-container{
+  margin: 15px;
+}
+.col-sm-9{
+  padding-left: 0 !important;
+} 
+.col-lg{
+  padding-left: 0 !important;
+}
+.summary {
+  box-shadow: 2px 2px grey;
+}
+.title {
+  align-self: center;
+  font-weight: bold;
+}
+.box {
+  margin-left: 10px;
+  margin-right: 20px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.w3-table-all tr:nth-child(even) {
+  background-color: #f1f1f161 !important;
+}
+.w3-table-all {
+  border: none !important;
+}
+th {
+  font-style: italic;
+}
+
+.subTitle {
+  padding-top: 10px;
+  padding-left: 15px;
+  font-size: 20px;
+  font-weight: 500;
+
+  background-color: #f1f1f1!important;
+}
+
+
+.add {
+  float: right;
+  -webkit-appearance: listitem;
+  padding-right: 10px;
+  margin: 0px;
+  font-size: 30px;
+  font-weight: bolder;
+  line-height: 80%;
+  color: #FF6363;
+
+}
+.formSubmit {
+  float: right;
+  margin-top: 10px;
+}
+
+DIV.table {
+  display:table;
+}
+FORM.tr, DIV.tr {
+  display:table-row;
+}
+SPAN.td {
+  display:table-cell;
+}
+
+
+.datepicker{
+  width:100px; 
+
+  background-color: ;
+}
+.datepicker-dropdown{
+  width: 200px;
+}
+
+.datepicker > span:hover{cursor: pointer;}
+
+
+
+.table { display: table; } 
+.thGrp {display: table-header-group;}
+.trGrp { display: table-row-group; }
+.td {display: table-cell; }
+.tr {display: table-row; }
+
+
+
+.more {
+    display:none;
+}
+.showMore {
+  float: right;
+}
+
+
+.addForm .td {
+  padding-left: 5px !important;
+}
+form > span > input {
+  border-width: 2px !important;
+  padding-left: 5px;
+    border-color: #aaa;
+}
+form > span > select {
+  border-width: 2px;
+  padding-left: 5px;
+  padding-right: 5px;
+    border-color: #aaa;
+}
+
+input[type="text"] {
+  border-style: solid;
+  border-color: #ccc;
+}
+
+
+.edit, .editBtn{
+  float: right;
+}
+.edit {
+  margin-right: 15px;
+}
+.editBtn {
+  font-size: 14px;
+}
+
+.test {
+  display: flex;
+}
+
+
+.form-control{
+    width: 500px !important;
+}
+.input-group-addon{
+    width:100px;
+    background-color:#24345E;
+    color: white;
+}
+
+
+
+
+
+
+
+

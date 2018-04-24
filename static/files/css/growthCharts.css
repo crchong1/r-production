@@ -1,0 +1,41 @@
+
+
+.box .row {
+  margin: 0px;
+  padding-left: 10px;
+}
+.divider {
+  border-bottom: 1px #6c757dde solid;
+  padding: 0px !important;
+  margin-bottom: 10px !important;
+}
+
+.forAge {
+  font-weight: bold;
+  font-size: 1.1em;
+  border-bottom: 2px solid #6c757dde !important;
+  margin-bottom: 20px !important;
+  padding: 5px;
+}
+.subForAge {
+  font-weight: bold;
+  font-size: 1.1em;
+  padding: 5px;
+}
+
+.addForm .col {
+  padding-left: 5px !important;
+}
+form > span > input {
+  border-width: 2px !important;
+  padding-left: 5px;
+    border-color: #aaa;
+}
+form > span > select {
+  border-width: 2px;
+  padding-left: 5px;
+  padding-right: 5px;
+    border-color: #aaa;
+}
+
+

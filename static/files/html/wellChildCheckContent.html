@@ -1,0 +1,99 @@
+
+<div class = "content-container">
+ <div class = "card box summary">
+  <h3 class="title"> Well Child Checks </h3>
+</div>
+
+
+<div id="upcoming" class="box card section">
+  <table class="w3-table-all">
+    <div class="subTitle">
+     Upcoming
+   </div>
+   <thead>
+    <tr class="w3-light-grey">
+      <th>Milestone</th>
+      <th>Date Due</th>
+      <th class="edit">Edit</th>
+    </tr>
+  </thead>
+  <tbody id="upcomingTableBody" >
+    <tr data-toggle="collapse" data-target="#accordion" class="clickable">
+      <td>5 years</td>
+      <td>1/4/2015</td>
+      <td><button class="editBtn btn">Edit</button></td>
+
+    </tr>
+  </tbody>
+
+
+  <tbody class="more">
+    <tr>
+      <td>6 years</td>
+      <td>1/4/2016</td>
+      <td><button class="edit btn">Edit</button></td>
+    </tr>
+    <td>7 years</td>
+    <td>1/4/2016</td>
+    <td><button class="edit btn">Edit</button></td>
+  </tr>
+  <td>8 years</td>
+  <td>1/4/2016</td>
+  <td><button class="edit btn">Edit</button></td>
+</tr>
+</tbody>
+
+</table>
+
+<form id="upcomingForm" class="tr addForm" method="post" >
+  <span class="td"><input type="text" name="upcomingMilestone" placeholder="Age"></span>
+  <span class="td"><input type="text" name="upcomingDate" class="datepicker form-control" ></span>
+  <input type="submit" value="Submit" name="upcomingSubmit" class="formSubmit">
+  <input type="button" value="Cancel" name="cancel" class="formSubmit cancel">
+</form>
+<div>      
+  <button id="addUpcoming" class="add"> + </button>
+
+  <input type="button" id="showMoreUpcoming" class="showMore btn-sm btn-primary"  value="Show More"/>
+
+</div>
+</div>
+
+
+<div id="past" class="box card section">
+  <table class="w3-table-all">
+    <div class="subTitle">
+     Past
+   </div>
+   <thead>
+    <tr class="w3-light-grey">
+      <th>Milestone</th>
+      <th>Date Due</th>
+      <th>Date Administered</th>
+      <th>Development Result</th>
+      <th class="edit">Edit</th>
+    </tr>
+  </thead>
+  <tbody id="pastTableBody" >
+    <tr>
+      <td> 6 weeks</td>
+      <td>10/6/2013</td>
+      <td>1/4/2015</td>
+      <td>A</td>
+      <td><button class="editBtn btn">Edit</button></td>
+    </tr>
+  </tbody>
+
+</table>
+
+<form id="pastForm" class="tr addForm" method="post" >
+  <span class="td"><input type="text" name="pastMilestone" placeholder="Milestone"></span>
+  <span class="td"><input type="text" name="pastDateDue" class="datepicker form-control" ></span>
+  <span class="td"><input type="text" name="pastDateCompleted" class="datepicker form-control" ></span>
+  <span class="td"><input type="text" name="pastDevelopmentResult" placeholder="Result"></span>
+  <input type="submit" value="Submit" name="pastSubmit" class="formSubmit">
+  <input type="button" value="Cancel" name="cancel" class="formSubmit cancel">
+</form>
+<div>                               
+  <button id="addPast" class="add"> + </button>
+</div>

@@ -1,0 +1,233 @@
+<div class = "">
+	<div class = "card box summary">
+		<h3 class="title"> Well Child Check Form </h3>
+	</div>
+	<div class = "card box content-container">
+		<div class = "header">
+			<div class="title"> 5 Year Check </div>
+			<div class="wccDateDue"> Date Due: 01/03/2015 </div>
+		</div>
+		<form id="wccForm" method="post">
+			<div class="row">
+				<div class="col-md-5">
+					<div>
+						<div class="title">Generals and vitals</div>
+						<div class="row">
+							<div class="col-md-4 col-md-4-5">
+
+								<div> Weight: </div>
+								<div> Height: </div>
+								<div> BP: </div>
+								<div> Temperature: </div>
+								<div> Pulse Rate: </div>
+								<div> Resp. Rate: </div>
+								<div> HGB/HCT: </div>
+							</div>
+							<div class="col general">
+								<input type="text" name="weight" placeholder="weight (kg)"> 
+								<input type="text" name="height" placeholder="height (cm)"> 
+								<input type="text" name="bp" placeholder="bp"> 
+								<input type="text" name="temperature" placeholder="temperature (C)"> 
+								<input type="text" name="pulseRate" placeholder="Pulse Rate (bpm)"> 
+								<input type="text" name="respRate" placeholder="Resp Rate"> 
+								<input type="text" name="hgb" placeholder="HGB/HCT"> 
+
+							</div>
+
+						</div>
+					</div>
+					<div>
+						<div class="title">Interval History</div>
+						<div class="row">
+							<div class="col interval">
+
+								<div> Diet: <input type="text" name="diet"> </div>
+								<div> Illness: <input type="text" name="illness"> </div>
+								<div> BP: <input type="text" name="BP"></div>
+								<div> Problems: <input type="text" name="problems"> </div>
+								<div>  Immunization reaction: <input type="text" name="immunRxn"> </div>
+								<div> Caretaker reactions: <input type="text" name="caretakerRxn"> </div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-7">
+					<div>
+						<div class="title">Hearing</div>
+
+						<div class="">
+							<table class="w3-table-all">
+
+								<thead>
+									<tr class="w3-light-grey">
+										<th> L/R </th>
+										<th>1000</th>
+										<th>2000</th>
+										<th>3000</th>
+										<th>4000</th>
+									</tr>
+								</thead>
+								<tbody id="hearingTableBody" >
+									<tr>
+										<td>L</td>
+										<td><input type="text" name="L1000"> dB</td>
+										<td><input type="text" name="L2000"> dB</td>
+										<td><input type="text" name="L3000"> dB</td>
+										<td><input type="text" name="L4000"> dB</td>
+									</tr>
+									<tr>
+										<td>R</td>
+										<td><input type="text" name="R1000"> dB</td>
+										<td><input type="text" name="R2000"> dB</td>
+										<td><input type="text" name="R3000"> dB</td>
+										<td><input type="text" name="R4000"> dB</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<div>
+						<div class="title">Vision</div>
+
+						<div class="row">
+							<div class="col">L: <input type="text" name="LVision" class="underline"> </div>
+							<div class="col">R: <input type="text" name="RVision" class="underline"></div>
+						</div>
+						<div> 
+							Both: <input type="text" name="BothVision" class="underline">
+						</div>
+					</div>
+					<div>
+						<div class="title">Urine</div>
+
+						<div class="row" style="border-bottom: 1px solid; text-align: center;">
+							<div class="col"> Protein </div>
+							<div class="col"> Sugar </div>
+							<div class="col"> Blood </div>
+							<div class="col"> Other </div>
+						</div>
+						<div class="row" style="">
+							<div class="col"> <input type="text" name="protein" class="underlineUrine"> </div>
+							<div class="col"> <input type="text" name="sugar" class="underlineUrine"> </div>
+							<div class="col"> <input type="text" name="blood" class="underlineUrine"> </div>
+							<div class="col"> <input type="text" name="other" class="underlineUrine"> </div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="">
+				<div class="title">Physical Examination</div>
+				<table class="w3-table-all">
+
+					<thead>
+						<tr class="w3-light-grey">
+							<th class=physExType> </th>
+							<th class="physExRadio">N</th>
+							<th class="physExRadio">AB</th>
+							<th>Abnormalities / Comments</th>
+						</tr>
+					</thead>
+					<tbody id="physExTableBody">
+						<tr>
+							<td>General Apearance</td>
+							<td><input type="radio" name="appearance"></td>
+							<td><input type="radio" name="appearance"></td>
+							<td><input type="text" name="appearanceComm" ></td>	
+						</tr>
+						<tr>
+							<td>Nutrition</td>
+							<td><input type="radio" name="nutrition"></td>
+							<td><input type="radio" name="nutrition"></td>
+							<td><input type="text" name="nutrititionComm" ></td>	
+						</tr>
+						<tr>
+							<td>Skin</td>
+							<td><input type="radio" name="skin"></td>
+							<td><input type="radio" name="skin"></td>
+							<td><input type="text" name="skinComm" ></td>	
+						</tr>
+						<tr>
+							<td>Head, Neck, and Nodes</td>
+							<td><input type="radio" name="hnn"></td>
+							<td><input type="radio" name="hnn"></td>
+							<td><input type="text" name="hnnComm" ></td>	
+						</tr>
+						<tr>
+							<td>Eyes/ Eq Reflex</td>
+							<td><input type="radio" name="eyes"></td>
+							<td><input type="radio" name="eyes"></td>
+							<td><input type="text" name="eyesComm" ></td>	
+						</tr>
+						<tr>
+							<td>ENT / Hearing</td>
+							<td><input type="radio" name="ent"></td>
+							<td><input type="radio" name="ent"></td>
+							<td><input type="text" name="eyesComm" ></td>	
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div>
+				<div class="title">TB Risk Assessment</div>
+				<div class="row">
+					<div class="col"> 
+						<div> <input type="radio" name="tbRisk" value="noRisk"> No Risk</div>
+						<div> <input type="radio" name="tbRisk" value="yesRisk"> Risk: </div>
+					</div>
+					<div id="riskForm">
+						<div class="col">
+							<div class="row">
+								<div class="col">Assessment </div>
+								<div class="col">PPD Result </div>
+								<div class="col">Date </div>
+							</div>
+							<div class="row">
+								<div class="col"><input type="text" name="tbAssessment" class="underline"> </div>
+								<div class="col">
+									<span class="td">
+										<select class="form-control" name="PPDResult">
+											<option value="Select Result">Select Result</option>
+											<option value="Positive">Positive</option>
+											<option value="Negative">Negative</option>
+											<option value="Unknown">Unknown</option>
+										</select>
+									</span>
+								</div>
+								<div class="col"><input type="text" readonly name="tbRiskDate" class="datepicker form-control"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div>
+				<div class="title">Plan</div>
+				<div class="row">
+					<div class="col"> 
+						<div> Refer to Preventive Dental Care </div>
+						<div> DTaP #5 </div>
+						<div> IPV#4 </div>
+						<div> MMR#2 </div>
+						<div> PPD</div>
+
+					</div>
+					<div class="col finish">
+						<div class="row">
+							<div class="col">
+								<div class="title"> Exam Date </div>
+								<div> 12/02/2001 </div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col title"> Provider Signature </div>
+						</div>
+						<input type="submit" name="Submit">
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

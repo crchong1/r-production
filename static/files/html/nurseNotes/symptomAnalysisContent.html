@@ -1,0 +1,122 @@
+
+
+<div class = "">
+	<div class = "card box summary">
+		<h3 class="pageTitle"> Nurse Notes </h3>
+	</div>
+</div>
+
+
+<div class = "card box content-container">
+	<div class = "heading">
+		<div> Symptom Analysis </div>
+	</div>
+	<div class="underline"> </div>
+
+
+	<div id="addNote">
+		<form id="symptomAnalysisForm">
+			<div class="row">
+				<div class="col">
+			<div>
+				<div class="title"> Chief Complaint </div>
+				<div class='box2'>
+					<textarea class="note" name='chiefComplaint'></textarea>
+				</div>
+			</div>
+			<div>
+				<div class="title"> Onset </div>
+				<div class='box2'>
+					<textarea class="note" name='onset'></textarea>
+				</div>
+			</div>	
+			<div>
+				<div class="title"> Location </div>
+				<div class='box2'>
+					<textarea class="note" name='location'></textarea>
+				</div>
+			</div>	
+			<div>
+				<div class="title"> Duration </div>
+				<div class='box2'>
+					<textarea class="note" name='duration'></textarea>
+				</div>
+			</div>
+			<div>
+				<div class="title"> Characteristics </div>
+				<div class='box2'>
+					<textarea class="note" name='characteristics'></textarea>
+				</div>
+			</div>
+		</div>
+		<div class="col">
+			<div>
+				<div class="title"> Aggravating Factors </div>
+				<div class='box2'>
+					<textarea class="note" name='aggravatingFactors'></textarea>
+				</div>
+			</div>
+			<div>
+				<div class="title"> Relieving Factors  </div>
+				<div class='box2'>
+					<textarea class="note" name='relievingFactors'></textarea>
+				</div>
+			</div>
+			<div>
+				<div class="title"> Treatment </div>
+				<div class='box2'>
+					<textarea class="note" name='treatment'></textarea>
+				</div>
+			</div>
+			<div>
+				<div class="title"> Associated Signs and Symptoms </div>
+				<div class='box2'>
+					<textarea class="note" name='signsSymptoms'></textarea>
+				</div>
+			</div>
+			<div>
+				<div class="title"> Other Notes </div>
+				<div class='box2'>
+					<textarea class="note" name='otherNotes'></textarea>
+				</div>
+			</div>
+		</div>
+	</div>
+		</form>
+	</div>
+</div>
+
+<div id="submitNote" class="content-container card box" style="margin-bottom: 20px;">
+	<div class="titleFont"> Exam Date: <span style="display: inline-block;"><input type="text" name="examDate" class="datepicker form-control" ></span>
+	</div>
+	<div class="titleFont"> Provider Signature:  <span style="display: inline-block;"><input type="text" name="signature" class="underlineInput"></span>
+	</div>
+	<div class="box2">
+		<div>
+			<input type="radio" class="notesRadio" name="problem" id="newProblem" value="newProblem"/><label class="radioLabel" for="newProblem"> New Problem</label></div>
+
+			<form id="problemForm" class="tr addForm collapse">
+				<span class="td"><input type="text" name="diagnosis" placeholder="Diagnosis"></span>
+				<span class="td"><input type="text" name="details" placeholder="Details"></span>
+				<span class="td"><input type="text" name="treatment" placeholder="Treatment"></span>
+				<span class="td"><input type="text" name="onset" class="datepicker form-control" ></span>
+				<span class="td"><input type="text" name="resolution" placeholder="Resolution"></span>
+				<span class="td"><textarea class="" name='comments'></textarea></span>
+			</form>
+			<div>
+				<div><input type="radio" class="notesRadio" name="problem" id="correspondingProblem" value="correspondingProblem"><label class="radioLabel" for="correspondingProblem"> Corresponding Problem </label></div>
+				<div id="continuingForm" class="box continuing addForm">
+				<div><input type="radio" class="notesRadio" name="resolution" id="continuing" value="continuing"/><label class="radioLabel" for="continuing"> Continuing</label></div>
+				<div><input type="radio" class="notesRadio" name="resolution" id="resolved" value="resolved"/><label class="radioLabel" for="resolved"> Resolved today</label></div>
+			</div>
+			</div>
+			<input class="notesSubmit" type="submit" form="symptomAnalysisForm" value="submit"  />
+		</div>
+
+	</div>
+
+</div>
+
+
+
+

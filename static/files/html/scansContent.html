@@ -1,0 +1,231 @@
+
+
+
+  <script type="text/javascript" src="/files/js/pageScript.js"></script>
+
+<div class = "content-container">
+    <div class = "card summary">
+      <h3 class="pageTitle"> Scans </h3>
+    </div>
+  </div>
+<div id="pdf" class="box card section">
+<embed src="/files/test pdf.pdf" width="500" height="375" type='application/pdf'>
+
+</div>
+<div id="referrals" class="box card section">
+  <table class="w3-table-all">
+    <div class="subTitle">
+      Doctors' Notes / Referrals 
+    </div>
+    <thead>
+      <tr class="w3-light-grey">
+        <th>Date</th>
+        <th>Name</th>
+        <th>Doctor Name</th>
+        <th class="edit">Edit</th>
+      </tr>
+    </thead>
+    <tbody id="referralTableBody" >
+      <tr>
+        <td>01-02-2012 </td>
+        <td> <a href = '#'  >Referral to the hospital </a></td>
+        <td>Dr. Kloiber</td>
+        <td><button class="editBtn btn">Edit</button></td>
+      </tr>
+    </tbody>
+  </table>
+  <form id="referralForm" class="tr addForm " method="post" >
+    <span class="td"><input type="text" name="referralDate" class="datepicker form-control" ></span>
+    <span class="td"><input type="text" name="referralName" placeholder="Name"></span>
+    <span class="td"><input type="text" name="referralDrName" placeholder="Doctor's Name"></span>
+    <span class="td"><input type="file" name="referralPic" accept="image/*"></span>
+    <input type="submit" value="Submit" name="referralSubmit" class="formSubmit">
+    <input type="button" value="Cancel" name="cancel" class="formSubmit cancel">
+
+  </form>
+  <div>                               
+    <button id="addReferral" class="add"> + </button>
+  </div>
+</div>
+
+<div id="labResults" class="box card section">
+  <table class="w3-table-all">
+    <div class="subTitle">
+      Laboratory Results 
+    </div>
+    <thead>
+      <tr class="w3-light-grey">
+        <th>Date</th>
+        <th>Name</th>
+        <th>Organization</th>
+        <th class="edit">Edit</th>
+      </tr>
+    </thead>
+    <tbody id="labResultsTableBody" >
+      <tr>
+        <td>10-10-2012 </td>
+        <td> <a href = '#'  >Pathology report</a></td>
+        <td> Lancet Laboratories</td>
+        <td><button class="editBtn btn">Edit</button></td>
+      </tr>
+
+    </tbody>
+
+  </table>
+  <form id="labResultsForm" class="tr addForm" method="post" >
+    <span class="td"><input type="text" name="labResultsDate" class="datepicker form-control" ></span>
+    <span class="td"><input type="text" name="labResultsName" placeholder="Name"></span>
+    <span class="td"><input type="text" name="labResultsOrganization" placeholder="Organization"></span>
+    <span class="td"><input type="file" name="labResultsPic" accept="image/*"></span>
+    <input type="submit" value="Submit" name="labResultsSubmit" class="formSubmit">
+    <input type="button" value="Cancel" name="cancel" class="formSubmit cancel">
+  </form>
+  <div>                               
+    <button id="addLabResults" class="add"> + </button>
+  </div>
+</div>
+
+<div id="govDocs" class="box card section">
+  <table class="w3-table-all">
+    <div class="subTitle">
+      Government Documents 
+    </div>
+    <thead>
+      <tr class="w3-light-grey">
+        <th>Date</th>
+        <th>Name</th>
+        <th>Department/Offiial Name</th>
+        <th class="edit">Edit</th>
+      </tr>
+    </thead>
+    <tbody id="govDocsTableBody" >
+      <tr>
+        <td>10-10-2012 </td>
+        <td>Pathology report</td>
+        <td> Lancet Laboratories</td>
+        <td><button class="editBtn btn">Edit</button></td>
+      </tr>
+    </tbody>
+  </table>
+  <form id="govDocsForm" class="tr addForm" method="post" >
+    <span class="td"><input type="text" name="govDocsDate" class="datepicker form-control" ></span>
+    <span class="td"><input type="text" name="govDocsName" placeholder="Name"></span>
+    <span class="td"><input type="text" name="govDocsDepartment" placeholder="Department/Official Name"></span>
+    <span class="td"><input type="file" name="govDocsPic" accept="image/*"></span>
+    <input type="submit" value="Submit" name="govDocsSubmit" class="formSubmit">
+    <input type="button" value="Cancel" name="cancel" class="formSubmit cancel">
+  </form>
+  <div>                               
+    <button id="addGovDocs" class="add"> + </button>
+  </div>
+</div>
+<div id="pastNurseNotes" class="box card section">
+  <table class="w3-table-all">
+    <div class="subTitle">
+     Past Nurse Notes 
+   </div>
+   <thead>
+    <tr class="w3-light-grey">
+      <th>Date</th>
+      <th>Name</th>
+      <th>Organization</th>
+      <th class="edit">Edit</th>
+    </tr>
+  </thead>
+  <tbody id="pastNurseNotesTableBody" >
+    <tr>
+      <td>10-10-2012 </td>
+      <td> <a href = '#'> Nurse report </a></td>
+      <td> Lancet Laboratories</td>
+      <td><button class="editBtn btn">Edit</button></td>
+    </tr>
+  </tbody>
+</table>
+<form id="labResultsForm" class="tr addForm" method="post" >
+  <span class="td"><input type="text" name="pastNurseNotesDate" class="datepicker form-control" ></span>
+  <span class="td"><input type="text" name="pastNurseNotesName" placeholder="Name"></span>
+  <span class="td"><input type="text" name="pastNurseNotesContributor" placeholder="Main contributor"></span>
+  <span class="td"><input type="file" name="pastNurseNotesPic" accept="image/*"></span>
+  <input type="submit" value="Submit" name="pastNurseNotesSubmit" class="formSubmit">
+  <input type="button" value="Cancel" name="cancel" class="formSubmit cancel">
+</form>
+<div>                               
+  <button id="addPastNurseNotes" class="add"> + </button>
+</div>
+</div>
+<div id="other" class="box card section">
+  <table class="w3-table-all">
+    <div class="subTitle">
+     Other 
+   </div>
+   <thead>
+    <tr class="w3-light-grey">
+      <th>Date</th>
+      <th>Name</th>
+      <th>Organization</th>
+      <th class="edit">Edit</th>
+    </tr>
+  </thead>
+  <tbody id="otherTableBody" >
+    <tr>
+      <td>10-10-2012 </td>
+      <td> <a href = '#'  >Pathology report</a></td>
+      <td> Lancet Laboratories</td>
+      <td><button class="editBtn btn">Edit</button></td>
+    </tr>
+    <tr>
+      <td>10-10-2012 </td>
+      <td> <a href = '#'  >Pathology report</a></td>
+      <td> Lancet Laboratories</td>
+      <td><button class="editBtn btn">Edit</button></td>
+    </tr>
+  </tbody>
+</table>
+<form id="labResultsForm" class="tr addForm" method="post" >
+  <span class="td"><input type="text" name="otherDate" class="datepicker form-control" ></span>
+  <span class="td"><input type="text" name="otherName" placeholder="Name"></span>
+  <span class="td"><input type="text" name="otherOrganization" placeholder="Organization"></span>
+  <span class="td"><input type="file" name="otherPic" accept="image/*"></span>
+  <input type="submit" value="Submit" name="otherSubmit" class="formSubmit">
+  <input type="button" value="Cancel" name="cancel" class="formSubmit cancel">
+</form>
+<div>                               
+  <button id="addOther" class="add"> + </button>
+</div>
+
+
+
+<script>
+
+  $(document).ready(function(){
+
+    $(document).click(function(){
+      if(!$(event.target).closest('#imgPreview').length) {
+        $('#imgPreview').prev().find('a').removeClass('disabled');
+        $('#imgPreview').remove();
+        
+      }        
+    });
+
+    $('.section').find('a').on('click', function(ev){
+      console.log('image click')
+
+      if (!$(this).hasClass('disabled')) {
+        console.log('not disabled')
+        $(this).attr('class','disabled');
+        var img = '/images/test.png';
+        $(this).closest('tr').after("<tr id = 'imgPreview'><td colspan='4'><div style='text-align:center;'><img style='width: 500px !important;' src= " + img + "></div><div style='text-align: center;'><a href='#' class='newTab'> Open in new tab</a></div></td></tr>");
+      };
+      ev.preventDefault();
+      ev.stopPropagation();
+
+    });
+
+    $('.newTab').on('click', function() {
+      console.log('open image in new tab');
+    })
+
+
+
+  });
+</script>
