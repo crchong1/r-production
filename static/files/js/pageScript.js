@@ -143,12 +143,12 @@ var editEntryGeneric = function (row) {
 			var val = data[i];
 			$(name).val(val);
 		// for other inputs
-		}else {
-			var name = '#editForm input[name=' + items[i].name;
-			var val = data[i];
-			$(name).val(val);
-		}
+	}else {
+		var name = '#editForm input[name=' + items[i].name;
+		var val = data[i];
+		$(name).val(val);
 	}
+}
 	// finalizing form appearance
 	$('#editForm').attr('class', 'tr editForm')
 	$('#editForm').show();
@@ -184,12 +184,12 @@ function getAge(fromdate, todate) {
 	else todate = new Date();
 
 	var age = [], fromdate = new Date(fromdate),
-		y = [todate.getFullYear(), fromdate.getFullYear()],
-		ydiff = y[0] - y[1],
-		m = [todate.getMonth() + 1, fromdate.getMonth()],
-		mdiff = m[0] - m[1],
-		d = [todate.getDate(), fromdate.getDate()],
-		ddiff = d[0] - d[1];
+	y = [todate.getFullYear(), fromdate.getFullYear()],
+	ydiff = y[0] - y[1],
+	m = [todate.getMonth() + 1, fromdate.getMonth()],
+	mdiff = m[0] - m[1],
+	d = [todate.getDate(), fromdate.getDate()],
+	ddiff = d[0] - d[1];
 
 	if (mdiff < 0 || (mdiff === 0 && ddiff < 0))--ydiff;
 	if (mdiff < 0) mdiff += 12;
@@ -222,3 +222,21 @@ function getAge(fromdate, todate) {
 	return age.join('');
 }
 
+getRecentWeight()
+function getRecentWeight(){
+	$.ajax({
+		type: 'POST',
+		url: '/getAllWeights',
+		data: {
+			id: patientId
+		},
+
+		success: function (result) {
+			console.log("success ")
+			console.log(result);
+		},
+		error: function(XMLHttpRequest, textStatus, errorThrown) {
+			console.error("error: " + errorThrown);
+		}
+	});
+}

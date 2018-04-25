@@ -47,9 +47,6 @@ $('document').ready(function() {
     $.ajax({
         type: "POST",
         url: "/getAllWeights",
-        data : {
-          id: patientId
-        },
         success: function(data) {
           console.log(data);
           if(data.data.length != 0){

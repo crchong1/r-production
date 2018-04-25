@@ -1,249 +1,404 @@
+  <link rel="stylesheet" type="text/css" href="/files/css/wcc.css">
 
-	<script type="text/javascript" src="/files/js/pageScript.js"></script>
+  <script type="text/javascript" src="/files/js/pageScript.js"></script>
 
-<div class = "content-container">
-    <div class = "card summary">
-      <h3 class="pageTitle"> Testing </h3>
-    </div>
+  <div class = "content-container">
+  	<div class = "card summary">
+  		<h3 class="pageTitle"> Testing </h3>
+  	</div>
+  </div>
+  <div class="box card section">
+  	<table class="w3-table-all">
+  		<div class="subTitle">
+  			HIV 
+  		</div>
+  		<thead>
+  			<tr class="w3-light-grey">
+  				<th>Test</th>
+  				<th>Date</th>
+  				<th>Type</th>
+  				<th>Result</th>
+  				<th class='edit'>Edit</th>
+  			</tr>
+  		</thead>
+  		<tbody id="hivTableBody" >
+  			<tr>
+  				<td>Test #1</td>
+  				<td>02/12/2018</td>
+  				<td>Rapid</td>
+  				<td>Negative</td>
+  				<td><button class="editBtn btn">Edit</button></td>
+  			</tr>
+  		</tbody>
+  	</table>
+  	<form id="hivForm" class="tr addForm" method="post" >
+  		<span class="td"><input type="text" name="hivTestNum" value="Test #"></span>
+  		<span class="td"><input type="text" name="hivDate" class="datepicker form-control" ></span>
+  		<span class="td">
+  			<select class="form-control" name="hivTest">
+  				<option value="Select Type">Select Type</option>
+  				<option value="Rapid">Rapid</option>
+  				<option value="PCR">PCR</option>
+  			</select>
+  		</span>
+  		<span class="td">
+  			<select class="form-control" name="hivResult">
+  				<option value="Select Result">Select Result</option>
+  				<option value="Positive">Positive</option>
+  				<option value="Negative">Negative</option>
+  				<option value="Unknown">Unknown</option>
+  			</select>
+  		</span>
+  		<input type="submit" value="Submit" name="hivSubmit" class="formSubmit">
+  		<input type="button" value="Cancel" name="cancel" class="formSubmit cancel">
+  	</form>
+
+  	<div>                               
+  		<button id="addHivTest" class="add"> + </button>
+  	</div>
   </div>
 
 
-	<div class="box card section">
-		<table class="w3-table-all">
-			<div class="subTitle">
-				HIV 
-			</div>
-			<thead>
-				<tr class="w3-light-grey">
-					<th>Test</th>
-					<th>Date</th>
-					<th>Type</th>
-					<th>Result</th>
-					<th class='edit'>Edit</th>
-				</tr>
-			</thead>
-			<tbody id="hivTableBody" >
-				<tr>
-					<td>Test #1</td>
-					<td>02/12/2018</td>
-					<td>Rapid</td>
-					<td>Negative</td>
-					<td><button class="editBtn btn">Edit</button></td>
-				</tr>
-			</tbody>
-		</table>
-		<form id="hivForm" class="tr addForm" method="post" >
-			<span class="td"><input type="text" name="hivTestNum" value="Test #"></span>
-			<span class="td"><input type="text" name="hivDate" class="datepicker form-control" ></span>
-			<span class="td">
-				<select class="form-control" name="hivTest">
-					<option value="Select Type">Select Type</option>
-					<option value="Rapid">Rapid</option>
-					<option value="PCR">PCR</option>
-				</select>
-			</span>
-			<span class="td">
-				<select class="form-control" name="hivResult">
-					<option value="Select Result">Select Result</option>
-					<option value="Positive">Positive</option>
-					<option value="Negative">Negative</option>
-					<option value="Unknown">Unknown</option>
-				</select>
-			</span>
-			<input type="submit" value="Submit" name="hivSubmit" class="formSubmit">
-			<input type="button" value="Cancel" name="cancel" class="formSubmit cancel">
-		</form>
-
-		<div>                               
-			<button id="addHivTest" class="add"> + </button>
-		</div>
-	</div>
+  <div class="box card section">
+  	<div class="subTitle">
+  		Tuberculosis 
+  	</div>
+  	<table class="w3-table-all">
+  		<thead>
+  			<tr class="w3-light-grey">
+  				<th>Test</th>
+  				<th>Date</th>
+  				<th>Type</th>
+  				<th>Result</th>
+  				<th class='edit'>Edit</th>
+  			</tr>
+  		</thead>
+  		<tbody id="tbTableBody">
+  			<tr>
+  				<td>Test #1</td>
+  				<td>01/09/2014</td>
+  				<td>PPD Skin Test</td>
+  				<td>Negative</td>
+  				<td><button class="editBtn btn">Edit</button></td>
+  			</tr>
+  			<tr>
+  				<td>Test #2</td>
+  				<td>11/19/2014</td>
+  				<td>IGRA Blood Test</td>
+  				<td>Positive</td>
+  				<td><button class="editBtn btn">Edit</button></td>
+  			</tr>
 
 
-	<div class="box card section">
-		<div class="subTitle">
-			Tuberculosis 
-		</div>
-		<table class="w3-table-all">
-			<thead>
-				<tr class="w3-light-grey">
-					<th>Test</th>
-					<th>Date</th>
-					<th>Type</th>
-					<th>Result</th>
-					<th class='edit'>Edit</th>
-				</tr>
-			</thead>
-			<tbody id="tbTableBody">
-				<tr>
-					<td>Test #1</td>
-					<td>01/09/2014</td>
-					<td>PPD Skin Test</td>
-					<td>Negative</td>
-					<td><button class="editBtn btn">Edit</button></td>
-				</tr>
-				<tr>
-					<td>Test #2</td>
-					<td>11/19/2014</td>
-					<td>IGRA Blood Test</td>
-					<td>Positive</td>
-					<td><button class="editBtn btn">Edit</button></td>
-				</tr>
-			</tbody>
-		</table>
-		<form id="tbForm" class="addForm" method="post" >
-			<span class="td"><input  name="tbTestNum" value="Test #" type="text" readonly></span>
-			<span class="td"><input type="text" readonly name="tbDate" class="datepicker form-control"></span>
-			<span class="td">
-				<select class="form-control" name="tbTest">
-					<option value="Select Type">Select Type</option>
-					<option value="PPD Skin Test">PPD Skin Test</option>
-					<option value="IGRA Blood Test">IGRA Blood Test</option>
-				</select>
-			</span>
-			<span class="td">
-				<select class="form-control" name="tbResult">
-					<option value="Select Result">Select Result</option>
-					<option value="Positive">Positive</option>
-					<option value="Negative">Negative</option>
-					<option value="Unknown">Unknown</option>
-				</select>
-			</span>
-			<input type="submit" value="Submit" name="tbSubmit" class="formSubmit">
-			<input type="button" value="Cancel" name="cancel" class="formSubmit cancel">
+  		</tbody>
+  	</table>
+  	<form id="tbForm" class="addForm" method="post" >
+  		<span class="td"><input  name="tbTestNum" value="Test #" type="text" readonly></span>
+  		<span class="td"><input type="text" readonly name="tbDate" class="datepicker form-control"></span>
+  		<span class="td">
+  			<select class="form-control" name="tbTest">
+  				<option value="Select Type">Select Type</option>
+  				<option value="PPD Skin Test">PPD Skin Test</option>
+  				<option value="IGRA Blood Test">IGRA Blood Test</option>
+  			</select>
+  		</span>
+  		<span class="td">
+  			<select class="form-control" name="tbResult">
+  				<option value="Select Result">Select Result</option>
+  				<option value="Positive">Positive</option>
+  				<option value="Negative">Negative</option>
+  				<option value="Unknown">Unknown</option>
+  			</select>
+  		</span>
+  		<input type="submit" value="Submit" name="tbSubmit" class="formSubmit">
+  		<input type="button" value="Cancel" name="cancel" class="formSubmit cancel">
 
-		</form>
-		<div>                               
-			<button id="addTbTest" class="add"> + </button>
-		</div>
-	</div>
+  	</form>
+  	<div>                               
+  		<button id="addTbTest" class="add"> + </button>
+  	</div>
+</div>
 
-	<div class="box card section">
-		<div class="subTitle">
-			Hemoglobin 
-		</div>
-		<table class="w3-table-all ">
-			<thead>
+ <div class="box card section">
+  		<div class="subTitle">
+  			TB Screening 
+  		</div>
+  		<div class="row">
+  			<div class="col">
+  				<div class="titleFont"> Adult </div>
+  				<div class="box2">
+  					<form id = "tbScreening" method="post">
+  						<label class="ckbxContainer"> Current cough?
+  							<input type="checkbox" name="adultTB" value="cough">
+  							<span class="checkmark"></span>
+  						</label>
+  						<label class="ckbxContainer"> Fever for 2 weeks or more?
+  							<input type="checkbox" name="adultTB" value="fever">
+  							<span class="checkmark"></span>
+  						</label>
+  						<label class="ckbxContainer"> Night sweats for 2 weeks or more?
+  							<input type="checkbox" name="adultTB" value="nightSweats">
+  							<span class="checkmark"></span>
+  						</label>
+  						<label class="ckbxContainer"> History of contact with a TB case?
+  							<input type="checkbox" name="adultTB" value="pastContact">
+  							<span class="checkmark"></span>
+  						</label>
+  					</div>
+  				</div>
+  				<div class="col">
 
-				<tr class="w3-light-grey">
-					<th>Test</th>
-					<th>Date Due</th>
-					<th>Date Administered</th>
-					<th>Result</th>
-					<th>Start/keep taking iron?</th>
-					<th class="edit">Edit</th>
-				</tr>
-			</thead>
-			<tbody id="hgbTableBody">
-				<tr>
-					<td>Test # 1</td>
-					<td>01/09/2014</td>
-					<td> 01/01/2014</td>
-					<td>10.5 g/dL</td>
-					<td>Yes</td>
-					<td><button class="editBtn btn">Edit</button></td>
-				</tr>
-				<tr>
-					<td>Test #2</td>
-					<td>11/19/2014</td>
-					<td>12/01/204</td>
-					<td>11.0 g/dL</td>
-					<td>No</td>
-					<td><button class="editBtn btn">Edit</button></td>
-				</tr>
-			</tbody>
+  					<div class="titleFont"> Children < 15 y.o. </div>
+  					<label class="ckbxContainer"> Current cough?
+  						<input type="checkbox" name="childTB" value="cough">
+  						<span class="checkmark"></span>
+  					</label>
+  					<label class="ckbxContainer"> Fever for 2 weeks or more?
+  						<input type="checkbox" name="childTB" value="fever">
+  						<span class="checkmark"></span>
+  					</label>
+  					<label class="ckbxContainer"> Poor weight gain/failure to thrive?
+  						<input type="checkbox" name="childTB" value="poorWeightGain">
+  						<span class="checkmark"></span>
+  					</label>
+  					<label class="ckbxContainer"> History of contact with a TB case?
+  						<input type="checkbox" name="childTB" value="pastContact">
+  						<span class="checkmark"></span>
+  					</label>
+  				</div>
+  			</div>
+  			<div class="row">
+  				<div class="col" style="padding: 10px 40px;">
+  					a) If Yes to Q1, probe for duration of cough. If duration is more than 2 weeks, consider that as a presumptive TB case. <br>
+  					b) If Yes to Q1 but duration is less than 2 weeks, it must be accompanied by Yes in any of the other questions (i.e., Q2-Q4). <br>
+  					c) If No to Q1, consider as presumptive TB if at least two (2) of the other symptoms (i.e., Fever &amp; Night Sweats, etc.) exists. <br>
+  					d) For Children, History of Contact with TB case alone should be considered presumptive TB case. 
+  				</div>
+  			</div>
+  			<div class="row">
+  				<div class="col">
+  					<div class="titleFont"> Notes </div>
+  					<textarea form="tbScreening"></textarea>	
+  				</div>
+  			</div>
+  		</form>
+  		<div class="row">
+  			<div class="col">
 
-		</table>
-		<form id="hgbForm" class="tr addForm" method="post" >
+  				<div id="submitScreening" class="content-container card box" style="margin-bottom: 20px;">
+  					<div class="titleFont"> Exam Date: <span style="display: inline-block;"><input type="text" name="examDate" class="datepicker form-control" ></span>
+  					</div>
+  					<div class="titleFont"> Provider Signature:  <span style="display: inline-block;"><input type="text" name="signature" class="underlineInput"></span>
+  					</div>
+  					<div class="titleFont"> Age at time of test:  <span style="display: inline-block;"><input type="text" name="age" class="underlineInput"></span>
+  					</div>
+  					<div class="titleFont"> Screen Result: </div>
+  					<div class="box2">
+  						<div>
+  							<label class="ckbxContainer"> Positive (presumptive TB)
+  								<input type="radio" name="tbResult" value="positive">
+  								<span class="radiomark"></span>
+  							</label>
+  							<label class="ckbxContainer"> Negative
+  								<input type="radio" name="tbResult" value="negative">
+  								<span class="radiomark"></span>
+  							</label>
+  						</div>
 
-			<span class="td"><input name="hgbTestNum" value="Test #" type="text" readonly></span>
-			<span class="td"><input name="hgbDateDue" class="datepicker form-control" type="text" readonly /></span>
-			<span class="td"><input name="hgbDateAdministered" class="datepicker form-control" type="text" readonly /></span>
-			<span class="td"><input type="text" name="hgbResult" placeholder="Result"></span>
-			<span class="td">  
-				<div class="radio">
-					<label><input type="radio" name="iron" value="Yes"> Yes</label>
-				</div>
-				<div class="radio">
-					<label><input type="radio" name="iron" value="No"> No</label>
-				</div>
-			</span>
+  					</div>
+  					<input type="submit" value="Submit" name="tbSubmit" class="formSubmit">
+  				</form>
+  			</div>
+  		</div>
+  	</div>
+  </div>
+</div>
 
-			<input type="submit" value="Submit" name="hgbSubmit" class="formSubmit">
-			<input type="button" value="Cancel" name="cancel" class="formSubmit cancel">
-		</form>
-		<div>                               
-			<button id="addHgbTest" class="add"> + </button>
-		</div>
-	</div>
+<div class="box card section">
+      <div class="subTitle">
+        Past TB Screening Results
+      </div>
+    <table class="w3-table-all ">
+      <thead>
 
-	<!-- TODO needs form -->
-	<div class="box card section">
-		<div class="subTitle">
-			Syphilis 
-		</div>
-		<table class="w3-table-all ">
-			<thead>
-				<tr class="w3-light-grey">
-					<th>Test</th>
-					<th>Date</th>
-					<th>Type</th>
-					<th>Result</th>
-					<th class="edit">Edit</th>
-				</tr>
-			</thead>
-			<tbody id="syphilisTableBody">
-				<tr>
-					<td>Test # 1</td>
-					<td>01/09/2014</td>
-					<td>Blood</td>
-					<td>Negative</td>
-					<td><button class="editBtn btn">Edit</button></td>
-				</tr>
-				<tr>
-					<td>Test #2</td>
-					<td>11/19/2014</td>
-					<td>Urine</td>
-					<td>Negative</td>
-					<td><button class="editBtn btn">Edit</button></td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
+        <tr class="w3-light-grey">
+          <th>Date</th>
+          <th>Age</th>
+          <th>Screen Result</th>
+          <th>Notes</th>
 
-	<!-- TODO needs form -->
-	<div class="box card section">
-		<div class="subTitle">
-			Miscellaneous
-		</div>
-		<table class="w3-table-all ">
-			<thead>
-				<tr class="w3-light-grey">
-					<th>Test</th>
-					<th>Date</th>
-					<th>Type</th>
-					<th>Result</th>
-					<th class="edit">Edit</th>
-				</tr>
-			</thead>
-			<tbody id="syphilisTableBody">
-				<tr>
-					<td>Gonohrea</td>
-					<td>01/09/2014</td>
-					<td>Blood</td>
-					<td>Negative</td>
-					<td><button class="editBtn btn">Edit</button></td>
-				</tr>
-				<tr>
-					<td>Test #2</td>
-					<td>11/19/2014</td>
-					<td>Urine</td>
-					<td>Negative</td>
-					<td><button class="editBtn btn">Edit</button></td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
+          <th class="edit">Edit</th>
+        </tr>
+      </thead>
+      <tbody id="pastTBScreeningTableBody">
+        <tr>
+          <td>Test # 1</td>
+          <td>01/09/2014</td>
+          <td> 01/01/2014</td>
+          <td>10.5 g/dL</td>
+          <td>Yes</td>
+          <td><button class="editBtn btn">Edit</button></td>
+        </tr>
+        <tr>
+          <td>Test #2</td>
+          <td>11/19/2014</td>
+          <td>12/01/204</td>
+          <td>11.0 g/dL</td>
+          <td>No</td>
+          <td><button class="editBtn btn">Edit</button></td>
+        </tr>
+      </tbody>
+
+    </table>
+  </div>
+
+
+
+  <div class="box card section">
+  	<div class="subTitle">
+  		Hemoglobin 
+  	</div>
+  	<table class="w3-table-all ">
+  		<thead>
+
+  			<tr class="w3-light-grey">
+  				<th>Test</th>
+  				<th>Date Due</th>
+  				<th>Date Administered</th>
+  				<th>Result</th>
+  				<th>Start/Keep Taking Iron?</th>
+
+  				<th class="edit">Edit</th>
+  			</tr>
+  		</thead>
+  		<tbody id="hgbTableBody">
+  			<tr>
+  				<td>Test # 1</td>
+  				<td>01/09/2014</td>
+  				<td> 01/01/2014</td>
+  				<td>10.5 g/dL</td>
+  				<td>Yes</td>
+  				<td><button class="editBtn btn">Edit</button></td>
+  			</tr>
+  			<tr>
+  				<td>Test #2</td>
+  				<td>11/19/2014</td>
+  				<td>12/01/204</td>
+  				<td>11.0 g/dL</td>
+  				<td>No</td>
+  				<td><button class="editBtn btn">Edit</button></td>
+  			</tr>
+  		</tbody>
+
+  	</table>
+  	<form id="hgbForm" class="tr addForm" method="post" >
+
+  		<span class="td"><input name="hgbTestNum" value="Test #" type="text" readonly></span>
+  		<span class="td"><input name="hgbDateDue" class="datepicker form-control" type="text" readonly /></span>
+  		<span class="td"><input name="hgbDateAdministered" class="datepicker form-control" type="text" readonly /></span>
+  		<span class="td"><input type="text" name="hgbResult" placeholder="Result"></span>
+  		<span class="td">  
+  			<div class="radio">
+  				<label><input type="radio" name="iron" value="Yes"> Yes</label>
+  			</div>
+  			<div class="radio">
+  				<label><input type="radio" name="iron" value="No"> No</label>
+  			</div>
+  		</span>
+
+  		<input type="submit" value="Submit" name="hgbSubmit" class="formSubmit">
+  		<input type="button" value="Cancel" name="cancel" class="formSubmit cancel">
+  	</form>
+  	<div>                               
+  		<button id="addHgbTest" class="add"> + </button>
+  	</div>
+  </div>
+
+  <div class="box card section">
+  	<div class="subTitle">
+  		Syphilis 
+  	</div>
+  	<table class="w3-table-all ">
+  		<thead>
+
+  			<tr class="w3-light-grey">
+  				<th>Test</th>
+  				<th>Date</th>
+  				<th>Type</th>
+  				<th>Result</th>
+  				<th>Comments</th>
+  				<th class="edit">Edit</th>
+  			</tr>
+  		</thead>
+  		<tbody id="syphilisTableBody">
+  			<tr>
+  				<td>Test # 1</td>
+  				<td> 01/01/2014</td>
+  				<td>Blood</td>
+  				<td>Negative</td>
+  				<td> none </td>
+  				<td><button class="editBtn btn">Edit</button></td>
+  			</tr>
+  		</tbody>
+
+  	</table>
+  	<form id="syphilisForm" class="tr addForm" method="post" >
+
+  		<span class="td"><input name="syphilisTestNum" value="Test #" type="text" readonly></span>
+  		<span class="td"><input name="syphilisDate" class="datepicker form-control" type="text" readonly /></span>
+  		<span class="td"><input name="syphilisType" class="datepicker form-control" type="text" readonly /></span>
+  		<span class="td"><input type="text" name="syphilisResult" placeholder="Result"></span>
+  		<span class="td"><textarea form="syphilisForm"  name="syphilisComment" ></textarea></span>
+  		<input type="submit" value="Submit" name="syphilisSubmit" class="formSubmit">
+  		<input type="button" value="Cancel" name="cancel" class="formSubmit cancel">
+  	</form>
+  	<div>                               
+  		<button id="addSyphilisTest" class="add"> + </button>
+  	</div>
+  </div>
+
+  <div class="box card section">
+  	<div class="subTitle">
+  		Miscellaneous 
+  	</div>
+  	<table class="w3-table-all ">
+  		<thead>
+
+  			<tr class="w3-light-grey">
+  				<th>Test</th>
+  				<th>Date</th>
+  				<th>Type</th>
+  				<th>Result</th>
+  				<th>Comments</th>
+  				<th class="edit">Edit</th>
+  			</tr>
+  		</thead>
+  		<tbody id="miscTableBody">
+  			<tr>
+  				<td>Test # 1</td>
+  				<td> 01/01/2014</td>
+  				<td>Blood</td>
+  				<td>Negative</td>
+  				<td> none </td>
+  				<td><button class="editBtn btn">Edit</button></td>
+  			</tr>
+  		</tbody>
+
+  	</table>
+  	<form id="miscForm" class="tr addForm" method="post" >
+
+  		<span class="td"><input name="miscTest" value="Test #" type="text" readonly></span>
+  		<span class="td"><input name="miscDate" class="datepicker form-control" type="text" readonly /></span>
+  		<span class="td"><input name="miscType" class="datepicker form-control" type="text" readonly /></span>
+  		<span class="td"><input type="text" name="miscResult" placeholder="Result"></span>
+  		<span class="td"><textarea form="miscForm"  name="miscComment" ></textarea></span>
+  		<input type="submit" value="Submit" name="miscSubmit" class="formSubmit">
+  		<input type="button" value="Cancel" name="cancel" class="formSubmit cancel">
+  	</form>
+  	<div>                               
+  		<button id="addMiscTest" class="add"> + </button>
+  	</div>
+  </div>
 </div>
 
 

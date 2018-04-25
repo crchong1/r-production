@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var patientHistory = mongoose.createConnection('mongodb://localhost/patientHistory');
+var patientHistory = mongoose.createConnection('mongodb://127.0.0.1/patientHistory');
 patientHistory.on('error', console.error.bind(console, 'connection error:'));
 patientHistory.once('open', function() {
   // we're connected!
@@ -52,6 +52,7 @@ var patientHistory = mongoose.Schema({
     }
   });
 var PatientHistory = mongoose.model('PatientHistory', patientHistory);
+
 
 var updateSocialHistory = function(id, text, route_callback) {
     PatientHistory.findOneAndUpdate({id: id}, { $set: { socialHistory: text }}, function(err, res){

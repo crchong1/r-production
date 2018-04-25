@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-var problemList = mongoose.createConnection('mongodb://localhost/problemList');
+var problemList = mongoose.createConnection('mongodb://127.0.0.1/problemList');
 
 problemList.on('error', console.error.bind(console, 'connection error:'));
 problemList.once('open', function () {
@@ -307,6 +307,7 @@ var getAllAcute = function (id, route_callback) {
         }
     });
 };
+
 
 // this function edits an existing entry in the data 
 var editAcute = function (id, acuteDiagnosis, acuteDetails,

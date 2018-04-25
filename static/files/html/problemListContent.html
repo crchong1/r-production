@@ -3,7 +3,6 @@
 <div class="content-container">
   <div class="card summary">
     <h3 class="pageTitle"> Problem List </h3>
-
   </div>
 </div>
 
@@ -20,6 +19,7 @@
         <th>Treatment</th>
         <th>Date of Onset</th>
         <th>Date of Resolution</th>
+        <th>Notes</th>
         <th class="edit">Edit</th>
       </tr>
     </thead>
@@ -42,6 +42,9 @@
     <span class="td">
       <input type="text" name="chronicResolution" placeholder="Resolution">
     </span>
+    <span class="td">
+      <input type="text" name="chronicNotes" placeholder="Notes">
+    </span>
     <input type="submit" value="Submit" id="chronicSubmit" name="chronicSubmit" class="btn btn-primary formSubmit">
     <input type="button" value="Cancel" name="cancel" class="btn btn-danger formSubmit cancel" data-toggle="collapse" data-target="#chronicForm">
   </form>
@@ -63,6 +66,7 @@
         <th>Treatment</th>
         <th>Date of Onset</th>
         <th>Date of Resolution</th>
+        <th>Notes</th>
         <th class="edit">Edit</th>
       </tr>
     </thead>
@@ -84,6 +88,9 @@
     </span>
     <span class="td">
       <input type="text" name="acuteResolution" placeholder="Resolution">
+    </span>
+    <span class="td">
+      <input type="text" name="acuteNotes" placeholder="Notes">
     </span>
     <input type="submit" value="Submit" id="acuteSubmit" name="acuteSubmit" class="btn btn-primary formSubmit">
     <input type="button" value="Cancel" name="cancel" class="btn btn-danger formSubmit cancel">
@@ -145,6 +152,7 @@
           chronicTreatment: input[2].value,
           chronicDateOnset: input[3].value,
           chronicEndDate: input[4].value,
+          chronicNotes: input[5].value,
         },
         success: function (data) {
           console.log("New chronic data: ");
@@ -172,6 +180,7 @@
           acuteTreatment: input[2].value,
           acuteDateOnset: input[3].value,
           acuteEndDate: input[4].value,
+          acuteNotes: input[5].value
         },
         success: function (data) {
           console.log("New chronic data: ");
@@ -215,7 +224,8 @@
       details: data[1],
       treatment: data[2],
       dateOnset: data[3],
-      endDate: data[4]
+      endDate: data[4],
+      notes: data[5]
     }
     console.log("preEditData when editBtn is clicked: " + preEditData);
 
@@ -241,6 +251,7 @@
         chronicTreatment: input[2].value,
         chronicDateOnset: input[3].value,
         chronicEndDate: input[4].value,
+        chronicNotes: input[5].value,
         preEditData: preEditData
       },
       success: function (result) {
@@ -306,6 +317,7 @@
       acuteTreatment: input[2].value,
       acuteDateOnset: input[3].value,
       acuteEndDate: input[4].value,
+      acuteNotes: input[5].value,
       preEditData: preEditData
     },
     success: function (result) {
@@ -382,6 +394,7 @@ $('#acuteProb').on('click', '.delete', function (event) {
       line += '<td>' + data[i].chronicTreatment + '</td>';
       line += '<td>' + data[i].chronicDateOnset + '</td>';
       line += '<td>' + data[i].chronicEndDate + '</td>';
+      line += '<td>' + data[i].chronicNotes + '</td>';
       line += '<td><button id = "editBtn" class="editBtn btn">Edit</button></td></tr>';
       table1 += line;
     }
@@ -440,6 +453,7 @@ document.getElementById('chronicTableBody').innerHTML = table1;
       line += '<td>' + data[i].acuteTreatment + '</td>';
       line += '<td>' + data[i].acuteDateOnset + '</td>';
       line += '<td>' + data[i].acuteEndDate + '</td>';
+      line += '<td>' + data[i].acuteNotes + '</td>';
       line += '<td><button class="editBtn btn">Edit</button></td></tr>';
       table1 += line;
     }

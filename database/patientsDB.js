@@ -1,7 +1,6 @@
 var mongoose = require('mongoose');
 var patients = mongoose.createConnection('mongodb://localhost/patients');
 
-
 patients.on('error', console.error.bind(console, 'connection error:'));
 patients.once('open', function() {
   // we're connected!
@@ -68,7 +67,7 @@ var getPatient = function(patient_name, route_callbck){
 var getPatientById = function(id, route_callbck){
     Patient.find({id: id}, function(err, res){
         if(err){
-            route_callback(null, "error" + err);
+            route_callbck(null, "error" + err);
         }
         else {
             route_callbck(res, null);

@@ -172,3 +172,11 @@
 	</div>
 </div>
 
+<script>
+//<a href="/patientPage/' + patientId + '/testing">Infection</a>
+$(document).ready(function(){
+  var link = "/patientPage/" + patientId + "/problem";
+  $('a').attr('href', link); 
+});
+
+</script>
