@@ -2,9 +2,7 @@ var patientsDB = require('../database/patientsDB.js');
 var weightDB = require('../database/weightDB.js');
 var problemListDB = require('../database/problemListDB.js');
 var allergyDB = require('../database/allergyDB.js');
-<<<<<<< HEAD
 var pharmacyDB = require('../database/pharmacyDB.js');
-=======
 var users = require('../database/usersDB.js');
 var sess;
 
@@ -48,7 +46,6 @@ var createAccount = function(req, res) {
 			});
 	  }
 };
-
 	
 var checkLogin = function(req, res) {
 	sess = req.session;
@@ -102,8 +99,6 @@ var getUser = function(req, res) {
 var getSignup = function (req, res) {
   res.render('signup.ejs', {message: ''});
 }
-
->>>>>>> 69a873efb13e774b143ecc3ccba9eb6ad3183ad1
 
 // this function renders login.ejs first now
 var getMain = function (req, res) {
@@ -222,7 +217,7 @@ var getPatientKeys = function (req, res) {
       alert("Error from getPatientKeys, patients DB, in routes.js -> getPatientKeys")
     }
     else if (data) {
-      res.send({
+        res.send({
         message: '',
         patient: data
       });
@@ -304,7 +299,6 @@ var getAllAllergy = function (req, res) {
     }
   });
 };
-
 
 var submitNewAllergy = function (req, res) {
   console.log("submitNewAllergy called in routes")

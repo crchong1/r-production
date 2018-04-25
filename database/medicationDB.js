@@ -456,8 +456,6 @@ var deleteAcuteMed = function (id, preEditData, route_callback) {
     )
 };
 
-
-
 var medicationDB = {
     putNewChronicMed: putNewChronicMed,
     putChronicMedEntry: putChronicMedEntry,

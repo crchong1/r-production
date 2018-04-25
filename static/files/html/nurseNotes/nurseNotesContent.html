@@ -3,7 +3,7 @@
 
 <div class = "content-container">
 	<div class = "card summary">
-		<h3 class="pageTitle"> Nurse Notes </h3>
+		<h3 class="pageTitle"> Progress Notes </h3>
 	</div>
 </div>
 
@@ -152,3 +152,51 @@
 	</div>
 </div>
 
+<div class = "card box content-container">
+	<div class = "header">
+		<div class="title"> Miscellaneous Summary </div>
+
+	</div>
+	<div class="row">
+		<div class="col">
+			<div class="box2">
+				<div class="row labels">
+					<div class="col"> Date </div>
+					<div class="col"> Note </div>
+					<div class="col"> Provider </div>
+				</div>
+
+				<div class="row">
+					<div class="col">
+						<div> 12-12-2001 </div>
+						<div> 12-12-2001 </div>
+						<div> 12-12-2001 </div>
+						<div> 12-12-2001 </div>
+					</div>
+
+					<div class="col">
+						<div> --- </div>
+						<div> --- </div>
+						<div> --- </div>
+						<div> --- </div>
+					</div>
+					<div class="col">
+						<div> --- </div>
+						<div> --- </div>
+						<div> --- </div>
+						<div> --- </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+//<a href="/patientPage/' + patientId + '/testing">Infection</a>
+$(document).ready(function(){
+  var link = "/patientPage/" + patientId + "/problem";
+  $('a').attr('href', link); 
+});
+
+</script>

@@ -1,3 +1,4 @@
+
 <script type="text/javascript" src="/files/js/pageScript.js"></script>
 <link rel="stylesheet" type="text/css" href="/files/css/history.css">  
 
@@ -6,7 +7,6 @@
     <h3 class="pageTitle"> Information &amp; History </h3>
   </div>
 </div>
-
 <div class = "card box content-container">
   <div class = "">
     <div class="title"> General Information </div>
@@ -111,6 +111,48 @@
     <div> <button id="addLivingHistory" class="add"> + </button>
     </div>
   </div>
+  <div class = "card box content-container section">
+    <div class = "card box summary">
+      <div class="title"> Feeding History </div>
+    </div>
+    <div class="row labels">
+      <div class="col"> Underweight? </div>
+      <div class="col"> Brand </div>
+      <div class="col"> Amount per day </div>
+      <div class="col"> Additions </div>
+      <div class="col"> From </div>
+      <div class="col"> To </div>
+      <div class="col edit"> Edit </div>
+    </div>
+    <div class="box2">
+      <div class="row">
+        <div class="col"><div> No</div></div>
+        <div class="col"><div> Quaker</div></div>
+        <div class="col"><div> 30 mL</div></div>
+        <div class="col"><div> 5 mL cocounut oil</div></div>
+        <div class="col"><div> 12/12/2001</div></div>
+        <div class="col"><div> 11/11/2002</div></div>
+        <div class="col"><div><button class="editBtn btn">Edit</button></div></div>
+      </div>
+      <div class="row">
+        <div class="col"><div> Yes</div></div>
+        <div class="col"><div> Quaker</div></div>
+        <div class="col"><div> 30 mL</div></div>
+        <div class="col"><div> 5 mL cocounut oil</div></div>
+        <div class="col"><div> 12/12/2001</div></div>
+        <div class="col"><div> 11/11/2002</div></div>
+        <div class="col"><div><button class="editBtn btn">Edit</button></div></div>
+      </div>
+      <div class="row">
+        <div class="col"><div> Yes</div></div>
+        <div class="col"><div> Quaker</div></div>
+        <div class="col"><div> 30 mL</div></div>
+        <div class="col"><div> 5 mL cocounut oil</div></div>
+        <div class="col"><div> 12/12/2001</div></div>
+        <div class="col"><div> 11/11/2002</div></div>
+        <div class="col"><div><button class="editBtn btn">Edit</button></div></div>
+      </div>
+    </div>
 
     <div id="livingHistory" class="box card section">
       <table class="w3-table-all">
@@ -176,7 +218,6 @@
   </div>
 </div>
 
-
     <form id="feedingHistoryForm" class="addForm" method="post" >
       <div class="row">
         <span class="col"><input type="radio" name="underweight"></span>
@@ -231,7 +272,6 @@
             <div class="col-md-1"><div> Father: </div></div>
             <div class="col-md-2"><div><input type="text" name="father" placeholder="Father"></div></div>
           </div>
-
           <div>
             <input type="submit" value="Submit" name="socialHistorySubmit" class="formSubmit">
             <input type="button" value="Cancel" name="cancel" class="formSubmit cancelCardEdit"></div>
@@ -251,7 +291,6 @@
                 </div>
               </div>
             </div>
-
             <form id="backgroundForm" class="addForm" method="post" >
               <textarea type="text" name="background" ></textarea>
               <div>
@@ -259,11 +298,45 @@
                 <input type="button" value="Cancel" name="cancel" class="formSubmit cancelCardEdit">
               </div>
             </form>
-
           </span>
-
         </div>
       </div>
+      <div class = "card box content-container section">
+        <span class="section">
+          <div class = "header">
+            <div class="title"> Miscellaneous Notes
+            </div>
+          </div>
+        
+        
+          <span class="section">
+            <div class = "header">
+              <div class="title"> Notes 
+                <button class="editCard btn" style="float: right;">Edit</button></div>
+              </div>
+
+              <div class="box2 container1">
+                <div class="row">
+                  <div class="col">
+                    <div id="misc"> Left on side of road </div>
+                  </div>
+                </div>
+              </div>
+
+
+              <form id="miscellaneousForm" class="addForm" method="post" >
+
+               <textarea type="text" name="miscellaneous" ></textarea>
+
+
+               <div>
+                <input type="submit" value="Submit" name="miscSubmit" class="formSubmit">
+                <input type="button" value="Cancel" name="cancel" class="formSubmit cancelCardEdit"></div>
+              </form>
+
+            </span>
+
+          </div>
 
 <script> 
 var patientId = <%=data.id%>;
