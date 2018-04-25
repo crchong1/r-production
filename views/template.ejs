@@ -46,9 +46,9 @@
                 <ul class="subLink">
                   <li> <button class="subLinkBtn"> Chronic </button> </li>
                   <li> <button class="subLinkBtn"> Acute </button> </li>
-                  <li> <button class="subLinkBtn"> Allergies </button> </li>
                 </ul>
                 <li><a href="/patientPage/<%=data.id%>/immunization">Immunization Record</a></li>
+                <li><a href="/patientPage/<%=data.id%>/allergies">Allergies</a></li>
                 <li><a href="/patientPage/<%=data.id%>/wellChildCheck">Well Child Check</a></li>
                 <ul class="subLink">
                   <li> <button class="subLinkBtn"> Upcoming </button> </li>
@@ -61,7 +61,6 @@
                   <li> <button class="subLinkBtn"> Hemoglobin </button> </li>
                                     <li> <button class="subLinkBtn"> Syphilis </button> </li>
                   <li> <button class="subLinkBtn"> Miscellaneous </button> </li>
-
                 </ul>
                 <li><a href="/patientPage/<%=data.id%>/growthCharts">Growth Charts</a></li>
                 <li><a href="/patientPage/<%=data.id%>/nurseNotes">Nurse Notes</a></li>
@@ -111,14 +110,15 @@
       </div>
     </div>
   </body>
-    <script type="text/javascript" src="/files/js/pageScript.js"></script>
+
+  <script type="text/javascript" src="/files/js/pageScript.js"></script>
 
   <script type="text/javascript">
 
     var patientId = <%=data.id%>;
     console.log(patientId);
-    var age =  <%- JSON.stringify(age) %>;
-    console.log('age in template: ' + age)
+var age =  <%- JSON.stringify(age) %>;
+       console.log('age in template: ' + age)
 
     $('document').ready(function() {
 
@@ -164,8 +164,8 @@
     // subUrl: text after the last "/" in URL
     function loadPage(url, subUrl) {
       var data = "";
-      if (subUrl == patientId) {
-        subUrl = 'patientPage';
+     if (subUrl == patientId) {
+      subUrl = 'patientPage';
       // if well child check, go to wcc folder
     } else if (url.indexOf('wellChildCheck') >= 0 ) {
       var css = "/files/css/wcc.css";
@@ -188,20 +188,20 @@
      var script = "/files/js/nurseNotesScript.js";
      $.getScript(script);
      var css = "/files/css/nurseNotes.css";
-    // $.getScript(css);
-    subUrl = "nurseNotes/" + subUrl;
+     $.getScript(css);
+     subUrl = "nurseNotes/" + subUrl;
   } 
-  
-  $('#container').attr('class','loaded')
-  $('#container').load('/files/html/'+subUrl+'Content.html', data)
-  var script = "/files/js/pageScript.js";
+    
+   $('#container').attr('class','loaded')
+   $('#container').load('/files/html/'+subUrl+'Content.html', data)
+   var script = "/files/js/pageScript.js";
    // $.getScript(script);
-   console.log(url)
+    console.log(url)
    
-   var script = "/files/js/wccScript.js";
-   $.getScript(script);
-   console.log('getting wccScript')
- }
+     var script = "/files/js/wccScript.js";
+     $.getScript(script);
+     console.log('getting wccScript')
+}
 
 
   // bolds the current link in the sidebar
@@ -287,5 +287,5 @@ function getAge(fromdate, todate){
                   return age.join('');
                 }
 
-              </script>
-              </html>
+</script>
+</html>

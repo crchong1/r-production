@@ -124,7 +124,6 @@
   transform: rotate(45deg);
 }
 
-
 /* Create a custom checkbox */
 .radiomark {
   position: absolute;
@@ -169,7 +168,6 @@
   border-radius: 4px;
   background-color: #ff4353;
 }
-
 .wccSubmission {
   float: right;
   border: 3px solid #24345E;

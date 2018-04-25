@@ -1,11 +1,11 @@
 
-$(document).ready(function(){
+$(document).ready(function () {
 	$('#header').load('/files/html/header.html');
 
 
 	$(function () {
-		$('.datepicker').datepicker({ 
-			autoclose: true, 
+		$('.datepicker').datepicker({
+			autoclose: true,
 			todayHighlight: true
 		}).datepicker('update', new Date());
 	});

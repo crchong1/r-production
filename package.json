@@ -12,6 +12,9 @@
       "ejs": "^2.5.7",
       "express": "^3.21.2",
       "express-session": "^1.7.6",
+      "formidable": "^1.0.1",
+      "gridfs": "^1.0.0",
+      "gridfs-stream": "^1.1.1",
       "jquery": "^3.3.1",
       "lru-cache": "^4.1.1",
       "mongoose": "^5.0.2"
