@@ -2,6 +2,7 @@ var patientsDB = require('../database/patientsDB.js');
 var weightDB = require('../database/weightDB.js');
 var problemListDB = require('../database/problemListDB.js');
 var allergyDB = require('../database/allergyDB.js');
+var pharmacyDB = require('../database/pharmacyDB.js');
 
 // this function renders login.ejs first now
 var getMain = function (req, res) {
@@ -18,11 +19,21 @@ var getSearchPatients = function (req, res) {
   res.render('patientSearch.ejs');
 }
 
-var getPharmacy = function(req, res) {
-	res.render('pharmacy.ejs');
+var getPharmacy = function (req, res) {
+  console.log("getAllPharmacy called in routes")
+  pharmacyDB.getAllPharmacy(function (data, err) {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log("pharmacy routes data: " + data);
+      res.render('pharmacy.ejs', { data: data });
+    }
+  });
 }
-var getDispensary = function(req, res){
-	res.render('dispensary.ejs');
+
+
+var getDispensary = function (req, res) {
+  res.render('dispensary.ejs');
 }
 
 var getAnyPatientPage = function (req, res) {
@@ -277,7 +288,7 @@ var routes = {
   get_weight_page: getWeightPage,
   get_patient_page: getPatient,
   get_pharmacy_page: getPharmacy,
-  get_dispenary: getDispensary,
+  get_dispensary: getDispensary,
   submit_patient: submitPatient,
   get_patient_keys: getPatientKeys,
   get_patient_search: getSearchPatients,

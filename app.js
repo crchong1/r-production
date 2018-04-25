@@ -14,6 +14,8 @@ var routes = require('./routes/routes.js');
 var problemListRoutes = require('./routes/problemListRoutes.js');
 var medicationRoutes = require('./routes/medicationRoutes.js');
 var historyRoutes = require('./routes/historyRoutes.js');
+var pharmacyRoutes = require('./routes/pharmacyRoutes.js');
+
 var scans = require('./routes/scans.js');
 
 
@@ -38,7 +40,7 @@ app.get('/patientPage/:id/wellChildCheck/form', routes.get_wcc_form);
 app.post('/patientPage/:id/wellChildCheck/form', routes.get_wcc_form);
 app.get('/patientPage/:id/wellChildCheck/formBaby', routes.get_any_patient_page);
 app.get('/pharmacy', routes.get_pharmacy_page);
-app.get('/dispensary', routes.get_dispenary);
+app.get('/dispensary', routes.get_dispensary);
 
 app.get('/patientPage/:id/wellChildCheck/page', routes.get_any_patient_page);
 app.get('/patientPage/:id/nurseNotes', routes.get_any_patient_page);
@@ -96,10 +98,10 @@ app.post('/updateSocialHistory', historyRoutes.update_social_history);
 app.post('/updateBackground', historyRoutes.update_background);
 
 //Pharmacy page
-app.post('/getAllPharmacy', routes.get_all_pharmacy);
-app.post('/pharmacy', routes.submit_pharmacy);
-app.post('/editPharmacy', routes.edit_pharmacy);
-app.post('/deletePharmacy', routes.delete_pharmacy);
+app.post('/getAllPharmacy', pharmacyRoutes.get_all_pharmacy);
+app.post('/pharmacy', pharmacyRoutes.submit_pharmacy);
+// app.post('/editPharmacy', routes.edit_pharmacy);
+// app.post('/deletePharmacy', routes.delete_pharmacy);
 
 /* Run the server */
 console.log('Author: Connor Chong (conchong)');
