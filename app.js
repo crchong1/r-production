@@ -17,7 +17,7 @@ var pharmacyRoutes = require('./routes/pharmacyRoutes.js');
 var medicationRoutes = require('./routes/medicationRoutes.js');
 var historyRoutes = require('./routes/historyRoutes.js');
 var pharmacyRoutes = require('./routes/pharmacyRoutes.js');
-
+var immRecordRoutes = require('./routes/immRecordRoutes.js');
 var scans = require('./routes/scans.js');
 
 /* Below we install the routes. The first argument is the URL that we
@@ -42,6 +42,12 @@ app.post('/patientPage/:id/wellChildCheck/form', routes.get_wcc_form);
 app.get('/patientPage/:id/wellChildCheck/formBaby', routes.get_any_patient_page);
 app.get('/pharmacy', routes.get_pharmacy_page);
 app.get('/dispensary', routes.get_dispensary);
+
+//immunization page
+app.post('/getAllImmRecords', immRecordRoutes.get_all_immune_records);
+app.post('/submitImmRecord', immRecordRoutes.submit_immunization);
+app.post('/editImmRecord', immRecordRoutes.edit_immunization);
+app.post('/deleteImmRecord', immRecordRoutes.delete_immunization);
 
 app.get('/patientPage/:id/wellChildCheck/page', routes.get_any_patient_page);
 app.get('/patientPage/:id/nurseNotes', routes.get_any_patient_page);

@@ -120,6 +120,7 @@
         }
       }
     });
+
     $.ajax({
       type: "POST",
       url: "/getAllAcute",
@@ -133,6 +134,7 @@
         }
       }
     });
+
     // ajax call that on submit will send the new chronic problem values to the database
     $('#chronicSubmit').click(function (e) {
       e.preventDefault();
@@ -162,6 +164,7 @@
         }
       });
     });
+    
     $('#acuteSubmit').click(function (e) {
       e.preventDefault();
       var input = $("#acuteForm").serializeArray();

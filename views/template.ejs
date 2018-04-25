@@ -63,7 +63,7 @@
                   <li> <button class="subLinkBtn"> Miscellaneous </button> </li>
                 </ul>
                 <li><a href="/patientPage/<%=data.id%>/growthCharts">Growth Charts</a></li>
-                <li><a href="/patientPage/<%=data.id%>/nurseNotes">Nurse Notes</a></li>
+                <li><a href="/patientPage/<%=data.id%>/nurseNotes">Progress Notes</a></li>
                 <ul class="subLink">
                   <li><a href="/patientPage/<%=data.id%>/nurseNotes/vitalSigns">Vital Signs</a></li>
                   <li><a href="/patientPage/<%=data.id%>/nurseNotes/symptomAnalysis"> Symptom Analysis</a></li>
@@ -210,14 +210,19 @@ var age =  <%- JSON.stringify(age) %>;
    var url2 = window.location.href;
    var index = url2.lastIndexOf('/')
    var subUrl = url2.slice(index+1, url2.length)
-
    var urlSub = url.substring(0,4).toLowerCase();
+   console.log("url2");
+   console.log(url2);
+   console.log(urlSub);
    if (url2.indexOf('nurseNotes') >= 0 ) {
-    urlSub = 'nurs'
+    //urlSub = 'nurs';
+    // nurse notes renamed to "Progress Notes"
+    urlSub = 'prog';
   }
   console.log(links)
   for (i = 0; i < links.length; i++) {
     var link = links[i].text.toLowerCase();
+    console.log(link);
     console.log( link.indexOf(urlSub) )
       if (link.indexOf(urlSub) >= 0 ) {// true
         console.log(links[i])

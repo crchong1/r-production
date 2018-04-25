@@ -2,6 +2,7 @@ var patientsDB = require('../database/patientsDB.js');
 var weightDB = require('../database/weightDB.js');
 var problemListDB = require('../database/problemListDB.js');
 var allergyDB = require('../database/allergyDB.js');
+var immRecordDB = require('../database/immRecordDB.js');
 var pharmacyDB = require('../database/pharmacyDB.js');
 var users = require('../database/usersDB.js');
 var sess;
@@ -179,6 +180,7 @@ var submitPatient = function (req, res) {
       console.log("error")
     }
     else if (data) {
+      console.log("send")
       res.send({
         message: '',
         patient: data
