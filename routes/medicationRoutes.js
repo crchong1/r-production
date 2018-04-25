@@ -198,5 +198,4 @@ var medicationRoutes = {
   edit_acute_med: editAcuteMed,
   delete_acute_med: deleteAcuteMed
   };
-  
   module.exports = medicationRoutes;

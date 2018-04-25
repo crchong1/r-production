@@ -9,6 +9,8 @@ var app = express();
 app.use(express.bodyParser());
 app.use(express.logger("default"));
 app.use(express.static('static'));
+var session = require('express-session');
+app.use(session({secret: 'secret'}));
 var routes = require('./routes/routes.js');
 var problemListRoutes = require('./routes/problemListRoutes.js');
 var pharmacyRoutes = require('./routes/pharmacyRoutes.js');
@@ -47,6 +49,12 @@ app.get('/patientPage/:id/nurseNotes/miscellaneous', routes.get_any_patient_page
 app.get('/patientPage/:id/scans', routes.get_any_patient_page);
 app.get('/weight', routes.get_weight_page);
 app.get('/form', routes.get_form);
+
+// login page 
+app.post('/checkLogin', routes.check_login);
+app.get('/signup', routes.get_signup);
+app.post('/createaccount', routes.create_account);
+
 
 app.post('/getAllWeights', routes.get_all_weights);
 app.post('/weight', routes.submit_weight);

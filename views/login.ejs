@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
+<title>Login</title>
 <link rel="stylesheet" type="text/css" href="/files/css/login.css">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Nunito" />
+<link rel="stylesheet" href="/files/bootstrap-4/css/bootstrap.css" />
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Pacifico" />
+<link rel="stylesheet" type="text/css" href="/files/css/w3.css">
+<link rel="stylesheet" type="text/css" href="/files/css/datepicker.css">
 
-<title>Welcome!</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-
-<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Nunito_Sans"/>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-crossorigin="anonymous"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="/files/js/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="/files/js/pageScript.js"></script>
+<script src="/files/js/popper.min.js"></script>
+<script type="text/javascript" src="/static/files/js/stickyfillmin.js"></script>
+<script src="/files/bootstrap-4/js/bootstrap.min.js"></script>
 
 </head>
 <body style="background-color: #E1EBF2" >
@@ -35,20 +35,30 @@ crossorigin="anonymous"></script>
                     <a class="btn btn-primary loginBtn" href="/form">Login to Childrens Campus</a>
             </form> -->
 </div>
-    <div style="text-align: center;">
-      <a href="#">Create an account</a>
-    </div>
-
-        </div>
-        <script>
-
-         $(document).ready(function(){
-         $('#loginCC').click(function(){
-          console.log("clicked");
-
-         });
+<div class="card text-center col">
+  <div class="card-block">
+    <h4 class="card-title">El Rofi</h4>
+      <form class="card-text" action="/checklogin" method="post">
+       <div class="input-group">
+          <p class="card-text">Username: </p>
+          <input id="username" type="text" class="form-control" name="usernameInputField" placeholder="Username:">
+       </div>
+       <div class="input-group">
+          <p class="card-text">Password: </p>
+          <input id="email" type="text" class="form-control" name="passwordInputField" placeholder="Password:">
+       </div>
+       <button type="submit" class="btn btn-default">Sign In</button>
+    </form>
+</div>
+</div>
+  <div style="text-align: center;">
+    <a href="/signup">Create an account</a>
+  </div>
+</div>
+<script>
+$(document).ready(function(){
+  
 });
-
-            </script>
-          </body>
-          </html>
+  </script>
+</body>
+</html>
