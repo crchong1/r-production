@@ -11,7 +11,6 @@ app.use(express.logger("default"));
 app.use(express.static('static'));
 var session = require('express-session');
 app.use(session({secret: 'secret'}));
-
 var routes = require('./routes/routes.js');
 var problemListRoutes = require('./routes/problemListRoutes.js');
 var pharmacyRoutes = require('./routes/pharmacyRoutes.js');
@@ -20,7 +19,6 @@ var historyRoutes = require('./routes/historyRoutes.js');
 var pharmacyRoutes = require('./routes/pharmacyRoutes.js');
 
 var scans = require('./routes/scans.js');
-
 
 /* Below we install the routes. The first argument is the URL that we
    are routing, and the second argument is the handler function that
@@ -52,7 +50,6 @@ app.get('/patientPage/:id/nurseNotes/symptomAnalysis', routes.get_any_patient_pa
 app.get('/patientPage/:id/nurseNotes/systemAssessments', routes.get_any_patient_page);
 app.get('/patientPage/:id/nurseNotes/miscellaneous', routes.get_any_patient_page);
 app.get('/patientPage/:id/scans', routes.get_any_patient_page);
-
 app.get('/weight', routes.get_weight_page);
 app.get('/form', routes.get_form);
 
@@ -79,7 +76,6 @@ app.post('/acuteProblem', problemListRoutes.submit_acute);
 app.post('/editAcute', problemListRoutes.edit_acute);
 app.post('/deleteAcute', problemListRoutes.delete_acute);
 
-
 //allergy page
 app.post('/getAllAllergy', routes.get_all_allergy);
 app.post('/allergy', routes.submit_allergy);
@@ -97,7 +93,6 @@ app.post('/acuteMed', medicationRoutes.submit_acute_med);
 app.post('/editAcuteMed', medicationRoutes.edit_acute_med);
 app.post('/deleteAcuteMed', medicationRoutes.delete_acute_med);
 
-
 //Patient History page
 app.post('/getAllFeedingHistory', historyRoutes.get_all_feeding_history);
 app.post('/submitFeeding', historyRoutes.submit_feeding);
@@ -109,13 +104,8 @@ app.post('/updateBackground', historyRoutes.update_background);
 //Pharmacy page
 app.post('/getAllPharmacy', pharmacyRoutes.get_all_pharmacy);
 app.post('/pharmacy', pharmacyRoutes.submit_pharmacy);
-<<<<<<< HEAD
-// app.post('/editPharmacy', routes.edit_pharmacy);
-// app.post('/deletePharmacy', routes.delete_pharmacy);
-=======
 app.post('/editPharmacy', pharmacyRoutes.edit_pharmacy);
 app.post('/deletePharmacy', pharmacyRoutes.delete_pharmacy);
->>>>>>> 69a873efb13e774b143ecc3ccba9eb6ad3183ad1
 
 /* Run the server */
 console.log('Author: Connor Chong (conchong)');

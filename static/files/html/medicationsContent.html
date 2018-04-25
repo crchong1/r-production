@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 <script type="text/javascript" src="/files/js/pageScript.js"></script>
 
 <div class="content-container">
@@ -433,8 +433,6 @@
 	};
 
 </script>
-=======
-
 
 <div class = "content-container">
     <div class = "card summary">
@@ -540,5 +538,49 @@
 		</div>
 	</div>
 
+
+<div id="allergies" class="box card section">
+  <table class="w3-table-all">
+    <div class="subTitle">
+      Allergies 
+    </div>
+    <thead>
+      <tr class="w3-light-grey">
+        <th>Allergen</th>
+        <th>Symptoms of Reaction</th>
+        <th>Severity</th>
+        <th>Date of Onset</th>
+        <th>Notes</th>
+        <td class="edit">Edit</td>
+      </tr>
+    </thead>
+    <tbody id="allergyTableBody" >
+      <tr>
+        <td>Peanut</td>
+        <td>Throat closure</td>
+        <td>Mild</td>
+        <td>01-01-12</td>
+        <td>Avoid tree nuts</td>
+        <td><button class="editBtn btn">Edit</button></td>
+      </tr>
+    </tbody>
+  </table>
+  <form id="allergyForm" class="tr addForm" method="post" >
+    <span class="td"><input type="text" name="allergyType" placeholder="Allergen"></span>
+    <span class="td"><input type="text" name="allergySymptoms" placeholder="Symptoms"></span>
+    <span class="td"><input type="text" name="allergySeverity" placeholder="Severity"></span>
+    <span class="td"><input type="text" readonly name="allergyOnset" class="datepicker form-control"></span>
+    <span class="td"><input type="text" name="allergyNotes" placeholder="Notes"></span>
+
+    <input type="submit" value="Submit" name="allergySubmit" class="formSubmit">
+    <input type="button" value="Cancel" name="cancel" class="formSubmit cancel">
+
+  </form>
+  <div>                               
+    <button id="addAllergy" class="add"> + </button>
+  </div>
 </div>
->>>>>>> e81b08ff875b634ca1de8884cb05e9ef844452ed
+
+
+</div>
+</div>
