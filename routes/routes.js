@@ -2,7 +2,108 @@ var patientsDB = require('../database/patientsDB.js');
 var weightDB = require('../database/weightDB.js');
 var problemListDB = require('../database/problemListDB.js');
 var allergyDB = require('../database/allergyDB.js');
+<<<<<<< HEAD
 var pharmacyDB = require('../database/pharmacyDB.js');
+=======
+var users = require('../database/usersDB.js');
+var sess;
+
+var createAccount = function(req, res) {
+		sess = req.session;
+	  var username = req.body.username;
+	  var password = req.body.password;
+		var firstname = req.body.firstname;
+		var lastname = req.body.lastname;
+	  // in case fields are blank
+	  if (username == "") {
+	  		res.render('signup.ejs', {message: "Please enter a username"});
+	  	}
+	  	else if (password == "") {
+	  		res.render('signup.ejs', {message: "Please enter a password"});
+	  	}
+	  	else if (firstname == "") {
+	  		res.render('signup.ejs', {message: "Please enter a first name"});
+			}
+			else if (lastname == "") {
+	  		res.render('signup.ejs', {message: "Please enter a last name"});
+	  	}
+	  	else {
+	  		users.get_user(username, function(data, err) {
+			  	if (data) {
+			    	res.render('signup.ejs', {message: 'That username is already taken'});
+			  	}
+			    else {
+			        // put command here
+			    	users.add_user(username, password, firstname, lastname, function(data, err) {
+			    		if (err) {
+			    	      res.render('login.ejs', {message: 'Error: did not put'});
+							} else if (data) {
+								sess.username = username;
+								res.redirect('/patientSearch');
+							} else {
+								res.render('login.ejs', {message: 'error did not put 2'});
+							}
+			    	});
+			    }
+			});
+	  }
+};
+
+	
+var checkLogin = function(req, res) {
+	sess = req.session;
+	// get username and password
+	  var userInputUsername = req.body.usernameInputField;
+	  var userInputPassword = req.body.passwordInputField;
+	  db.checkUsername(userInputUsername, function(data, err) {
+	    if (err == "error") {
+	      res.render('login.ejs', {message: "Please enter a username", result: null});
+	    } else if (data == "success") {
+	    	// check if the password matches with the username
+	    	db.checkPassword(userInputUsername, userInputPassword, function(data, err) {
+	    	    if (err == "error1") {
+	    	      res.render('login.ejs', {message: 'Error: wrong password'});
+	    	    } else if (data) {
+	    	      sess.username = userInputUsername;
+	    	      res.redirect('/restaurants');
+	    	      // success here - add a cookie
+	    	    } else {
+	    	      res.render('login.ejs', {message: 'Please enter a password'});
+	    	    }
+	    	  });
+	    } else {
+	      res.render('login.ejs', {message: 'Invalid Username'});
+	    }
+	  });
+	};
+
+var logout = function(req, res) {
+	// logout by destroying session
+	req.session.destroy(function(err) {
+			if(err) {
+			} else {
+				res.redirect('/');
+			}
+	});
+}
+
+var getUser = function(req, res) {
+	sess = req.session;
+	var username = req.body.username;
+		// First get all keys in the posts table, then get the associated value for each key.
+	users.getUser(username, function(data, err) {
+		if (err) {
+
+		} else if (data) {
+			res.send(data);
+	}});
+};
+
+var getSignup = function (req, res) {
+  res.render('signup.ejs', {message: ''});
+}
+
+>>>>>>> 69a873efb13e774b143ecc3ccba9eb6ad3183ad1
 
 // this function renders login.ejs first now
 var getMain = function (req, res) {
@@ -298,7 +399,12 @@ var routes = {
   get_all_allergy: getAllAllergy,
   submit_allergy: submitNewAllergy,
   delete_allergy: deleteAllergy,
-  edit_allergy: editAllergy
+  edit_allergy: editAllergy,
+  get_signup: getSignup,
+  get_user: getUser,
+  logout: logout,
+  check_login: checkLogin,
+  create_account: createAccount
 };
 
 module.exports = routes;

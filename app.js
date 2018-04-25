@@ -9,9 +9,12 @@ var app = express();
 app.use(express.bodyParser());
 app.use(express.logger("default"));
 app.use(express.static('static'));
+var session = require('express-session');
+app.use(session({secret: 'secret'}));
 
 var routes = require('./routes/routes.js');
 var problemListRoutes = require('./routes/problemListRoutes.js');
+var pharmacyRoutes = require('./routes/pharmacyRoutes.js');
 var medicationRoutes = require('./routes/medicationRoutes.js');
 var historyRoutes = require('./routes/historyRoutes.js');
 var pharmacyRoutes = require('./routes/pharmacyRoutes.js');
@@ -52,6 +55,12 @@ app.get('/patientPage/:id/scans', routes.get_any_patient_page);
 
 app.get('/weight', routes.get_weight_page);
 app.get('/form', routes.get_form);
+
+// login page 
+app.post('/checkLogin', routes.check_login);
+app.get('/signup', routes.get_signup);
+app.post('/createaccount', routes.create_account);
+
 
 app.post('/getAllWeights', routes.get_all_weights);
 app.post('/weight', routes.submit_weight);
@@ -100,8 +109,13 @@ app.post('/updateBackground', historyRoutes.update_background);
 //Pharmacy page
 app.post('/getAllPharmacy', pharmacyRoutes.get_all_pharmacy);
 app.post('/pharmacy', pharmacyRoutes.submit_pharmacy);
+<<<<<<< HEAD
 // app.post('/editPharmacy', routes.edit_pharmacy);
 // app.post('/deletePharmacy', routes.delete_pharmacy);
+=======
+app.post('/editPharmacy', pharmacyRoutes.edit_pharmacy);
+app.post('/deletePharmacy', pharmacyRoutes.delete_pharmacy);
+>>>>>>> 69a873efb13e774b143ecc3ccba9eb6ad3183ad1
 
 /* Run the server */
 console.log('Author: Connor Chong (conchong)');

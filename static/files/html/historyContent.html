@@ -47,88 +47,56 @@
 
     </div>
   </div>
-  <div class="row">
-    <div class="col">
-      <div class=" subTitle">Growth Measurements</div>
-      <div class="box2">
-        <div class="row labels">
-          <div class="col"> Age </div>
-          <div class="col"> Date </div>
-          <div class="col"> Length/Height </div>
-          <div class="col"> Weight </div>
-          <div class="col"> BMI </div>
-        </div>
 
-        <div class="row">
-          <div class="col">
-            <div> 1 month</div>
-            <div> 2 months </div>
-            <div> 4 months </div>
-            <div> 6 months </div>
-          </div>
 
-          <div class="col">
-            <div> 12-12-2001 </div>
-            <div> 12-12-2001 </div>
-            <div> 12-12-2001 </div>
-            <div> 12-12-2001 </div>
-          </div>
-          <div class="col">
-            <div> --- </div>
-            <div> --- </div>
-            <div> --- </div>
-            <div> --- </div>
-          </div>
-          <div class="col">
-            <div> --- </div>
-            <div> --- </div>
-            <div> --- </div>
-            <div> --- </div>
-          </div>
-          <div class="col">
-            <div> --- </div>
-            <div> --- </div>
-            <div> --- </div>
-            <div> --- </div>
-          </div>
-        </div>
+  <div id="livingHistoryForm" class="box card section">
+    <table class="w3-table-all">
+      <div class="subTitle">
+        Living History
       </div>
+      <thead>
+        <tr class="w3-light-grey">
+          <th>House</th>
+          <th>Start Age</th>
+          <th>Living Form</th>
+          <th>Start Date</th>
+          <th>End Date</th>
+          <th class="edit">Edit</th>
+        </tr>
+      </thead>
+      <tbody id="livingHistoryBody">
+      </tbody>
+    </table>
+    <form id="livingForm" class="tr addForm collapse">
+      <span class="td">
+        <input type="text" name="house" placeholder="House">
+      </span>
+      <span class="td">
+        <input type="text" name="startAge" placeholder="Details">
+      </span>
+      <span class="td">
+        <input type="text" name="chronicTreatment" placeholder="Treatment">
+      </span>
+      <span class="td">
+        <input type="text" name="chronicOnset" class="datepicker form-control">
+      </span>
+      <span class="td">
+        <input type="text" name="chronicResolution" placeholder="Resolution">
+      </span>
+      <input type="submit" value="Submit" id="chronicSubmit" name="chronicSubmit" class="btn btn-primary formSubmit">
+      <input type="button" value="Cancel" name="cancel" class="btn btn-danger formSubmit cancel" data-toggle="collapse" data-target="#chronicForm">
+    </form>
+    <div>
+      <button id="addChronicProb" class="add" data-toggle="collapse" data-target="#chronicForm" aria-expanded="false" aria-controls="collapseExample">
+        + </button>
     </div>
   </div>
-</div>
-<div class = "card box content-container section">
-  <div class = "">
-    <div class="title"> Living History </div>
-  </div>
-
-  <div class="row labels">
-    <div class="col"> House </div>
-    <div class="col"> Start Age </div>
-    <div class="col"> From </div>
-    <div class="col"> To </div>
-    <div class="col edit"> Edit </div>
-  </div>
-
-  <div class="box2">
-    <div class="row">
-      <div class="col"><div> Emseni</div></div>
-      <div class="col"><div> -- y</div></div>
-      <div class="col"><div> 12/12/2001</div></div>
-      <div class="col"><div> 11/11/2002</div></div>
-      <div class="col"><div><button class="editBtn btn">Edit</button></div></div>
-    </div>
-    <div class="row">
-      <div class="col"><div> Toddler Home</div></div>
-      <div class="col"><div> -- y</div></div>
-      <div class="col"><div> 12/12/2003</div></div>
-      <div class="col"><div> 11/11/2004</div></div>
-      <div class="col"><div><button class="editBtn btn">Edit</button></div></div>
-    </div>
-  </div>
+  
 
 
 
-  <form id="livingHistoryForm" class="addForm" method="post" >
+
+  <form id="livingHistoryForm" class="box card section">
     <div class="row">
       <span class="col"><input type="text" name="house" placeholder="House"></span>
       <span class="col"><input type="text" name="startAge" placeholder="Start Age"></span>
@@ -143,52 +111,6 @@
     <div> <button id="addLivingHistory" class="add"> + </button>
     </div>
   </div>
-
-  <div class = "card box content-container section">
-    <div class = "card box summary">
-      <div class="title"> Feeding History </div>
-    </div>
-
-
-    <div class="row labels">
-      <div class="col"> Underweight? </div>
-      <div class="col"> Brand </div>
-      <div class="col"> Amount per day </div>
-      <div class="col"> Additions </div>
-      <div class="col"> From </div>
-      <div class="col"> To </div>
-      <div class="col edit"> Edit </div>
-
-    </div>
-    <div class="box2">
-      <div class="row">
-        <div class="col"><div> No</div></div>
-        <div class="col"><div> Quaker</div></div>
-        <div class="col"><div> 30 mL</div></div>
-        <div class="col"><div> 5 mL cocounut oil</div></div>
-        <div class="col"><div> 12/12/2001</div></div>
-        <div class="col"><div> 11/11/2002</div></div>
-        <div class="col"><div><button class="editBtn btn">Edit</button></div></div>
-      </div>
-      <div class="row">
-        <div class="col"><div> Yes</div></div>
-        <div class="col"><div> Quaker</div></div>
-        <div class="col"><div> 30 mL</div></div>
-        <div class="col"><div> 5 mL cocounut oil</div></div>
-        <div class="col"><div> 12/12/2001</div></div>
-        <div class="col"><div> 11/11/2002</div></div>
-        <div class="col"><div><button class="editBtn btn">Edit</button></div></div>
-      </div>
-      <div class="row">
-        <div class="col"><div> Yes</div></div>
-        <div class="col"><div> Quaker</div></div>
-        <div class="col"><div> 30 mL</div></div>
-        <div class="col"><div> 5 mL cocounut oil</div></div>
-        <div class="col"><div> 12/12/2001</div></div>
-        <div class="col"><div> 11/11/2002</div></div>
-        <div class="col"><div><button class="editBtn btn">Edit</button></div></div>
-      </div>
-    </div>
 
     <div id="livingHistory" class="box card section">
       <table class="w3-table-all">

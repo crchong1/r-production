@@ -1,7 +1,6 @@
 var mongoose = require('mongoose');
 var patients = mongoose.createConnection('mongodb://localhost/patients');
 
-
 patients.on('error', console.error.bind(console, 'connection error:'));
 patients.once('open', function() {
   // we're connected!
