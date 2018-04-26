@@ -3,10 +3,12 @@
 <link rel="stylesheet" type="text/css" href="/files/css/history.css">  
 
 <div class = "content-container">
- <div class = "card summary">
-  <h3 class="pageTitle"> Information &amp; History </h3>
+  <div class = "card summary">
+    <h3 class="pageTitle"> Information &amp; History </h3>
+  </div>
 </div>
-</div>
+
+<!-- General information -->
 <div class = "card box content-container">
   <div class = "">
     <div class="title"> General Information </div>
@@ -14,7 +16,6 @@
   <div class="row">
     <div class="col">
       <div>
-        <div class="subTitle">At a glance</div>
         <div class="row box">
           <div class="col-md-1">
             <div> Sex: </div>
@@ -44,106 +45,15 @@
       </div>
     </div>
   </div>
-  <div id="livingHistoryForm" class="box card section">
-    <table class="w3-table-all">
-      <div class="subTitle">
-        Living History
-      </div>
-      <thead>
-        <tr class="w3-light-grey">
-          <th>House</th>
-          <th>Start Age</th>
-          <th>Living Form</th>
-          <th>Start Date</th>
-          <th>End Date</th>
-          <th class="edit">Edit</th>
-        </tr>
-      </thead>
-      <tbody id="livingHistoryBody">
-      </tbody>
-    </table>
-    <form id="livingForm" class="tr addForm collapse">
-      <span class="td">
-        <input type="text" name="house" placeholder="House">
-      </span>
-      <span class="td">
-        <input type="text" name="startAge" placeholder="Details">
-      </span>
-      <span class="td">
-        <input type="text" name="chronicTreatment" placeholder="Treatment">
-      </span>
-      <span class="td">
-        <input type="text" name="chronicOnset" class="datepicker form-control">
-      </span>
-      <span class="td">
-        <input type="text" name="chronicResolution" placeholder="Resolution">
-      </span>
-      <input type="submit" value="Submit" id="chronicSubmit" name="chronicSubmit" class="btn btn-primary formSubmit">
-      <input type="button" value="Cancel" name="cancel" class="btn btn-danger formSubmit cancel" data-toggle="collapse" data-target="#chronicForm">
-    </form>
-    <div>
-      <button id="addChronicProb" class="add" data-toggle="collapse" data-target="#chronicForm" aria-expanded="false" aria-controls="collapseExample">
-        + </button>
-    </div>
-  </div>
-  
+</div>
 
-
-
-
-  <form id="livingHistoryForm" class="box card section">
-    <div class="row">
-      <span class="col"><input type="text" name="house" placeholder="House"></span>
-      <span class="col"><input type="text" name="startAge" placeholder="Start Age"></span>
-      <span class="col"><input type="text" name="livingFrom" class="datepicker form-control" ></span>
-      <span class="col"><input type="text" name="livingTo" class="datepicker form-control" ></span>
+<!-- Living history -->
+<div id="livingHistory" class="box card section">
+  <table class="w3-table-all">
+    <div class="subTitle">
+      Living History 
     </div>
-    <div>
-      <input type="submit" value="Submit" name="livingSubmit" class="formSubmit">
-      <input type="button" value="Cancel" name="cancel" class="formSubmit cancel">
-    </div>
-  </form>
-  <div> <button id="addLivingHistory" class="add"> + </button>
-  </div>
-  <div class = "card box content-container section">
-    <div class = "card box summary">
-      <div class="title"> Feeding History </div>
-    </div>
-    <div class="row labels">
-      <div class="col"> Underweight? </div>
-      <div class="col"> Brand </div>
-      <div class="col"> Amount per day </div>
-      <div class="col"> Additions </div>
-      <div class="col"> From </div>
-      <div class="col"> To </div>
-      <div class="col edit"> Edit </div>
-    </div>
-    <div class="row">
-      <div class="col"><div> Yes</div></div>
-      <div class="col"><div> Quaker</div></div>
-      <div class="col"><div> 30 mL</div></div>
-      <div class="col"><div> 5 mL cocounut oil</div></div>
-      <div class="col"><div> 12/12/2001</div></div>
-      <div class="col"><div> 11/11/2002</div></div>
-      <div class="col"><div><button class="editBtn btn">Edit</button></div></div>
-    </div>
-    <div class="row">
-      <div class="col"><div> Yes</div></div>
-      <div class="col"><div> Quaker</div></div>
-      <div class="col"><div> 30 mL</div></div>
-      <div class="col"><div> 5 mL cocounut oil</div></div>
-      <div class="col"><div> 12/12/2001</div></div>
-      <div class="col"><div> 11/11/2002</div></div>
-      <div class="col"><div><button class="editBtn btn">Edit</button></div></div>
-    </div>
-  </div>
-
-  <div id="livingHistory" class="box card section">
-    <table class="w3-table-all">
-      <div class="subTitle">
-       Living History 
-     </div>
-     <thead>
+    <thead>
       <tr class="w3-light-grey">
         <th>House</th>
         <th>Start Age</th>
@@ -168,7 +78,75 @@
   </div>
 </div>
 
-    <form id="feedingHistoryForm" class="addForm" method="post" >
+<!-- Feeding history -->
+<div id="feedingHistory" class="box card section">
+  <table class="w3-table-all">
+    <div class="subTitle">
+      Feeding History 
+    </div>
+    <thead>
+      <tr class="w3-light-grey">
+        <th>Underweight</th>
+        <th>Brand</th>
+        <th>Amount</th>
+        <th>Additions</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th class="edit">Edit</th>
+      </tr>
+    </thead>
+    <tbody id="feedingTableBody" >
+    </tbody>
+  </table>
+  <form id="feedingForm" class="tr addForm collapse">
+    <span class="td"><input type="text" name="underweight" placeholder="House"></span>
+    <span class="td"><input type="text" name="brand" placeholder="Brand"></span>
+    <span class="td"><input type="text" name="amount" placeholder="Amount"></span>
+    <span class="td"><input type="text" name="additions" placeholder="Additions"></span>
+    <span class="td"><input type="text" name="startDate" class="datepicker form-control"></span>
+    <span class="td"><input type="text" name="endDate" class="datepicker form-control" ></span>
+    <input type="submit" value="Submit" id="feedingSubmit" name="feedingSubmit" class="btn btn-primary formSubmit">
+    <input type="button" value="Cancel" name="cancel" class="btn btn-danger formSubmit cancel" data-toggle="collapse" data-target="#feedingForm">
+  </form>
+  <div>                               
+    <button id="addFeedingProb" class="add" data-toggle="collapse" data-target="#feedingForm" aria-expanded="false" aria-controls="collapseExample"> + </button>
+  </div>
+</div>
+
+<!-- Past TB Screening -->
+<div class = "card box content-container section">
+  <div class = "">
+    <div class="title"> Past TB Screening Results </div>
+  </div>
+  <div class="row labels">
+    <div class="col"> Date </div>
+    <div class="col"> Age </div>
+    <div class="col"> Screen Result </div>
+    <div class="col"> Notes </div>
+    <div class="col edit"> Edit </div>
+  </div>
+  <div class="box2">
+    <div class="row">
+      <div class="col"><div> 12/12/2001</div></div>
+      <div class="col"><div> 12</div></div>
+      <div class="col"><div> Positive</div></div>
+      <div class="col"><div> Was done at Mbabane government hospital</div></div>
+      <div class="col"><div><button class="editBtn btn">Edit</button></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- Social history box -->
+<div class = "card box content-container section">
+
+  <!-- Social history section -->
+  <span class="section">
+    <div class = "header">
+      <div class="title"> Social History
+        <button class="editCard btn" style="float: right;">Edit</button>
+      </div>
+    </div>
+    <div class="box2 container1">
       <div class="row">
         <div class="col-md-2"><div> Location: </div></div>
         <div class="col-md-2"><div> Mbabane</div></div>
@@ -182,9 +160,7 @@
         <div class="col-md-2"><div>  --- </div></div>
       </div>
     </div>
-
     <form id="socialHistoryForm" class="addForm">
-
       <div class="row">
         <div class="col-md-1"><div> Location: </div></div>
         <div class="col-md-2"><input type="text" name="location" placeholder="Location"></div>
@@ -197,135 +173,101 @@
         <div class="col-md-1"><div> Father: </div></div>
         <div class="col-md-2"><div><input type="text" name="father" placeholder="Father"></div></div>
       </div>
-
       <div>
         <input type="submit" value="Submit" name="socialHistorySubmit" class="formSubmit">
-        <input type="button" value="Cancel" name="cancel" class="formSubmit cancelCardEdit"></div>
-      </form>
+        <input type="button" value="Cancel" name="cancel" class="formSubmit cancelCardEdit">
+      </div>
+    </form>
+  </span>
 
-    </span>
-    <span class="section">
-      <div class = "header">
-        <div class="title"> Background 
-          <button class="editCard btn" style="float: right;">Edit</button></div>
-        </div>
-
-        <div class="box2 container1">
-          <div class="row">
-            <div class="col">
-              <div id="backgroundInfo"> Left on side of road </div>
-            </div>
-          </div>
-        </div>
-        <form id="socialHistoryForm" class="addForm" method="post" >
-
-          <div class="row">
-            <div class="col-md-1"><div> Location: </div></div>
-            <div class="col-md-2"><input type="text" name="location" placeholder="Location"></div>
-          </div>
-          <div class="row">
-            <div class="col-md-1"><div> Mother: </div></div>
-            <div class="col-md-2"><div><input type="text" name="mother" placeholder="Mother"></div></div>
-          </div>
-          <div class="row">
-            <div class="col-md-1"><div> Father: </div></div>
-            <div class="col-md-2"><div><input type="text" name="father" placeholder="Father"></div></div>
-          </div>
-          <div>
-            <input type="submit" value="Submit" name="backgroundSubmit" class="formSubmit">
-            <input type="button" value="Cancel" name="cancel" class="formSubmit cancelCardEdit">
-          </div>
-        </form>
-      </span>
+  <!-- Background section -->
+  <span class="section">
+    <div class = "header">
+      <div class="title"> Background 
+        <button class="editCard btn" style="float: right;">Edit</button>
+      </div>
     </div>
-
-    <!-- TODO needs a form -->
-    <div class = "card box content-container section">
-      <div class = "">
-        <div class="title"> Past TB Screening Results </div>
-      </div>
-      <div class="row labels">
-        <div class="col"> Date </div>
-        <div class="col"> Age </div>
-        <div class="col"> Screen Result </div>
-        <div class="col"> Notes </div>
-        <div class="col edit"> Edit </div>
-      </div>
-      <div class="box2">
-        <div class="row">
-          <div class="col"><div> 12/12/2001</div></div>
-          <div class="col"><div> 12</div></div>
-          <div class="col"><div> Positive</div></div>
-          <div class="col"><div> Was done at Mbabane government hospital</div></div>
-          <div class="col"><div><button class="editBtn btn">Edit</button></div></div>
+    <div class="box2 container1">
+      <div class="row">
+        <div class="col">
+          <div id="backgroundInfo"> Left on side of road </div>
         </div>
       </div>
     </div>
+    <form id="socialHistoryForm" class="addForm" method="post" >
+      <div class="row">
+        <div class="col-md-1"><div> Location: </div></div>
+        <div class="col-md-2"><input type="text" name="location" placeholder="Location"></div>
+      </div>
+      <div class="row">
+        <div class="col-md-1"><div> Mother: </div></div>
+        <div class="col-md-2"><div><input type="text" name="mother" placeholder="Mother"></div></div>
+      </div>
+      <div class="row">
+        <div class="col-md-1"><div> Father: </div></div>
+        <div class="col-md-2"><div><input type="text" name="father" placeholder="Father"></div></div>
+      </div>
+      <div>
+        <input type="submit" value="Submit" name="backgroundSubmit" class="formSubmit">
+        <input type="button" value="Cancel" name="cancel" class="formSubmit cancelCardEdit">
+      </div>
+    </form>
+  </span>
 
-    <!-- TODO needs a form -->
-    <div class = "card box content-container section">
-      <span class="section">
-        <div class = "header">
-          <div class="title"> Miscellaneous Notes
-            <button class="editCard btn" style="float: right;">Edit</button>
-          </div>
-          <div class="box2 container1">
-            <div class="row">
-              <div class="col">
-                <textarea name="miscellaneousNotes" placeholder="Enter text here..."/>
-              </div>
-            </div>
-
-            <form id="backgroundForm" class="addForm" method="post" >
-              <textarea type="text" name="background" ></textarea>
-              <div>
-                <input type="submit" value="Submit" name="backgroundSubmit" class="formSubmit">
-                <input type="button" value="Cancel" name="cancel" class="formSubmit cancelCardEdit">
-              </div>
-            </form>
-          </span>
+  <!-- Other information section -->
+  <span class="section">
+    <div class = "header">
+      <div class="title"> Other Information 
+        <button class="editCard btn" style="float: right;">Edit</button>
+      </div>
+    </div>
+    <div class="box2 container1">
+      <div class="row">
+        <div class="col">
+          <div id="misc"> Some other information... </div>
         </div>
       </div>
-      <div class = "card box content-container section">
-        <span class="section">
-          <div class = "header">
-            <div class="title"> Miscellaneous Notes
-            </div>
-          </div>
-        
-        
-          <span class="section">
-            <div class = "header">
-              <div class="title"> Notes 
-                <button class="editCard btn" style="float: right;">Edit</button></div>
-              </div>
-
-              <div class="box2 container1">
-                <div class="row">
-                  <div class="col">
-                    <div id="misc"> Left on side of road </div>
-                  </div>
-                </div>
-              </div>
+    </div>
+    <form id="miscellaneousForm" class="addForm" method="post" >
+      <textarea type="text" name="miscellaneous" ></textarea>
+      <div>
+        <input type="submit" value="Submit" name="miscSubmit" class="formSubmit">
+        <input type="button" value="Cancel" name="cancel" class="formSubmit cancelCardEdit">
+      </div>
+    </form>
+  </span>
+</div>
+<!-- End of Social history box -->
 
 
-              <form id="miscellaneousForm" class="addForm" method="post" >
+<!-- Miscellaneous notes -->
+<div class = "card box content-container section">
+  <div class = "header">
+    <div class="title"> Miscellaneous Notes
+      <button class="editCard btn" style="float: right;">Edit</button>
+    </div>
+  </div>
+  <div class="box2 container1">
+    <div class="row">
+      <div class="col">
+        <textarea name="miscellaneousNotes" placeholder="Enter text here..."/>
+      </div>
+    </div>
+    <form id="backgroundForm" class="addForm" method="post" >
+      <textarea type="text" name="background" ></textarea>
+      <div>
+        <input type="submit" value="Submit" name="backgroundSubmit" class="formSubmit">
+        <input type="button" value="Cancel" name="cancel" class="formSubmit cancelCardEdit">
+      </div>
+    </form>
+  </div>
+</div>
 
-               <textarea type="text" name="miscellaneous" ></textarea>
 
-
-               <div>
-                <input type="submit" value="Submit" name="miscSubmit" class="formSubmit">
-                <input type="button" value="Cancel" name="cancel" class="formSubmit cancelCardEdit"></div>
-              </form>
-
-            </span>
-
-          </div>
 
 <script> 
-var patientId = <%=data.id%>;
-$(document).ready(function(){
+  var patientId = <%=data.id%>;
+  $(document).ready(function(){
 // // we return a JSON in which we call updateTable with 
 $.ajax({
   type: "POST",
