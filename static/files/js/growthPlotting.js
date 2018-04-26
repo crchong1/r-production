@@ -7,12 +7,16 @@
           id: patientId
         },
         success: function(data) {
+          console.log('data.data[0]')
           console.log(data.data[0])
+          if(typeof data.data[0] == 'undefined') {
+            initializePlot();
+          }
           if(data.data[0].length != 0){
-            console.log("data in success")
+            //console.log("data in success")
           //  updateTable(data.data[0].weightAndDate);
             updatePlot(data.data[0].weightAndDate);
-                      console.log(data);
+                      //console.log(data);
           }
         }
     });
@@ -459,7 +463,7 @@ console.log("updateplot called")
     y: MCB36_97,
     name: '97th Percentile'}]);
 
-    Plotly.plot(MC_b, patientData);
+    //Plotly.plot(MC_b, patientData);
 
     //Plot weight-for-age growth curves
     Plotly.react( MW_b, [{
@@ -555,5 +559,173 @@ console.log("updateplot called")
     y: MLB36_97,
     name: '97th Percentile'}]);
 
-    Plotly.plot(ML_b, patientData, layoutML_b);
+    //Plotly.plot(ML_b, patientData, layoutML_b);
+};
+
+var initializePlot = function() {
+console.log("initializePlot called")
+    // //Update weight array yweight
+    // var yweight = [data[0].weight];
+    // for(var i = 1; i < data.length; i++) {yweight[i] = data[i].weight;}
+
+    // //Update patientData object for Plotly
+    // patientData = [{
+    // x: timescale_b,
+    // y: yweight,
+    // name: 'Patient Data',
+    // type: 'scatter'
+    // }];
+
+    //Set DOM node variables
+    MC_b = document.getElementById('MC_b');
+    MW_b = document.getElementById('MW_b');
+    ML_b = document.getElementById('ML_b');
+
+    FC_b = document.getElementById('FC_b');
+    FW_b = document.getElementById('FW_b');
+    FL_b = document.getElementById('FL_b');
+
+    //Plot Head circumference-for-age growth curves
+    Plotly.react( MC_b, [{
+    x: timescale_b,
+    y: MCB36_3,
+    name: '3rd Percentile'}], layoutMC_b);
+
+    Plotly.plot( MC_b, [{
+    x: timescale_b,
+    y: MCB36_5,
+    name: '5th Percentile'}]);
+
+    Plotly.plot( MC_b, [{
+    x: timescale_b,
+    y: MCB36_10,
+    name: '10th Percentile'}]);
+
+    Plotly.plot( MC_b, [{
+    x: timescale_b,
+    y: MCB36_25,
+    name: '25th Percentile'}]);
+
+    Plotly.plot( MC_b, [{
+    x: timescale_b,
+    y: MCB36_50,
+    name: '50th Percentile'}]);
+
+    Plotly.plot( MC_b, [{
+    x: timescale_b,
+    y: MCB36_75,
+    name: '75th Percentile'}]);
+
+    Plotly.plot( MC_b, [{
+    x: timescale_b,
+    y: MCB36_90,
+    name: '90th Percentile'}]);
+
+    Plotly.plot( MC_b, [{
+    x: timescale_b,
+    y: MCB36_95,
+    name: '95th Percentile'}]);
+
+    Plotly.plot( MC_b, [{
+    x: timescale_b,
+    y: MCB36_97,
+    name: '97th Percentile'}]);
+
+    //Plotly.plot(MC_b, patientData);
+
+    //Plot weight-for-age growth curves
+    Plotly.react( MW_b, [{
+    x: timescale_b,
+    y: MWB36_3,
+    name: '3rd Percentile'}], layoutMW_b);
+
+    Plotly.plot( MW_b, [{
+    x: timescale_b,
+    y: MWB36_5,
+    name: '5th Percentile'}]);
+
+    Plotly.plot( MW_b, [{
+    x: timescale_b,
+    y: MWB36_10,
+    name: '10th Percentile'}]);
+
+    Plotly.plot( MW_b, [{
+    x: timescale_b,
+    y: MWB36_25,
+    name: '25th Percentile'}]);
+
+    Plotly.plot( MW_b, [{
+    x: timescale_b,
+    y: MWB36_50,
+    name: '50th Percentile'}]);
+
+    Plotly.plot( MW_b, [{
+    x: timescale_b,
+    y: MWB36_75,
+    name: '75th Percentile'}]);
+
+    Plotly.plot( MW_b, [{
+    x: timescale_b,
+    y: MWB36_90,
+    name: '90th Percentile'}]);
+
+    Plotly.plot( MW_b, [{
+    x: timescale_b,
+    y: MWB36_95,
+    name: '95th Percentile'}]);
+
+    Plotly.plot( MW_b, [{
+    x: timescale_b,
+    y: MWB36_97,
+    name: '97th Percentile'}]);
+
+    //Plotly.plot(MW_b, patientData);
+
+    //Plot length-for-age growth curves
+    Plotly.react( ML_b, [{
+    x: timescale_b,
+    y: MLB36_3,
+    name: '3rd Percentile'}], layoutML_b);
+
+    Plotly.plot( ML_b, [{
+    x: timescale_b,
+    y: MLB36_5,
+    name: '5th Percentile'}]);
+
+    Plotly.plot( ML_b, [{
+    x: timescale_b,
+    y: MLB36_10,
+    name: '10th Percentile'}]);
+
+    Plotly.plot( ML_b, [{
+    x: timescale_b,
+    y: MLB36_25,
+    name: '25th Percentile'}]);
+
+    Plotly.plot( ML_b, [{
+    x: timescale_b,
+    y: MLB36_50,
+    name: '50th Percentile'}]);
+
+    Plotly.plot( ML_b, [{
+    x: timescale_b,
+    y: MLB36_75,
+    name: '75th Percentile'}]);
+
+    Plotly.plot( ML_b, [{
+    x: timescale_b,
+    y: MLB36_90,
+    name: '90th Percentile'}]);
+
+    Plotly.plot( ML_b, [{
+    x: timescale_b,
+    y: MLB36_95,
+    name: '95th Percentile'}]);
+
+    Plotly.plot( ML_b, [{
+    x: timescale_b,
+    y: MLB36_97,
+    name: '97th Percentile'}]);
+
+    //Plotly.plot(ML_b, patientData, layoutML_b);
 };
