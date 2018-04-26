@@ -61,7 +61,7 @@ var editChronic = function (req, res) {
   // this function takes in existing data and edits it
   problemListDB.editChronic(req.body.id, req.body.chronicDiagnosis,
     req.body.chronicDetails, req.body.chronicTreatment, req.body.chronicDateOnset,
-    req.body.chronicEndDate, req.body.chronicNotes, req.body.preEditData, function (data, err) {
+    req.body.chronicEndDate, req.body.chronicNotes, req.body._id, function (data, err) {
       if (err) {
         console.log("error")
       }
@@ -76,7 +76,7 @@ var editChronic = function (req, res) {
 var deleteChronic = function (req, res) {
   console.log("deleteChronic called in routes")
   // this function takes in existing data and updates it
-  problemListDB.deleteChronic(req.body.id, req.body.preEditData, function (data, err) {
+  problemListDB.deleteChronic(req.body.id, req.body._id, function (data, err) {
     if (err) {
       console.log("error")
     }
@@ -146,7 +146,7 @@ var editAcute = function (req, res) {
   // this function takes in existing data and edits it
   problemListDB.editAcute(req.body.id, req.body.acuteDiagnosis,
     req.body.acuteDetails, req.body.acuteTreatment, req.body.acuteDateOnset,
-    req.body.acuteEndDate, req.body.acuteNotes, req.body.preEditData, function (data, err) {
+    req.body.acuteEndDate, req.body.acuteNotes, req.body._id, function (data, err) {
       if (err) {
         console.log("error")
       }
@@ -161,7 +161,7 @@ var editAcute = function (req, res) {
 var deleteAcute = function (req, res) {
   console.log("deleteAcute called in routes")
   // this function takes in existing data and updates it
-  problemListDB.deleteAcute(req.body.id, req.body.preEditData, function (data, err) {
+  problemListDB.deleteAcute(req.body.id, req.body._id, function (data, err) {
     if (err) {
       console.log("error")
     }

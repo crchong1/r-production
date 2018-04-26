@@ -32,7 +32,7 @@
     <span class="td"><input type="text" name="chronicTreatment" placeholder="Treatment"></span>
     <span class="td"><input type="text" name="chronicOnset" class="datepicker form-control"></span>
     <span class="td"><input type="text" name="chronicResolution" placeholder="Resolution"></span>
-    <span class="td"><input type="text" name="chronicNotes" placeholder="Notes"></span>
+    <span class="td"><textarea class="notes" name="notes" placeholder="Enter text here..."/></span> 
     <input type="submit" value="Submit" id="chronicSubmit" name="chronicSubmit" class="btn btn-primary formSubmit">
     <input type="button" value="Cancel" name="cancel" class="btn btn-danger formSubmit cancel" data-toggle="collapse" data-target="#chronicForm">
   </form>
@@ -68,7 +68,7 @@
     <span class="td"><input type="text" name="acuteTreatment" placeholder="Treatment"></span>
     <span class="td"><input type="text" name="acuteOnset" class="datepicker form-control"></span>
     <span class="td"><input type="text" name="acuteResolution" placeholder="Resolution"></span>
-    <span class="td"><input type="text" name="acuteNotes" placeholder="Notes"></span>
+    <span class="td"><textarea class="notes" name="notes" placeholder="Enter text here..."/></span> 
     <input type="submit" value="Submit" id="acuteSubmit" name="acuteSubmit" class="btn btn-primary formSubmit">
     <input type="button" value="Cancel" name="cancel" class="btn btn-danger formSubmit cancel">
   </form>
@@ -171,47 +171,26 @@
     });
   });
 
-  //This function saves preEditData when the edit button is clicked 
-  var preEditData;
-  $('.section').on('click', '.editBtn', function (event) {
-    event.preventDefault();
-    console.log(event);
-    var edits = $(this).closest('.section').find('.editBtn');
-    index = ($(edits).index(this));
-    console.log("index: "  + index);
+//This function saves _id when the edit button is clicked 
+var _id;
+$('.section').on('click', '.editBtn', function (event) {
+  console.log("edit button clicked");
+  event.preventDefault();
+  // // find and hide the edit button
 
-    $('.editBtn').hide()
-    var row = $(this).parent().parent();
-    $(this).parent().parent().attr('id', 'editingRow');
-    setCss(this);
-    console.log(row)
-    row.hide();
-    //	editEntry(row);
-    editEntryGeneric(row);
+  // gets the row of the edit button that was clicked
+  var row = $(this).parent().parent();
 
-    var data = [];
-    var table = document.getElementById("editingRow");
-    var cells = table.getElementsByTagName("td");
-    console.log(cells);
-    for (var i = 0; i < cells.length; i++) {
-      data.push(cells[i].innerHTML);
-    }
-    preEditData = {
-      diagnosis: data[0],
-      details: data[1],
-      treatment: data[2],
-      dateOnset: data[3],
-      endDate: data[4],
-      notes: data[5]
-    }
-    console.log("preEditData when editBtn is clicked: " + preEditData);
-
-    console.log("preEditData chronicDiagnosis after clicking editBtn: " + preEditData.diagnosis);
-    console.log("preEditData chronicDetails after clicking editBtn: " + preEditData.details);
-    console.log("preEditData chronicTreatment after clicking editBtn: " + preEditData.treatment);
-    console.log("preEditData chronicDateOnset after clicking editBtn: " + preEditData.dateOnset);
-    console.log("preEditData chronicEndDate after clicking editBtn: " + preEditData.endDate);
-  });
+  // sets the record id of the row that is being edited
+  _id = $(row).attr('id')
+  console.log(_id);
+  setCss(this);
+  console.log(row);
+  row.hide();
+    //  editEntry(row);
+  editEntryGeneric(row);
+   
+});
 
   //Edit existing entry for chronic
   $('#chronicProb').on('submit', '.editForm', function (event) {
@@ -229,7 +208,7 @@
         chronicDateOnset: input[3].value,
         chronicEndDate: input[4].value,
         chronicNotes: input[5].value,
-        preEditData: preEditData
+        _id: _id
       },
       success: function (result) {
         console.log(result);
@@ -266,7 +245,7 @@
       type: 'POST',
       url: '/deleteChronic',
       data: {
-        preEditData: preEditData,
+        _id: _id,
       },
       success: function (result) {
         console.log(result);
@@ -295,7 +274,7 @@
       acuteDateOnset: input[3].value,
       acuteEndDate: input[4].value,
       acuteNotes: input[5].value,
-      preEditData: preEditData
+      _id: _id
     },
     success: function (result) {
       console.log(result);
@@ -331,12 +310,14 @@ $('#acuteProb').on('click', '.delete', function (event) {
     type: 'POST',
     url: '/deleteAcute',
     data: {
-      preEditData: preEditData,
+      _id: _id,
     },
     success: function (result) {
+      console.log("ProblemList delete success")
       console.log(result);
     },
     error: function (XMLHttpRequest, textStatus, errorThrown) {
+      console.log("ProblemList delete fail") 
       console.error("error: " + errorThrown);
     }
   });
@@ -366,7 +347,7 @@ $('#acuteProb').on('click', '.delete', function (event) {
 
     var table1 = '';
     for (var i = 0; i < data.length; i++) {
-      var line = '<tr><td>' + data[i].chronicDiagnosis + '</td>';
+      var line = '<tr id='  + data[i]._id + '><td> ' +  data[i].chronicDiagnosis + '</td>';
       line += '<td>' + data[i].chronicDetails + '</td>';
       line += '<td>' + data[i].chronicTreatment + '</td>';
       line += '<td>' + data[i].chronicDateOnset + '</td>';
@@ -425,7 +406,7 @@ document.getElementById('chronicTableBody').innerHTML = table1;
     console.log(data);
     var table1 = '';
     for (var i = 0; i < data.length; i++) {
-      var line = '<tr><td>' + data[i].acuteDiagnosis + '</td>';
+      var line = '<tr id='  + data[i]._id + '><td> ' +  data[i].acuteDiagnosis + '</td>';
       line += '<td>' + data[i].acuteDetails + '</td>';
       line += '<td>' + data[i].acuteTreatment + '</td>';
       line += '<td>' + data[i].acuteDateOnset + '</td>';
