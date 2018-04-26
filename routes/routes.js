@@ -209,17 +209,17 @@ var getPatient = function (req, res) {
 // this function finds all the patients starting with the input
 // it will then return the data back in JSON format
 var getPatientKeys = function (req, res) {
-  console.log('get patient: ' + req.body.search);
   // get the field and the search data from the body
   var search = req.body.search;
   var field = req.body.field;
+  //console.log('get patient: ' + search + 'by: ' + field);
   // pass the fields in the getPatientKeys function in patientsDB
-  patientsDB.getPatientKeys(search, field, function (data, err) {
-    if (err) {
+  patientsDB.getPatientKeys(search, field, function(data, err){
+    if(err){
       alert("Error from getPatientKeys, patients DB, in routes.js -> getPatientKeys")
     }
-    else if (data) {
-        res.send({
+    else if(data){
+      res.send({
         message: '',
         patient: data
       });
