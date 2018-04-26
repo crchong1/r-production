@@ -34,6 +34,7 @@ var getUser = function (username, route_callback) {
             route_callback(null, err);
         }
         else {
+            console.log("got user: " + res);
             route_callback(res, null);
         }
     });
@@ -57,9 +58,25 @@ var addUser = function (username, password, firstname, lastname, route_callback)
     });
 };
 
+var checkLogin = function (username, password, route_callback) {
+    // console.log("getting all weights");
+    User.findOne({ username: username, password: password }, function (err, res) {
+        if (err) {
+            route_callback(null, err);
+        }
+        if(res == null){
+            route_callback("n/a", null);
+        }
+        if (res) {
+            route_callback(res, null);
+        }
+    });
+};
+
 var users = {
 	get_user: getUser,
-	add_user: addUser
+    add_user: addUser,
+    check_login: checkLogin
 };
 
 module.exports = users;

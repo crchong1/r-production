@@ -56,7 +56,7 @@
     color: #C7DDFF;
     font-size: 15px;
     line-height: 50px;
-    font-family: Nunito Sans;
+    font-family: Lato;
     display: inline-block;
   }
   .header {
@@ -110,7 +110,8 @@ integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6J
 
   <link rel="stylesheet" type="text/css" href="/files/css/views.css">
 
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Nunito"/>
+  <link href='/files/css/lato.css' rel='stylesheet' type='text/css'>
+  <link href='/files/css/roboto.css' rel='stylesheet' type='text/css'>
 
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Pacifico"/>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
@@ -123,9 +124,7 @@ crossorigin="anonymous"></script>
   <div class="background">
 
  <header id="header"></header>
-    <script type="text/javascript">
-      $('#header').load('/files/html/header.html');
-    </script>
+  <% include header.ejs %>
 
 
  <div id='welcome' class="search jumbo jumbotron jumbotron-fluid">
@@ -269,7 +268,8 @@ crossorigin="anonymous"></script>
 
          $(document).ready(function(){
           console.log("here");
-
+          $('#userfname').text('<%=firstname%>');
+          $('#userlname').text('<%=lastname%>');
             // Initial Page Load
             /*
             $.ajax({

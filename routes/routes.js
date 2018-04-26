@@ -51,26 +51,18 @@ var checkLogin = function(req, res) {
 	sess = req.session;
 	// get username and password
 	  var userInputUsername = req.body.usernameInputField;
-	  var userInputPassword = req.body.passwordInputField;
-	  db.checkUsername(userInputUsername, function(data, err) {
-	    if (err == "error") {
-	      res.render('login.ejs', {message: "Please enter a username", result: null});
-	    } else if (data == "success") {
+    var userInputPassword = req.body.passwordInputField;
+    console.log("username: " + userInputUsername + " password: " + userInputPassword);
+	  users.check_login(userInputUsername, userInputPassword, function(data, err) {
+	    if (err) {
+        res.render('login.ejs', {message: "Please enter a username"});
+      }else if(data=="n/a"){
+        res.render('login.ejs', {message: "Sorry, incorrect username or password"});
+	    } else if (data) {
 	    	// check if the password matches with the username
-	    	db.checkPassword(userInputUsername, userInputPassword, function(data, err) {
-	    	    if (err == "error1") {
-	    	      res.render('login.ejs', {message: 'Error: wrong password'});
-	    	    } else if (data) {
-	    	      sess.username = userInputUsername;
-	    	      res.redirect('/restaurants');
-	    	      // success here - add a cookie
-	    	    } else {
-	    	      res.render('login.ejs', {message: 'Please enter a password'});
-	    	    }
-	    	  });
-	    } else {
-	      res.render('login.ejs', {message: 'Invalid Username'});
-	    }
+        sess.username = userInputUsername;
+        res.redirect('/patientSearch');
+      }
 	  });
 	};
 
@@ -86,7 +78,7 @@ var logout = function(req, res) {
 
 var getUser = function(req, res) {
 	sess = req.session;
-	var username = req.body.username;
+  var username = req.body.username;
 		// First get all keys in the posts table, then get the associated value for each key.
 	users.getUser(username, function(data, err) {
 		if (err) {
@@ -103,7 +95,7 @@ var getSignup = function (req, res) {
 
 // this function renders login.ejs first now
 var getMain = function (req, res) {
-  res.render('login.ejs');
+  res.render('login.ejs', {message: ""});
 }
 
 // renders the form page which is used to submit a new patient
@@ -113,7 +105,19 @@ var getForm = function (req, res) {
 
 // renders the patientSearch page which has a search bar
 var getSearchPatients = function (req, res) {
-  res.render('patientSearch.ejs');
+  sess = req.session;
+  if(sess.username){
+    console.log(sess.username);
+    users.get_user(sess.username, function(data, err){
+      if(err){
+        res.render("login.ejs", {message: "Please enter a username and password"});
+      } else {
+        res.render('patientSearch.ejs', {firstname: data.firstname, lastname: data.lastname} );
+      }
+    });
+  } else {
+    res.render("login.ejs", {message: "Please login"});
+  }
 }
 
 var getPharmacy = function(req, res) {
@@ -125,18 +129,32 @@ var getDispensary = function(req, res){
 
 var getAnyPatientPage = function (req, res) {
   var id = decodeURI(req.params.id); // gets id from url
-  var age = 'undefined';
-
-  patientsDB.getPatientById(id, function (data, err) {
-
-    if (err) {
-      console.log(err);
-    } else {
-      // render the patientPage with the returned data
-
-      res.render('template.ejs', { data: data[0], age });
+  var age = '100';
+  if(sess){
+    if(sess.username){
+      console.log(sess.username);
+      users.get_user(sess.username, function(data, err){
+        if(err){
+          res.render("login.ejs", {message: "Please enter a username and password"});
+        } else {
+          var firstname = data.firstname;
+          var lastname = data.lastname;
+          patientsDB.getPatientById(id, function (data, err) {
+            if (err) {
+              console.log(err);
+            } else {
+              // render the patientPage with the returned data
+              res.render('template.ejs', { data: data[0], age: age, firstname: firstname, lastname: lastname });
+            }
+          });
+        }
+      });
     }
-  });
+  }
+  else {
+    res.render("login.ejs", {message: "Please enter a username and password"});
+  }
+  
 }
 
 

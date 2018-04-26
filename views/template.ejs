@@ -7,15 +7,13 @@
    <script src="/files/js/popper.min.js"></script>
   <script type="text/javascript" src="/files/js/stickyfillmin.js"></script>
    <script src="/files/js/datepicker.js"></script>
-
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Nunito"/>
   <link rel="stylesheet" href="/files/bootstrap-4/css/bootstrap.css" />
   <link rel="stylesheet" type="text/css" href="/files/css/w3.css">
-
   <link rel="stylesheet" type="text/css" href="/files/css/contentTable.css">
   <link rel="stylesheet" type="text/css" href="/files/css/contentGeneral.css">
   <link rel="stylesheet" type="text/css" href="/files/css/template.css">
-
+  <link href='/files/css/lato.css' rel='stylesheet' type='text/css'>
+  <link href='/files/css/roboto.css' rel='stylesheet' type='text/css'>
 </head>
 <body> 
   <h2 style="display:none;" id="url"></h2>
@@ -85,8 +83,8 @@
           <div class="col-lg">   
             <div class = "card header">
              <div class = "topRight">
-              <a> Welcome, "*User Name*"  | </a>
-              <a href="/" class="btn btn-outline-success"> Logout </a>
+              <a> Welcome, <%=firstname%> <%=lastname%>  |</a>
+              <a href="/logout" class="btn btn-outline-success"> Logout </a>
             </div>
             <div>
               <a href="/patientSearch" style="text-decoration : none "> <p class = "label" id = "R-plus"> R+ </p>
@@ -112,7 +110,7 @@
 
     var patientId = <%=data.id%>;
     console.log(patientId);
-var age =  <%- JSON.stringify(age) %>;
+    var age =  <%- JSON.stringify(age) %>;
        console.log('age in template: ' + age)
 
     $('document').ready(function() {

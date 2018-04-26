@@ -53,6 +53,7 @@ app.get('/patientPage/:id/scans', routes.get_any_patient_page);
 
 app.get('/weight', routes.get_weight_page);
 app.get('/form', routes.get_form);
+app.get('/logout', routes.logout);
 
 // login page 
 app.post('/checkLogin', routes.check_login);
