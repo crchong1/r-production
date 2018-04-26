@@ -56,9 +56,10 @@
     <thead>
       <tr class="w3-light-grey">
         <th>House</th>
-        <th>Start Age</th>
-        <th>Start Date</th>
-        <th>End Date</th>
+        <th>Start age</th>
+        <th>From</th>
+        <th>To</th>
+        <th>Notes</th>
         <th class="edit">Edit</th>
       </tr>
     </thead>
@@ -70,6 +71,7 @@
     <span class="td"><input type="text" name="startAge" placeholder="Start Age"></span>
     <span class="td"><input type="text" name="startDate" class="datepicker form-control"></span>
     <span class="td"><input type="text" name="endDate" class="datepicker form-control" ></span>
+    <span class="td"><textarea class="notes" name="notes" placeholder="Enter text here..."/></span> 
     <input type="submit" value="Submit" id="livingSubmit" name="livingSubmit" class="btn btn-primary formSubmit">
     <input type="button" value="Cancel" name="cancel" class="btn btn-danger formSubmit cancel" data-toggle="collapse" data-target="#livingForm">
   </form>
@@ -86,12 +88,11 @@
     </div>
     <thead>
       <tr class="w3-light-grey">
-        <th>Underweight</th>
-        <th>Brand</th>
-        <th>Amount</th>
-        <th>Additions</th>
-        <th>Start Date</th>
-        <th>End Date</th>
+        <th>Underweight?</th>
+        <th>On high-calorie diet?</th>
+        <th>From</th>
+        <th>To</th>
+        <th>Notes</th>
         <th class="edit">Edit</th>
       </tr>
     </thead>
@@ -99,12 +100,11 @@
     </tbody>
   </table>
   <form id="feedingForm" class="tr addForm collapse">
-    <span class="td"><input type="text" name="underweight" placeholder="House"></span>
-    <span class="td"><input type="text" name="brand" placeholder="Brand"></span>
-    <span class="td"><input type="text" name="amount" placeholder="Amount"></span>
-    <span class="td"><input type="text" name="additions" placeholder="Additions"></span>
+    <span class="td"><input type="text" name="underweight" placeholder="Underweight?"></span>
+    <span class="td"><input type="text" name="highCalDiet" placeholder="On high-calorie diet?"></span>
     <span class="td"><input type="text" name="startDate" class="datepicker form-control"></span>
     <span class="td"><input type="text" name="endDate" class="datepicker form-control" ></span>
+    <span class="td"><textarea class="notes" name="notes" placeholder="Enter text here..."/></span> 
     <input type="submit" value="Submit" id="feedingSubmit" name="feedingSubmit" class="btn btn-primary formSubmit">
     <input type="button" value="Cancel" name="cancel" class="btn btn-danger formSubmit cancel" data-toggle="collapse" data-target="#feedingForm">
   </form>
