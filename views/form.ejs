@@ -25,22 +25,7 @@
 </style>
 </head>
 <body>
-
-  <div class = "card header" style="background:white;">
-           <div class = "topRight">
-            <a> Welcome, "*User Name*"  | </a>
-            <a href="/" class="btn btn-outline-success"> Logout </a>
-          </div>
-          <div>
-             <a href="/patientSearch" style="text-decoration : none "> <p class = "label" id = "R-plus"> R+ </p>
-            <p class = "label" id = "Childrens">Childrens</p> </a>
-            <a href="#Pharmacy" class = "top-nav" id = "pharmacy">Pharmacy</a>
-            <a href="#AllPatients" class = "top-nav" id = "rec-pat">Recent Patients</a>
-            <a href="/patientSearch" class = "top-nav" id = "search-pat">Search Patients</a>
-            <a href="/form" class = "top-nav" id = "search-pat">Add Patient</a>
-
-          </div>
-        </div>
+  <% include header.ejs %>
 
 <div class="container">
   <h1>Please Enter Patient Data</h1>

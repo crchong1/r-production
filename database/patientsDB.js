@@ -99,11 +99,13 @@ var putPatient= function(patientJSON, route_callbck){
 };
 var getPatientKeys = function(search, field, route_callbck){
     var key = new RegExp("^" + search);
+    //console.log(key);
     Patient.find({[field]: key}, function(err, res){
         if(err){
             route_callback(null, "error" + err);
         }
         else {
+            //console.log(res);
             route_callbck(res, null);
         }
     });

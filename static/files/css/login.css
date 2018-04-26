@@ -1,28 +1,93 @@
+.filter {
+  padding: 1rem;
+}
+.btn {
+  padding: .1em ;
+  font-size: .5rem;
+}
 
+.sort {
+  padding: 1rem;
+}
+.nav {
+  background-color:rgba(0,0,0,0.2) !important;
+  border-color: transparent !important;
+  background-image:none !important;
+  color:white !important;
+}
+.nav .btn {
+  background-color: rgba(255, 255, 255, 0) !important;
+  color: rgb(255, 255, 255);
+  border-color: rgba(255, 255, 255, 0.205)!important;
+}
+.nav li{
+  padding-left:30px;
+  padding-right:20px;
+}
+.nav a{
+  color:white !important;
+}
+.nav input{
+  background-color: rgba(255, 255, 255, 0.171);
+  border-color: transparent !important;
+}
+.nav ::placeholder {
+  color:white !important;
+}
+.jumbo {
+  color: rgba(255, 255, 255, 0.644);
+  background-color: #24345E !important;
+  padding-bottom: 1em !important;
+  padding-top: 2em !important;
+}
+
+.search {
+color: white;
+font-weight: bold !important;
+}
+.search h2 {
+font-size: 45px;
+}
+.search p {
+color: #C7DDFF;
+font-size: 15px;
+line-height: 50px;
+font-family: Lato;
+display: inline-block;
+}
+.header {
+display: inline-block;
+}
+.hdrBtns {
+display: inline-block;
+float:right;  }
+.Rplus {
+  font-size: 48px;
+}
+.background {
+  background-color: #E1EBF2;
+  text-align:center;
+}
+.patient {
+  margin: 20px;
+}
+.patient {
+  border-left: medium;
+  border-color: red;
+}
 .card-body {
  border-left-style: solid;
  border-left-color: #FF6363;
  border-left-width: thick;
 }
 
-p{
-font-size: 35px;
-}
+
 h1 {
 text-align: center;
-padding-top: 0px;
+padding-top: 1em;
 font-weight: bold;
-font-size: 80px !important;
+font-size: 60px !important;
 
-
-}
-h4 {
-  margin-top: 20 !important;
-  font-weight: bold;
-  font-size: 30px !important;
-}
-.background {
-  height: 800px !important;
 }
 
 .card-text {
@@ -39,8 +104,6 @@ background-color: #24345E !important;
 align-items: center;
 align-self: center;
 width: 50%;
-height: 55%;
-box-shadow: 2px 2px grey;
 }
 .loginBtn {
 font-size: 20px !important;
@@ -52,23 +115,17 @@ padding: 10px !important;
 #loginHeader{
 font-size: 35px;
 margin-left: 20px;
-padding-top: 100px !important;
 font-weight: bold;
 color: #FF6363;
 width: 100%;
 }
 #loginCard{
+align-self:center;
   color: white;
   width:50%;
   margin-left: 25%;
-  border-style:inset;
-
 
 }
 .form-control{
 width: 50%;
-
-}
-.input-group{
-  height:100%;
 }

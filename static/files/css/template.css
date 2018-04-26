@@ -2,7 +2,7 @@
 
 body {
   background-color: #E1EBF2;
-  font-family: Nunito, sans-serif !important;
+  font-family: Lato !important;
 }
 
 .nav {
@@ -103,26 +103,32 @@ body {
 
 .top-nav {
   font-size: 20px;
-  font-weight: 400;
+  font-family: 'Roboto', sans-serif;
+  font-weight: lighter;
   color: black;
   padding: 10px;
 
 }
 .label{
   display: inline-block;
-  font-weight: bold;
+  font-weight: medium;
   color: black;
 }
 #R-plus{
   font-size: 35px;
   margin-left: 20px;
   font-weight: bold;
+  font-family: 'Roboto', sans-serif;
   color: #FF6363;
 }
 #Childrens{
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
   font-size: 35px
 }
 #pharmacy{
+  font-family: 'Roboto', sans-serif;
+  font-weight: lighter;
   margin-left: 80px;
 }
 
