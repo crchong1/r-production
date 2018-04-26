@@ -141,6 +141,9 @@ body {
 th {
   font-style: italic;
 }
+.box.card.section {
+    overflow-x:scroll;
+}
 
 .subTitle {
   padding-top: 10px;

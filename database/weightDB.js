@@ -96,7 +96,7 @@ var putWeightEntry= function(id, weight, date, route_callback){
 };
 
 var getAllWeights = function(id, route_callback){
-    // console.log("getting all weights");
+    console.log("getting all weights");
     WeightHistory.find({id: id}, function(err, res){
         if(err){
             route_callback(null, "Patient's weight history not found" + err);

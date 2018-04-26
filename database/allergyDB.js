@@ -8,7 +8,6 @@ allergy.once('open', function () {
     console.log("allergyDB connected")
 });
 
-
 var allergySchema = mongoose.Schema({
     //Allergies
     id: {

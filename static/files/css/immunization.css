@@ -1,0 +1,43 @@
+table {
+    table-layout: fixed;
+}
+
+/* table headers */
+th.age {
+	width: 100px;
+}
+
+
+th.lot, th.notes {
+	width: 170px;
+}
+
+th.dueDate, th.dateCompleted {
+	width: 180px;
+}
+
+th.immunization {
+	width: 220px;
+}
+
+/* table inputs */
+.form-control {
+	padding: 0rem 0.25rem !important;
+	margin-right: 15px;
+}
+
+input.age {
+	width: 90px;
+}
+
+input.lot, textarea.notes {
+	width: 160px;
+}
+
+input.dueDate, input.dateCompleted {
+	width: 170px !important; 
+}
+
+input.immunization {
+	width: 210px;
+}

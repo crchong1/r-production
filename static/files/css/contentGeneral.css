@@ -1,8 +1,8 @@
 
 .datepicker{
   width:100px !important; 
-  background-color: ;
 }
+
 .datepicker-dropdown{
   width: 200px;
 }
@@ -53,6 +53,12 @@ margin: 15px 0px 10px 20px;
   font-weight: bold;
   font-size: 18px;
   color: #24345E;
+}
+.titleFont2 {
+  margin: 5px 5px 0px 15px;
+  font-weight: bold;
+  font-size: 15px;
+  text-decoration: underline;
 }
 
 .note {
@@ -213,3 +219,9 @@ padding: .3rem 1.25rem;
   outline: none;
 }
 
+.scrollable {
+ overflow-y:auto; 
+ height:200px;
+ border:solid 1px lightgray;
+ padding: 20px;
+}

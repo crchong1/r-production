@@ -5,8 +5,7 @@ var pharmacyDB = require('../database/pharmacyDB.js');
 //functions for pharmacy problems
 var getAllPharmacy = function (req, res) {
   console.log("getAllPharmacy called in routes")
-  var id = req.body.id;
-  pharmacyDB.getAllPharmacy(id, function (data, err) {
+  pharmacyDB.getAllPharmacy(function (data, err) {
     if (err) {
       console.log(err);
     } else {
@@ -18,17 +17,16 @@ var getAllPharmacy = function (req, res) {
 
 
 var submitNewPharmacy = function (req, res) {
-  console.log("submitNewChronic called in routes")
-  var id = req.body.id;
+  console.log("submitNewPharmacy called in routes")
   // check to see if there is already data in the table
-  pharmacyDB.getAllPharmacy(id, function (data, err) {
+  pharmacyDB.getAllPharmacy(function (data, err) {
     if (err) {
       console.log(err);
     } else {
       // if there is no data in the table yet
       if (data.length == 0) {
         // we create a new entry here
-        pharmacyDB.putNewPharmacy(req.body.id, req.body.section,
+        pharmacyDB.putNewPharmacy(req.body.section,
           req.body.genericName, req.body.proprietaryName, req.body.drugClass,
           req.body.type, req.body.description, req.body.manufactureDate,
           req.body.expirationDate, req.body.lotNumber, req.body.concentration, 
@@ -43,7 +41,7 @@ var submitNewPharmacy = function (req, res) {
       // if there is already data in the table so we need to update it
       else {
         // this function takes in existing data and updates it
-        pharmacyDB.putPharmacyEntry(req.body.id, req.body.section,
+        pharmacyDB.putPharmacyEntry(req.body.section,
           req.body.genericName, req.body.proprietaryName, req.body.drugClass,
           req.body.type, req.body.description, req.body.manufactureDate,
           req.body.expirationDate, req.body.lotNumber, req.body.concentration, 
@@ -65,11 +63,11 @@ var submitNewPharmacy = function (req, res) {
 var editPharmacy = function (req, res) {
   console.log("editPharmacy called in routes")
   // this function takes in existing data and edits it
-  pharmacyDB.editPharmacy(req.body.id, req.body.section,
+  pharmacyDB.editPharmacy(req.body.section,
     req.body.genericName, req.body.proprietaryName, req.body.drugClass,
     req.body.type, req.body.description, req.body.manufactureDate,
     req.body.expirationDate, req.body.lotNumber, req.body.concentration, 
-    req.body.amountPerUnit, req.body.unitsRemaining, req.body.preEditData, function (data, err) {
+    req.body.amountPerUnit, req.body.unitsRemaining, req.body._id, function (data, err) {
       if (err) {
         console.log("error")
       }
@@ -84,7 +82,7 @@ var editPharmacy = function (req, res) {
 var deletePharmacy = function (req, res) {
   console.log("deletePharmacy called in routes")
   // this function takes in existing data and updates it
-  pharmacyDB.deletePharmacy(req.body.id, req.body.preEditData, function (data, err) {
+  pharmacyDB.deletePharmacy(req.body._id, function (data, err) {
     if (err) {
       console.log("error")
     }

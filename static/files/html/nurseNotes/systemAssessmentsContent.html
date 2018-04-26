@@ -1,211 +1,2503 @@
-
+  <link rel="stylesheet" type="text/css" href="/files/css/wcc.css">
 
   <div class = "card box summary">
-    <h3 class="pageTitle"> Nurse Notes </h3>
+    <h3 class="pageTitle"> Progress Notes </h3>
   </div>
 </div>
-
 <div class = "card box content-container">
   <div class = "heading">
     <div> System Assessments </div>
   </div>
   <div class="underline"> </div>
+  <div id="accordion">
+    <div class="card">
+      <div class="card-header" id="headingOne">
+        <h5 class="mb-0">
+          <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+            Complete Physical Assessment: Head - to - Toe
+          </button>
+        </h5>
+      </div>
 
-<div id="accordion">
-  <div class="card">
-    <div class="card-header" id="headingOne">
-      <h5 class="mb-0">
-        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          Complete Physical Assessment: Head - to - Toe
-        </button>
-      </h5>
-    </div>
+      <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+        <div class="card-body">
+          <div class="row">
+            <div class="col">
+              <div>
+                <div class="titleFont"> General </div>
+                <div class='box2'>
+                  <textarea class="note" name='general'></textarea>
+                </div>
+              </div>
+              <div>
+                <div class="titleFont"> Head / Neck </div>
+                <div class='box2'>
+                  <textarea class="note" name='head'></textarea>
+                </div>
+              </div>
+              <div>
+                <div class="titleFont"> Eyes / Vision </div>
+                <div class='box2'>
+                  <textarea class="note" name='eyes'></textarea>
+                </div>
+              </div>
+              <div class="titleFont"> Cardiovascular </div>
+              <div class='box2'>
+                <textarea class="note" name='cardiovascular'></textarea>
+              </div>
+              <div class="titleFont"> Lymphatic </div>
+              <div class='box2'>
+                <textarea class="note" name='lymphatic'></textarea>
+              </div>
+              <div class="titleFont"> Abdomen </div>
+              <div class='box2'>
+                <textarea class="note" name='abdomen'></textarea>
+              </div>
+              <div class="titleFont"> Neurological </div>
+              <div class='box2'>
+                <textarea class="note" name='neurological'></textarea>
+              </div>
+              <div class="titleFont"> Male: Prostate / Genitalia </div>
+              <div class='box2'>
+                <textarea class="note" name='maleProstate'></textarea>
+              </div>
+              <div class="titleFont"> Other </div>
+              <div class='box2'>
+                <textarea class="note" name='other'></textarea>
+              </div>
+            </div>
+            <div class="col">
+              <div class="titleFont"> Integumentary </div>
+              <div class='box2'>
+                <textarea class="note" name='integumentary'></textarea>
+              </div>
+              <div class="titleFont"> Ears / Nose / Throat </div>
+              <div class='box2'>
+                <textarea class="note" name='ears'></textarea>
+              </div>
+              <div class="titleFont"> Respiratory </div>
+              <div class='box2'>
+                <textarea class="note" name='respiratory'></textarea>
+              </div>
+              <div class="titleFont"> Peripheral Vascular </div>
+              <div class='box2'>
+                <textarea class="note" name='peripheralVascular'></textarea>
+              </div>
+              <div class="titleFont"> Breasts </div>
+              <div class='box2'>
+                <textarea class="note" name='breasts'></textarea>
+              </div>
+              <div class="titleFont"> Musculoskeletal </div>
+              <div class='box2'>
+                <textarea class="note" name='musculoskeletal'></textarea>
+              </div>
+              <div class="titleFont"> Female: Pelvic / Genitalia </div>
+              <div class='box2'>
+                <textarea class="note" name='femalePelvic'></textarea>
+              </div>
+              <div class="titleFont"> Rectal </div>
+              <div class='box2'>
+                <textarea class="note" name='rectal'></textarea>
+              </div>
+              <div class="titleFont"> Assessment Summary </div>
+              <div class='box2'>
+                <textarea class="note" name='summary'></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="titleFont"> Plan </div>
+              <div class='box2'>
+                <textarea class="note" name='plan'></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header" id="headingTwo">
+          <h5 class="mb-0">
+            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              Cardiovascular
+            </button>
+          </h5>
+        </div>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+          <div class="card-body">
+           <div class="row underline">
+            <div class="">
+              <div class="titleFont"> Pulses </div>
+              <div class="row box2">
+                <div class="col">
+                  Apical: 
+                  <div class="col">
+                    <label class="ckbxContainer"> Regular
+                     <input type="radio" name="apicalPulse" value="regular">
+                     <span class="radiomark"></span>
+                   </label>
+                   <label class="ckbxContainer"> Irregular
+                     <input type="radio" name="apicalPulse" value="irregular">
+                     <span class="radiomark"></span>
+                   </label>
+                 </div>
+               </div>
+               <div class="col">
+                Murmur noted: 
+                <div class="col">
+                  <label class="ckbxContainer"> Yes
+                   <input type="radio" name="murmur" value="murmurYes">
+                   <span class="radiomark"></span>
+                 </label>
+                 <label class="ckbxContainer"> No
+                   <input type="radio" name="murmur" value="murmurNo">
+                   <span class="radiomark"></span>
+                 </label>
+               </div>
+             </div>
+           </div>
+         </div>
+       </div>
 
-    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-      <div class="card-body">
-        Form one
+       <div class="row underline">
+        <div class="titleFont"> Carotid / Peripheral Pulses </div>
+        <div> TODO: Dropdowns 
+        </div>
+      </div>
+      <div class="row">
+        <div class="titleFont"> Ankle-brachial Index Test </div>
+        <div class="row box">
+         <div class="col-md-5" style="padding-right: 0px; width: 340px !important;">
+          <div> Right arm systolic blood pressure: </div>
+          <div> Left arm systolic blood pressure: </div>
+          <div> Right ankle systolic pressure posterior tibial: </div>
+          <div> Right ankle systolic pressure dorsalis pedis: </div>
+          <div> Left ankle systolic pressure posterior tibial: </div>
+          <div> Left ankle systolic pressure dorsalis pedis: </div>
+        </div>
+        <div class="col-md-3 inputUnderline">
+          <input type="text" name="rtArm"><br> 
+          <input type="text" name="ltArm"><br>
+          <input type="text" name="rtAnkPost"><br>
+          <input type="text" name="rtAnkDors"><br>
+          <input type="text" name="ltAnkPost"> 
+          <input type="text" name="ltAnkDors"> 
+        </div>
+        <div class="col-md-3">
+          <div class="titleFont"> Calculate Ankle-brachial Index </div>
+          <div> Divide the highest systolic pressure in each leg by the highest systolic brachial pressure </div>
+          <div> Index score: XXX </div>
+          <div> Interpretation:
+            Above 0.90
+          </div>
+        </div>
+
+
       </div>
     </div>
   </div>
-  <div class="card">
-    <div class="card-header" id="headingTwo">
-      <h5 class="mb-0">
-        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-        Cardiovascular
-        </button>
-      </h5>
-    </div>
-    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-      <div class="card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
-    </div>
+</div>
+<div class="card">
+  <div class="card-header" id="headingThree">
+    <h5 class="mb-0">
+      <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+        Respiratory
+      </button>
+    </h5>
   </div>
-  <div class="card">
-    <div class="card-header" id="headingThree">
-      <h5 class="mb-0">
-        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          Respiratory
-        </button>
-      </h5>
-    </div>
-    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-      <div class="card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
-    </div>
-  </div>
-   <div class="card">
-    <div class="card-header" id="neurological">
-      <h5 class="mb-0">
-        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseNeurological" aria-expanded="false" aria-controls="collapseNeurological">
-          Neurological
-        </button>
-      </h5>
-    </div>
-    <div id="collapseNeurological" class="collapse" aria-labelledby="neurological" data-parent="#accordion">
-      <div class="card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
-    </div>
-  </div>
-   <div class="card">
-    <div class="card-header" id="integumentary">
-      <h5 class="mb-0">
-        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseIntegumentary" aria-expanded="false" aria-controls="collapseIntegumentary">
-          Integumentary
-        </button>
-      </h5>
-    </div>
-    <div id="collapseIntegumentary" class="collapse" aria-labelledby="integumentary" data-parent="#accordion">
-      <div class="card-body">
-        <div class="row">
-                    <form id="skinTest">
+  <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+    <div class="card-body">
+      <div class="row underline">
         <div class="col">
-          <div class="sub"> Skin Test </div>
-          <div class="titleFont"> Color </div>
-          <div>
-          <input type="checkbox" name="color" value="expected"> Within expected parameters for patient
-<input type="checkbox" name="color" value="Rash"> Rash
-<input type="checkbox" name="color" value="Pale"> Pale
-<input type="checkbox" name="color" value="Flushed"> Flushed
-<input type="checkbox" name="color" value="Cyanotic"> Cyanotic
+          <div class="titleFont"> Respiratory Pattern </div>
+          <div class="box2" >
+            <div> Mark all that apply: </div>
 
-<label class="container"> Within expected parameters for patient
-  <input type="checkbox">
-  <span class="checkmark"></span>
-</label>
-<label class="container">Two
-  <input type="checkbox">
-  <span class="checkmark"></span>
-</label>
-<label class="container">Three
-  <input type="checkbox">
-  <span class="checkmark"></span>
-</label>
-<label class="container">Four
-  <input type="checkbox">
-  <span class="checkmark"></span>
-</label>
+            <label class="ckbxContainer"> Deep (TODO: even, effortless, uneven, labored)
+             <input type="checkbox" name="respPattern" value="deep">
+             <span class="checkmark"></span>
+           </label>
+           <label class="ckbxContainer"> Shallow
+             <input type="checkbox" name="respPattern" value="shallow">
+             <span class="checkmark"></span>
+           </label>
+           <label class="ckbxContainer"> Gasping
+             <input type="checkbox" name="respPattern" value="gasping">
+             <span class="checkmark"></span>
+           </label>
+           <label class="ckbxContainer"> Grunting
+             <input type="checkbox" name="respPattern" value="grunting">
+             <span class="checkmark"></span>
+           </label>
+           <label class="ckbxContainer"> Stridor
+             <input type="checkbox" name="respPattern" value="stridor">
+             <span class="checkmark"></span>
+           </label>
+           <label class="ckbxContainer"> Tachypreic
+             <input type="checkbox" name="respPattern" value="tachypreic">
+             <span class="checkmark"></span>
+           </label>
+           <label class="ckbxContainer"> Bradypreic
+             <input type="checkbox" name="respPattern" value="bradypreic">
+             <span class="checkmark"></span>
+           </label>
 
+         </div>
+       </div>
+       <div class="col">
+        <div class="titleFont"> Respiratory Effort </div>
+        <div class="box2" >
+          <div> Mark all that apply: </div>
+          <label class="ckbxContainer"> Dyspnea / Shortness of breath
+           <input type="checkbox" name="respEffort" value="dyspnea">
+           <span class="checkmark"></span>
+         </label>
+         <label class="ckbxContainer"> Shortness of breath on exertion
+           <input type="checkbox" name="respEffort" value="extertion">
+           <span class="checkmark"></span>
+         </label>
+         <label class="ckbxContainer"> Increased chest expansion
+           <input type="checkbox" name="respEffort" value="expansion">
+           <span class="checkmark"></span>
+         </label>
+         <label class="ckbxContainer"> Orthopnea
+           <input type="checkbox" name="respEffort" value="orthopnea">
+           <span class="checkmark"></span>
+         </label>
+         <label class="ckbxContainer"> Use of accessory muscles
+           <input type="checkbox" name="respEffort" value="accessoryMuscles">
+           <span class="checkmark"></span>
+         </label>
+         <label class="ckbxContainer"> Retractions
+           <input type="checkbox" name="respEffort" value="retractions">
+           <span class="checkmark"></span>
+         </label>
+       </div>
+     </div>
+   </div>
+   <div class="row">
+    <div> TODO: Dropdowns 
+    </div>
+  </div>
+  <div class="ow">
+    <div class="titleFont"> Oxygenation </div>
+    <div class="row underline">
+      <div class="col">
+        <div class="box2">
+          <label class="ckbxContainer"> Oxygen in use
+           <input type="checkbox" name="oxygen" value="oxygenInUse">
+           <span class="checkmark"></span>
+         </label>
+         <label class="ckbxContainer"> Amount of oxygen in L/min: 
+           <input type="radio" name="oxygen" value="lPerMin">
+           <span class="radiomark"></span>
+         </label>
+         <label class="ckbxContainer"> Amount of oxygen in %
+           <input type="radio" name="oxygen" value="oxgyenPercentage">
+           <span class="radiomark"></span>
+         </label>
+       </div>
+       <div class="box2">
+         <div class="titleFont2"> Oxygen delivery system </div>
+         <label class="ckbxContainer"> Nasal Cannula
+           <input type="radio" name="oxygenDelivery" value="nasal">
+           <span class="radiomark"></span>
+         </label>
+         <label class="ckbxContainer"> Non-rebreather Mask
+           <input type="radio" name="oxygenDelivery" value="non-rebreather">
+           <span class="radiomark"></span>
+         </label>
+         <label class="ckbxContainer"> Partial Rebreather Mask
+           <input type="radio" name="oxygenDelivery" value="partialRebreather">
+           <span class="radiomark"></span>
+         </label>
+         <label class="ckbxContainer"> Simple Mask
+           <input type="radio" name="oxygenDelivery" value="simpleMask">
+           <span class="radiomark"></span>
+         </label>
+         <label class="ckbxContainer"> Venturi Mask
+           <input type="radio" name="oxygenDelivery" value="venturiMask">
+           <span class="radiomark"></span>
+         </label>
+       </div>
+       <div class="box2">
+         <div class="titleFont2"> Oxygenation Notes </div>
+         <div class=''>
+          <textarea class="note" name='oxygenationNotes'></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="titleFont2"> Oxygenation evaluation </div>
+      <label class="ckbxContainer"> Amount of oxygen in L/min: 
+       <input type="radio" name="oxygen" value="lPerMin">
+       <span class="radiomark"></span>
+     </label>
+     <label class="ckbxContainer"> Amount of oxygen in %
+       <input type="radio" name="oxygen" value="oxgyenPercentage">
+       <span class="radiomark"></span>
+     </label>
+     <div class="titleFont2"> Respiratory / breathing support: </div>
+     <div> Mark all that apply: </div>
+     <label class="ckbxContainer"> Nebulizer treatment
+       <input type="checkbox" name="breathingSupport" value="nebulizer">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Incentive spirometer
+       <input type="checkbox" name="breathingSupport" value="spirometer">
+       <span class="checkmark"></span>
+     </label>
+     <div> Incentive spirometer best effort (mL) : (TODO: input)
+     </div>
+     <div class="titleFont"> Suctioning </div>
+     <label class="ckbxContainer"> Periodic
+       <input type="checkbox" name="suctioning" value="periodic">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Frequent suctioning with bulb syringe
+       <input type="checkbox" name="suctioning" value="frequent">
+       <span class="checkmark"></span>
+     </label>
+     <div>
+      Amount: 
+      <select class="custom-select" required>
+        <option value="scant">Scant</option>
+        <option value="moderate">Moderate</option>
+        <option value="copious">Copious</option>
+        <option value="other">Other</option>
+      </select>
+      Color: 
+      <select class="custom-select" required>
+        <option value="clear">Clear</option>
+        <option value="white">White</option>
+        <option value="yellow">Yellow</option>
+        <option value="darkYellow">Dark Yellow</option>
+        <option value="tan">Tan </option>
+        <option value="brown">Brown </option>
+        <option value="green">Green </option>
+        <option value="blood-tinged">Blood-tinged </option>
+        <option value="blood">Blood </option>
+        <option value="other">Other </option>
+      </select>
+      Consistency: 
+      <select class="custom-select" required>
+        <option value="thin">Thin</option>
+        <option value="frothy">Frothy</option>
+        <option value="thick">Thick</option>
+        <option value="other">Other</option>
+      </select>
+      Odor: 
+      <select class="custom-select" required>
+        <option value="none">None</option>
+        <option value="foul">Foul</option>
+        <option value="other">Other</option>
+      </select>
+    </div>
+  </div>
+</div>
 </div>
 
-                    <div class="titleFont"> Temperature </div>
+<div class="">
+  <div class="titleFont"> Artificial Airway </div>
+  <div class="row underline">
+    <div class="col">
+      <div class="box2">
+        <label class="ckbxContainer"> Airway in use
+         <input type="checkbox" name="airway" value="airwayInUse">
+         <span class="checkmark"></span>
+       </label>
+       Type of airway: 
+       <select class="custom-select" required>
+        <option value="trachestonomy">Trachestonomy</option>
+        <option value="simple">Simple airway</option>
+        <option value="entrenched">Entrenched tube</option>
+        <option value="other">Other</option>
+      </select>
+      Document assessment and care on graphical body: 
+    </div>
+  </div>
+  <div class="col">
+    Size: 
+    Position
+  </div>
+</div>
+</div>
 
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
+<div>
+  <div class="row underline">
+
+    <div class="col">
+      <div class="titleFont"> Chest Tube </div>
+
+      <div class="box2">
+        <label class="ckbxContainer"> Present right
+         <input type="checkbox" name="chestTube" value="right">
+         <span class="radiomark"></span>
+       </label>
+       <label class="ckbxContainer"> Present left
+         <input type="checkbox" name="chestTube" value="left">
+         <span class="radiomark"></span>
+       </label>
+       <label class="ckbxContainer"> None
+         <input type="checkbox" name="chestTube" value="none">
+         <span class="radiomark"></span>
+       </label>
+       Document assessment and care on graphical body: 
+       
+     </div>
+   </div>
+   <div class="col">
+    <div class="titleFont"> Gag Reflex </div>
+    <div class="box2">
+      <label class="ckbxContainer"> Present
+       <input type="checkbox" name="gagReflex" value="present">
+       <span class="radiomark"></span>
+     </label>
+     <label class="ckbxContainer"> Not present
+       <input type="checkbox" name="chestTube" value="notPresent">
+       <span class="radiomark"></span>
+     </label>
+
+   </div>
+ </div>
+</div>
+</div>
+
+<div>
+  <div class="row">
+    <div class="col">
+      <div class="titleFont"> Cough </div>
+      <div class="row">
+        <div class="col">
+          <div class="box2">
+            Cough type: 
+            <label class="ckbxContainer"> None
+             <input type="checkbox" name="coughType" value="none">
+             <span class="radiomark"></span>
+           </label>
+           <label class="ckbxContainer"> Productive
+             <input type="checkbox" name="coughType" value="productive">
+             <span class="radiomark"></span>
+           </label>
+           <label class="ckbxContainer"> Nonproductive
+             <input type="checkbox" name="coughType" value="Nonproductive">
+             <span class="radiomark"></span>
+           </label>
+           <label class="ckbxContainer"> Dry
+             <input type="checkbox" name="coughType" value="dry">
+             <span class="radiomark"></span>
+           </label>
+           <label class="ckbxContainer"> Wet
+             <input type="checkbox" name="coughType" value="wet">
+             <span class="radiomark"></span>
+           </label>
+         </div>
+       </div>
+       <div class="col">
+         <div class="box2">
+          Cough strength: 
+          <label class="ckbxContainer"> Strong
+           <input type="checkbox" name="coughStrength" value="strong">
+           <span class="radiomark"></span>
+         </label>
+         <label class="ckbxContainer"> Weak
+           <input type="checkbox" name="coughType" value="weak">
+           <span class="radiomark"></span>
+         </label><br>
+         <div class=""> Cough notes: </div>
+         <textarea class="note" name='coughNotes'></textarea>
+       </div>
+     </div>
+     <div class="col">
+      <div class="titleFont2"> Productive Cough Secretions Assessment </div>
+      Amount: 
+      <select class="custom-select" required>
+        <option value="scant">Scant</option>
+        <option value="moderate">Moderate</option>
+        <option value="copious">Copious</option>
+        <option value="other">Other</option>
+      </select>
+      Color: 
+      <select class="custom-select" required>
+        <option value="clear">Clear</option>
+        <option value="white">White</option>
+        <option value="yellow">Yellow</option>
+        <option value="darkYellow">Dark Yellow</option>
+        <option value="tan">Tan </option>
+        <option value="brown">Brown </option>
+        <option value="green">Green </option>
+        <option value="blood-tinged">Blood-tinged </option>
+        <option value="blood">Blood </option>
+        <option value="other">Other </option>
+      </select>
+      Consistency: 
+      <select class="custom-select" required>
+        <option value="thin">Thin</option>
+        <option value="frothy">Frothy</option>
+        <option value="thick">Thick</option>
+        <option value="other">Other</option>
+      </select>
+      Odor: 
+      <select class="custom-select" required>
+        <option value="none">None</option>
+        <option value="foul">Foul</option>
+        <option value="other">Other</option>
+      </select>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+<div class="card">
+  <div class="card-header" id="neurological">
+    <h5 class="mb-0">
+      <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseNeurological" aria-expanded="false" aria-controls="collapseNeurological">
+        Neurological
+      </button>
+    </h5>
+  </div>
+  <div id="collapseNeurological" class="collapse" aria-labelledby="neurological" data-parent="#accordion">
+    <div class="card-body">
+      <div class="row">
+        <div class="titleFont"> Neurological Assessment </div> 
+        <label class="ckbxContainer"> No assessment required at this time
+         <input type="checkbox" name="neuroAssessment" value="noAssessmentRequired">
+         <span class="checkmark"></span>
+       </label>
+     </div>
+     <div class="row">
       <div class="col">
-        adfadfj
+        <div class="titleFont"> Level of Consciousness/Orientation </div>
+        <label class="ckbxContainer"> Oriented to person, place, time, and situation
+         <input type="checkbox" name="orientation" value="oriented">
+         <span class="checkmark"></span>
+       </label>
+       Mark all that apply: 
+       <div class="scrollable">
+         <label class="ckbxContainer"> Alert / Responds readily
+           <input type="checkbox" name="orientation" value="alert">
+           <span class="checkmark"></span>
+         </label>
+         <label class="ckbxContainer"> Oriented to person
+           <input type="checkbox" name="orientation" value="orientedToPerson">
+           <span class="checkmark"></span>
+         </label>
+         <label class="ckbxContainer"> Oriented to place
+           <input type="checkbox" name="orientation" value="orientedToPlace">
+           <span class="checkmark"></span>
+         </label>
+         <label class="ckbxContainer"> Oriented to  time
+           <input type="checkbox" name="orientation" value="orientedToTime">
+           <span class="checkmark"></span>
+         </label>
+         <label class="ckbxContainer"> Oriented to situation
+           <input type="checkbox" name="orientation" value="orientedToStimulation">
+           <span class="checkmark"></span>
+         </label>
+         <label class="ckbxContainer"> Confused at all times
+           <input type="checkbox" name="orientation" value="confused">
+           <span class="checkmark"></span>
+         </label>
+         <label class="ckbxContainer"> Disoriented
+           <input type="checkbox" name="orientation" value="disoriented">
+           <span class="checkmark"></span>
+         </label>
+         <label class="ckbxContainer"> Lethargic (slow to respond to verbal stimuli)
+           <input type="checkbox" name="orientation" value="lethargic">
+           <span class="checkmark"></span>
+         </label>
+         <label class="ckbxContainer"> Obtunded (very drowsy, responds to touch stimuli)
+           <input type="checkbox" name="orientation" value="obtunded">
+           <span class="checkmark"></span>
+         </label>
+         <label class="ckbxContainer"> Semicomatose (responds only to painful stimuli)
+           <input type="checkbox" name="orientation" value="semicomatose">
+           <span class="checkmark"></span>
+         </label>
+         <label class="ckbxContainer"> Comatose (unable to respond to any stimuli)
+           <input type="checkbox" name="orientation" value="comatose">
+           <span class="checkmark"></span>
+         </label>
+         <label class="ckbxContainer"> Unable to assess, explain in notes
+           <input type="checkbox" name="orientation" value="unableToAssess">
+           <span class="checkmark"></span>
+         </label>
+       </div>
+       <div class="box2">
+         <div class="titleFont2"> Level of Consciousness / Orientation Notes </div>
+         <div class=''>
+          <textarea class="note" name='orientationNotes'></textarea>
+        </div>
       </div>
-    </form>
     </div>
+    <div class="col">
+     <div class="titleFont"> Emotional State </div>
+     <div> Mark all that apply: </div>
+     <div class="scrollable">
+      <label class="ckbxContainer"> Calm
+       <input type="checkbox" name="emotionalState" value="calm">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Cooperative
+       <input type="checkbox" name="emotionalState" value="cooperative">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Uncooperative
+       <input type="checkbox" name="emotionalState" value="uncooperative">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Happy
+       <input type="checkbox" name="emotionalState" value="happy">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Combative
+       <input type="checkbox" name="emotionalState" value="combative">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Anxious
+       <input type="checkbox" name="emotionalState" value="anxious">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Sad
+       <input type="checkbox" name="emotionalState" value="sad">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Crying
+       <input type="checkbox" name="emotionalState" value="crying">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Agitated
+       <input type="checkbox" name="emotionalState" value="agitated">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Restless
+       <input type="checkbox" name="emotionalState" value="restless">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Angry
+       <input type="checkbox" name="emotionalState" value="angry">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Hostile
+       <input type="checkbox" name="emotionalState" value="hostile">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Distressed
+       <input type="checkbox" name="emotionalState" value="distressed">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Withdrawn
+       <input type="checkbox" name="emotionalState" value="withdrawn">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> No eye contact
+       <input type="checkbox" name="emotionalState" value="eyeContact">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Flat affect
+       <input type="checkbox" name="emotionalState" value="flat">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Labile
+       <input type="checkbox" name="emotionalState" value="labile">
+       <span class="checkmark"></span>
+     </label>
+   </div>
+   <div class="box2">
+     <div class="titleFont2"> Emotional State Notes </div>
+     <div class=''>
+      <textarea class="note" name='emotionalStateNotes'></textarea>
+    </div>
+  </div>
+</div>
+</div>
+<div class="row">
+  <div class="col">
+    <div class="titleFont">Hand Grip </div>
+    <div class="box2">
+      <div class="titleFont2">Bilateral assessment: </div>
+      <label class="ckbxContainer"> Equal
+       <input type="radio" name="bilateralHand" value="equal">
+       <span class="radiomark"></span>
+     </label>
+     <label class="ckbxContainer"> Unequal
+       <input type="radio" name="bilateralHand" value="Unequal">
+       <span class="radiomark"></span>
+     </label>
+     <label class="ckbxContainer"> Unable to assess, explain in notes
+       <input type="radio" name="bilateralHand" value="unableToAssess">
+       <span class="radiomark"></span>
+     </label>
+   </div>
+   <div class="titleFont2">Right hand grip strength: </div>
+   <div class="box2">
+    <label class="ckbxContainer"> Strong
+     <input type="radio" name="rightHandGrip" value="strong">
+     <span class="radiomark"></span>
+   </label>
+   <label class="ckbxContainer"> Weak
+     <input type="radio" name="rightHandGrip" value="weak">
+     <span class="radiomark"></span>
+   </label>
+   <label class="ckbxContainer"> None
+     <input type="radio" name="rightHandGrip" value="none">
+     <span class="radiomark"></span>
+   </label>
+ </div>
+</div>
+<div class="col">
+ <div class="titleFont">  &nbsp; </div>
+ <div class="titleFont2">Left hand grip strength: </div>
+ <div class="box2">
+  <label class="ckbxContainer"> Strong
+   <input type="radio" name="leftHandGrip" value="strong">
+   <span class="radiomark"></span>
+ </label>
+ <label class="ckbxContainer"> Weak
+   <input type="radio" name="leftHandGrip" value="weak">
+   <span class="radiomark"></span>
+ </label>
+ <label class="ckbxContainer"> None
+   <input type="radio" name="leftHandGrip" value="none">
+   <span class="radiomark"></span>
+ </label>
+</div>
+<div class="box2">
+ <div class="titleFont2"> Hand Grip Notes: </div>
+ <div class=''>
+  <textarea class="note" name='handGripNotes' rows="5"></textarea>
+</div>
+</div>
+</div>
+</div>
+<div class="row">
+  <div class="col">
+   <div class="titleFont"> Foot Strength </div>
+   <div class="box2">
+    <div class="titleFont2">Bilateral assessment: </div>
+    <label class="ckbxContainer"> Equal
+     <input type="radio" name="bilateralFoot" value="equal">
+     <span class="radiomark"></span>
+   </label>
+   <label class="ckbxContainer"> Unequal
+     <input type="radio" name="bilateralFoot" value="Unequal">
+     <span class="radiomark"></span>
+   </label>
+   <label class="ckbxContainer"> Unable to assess, explain in notes
+     <input type="radio" name="bilateralFoot" value="unableToAssess">
+     <span class="radiomark"></span>
+   </label>
+ </div>
+ <div class="titleFont2">Right foot strength: </div>
+ <div class="box2">
+  <label class="ckbxContainer"> Strong
+   <input type="radio" name="rightFootStrength" value="strong">
+   <span class="radiomark"></span>
+ </label>
+ <label class="ckbxContainer"> Weak
+   <input type="radio" name="rightFootStrength" value="weak">
+   <span class="radiomark"></span>
+ </label>
+ <label class="ckbxContainer"> None
+   <input type="radio" name="rightFootStrength" value="none">
+   <span class="radiomark"></span>
+ </label>
+</div>
+</div>
+<div class="col">
+ <div class="col">
+   <div class="titleFont">  &nbsp; </div>
+   <div class="titleFont2">Left foot strength: </div>
+   <div class="box2">
+    <label class="ckbxContainer"> Strong
+     <input type="radio" name="leftFootStrength" value="strong">
+     <span class="radiomark"></span>
+   </label>
+   <label class="ckbxContainer"> Weak
+     <input type="radio" name="leftFootStrength" value="weak">
+     <span class="radiomark"></span>
+   </label>
+   <label class="ckbxContainer"> None
+     <input type="radio" name="leftFootStrength" value="none">
+     <span class="radiomark"></span>
+   </label>
+ </div>
+ <div class="box2">
+   <div class="titleFont2"> Foot Strength Notes: </div>
+   <div class=''>
+    <textarea class="note" name='footStrengthNotes' rows="5"></textarea>
+  </div>
+</div>
+</div>
+</div>
+</div>
+<div class="row">
+  <div class="col">
+    <div class="titleFont"> Central Nervous System Assessment (CNS) </div>
+
+    <label class="ckbxContainer"> No CNS problems evident
+     <input type="checkbox" name="cns" value="noProblem">
+     <span class="checkmark"></span>
+   </label>
+   <div class="scrollable">
+     Mark all that apply: 
+     <label class="ckbxContainer"> Headache
+       <input type="checkbox" name="cns" value="headache">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Syncope(?)
+       <input type="checkbox" name="cns" value="syncope">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Seizures
+       <input type="checkbox" name="cns" value="seizures">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Tremors
+       <input type="checkbox" name="cns" value="tremors">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Vertigo
+       <input type="checkbox" name="cns" value="vertigo">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Restlessness
+       <input type="checkbox" name="cns" value="restlessness">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Nystagurs??
+       <input type="checkbox" name="cns" value="nystagurs">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Tingling
+       <input type="checkbox" name="cns" value="tingling">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Numbness
+       <input type="checkbox" name="cns" value="numbness">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Weakness on affected side
+       <input type="checkbox" name="cns" value="weakness">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Does not move extremities on command
+       <input type="checkbox" name="cns" value="extremities">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Does not follow commands
+       <input type="checkbox" name="cns" value="doesNotFollowCommands">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Coordination difficulties
+       <input type="checkbox" name="cns" value="coordination">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Check reflexes
+       <input type="checkbox" name="cns" value="checkReflexes">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Purposeless movements
+       <input type="checkbox" name="cns" value="purposelessMovements">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Paralysis
+       <input type="checkbox" name="cns" value="paralysis">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Localizes pain
+       <input type="checkbox" name="cns" value="localizesPain">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Withdraws only from pain
+       <input type="checkbox" name="cns" value="withdrawsPain">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Decorticate posturing
+       <input type="checkbox" name="cns" value="decorticate">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Decerbrate posturing
+       <input type="checkbox" name="cns" value="decerbrate">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Flacidity
+       <input type="checkbox" name="cns" value="flacidity">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Intracranial pressure monitoring
+       <input type="checkbox" name="cns" value="intracranialPressure">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Hyperflexia
+       <input type="checkbox" name="cns" value="hyperflexia">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Dysphagia
+       <input type="checkbox" name="cns" value="dysphagia">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Slurred speach
+       <input type="checkbox" name="cns" value="slurredSpeach">
+       <span class="checkmark"></span>
+     </label>
+   </div>
+ </div>
+ <div class="col">
+  <div class="box2">
+   <div class="titleFont">  &nbsp; </div>
+   <div class="titleFont2"> CNS Notes: </div>
+   <div class=''>
+    <textarea class="note" name='cnsNotes' rows="4"></textarea>
+  </div>
+</div>
+</div>
+</div>
+<div class="row">
+  <div class="col">
+    <div class="titleFont"> Akathisia </div>
+    <div class="box2" >
+      <div> Psychomotor restlessness </div>
+      <div> Mark all that apply: </div>
+      <label class="ckbxContainer"> Pacing
+       <input type="checkbox" name="psychomotor" value="pacing">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Fidgeting
+       <input type="checkbox" name="psychomotor" value="fidgeting">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Tapping foot
+       <input type="checkbox" name="psychomotor" value="tappingFoot">
+       <span class="checkmark"></span>
+     </label> 
+     <label class="ckbxContainer"> Rocking forward and backward
+       <input type="checkbox" name="psychomotor" value="rocking">
+       <span class="checkmark"></span>
+     </label> 
+     <label class="ckbxContainer"> Other
+       <input type="checkbox" name="psychomotor" value="other">
+       <span class="checkmark"></span>
+     </label> 
+   </div>
+ </div>
+ <div class="col">
+  <div class="titleFont"> Acute Dystonia </div>
+  <div class="box2" >
+    <div> Sustained contractions of the muscles in the head and neck, possibly causing blockage of the trachea </div>
+    <div> Mark all that apply: </div>
+    <label class="ckbxContainer"> Head bent to side
+     <input type="checkbox" name="dystonia" value="headBent">
+     <span class="checkmark"></span>
+   </label>
+   <label class="ckbxContainer"> Eyes locked upward
+     <input type="checkbox" name="dystonia" value="eyesLocked">
+     <span class="checkmark"></span>
+   </label>
+   <label class="ckbxContainer"> Difficulty breathing
+     <input type="checkbox" name="dystonia" value="breathing">
+     <span class="checkmark"></span>
+   </label>
+   <label class="ckbxContainer"> Other
+     <input type="checkbox" name="dystonia" value="other">
+     <span class="checkmark"></span>
+   </div>
+ </div>
+</div>
+<div class="row">
+  <div class="col">
+    <div class="titleFont"> Pseudoparkinsonism </div>
+    <div class="box2" >
+      <div> Stiffened muscles </div>
+      <div> Mark all that apply: </div>
+      <label class="ckbxContainer"> "Pill rolling" phenomenon
+       <input type="checkbox" name="pseudoparkinsonism" value="pillRolling">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Shuffling gait
+       <input type="checkbox" name="pseudoparkinsonism" value="shuffling">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Masklike face
+       <input type="checkbox" name="pseudoparkinsonism" value="masklikeFace">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Stooped posture
+       <input type="checkbox" name="pseudoparkinsonism" value="stooped">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Cogwheel rigidity
+       <input type="checkbox" name="pseudoparkinsonism" value="rigidity">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Other
+       <input type="checkbox" name="pseudoparkinsonism" value="other">
+       <span class="checkmark"></span>
+     </label>
+   </div>
+ </div>
+ <div class="col">
+  <div class="titleFont"> Tardive Dyskinesia </div>
+  <div class="box2" >
+    <div> Involuntary muscle contractions </div>
+    <div> Mark all that apply: </div>
+    <label class="ckbxContainer"> Tongue protrusion
+     <input type="checkbox" name="dyskinesia" value="tongueProtrusion">
+     <span class="checkmark"></span>
+   </label>
+   <label class="ckbxContainer"> Spastic facial distortion
+     <input type="checkbox" name="dyskinesia" value="facialDistortion">
+     <span class="checkmark"></span>
+   </label>
+   <label class="ckbxContainer"> Smacking movement of lips
+     <input type="checkbox" name="dyskinesia" value="smackingLips">
+     <span class="checkmark"></span>
+   </label>
+   <label class="ckbxContainer"> Irregular body movements
+     <input type="checkbox" name="dyskinesia" value="irregularMovements">
+     <span class="checkmark"></span>
+   </label>
+   <label class="ckbxContainer"> Dramatic hip jerks
+     <input type="checkbox" name="dyskinesia" value="hipJerks">
+     <span class="checkmark"></span>
+   </label>
+   <label class="ckbxContainer"> Other
+     <input type="checkbox" name="dyskinesia" value="other">
+     <span class="checkmark"></span>
+   </label>
+ </div>
+</div>
+</div>
+<div class="row">
+  <div class="col">
+    <div class="titleFont"> Neuroleptic Malignant Syndrome (NMS) </div>
+    <div class="box2">
+      <div>  Mark all that apply: </div>
+      <label class="ckbxContainer"> Dysphasia
+       <input type="checkbox" name="nms" value="dysphasia">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Cogwheeling
+       <input type="checkbox" name="nms" value="cogwheeling">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Elevated temperature greater than 103 degrees Fahrenheit
+       <input type="checkbox" name="nms" value="elevatedTemperature">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Hypertension
+       <input type="checkbox" name="nms" value="hypertension">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Diaphoresis
+       <input type="checkbox" name="nms" value="diaphoresis">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Incontinence
+       <input type="checkbox" name="nms" value="incontinence">
+       <span class="checkmark"></span>
+     </label>
+   </div>
+   <div> TODO: neurological checks, glasgow coma scale, seizure activity </div>
+   <div class="col">
+   </div>
+ </div>
+</div>
+</div>
+</div>
+
+<div class="card">
+  <div class="card-header" id="integumentary">
+    <h5 class="mb-0">
+      <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseIntegumentary" aria-expanded="false" aria-controls="collapseIntegumentary">
+        Integumentary
+      </button>
+    </h5>
+  </div>
+  <div id="collapseIntegumentary" class="collapse" aria-labelledby="integumentary" data-parent="#accordion">
+    <div class="card-body">
+      <div class="row">
+        <form id="skinTest">
+          <div class="col">
+            <div class="sub"> Skin Test </div>
+            <div class="titleFont"> Color </div>
+            <div>
+              <input type="checkbox" name="color" value="expected"> Within expected parameters for patient
+              <input type="checkbox" name="color" value="Rash"> Rash
+              <input type="checkbox" name="color" value="Pale"> Pale
+              <input type="checkbox" name="color" value="Flushed"> Flushed
+              <input type="checkbox" name="color" value="Cyanotic"> Cyanotic
+
+              <label class="container"> Within expected parameters for patient
+                <input type="checkbox">
+                <span class="checkmark"></span>
+              </label>
+              <label class="container">Two
+                <input type="checkbox">
+                <span class="checkmark"></span>
+              </label>
+              <label class="container">Three
+                <input type="checkbox">
+                <span class="checkmark"></span>
+              </label>
+              <label class="container">Four
+                <input type="checkbox">
+                <span class="checkmark"></span>
+              </label>
+
+            </div>
+
+            <div class="titleFont"> Temperature </div>
+
+            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+          </div>
+          <div class="col">
+            adfadfj
+          </div>
+        </form>
       </div>
     </div>
   </div>
-   <div class="card">
-    <div class="card-header" id="sensory">
-      <h5 class="mb-0">
-        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSensory" aria-expanded="false" aria-controls="collapseSensory">
-          Sensory
-        </button>
-      </h5>
-    </div>
-    <div id="collapseSensory" class="collapse" aria-labelledby="sensory" data-parent="#accordion">
-      <div class="card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+</div>
+<div class="card">
+  <div class="card-header" id="sensory">
+    <h5 class="mb-0">
+      <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSensory" aria-expanded="false" aria-controls="collapseSensory">
+        Sensory
+      </button>
+    </h5>
+  </div>
+  <div id="collapseSensory" class="collapse" aria-labelledby="sensory" data-parent="#accordion">
+    <div class="card-body">
+      <div class="row">
+        <div class="col">
+          Note: Assess on admission. Reassess only if noted.
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="titleFont"> Vision Assessment </div>
+          <label class="ckbxContainer"> No major vision problems noted
+           <input type="checkbox" name="vision" value="noProblem">
+           <span class="checkmark"></span>
+         </label>
+         <div>  Mark all that apply: </div>
+         <div class="scrollable">
+           <label class="ckbxContainer"> Legal blindness
+             <input type="checkbox" name="vision" value="legalBlindness">
+             <span class="checkmark"></span>
+           </label>
+           <label class="ckbxContainer"> Blindness in left eye
+             <input type="checkbox" name="vision" value="leftEyeBlind">
+             <span class="checkmark"></span>
+           </label>
+           <label class="ckbxContainer"> Blindness in right eye
+             <input type="checkbox" name="vision" value="rightEyeBlind">
+             <span class="checkmark"></span>
+           </label>
+           <label class="ckbxContainer"> Prosthesis, left orbit
+             <input type="checkbox" name="vision" value="leftOrbitProsthesis">
+             <span class="checkmark"></span>
+           </label>
+           <label class="ckbxContainer"> Prosthesis, right orbit
+             <input type="checkbox" name="vision" value="rightOrbitProsthesis">
+             <span class="checkmark"></span>
+           </label>
+           <label class="ckbxContainer"> Enuclear, left orbit
+             <input type="checkbox" name="vision" value="leftOrbitEnuclear">
+             <span class="checkmark"></span>
+           </label>
+           <label class="ckbxContainer"> Enuclear, right orbit
+             <input type="checkbox" name="vision" value="rightOrbitEnuclear">
+             <span class="checkmark"></span>
+           </label>
+           <label class="ckbxContainer"> Wears glasses
+             <input type="checkbox" name="vision" value="wearsGlasses">
+             <span class="checkmark"></span>
+           </label>
+           <label class="ckbxContainer"> Visual problems worsening
+             <input type="checkbox" name="vision" value="worsening">
+             <span class="checkmark"></span>
+           </label>
+           <label class="ckbxContainer"> Difficulty seeing at night
+             <input type="checkbox" name="vision" value="nightDifficulty">
+             <span class="checkmark"></span>
+           </label>
+           <label class="ckbxContainer"> Left eye pain
+             <input type="checkbox" name="vision" value="leftEyePain">
+             <span class="checkmark"></span>
+           </label>
+           <label class="ckbxContainer"> Right eye pain
+             <input type="checkbox" name="vision" value="rightEyePain">
+             <span class="checkmark"></span>
+           </label>
+           <label class="ckbxContainer"> Bilateral eye pain
+             <input type="checkbox" name="vision" value="bilateralPain">
+             <span class="checkmark"></span>
+           </label>
+           <label class="ckbxContainer"> Blurred vision
+             <input type="checkbox" name="vision" value="blurred">
+             <span class="checkmark"></span>
+           </label>
+           <label class="ckbxContainer"> Halos in vision
+             <input type="checkbox" name="vision" value="halos">
+             <span class="checkmark"></span>
+           </label>
+           <label class="ckbxContainer"> Blindspots
+             <input type="checkbox" name="vision" value="blindspots">
+             <span class="checkmark"></span>
+           </label>
+         </div>
+         <div class="titleFont2"> Vision Notes: </div>
+         <textarea class="note" name='visionNotes' rows="4"></textarea>
+       </div>
+       <div class="col">
+        <div class="titleFont"> Hearing Assessment </div>
+        <label class="ckbxContainer"> No hearing problems noted
+         <input type="checkbox" name="hearing" value="noProblem">
+         <span class="checkmark"></span>
+       </label>
+       <div>  Mark all that apply: </div>
+       <div class="scrollable">
+         <label class="ckbxContainer"> Hearing problems worsening
+           <input type="checkbox" name="hearing" value="worsening">
+           <span class="checkmark"></span>
+         </label>
+         <label class="ckbxContainer"> Difficulty hearing
+           <input type="checkbox" name="hearing" value="difficultyHearing">
+           <span class="checkmark"></span>
+         </label>
+         <label class="ckbxContainer"> Hearing aid, right ear
+           <input type="checkbox" name="hearing" value="rightEarAid">
+           <span class="checkmark"></span>
+         </label>
+         <label class="ckbxContainer"> Hearing aid, left ear
+           <input type="checkbox" name="hearing" value="leftEarAid">
+           <span class="checkmark"></span>
+         </label>
+         <label class="ckbxContainer"> Cochlear implant, right ear
+           <input type="checkbox" name="hearing" value="rightEarCochlear">
+           <span class="checkmark"></span>
+         </label>
+         <label class="ckbxContainer"> Cochlear implant, left ear
+           <input type="checkbox" name="hearing" value="leftEarCochlear">
+           <span class="checkmark"></span>
+         </label>
+         <label class="ckbxContainer"> Needs hearing aid but refuses
+           <input type="checkbox" name="hearing" value="needsAid">
+           <span class="checkmark"></span>
+         </label>
+         <label class="ckbxContainer"> Deaf
+           <input type="checkbox" name="hearing" value="deaf">
+           <span class="checkmark"></span>
+         </label>
+       </div>
+       <div class="titleFont2"> Hearing Notes: </div>
+       <textarea class="note" name='hearingNotes' rows="4"></textarea>
+     </div>
+   </div>
+   <div class="row">
+    <div class="col">
+      <div class="titleFont"> Pupils </div>
+
+      <div class="titleFont"> Pupillary Equality </div>
+      <div class="box2">
+        Bilateral assesment: 
+        <label class="ckbxContainer"> Equal
+         <input type="radio" name="bilateralPupil" value="equal">
+         <span class="radiomark"></span>
+       </label>
+       <label class="ckbxContainer"> Unequal
+         <input type="radio" name="bilateralPupil" value="unequal">
+         <span class="radiomark"></span>
+       </label>
+       <label class="ckbxContainer"> Round
+         <input type="radio" name="bilateralPupil" value="round">
+         <span class="radiomark"></span>
+       </label>
+     </div>
+   </div>
+   <div class="col">
+     <div class="titleFont">  &nbsp; </div>
+     <div class="titleFont"> Size </div>
+     <div class="box2">
+      <div>
+        Left pupil: 
+        <input type="text" name="leftPupilSize"> mm
+      </div>
+      <div>
+        Right pupil: 
+        <input type="text" name="rightPupilSize"> mm
       </div>
     </div>
   </div>
-   <div class="card">
-    <div class="card-header" id="musculoskeletal">
-      <h5 class="mb-0">
-        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseMusculoskeletal" aria-expanded="false" aria-controls="collapseMusculoskeletal">
-          Musculoskeletal
-        </button>
-      </h5>
-    </div>
-    <div id="collapseMusculoskeletal" class="collapse" aria-labelledby="musculoskeletal" data-parent="#accordion">
-      <div class="card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+</div>
+<div class="row">
+  <div class="col">
+    <div class="titleFont"> Pupillary Reaction </div>
+    <div class="box2">
+      Left eye reaction to light: 
+      <label class="ckbxContainer"> Brisk
+       <input type="radio" name="leftEyeReaction" value="brisk">
+       <span class="radiomark"></span>
+     </label>
+     <label class="ckbxContainer"> Sluggish
+       <input type="radio" name="leftEyeReaction" value="sluggish">
+       <span class="radiomark"></span>
+     </label>
+     <label class="ckbxContainer"> No response
+       <input type="radio" name="leftEyeReaction" value="noResponse">
+       <span class="radiomark"></span>
+     </label>
+     <label class="ckbxContainer"> Blown
+       <input type="radio" name="leftEyeReaction" value="blown">
+       <span class="radiomark"></span>
+     </label>
+     <label class="ckbxContainer"> Constricted
+       <input type="radio" name="leftEyeReaction" value="constricted">
+       <span class="radiomark"></span>
+     </label>
+     <label class="ckbxContainer"> Dilated
+       <input type="radio" name="leftEyeReaction" value="dilated">
+       <span class="radiomark"></span>
+     </label>
+   </div>
+ </div>
+ <div class="col">
+   <div class="titleFont">  &nbsp; </div>
+   <div class="box2">
+    Right eye reaction to light: 
+    <label class="ckbxContainer"> Brisk
+     <input type="radio" name="rightEyeReaction" value="brisk">
+     <span class="radiomark"></span>
+   </label>
+   <label class="ckbxContainer"> Sluggish
+     <input type="radio" name="rightEyeReaction" value="sluggish">
+     <span class="radiomark"></span>
+   </label>
+   <label class="ckbxContainer"> No response
+     <input type="radio" name="rightEyeReaction" value="noResponse">
+     <span class="radiomark"></span>
+   </label>
+   <label class="ckbxContainer"> Blown
+     <input type="radio" name="rightEyeReaction" value="blown">
+     <span class="radiomark"></span>
+   </label>
+   <label class="ckbxContainer"> Constricted
+     <input type="radio" name="rightEyeReaction" value="constricted">
+     <span class="radiomark"></span>
+   </label>
+   <label class="ckbxContainer"> Dilated
+     <input type="radio" name="rightEyeReaction" value="dilated">
+     <span class="radiomark"></span>
+   </label>
+ </div>
+</div>
+</div>
+<div class="row">
+  <div class="col">
+    <div class="titleFont"> Pupillary Accomodation </div>
+    <div class="box2">
+      Positive evaluation requires two findings: bilateral pupillary constriction and convergency of axis of eyes.
+      <div class="titleFont2"> Accomodation present? </div>
+      <label class="ckbxContainer"> Yes
+       <input type="radio" name="pupillaryAccomodation" value="yes">
+       <span class="radiomark"></span>
+     </label>
+     <label class="ckbxContainer"> No
+       <input type="radio" name="pupillaryAccomodation" value="no">
+       <span class="radiomark"></span>
+     </label>
+
+   </div>
+ </div>
+ <div class="col">
+   <div class="titleFont">  &nbsp; </div>
+   <div class="titleFont2"> Pupil Notes: </div>
+   <textarea class="note" name='pupilNotes' rows="4"></textarea>
+ </div>
+</div>
+</div>
+</div>
+<div class="card">
+  <div class="card-header" id="musculoskeletal">
+    <h5 class="mb-0">
+      <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseMusculoskeletal" aria-expanded="false" aria-controls="collapseMusculoskeletal">
+        Musculoskeletal
+      </button>
+    </h5>
+  </div>
+  <div id="collapseMusculoskeletal" class="collapse" aria-labelledby="musculoskeletal" data-parent="#accordion">
+    <div class="card-body">
+     <div class="row">
+      <div class="col">
+        <div class="titleFont"> Range of Motion (ROM) </div>
+        <div class="box2">
+          <label class="ckbxContainer"> Moves all extremities with full range of motion
+           <input type="checkbox" name="rom" value="fullROM">
+           <span class="checkmark"></span>
+         </label>
+       </div>
+       <div class="row">
+        <div class="col">
+          <div class="box2">
+            <div class="titleFont2"> Left arm: </div>
+            <label class="ckbxContainer"> Full ROM
+             <input type="radio" name="leftArmROM" value="full">
+             <span class="radiomark"></span>
+           </label>
+           <label class="ckbxContainer"> Limited ROM
+             <input type="radio" name="leftArmROM" value="limited">
+             <span class="radiomark"></span>
+           </label>
+           <label class="ckbxContainer"> Immobile
+             <input type="radio" name="leftArmROM" value="immobile">
+             <span class="radiomark"></span>
+           </label>
+           <label class="ckbxContainer"> Flaccid
+             <input type="radio" name="leftArmROM" value="flaccid">
+             <span class="radiomark"></span>
+           </label>
+           <label class="ckbxContainer"> Contractured
+             <input type="radio" name="leftArmROM" value="contractured">
+             <span class="radiomark"></span>
+           </label>
+         </div>
+         <div class="box2">
+          <div class="titleFont2"> Left leg: </div>
+          <label class="ckbxContainer"> Full ROM
+           <input type="radio" name="leftLegROM" value="full">
+           <span class="radiomark"></span>
+         </label>
+         <label class="ckbxContainer"> Limited ROM
+           <input type="radio" name="leftLegROM" value="limited">
+           <span class="radiomark"></span>
+         </label>
+         <label class="ckbxContainer"> Immobile
+           <input type="radio" name="leftLegROM" value="immobile">
+           <span class="radiomark"></span>
+         </label>
+         <label class="ckbxContainer"> Flaccid
+           <input type="radio" name="leftLegROM" value="flaccid">
+           <span class="radiomark"></span>
+         </label>
+         <label class="ckbxContainer"> Contractured
+           <input type="radio" name="leftLegROM" value="contractured">
+           <span class="radiomark"></span>
+         </label>
+       </div>
+
+     </div>
+     <div class="col">
+       <div class="box2">
+        <div class="titleFont2"> Right arm arm: </div>
+        <label class="ckbxContainer"> Full ROM
+         <input type="radio" name="rightArmROM" value="full">
+         <span class="radiomark"></span>
+       </label>
+       <label class="ckbxContainer"> Limited ROM
+         <input type="radio" name="rightArmROM" value="limited">
+         <span class="radiomark"></span>
+       </label>
+       <label class="ckbxContainer"> Immobile
+         <input type="radio" name="rightArmROM" value="immobile">
+         <span class="radiomark"></span>
+       </label>
+       <label class="ckbxContainer"> Flaccid
+         <input type="radio" name="rightArmROM" value="flaccid">
+         <span class="radiomark"></span>
+       </label>
+       <label class="ckbxContainer"> Contractured
+         <input type="radio" name="rightArmROM" value="contractured">
+         <span class="radiomark"></span>
+       </label>
+     </div>
+     <div class="box2">
+      <div class="titleFont2"> Right leg: </div>
+      <label class="ckbxContainer"> Full ROM
+       <input type="radio" name="rightLegROM" value="full">
+       <span class="radiomark"></span>
+     </label>
+     <label class="ckbxContainer"> Limited ROM
+       <input type="radio" name="rightLegROM" value="limited">
+       <span class="radiomark"></span>
+     </label>
+     <label class="ckbxContainer"> Immobile
+       <input type="radio" name="rightLegROM" value="immobile">
+       <span class="radiomark"></span>
+     </label>
+     <label class="ckbxContainer"> Flaccid
+       <input type="radio" name="rightLegROM" value="flaccid">
+       <span class="radiomark"></span>
+     </label>
+     <label class="ckbxContainer"> Contractured
+       <input type="radio" name="rightLegROM" value="contractured">
+       <span class="radiomark"></span>
+     </label>
+   </div>
+ </div>
+</div>
+<div class="row">
+  <div class="col">
+    <div class="titleFont"> Gait / Balance </div>
+    <div class="box2">
+      <label class="ckbxContainer"> Ambulates on own, steady gait
+       <input type="radio" name="gait" value="onOwn">
+       <span class="radiomark"></span>
+     </label>
+     <label class="ckbxContainer"> Ambulates with assistance, cane
+       <input type="radio" name="gait" value="cane">
+       <span class="radiomark"></span>
+     </label>
+     <label class="ckbxContainer"> Ambulates with assistance, walker
+       <input type="radio" name="gait" value="walker">
+       <span class="radiomark"></span>
+     </label>
+     <label class="ckbxContainer"> Walker and wheelchair
+       <input type="radio" name="gait" value="walkerAndWheelchair">
+       <span class="radiomark"></span>
+     </label>
+     <label class="ckbxContainer"> Wheelchair only
+       <input type="radio" name="gait" value="wheelchair">
+       <span class="radiomark"></span>
+     </label>
+     <label class="ckbxContainer"> Bedfast
+       <input type="radio" name="gait" value="bedfast">
+       <span class="radiomark"></span>
+     </label>
+   </div>
+ </div>
+ <div class="col">
+  <div class="titleFont">  &nbsp; </div>
+  <div class="titleFont2"> ROM and Gait Notes: </div>
+  <textarea class="note" name='ROMandGateNotes' rows="4"></textarea>
+</div>
+</div>
+<div class="row">
+  <div class="col">
+    <div class="titleFont"> Amputation </div>
+    <div class="box2">
+     <label class="ckbxContainer"> Amputation
+       <input type="checkbox" name="amputation" value="amputation">
+       <span class="checkmark"></span>
+     </label>
+     <div class="titleFont2"> Describe Amputation: </div>
+     <textarea class="note" name='amputationNotes' rows="4"></textarea>
+   </div>
+ </div>
+</div>
+<div class="row">
+  <div class="col">
+    <div class="titleFont"> Postoperative, Orthopedic </div>
+    <div class="box2">
+      <label class="ckbxContainer"> Patient is post-orthopedic surgery
+       <input type="checkbox" name="surgery" value="postSurgery">
+       <span class="checkmark"></span>
+     </label>
+   </div>
+ </div>
+ <div class="col">
+ </div>
+</div>
+<div class="row">
+  <div class="col">
+    <div class="titleFont"> Post Operative Area </div>
+    <div class="box2">
+      <div class="titleFont2"> Left: </div>
+      <div class="scrollable">
+       <label class="ckbxContainer"> Foot
+         <input type="checkbox" name="leftSurgery" value="foot">
+         <span class="checkmark"></span>
+       </label>
+       <label class="ckbxContainer"> Ankle
+         <input type="checkbox" name="leftSurgery" value="ankle">
+         <span class="checkmark"></span>
+       </label>
+       <label class="ckbxContainer"> Knee
+         <input type="checkbox" name="leftSurgery" value="knee">
+         <span class="checkmark"></span>
+       </label>
+       <label class="ckbxContainer"> Hip
+         <input type="checkbox" name="leftSurgery" value="hip">
+         <span class="checkmark"></span>
+       </label>
+       <label class="ckbxContainer"> Wrist
+         <input type="checkbox" name="leftSurgery" value="wrist">
+         <span class="checkmark"></span>
+       </label>
+       <label class="ckbxContainer"> Elbow
+         <input type="checkbox" name="leftSurgery" value="elbow">
+         <span class="checkmark"></span>
+       </label>
+       <label class="ckbxContainer"> Shoulder
+         <input type="checkbox" name="leftSurgery" value="shoulder">
+         <span class="checkmark"></span>
+       </label>
+       <label class="ckbxContainer"> Femur
+         <input type="checkbox" name="leftSurgery" value="femur">
+         <span class="checkmark"></span>
+       </label>
+       <label class="ckbxContainer"> Humerus
+         <input type="checkbox" name="leftSurgery" value="humerus">
+         <span class="checkmark"></span>
+       </label>
+       <label class="ckbxContainer"> Tibia
+         <input type="checkbox" name="leftSurgery" value="tibia">
+         <span class="checkmark"></span>
+       </label>
+       <label class="ckbxContainer"> Fibula
+         <input type="checkbox" name="leftSurgery" value="fibula">
+         <span class="checkmark"></span>
+       </label>
+     </div>
+   </div>
+ </div>
+ <div class="col">
+   <div class="box2">
+    <div class="titleFont">  &nbsp; </div>
+    <div class="titleFont2"> Right: </div>
+    <div class="scrollable">
+     <label class="ckbxContainer"> Foot
+       <input type="checkbox" name="rightSurgery" value="foot">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Ankle
+       <input type="checkbox" name="rightSurgery" value="ankle">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Knee
+       <input type="checkbox" name="rightSurgery" value="knee">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Hip
+       <input type="checkbox" name="rightSurgery" value="hip">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Wrist
+       <input type="checkbox" name="rightSurgery" value="wrist">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Elbow
+       <input type="checkbox" name="rightSurgery" value="elbow">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Shoulder
+       <input type="checkbox" name="rightSurgery" value="shoulder">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Femur
+       <input type="checkbox" name="rightSurgery" value="femur">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Humerus
+       <input type="checkbox" name="rightSurgery" value="humerus">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Tibia
+       <input type="checkbox" name="rightSurgery" value="tibia">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Fibula
+       <input type="checkbox" name="rightSurgery" value="fibula">
+       <span class="checkmark"></span>
+     </label>
+   </div>
+ </div>
+</div>
+</div>
+<div class="row">
+  <div class="col">
+    <div class="titleFont"> Postoperative Extremity Assessment </div>
+    <div class="titleFont2"> Temperature: </div>
+    <div class="box2">
+      <label class="ckbxContainer"> Warm to touch
+       <input type="radio" name="postopTemp" value="warm">
+       <span class="radiomark"></span>
+     </label>
+     <label class="ckbxContainer"> Cool to touch
+       <input type="radio" name="postopTemp" value="cool">
+       <span class="radiomark"></span>
+     </label>
+   </div>
+   <div class="titleFont2"> Color: </div>
+   <div class="box2">
+    <label class="ckbxContainer"> Expected color
+     <input type="radio" name="postopColor" value="">
+     <span class="radiomark"></span>
+   </label>
+   <label class="ckbxContainer"> Cyanotic
+     <input type="radio" name="postopColor" value="cyanotic">
+     <span class="radiomark"></span>
+   </label>
+   <label class="ckbxContainer"> Mottled
+     <input type="radio" name="postopColor" value="mottled">
+     <span class="radiomark"></span>
+   </label>
+   <label class="ckbxContainer"> Reddened
+     <input type="radio" name="postopColor" value="reddened">
+     <span class="radiomark"></span>
+   </label>
+ </div>
+</div>
+<div class="col">
+  <div class="titleFont"> &nbsp; </div>
+  <div class="titleFont2"> Capillary refill: </div>
+  <div class="box2">
+    <label class="ckbxContainer">  Brisk
+     <input type="radio" name="postopCapillary" value="brisk">
+     <span class="radiomark"></span>
+   </label>
+   <label class="ckbxContainer">  Sluggish
+     <input type="radio" name="postopCapillary" value="sluggish">
+     <span class="radiomark"></span>
+   </label>
+ </div>
+ <div class="titleFont2"> Sensation: </div>
+ <div class="box2">
+  <label class="ckbxContainer"> Sensation to touch intact
+   <input type="radio" name="postopSensation" value="intact">
+   <span class="radiomark"></span>
+ </label>
+ <label class="ckbxContainer"> Numb and tingling to touch
+   <input type="radio" name="postopSensation" value="numb">
+   <span class="radiomark"></span>
+ </label>
+ <label class="ckbxContainer"> No sensation to touch
+   <input type="radio" name="postopSensation" value="noSensation">
+   <span class="radiomark"></span>
+ </label>
+</div>
+</div>
+</div>
+<div class="row">
+  <div class="col">
+    <div class="titleFont"> Special Test Signs </div>
+    <div class="titleFont2"> Homan's sign: </div>
+    <div class="box2">
+      <label class="ckbxContainer"> Present
+       <input type="radio" name="homansSign" value="present">
+       <span class="radiomark"></span>
+     </label>
+     <label class="ckbxContainer"> Not Present
+       <input type="radio" name="homansSign" value="notPresent">
+       <span class="radiomark"></span>
+     </label>
+   </div>
+ </div>
+ <div class="col">
+  <div class="titleFont"> &nbsp; </div>
+  <div class="titleFont2"> Plantar flexion pain: </div>
+  <div class="box2">
+    <label class="ckbxContainer"> Pain
+     <input type="radio" name="plantarFlexion" value="pain">
+     <span class="radiomark"></span>
+   </label>
+   <label class="ckbxContainer"> No Pain
+     <input type="radio" name="plantarFlexion" value="noPain">
+     <span class="radiomark"></span>
+   </label>
+ </div>
+</div>
+</div>
+<div class="row">
+  <div class="col">
+    <div class="titleFont"> Movement Evaluation of Affected Limb </div>
+    <div class="titleFont2"> Able to move fingers? </div>
+    <div class="box2">
+      <label class="ckbxContainer"> Yes
+       <input type="radio" name="movementEvalFingers" value="yes">
+       <span class="radiomark"></span>
+     </label>
+     <label class="ckbxContainer"> No
+       <input type="radio" name="movementEvalFingers" value="no">
+       <span class="radiomark"></span>
+     </label>
+   </div>
+   <div class="titleFont2"> General Postoperative Notes: </div>
+   <textarea class="note" name='postopNotes' rows="4"></textarea>
+
+ </div>
+ <div class="col">
+  <div class="titleFont"> &nbsp; </div>
+  <div class="titleFont2"> Able to move toes? </div>
+  <div class="box2">
+    <label class="ckbxContainer"> Yes
+     <input type="radio" name="movementEvalToes" value="yes">
+     <span class="radiomark"></span>
+   </label>
+   <label class="ckbxContainer"> No
+     <input type="radio" name="movementEvalToes" value="no">
+     <span class="radiomark"></span>
+   </label>
+ </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="card">
+  <div class="card-header" id="gastroinestinal">
+    <h5 class="mb-0">
+      <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseGastrointestinal" aria-expanded="false" aria-controls="collapseGastrointestinal">
+        Gastrointestinal
+      </button>
+    </h5>
+  </div>
+  <div id="collapseGastrointestinal" class="collapse" aria-labelledby="gastroinestinal" data-parent="#accordion">
+    <div class="card-body">
+     <div class="row">
+      <div class="col">
+        <div class="titleFont"> Mouth / Gums / Teeth </div>
+        <div class="titleFont2"> Gums and mouth: </div>
+        <div class="box2 scrollable">
+          <label class="ckbxContainer"> Good condition, no lesions or sores
+           <input type="radio" name="gumsMouth" value="good">
+           <span class="radiomark"></span>
+         </label>
+         <label class="ckbxContainer"> History or lesions of sores, none now
+           <input type="radio" name="gumsMouth" value="history">
+           <span class="radiomark"></span>
+         </label>
+         <label class="ckbxContainer"> Current oral mucosa/gum lesion or sore
+           <input type="radio" name="gumsMouth" value="current">
+           <span class="radiomark"></span>
+         </label>
+         <label class="ckbxContainer"> Erythema of oral mucosa
+           <input type="radio" name="gumsMouth" value="erythema">
+           <span class="radiomark"></span>
+         </label>
+         <label class="ckbxContainer"> White patches on oral mucosa
+           <input type="radio" name="gumsMouth" value="whitePatches">
+           <span class="radiomark"></span>
+         </label>
+         <label class="ckbxContainer"> Mucositis (stomatitis)
+           <input type="radio" name="gumsMouth" value="mucositis">
+           <span class="radiomark"></span>
+         </label>
+         <label class="ckbxContainer"> Gingivitis / reddened gumms
+           <input type="radio" name="gumsMouth" value="gingivitis">
+           <span class="radiomark"></span>
+         </label>
+       </div>
+       <div class="titleFont2"> Teeth / Bridges / Dentures </div>
+       <div class="box2 scrollable">
+        <label class="ckbxContainer"> Teeth in good condition
+         <input type="radio" name="teeth" value="good">
+         <span class="radiomark"></span>
+       </label>
+       <label class="ckbxContainer"> Teeth in fair condition
+         <input type="radio" name="teeth" value="fair">
+         <span class="radiomark"></span>
+       </label>
+       <label class="ckbxContainer"> Teeth in poor condition
+         <input type="radio" name="teeth" value="poor">
+         <span class="radiomark"></span>
+       </label>
+       <label class="ckbxContainer"> No natural teeth
+         <input type="radio" name="teeth" value="noNaturalTeeth">
+         <span class="radiomark"></span>
+       </label>
+       <label class="ckbxContainer"> Bridges (describe)
+         <input type="radio" name="teeth" value="bridges">
+         <span class="radiomark"></span>
+       </label>
+       <label class="ckbxContainer"> Upper dentures only
+         <input type="radio" name="teeth" value="upperDentures">
+         <span class="radiomark"></span>
+       </label>
+       <label class="ckbxContainer"> Lower dentures only
+         <input type="radio" name="teeth" value="lowerDentures">
+         <span class="radiomark"></span>
+       </label>
+       <label class="ckbxContainer"> None
+         <input type="radio" name="teeth" value="none">
+         <span class="radiomark"></span>
+       </label>
+       <label class="ckbxContainer"> Edentulous ??
+         <input type="radio" name="teeth" value="edentulous">
+         <span class="radiomark"></span>
+       </label>
+     </div>
+     <div class="titleFont2"> Mouth / Gums / Teeth Notes: </div>
+     <textarea class="note" name='mouthGumsTeethNotes' rows="4"></textarea>
+   </div>
+   <div class="col">
+    <div class="titleFont"> Esophageal </div>
+    <div class="titleFont2"> Esophageal assessment: </div>
+    <div class="box2">
+      Mark all that apply:
+      <label class="ckbxContainer"> Swallowing problems
+       <input type="checkbox" name="esophageal" value="swallowingProblems">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Reflux after eating
+       <input type="checkbox" name="esophageal" value="eatingReflux">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Reflux after bending down
+       <input type="checkbox" name="esophageal" value="bendingReflux">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Reflux when lying down
+       <input type="checkbox" name="esophageal" value="lyingReflux">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer">  Frequent heartburn
+       <input type="checkbox" name="esophageal" value="heartburn">
+       <span class="checkmark"></span>
+     </label>
+   </div>
+   <div class="titleFont2"> Esophageal Notes: </div>
+   <textarea class="note" name='esophagealNotes' rows="4"></textarea>
+ </div>
+</div>
+<div class="row">
+  <div class="col">
+    <div class="titleFont"> Abdomen </div>
+    <div class="box2">
+     Mark all that apply:  
+     <div class="scrollable">
+       <label class="ckbxContainer"> Soft to palpation  
+         <input type="checkbox" name="abdominal" value="softPalpation">
+         <span class="checkmark"></span>
+       </label>
+       <label class="ckbxContainer"> Firm to palpation
+         <input type="checkbox" name="abdominal" value="firmPalpation">
+         <span class="checkmark"></span>
+       </label>
+       <label class="ckbxContainer"> Flat
+         <input type="checkbox" name="abdominal" value="flat">
+         <span class="checkmark"></span>
+       </label>
+       <label class="ckbxContainer"> Rounded
+         <input type="checkbox" name="abdominal" value="rounded">
+         <span class="checkmark"></span>
+       </label>
+       <label class="ckbxContainer"> Ascites
+         <input type="checkbox" name="abdominal" value="ascites">
+         <span class="checkmark"></span>
+       </label>
+       <label class="ckbxContainer"> Nontender to palpation
+         <input type="checkbox" name="abdominal" value="nontenderPalpation">
+         <span class="checkmark"></span>
+       </label>
+       <label class="ckbxContainer">  Tender to light palpation
+         <input type="checkbox" name="abdominal" value="tenderLightPalp">
+         <span class="checkmark"></span>
+       </label>
+       <label class="ckbxContainer">  Tender to deep palpation
+         <input type="checkbox" name="abdominal" value="tenderDeepPalp">
+         <span class="checkmark"></span>
+       </label>
+       <label class="ckbxContainer"> Guarding to palpation
+         <input type="checkbox" name="abdominal" value="gaudringPalpation">
+         <span class="checkmark"></span>
+       </label>
+       <label class="ckbxContainer"> Rigid to palpation
+         <input type="checkbox" name="abdominal" value="rigidPalpation">
+         <span class="checkmark"></span>
+       </label>
+     </div>
+   </div>
+   <div class="box2">
+    If tender on palpation, indicate region
+    <label class="ckbxContainer"> Right upper quadrant
+     <input type="radio" name="palpation" value="rightUpper">
+     <span class="radiomark"></span>
+   </label>
+   <label class="ckbxContainer"> Left upper quadrant
+     <input type="radio" name="palpation" value="leftUpper">
+     <span class="radiomark"></span>
+   </label>
+   <label class="ckbxContainer"> Right lower quadrant
+     <input type="radio" name="palpation" value="rightLower">
+     <span class="radiomark"></span>
+   </label>
+   <label class="ckbxContainer"> Left lower quadrant
+     <input type="radio" name="palpation" value="leftLower">
+     <span class="radiomark"></span>
+   </label>
+   <label class="ckbxContainer"> Epigastric ?
+     <input type="radio" name="palpation" value="epigastric">
+     <span class="radiomark"></span>
+   </label>
+   <label class="ckbxContainer"> Periumbilical
+     <input type="radio" name="palpation" value="periumbilical">
+     <span class="radiomark"></span>
+   </label>
+   <label class="ckbxContainer"> Generalized
+     <input type="radio" name="palpation" value="generalized">
+     <span class="radiomark"></span>
+   </label>
+ </div>
+</div>
+<div class="col">
+  <div class="titleFont"> Gastrointestinal </div>
+  <label class="ckbxContainer"> No gastric problems noted
+   <input type="checkbox" name="gastric" value="noProblem">
+   <span class="checkmark"></span>
+ </label>
+ <div>  Mark all that apply: </div>
+ <div class="scrollable">
+   <label class="ckbxContainer"> Nausea
+     <input type="checkbox" name="gastroinestinal" value="nausea">
+     <span class="checkmark"></span>
+   </label>
+   <label class="ckbxContainer"> Vomiting
+     <input type="checkbox" name="gastroinestinal" value="vomiting">
+     <span class="checkmark"></span>
+   </label>
+   <label class="ckbxContainer"> Epigastric pain/distress
+     <input type="checkbox" name="gastroinestinal" value="distress">
+     <span class="checkmark"></span>
+   </label>
+   <label class="ckbxContainer"> Hemoptysis
+     <input type="checkbox" name="gastroinestinal" value="hemoptysis">
+     <span class="checkmark"></span>
+   </label>
+   <label class="ckbxContainer"> Hematemesis
+     <input type="checkbox" name="gastroinestinal" value="hematemesis">
+     <span class="checkmark"></span>
+   </label>
+   <label class="ckbxContainer"> Abdominal pain, cramping
+     <input type="checkbox" name="gastroinestinal" value="cramping">
+     <span class="checkmark"></span>
+   </label>
+   <label class="ckbxContainer"> Abdominal pain, sharp
+     <input type="checkbox" name="gastroinestinal" value="sharp">
+     <span class="checkmark"></span>
+   </label>
+ </div>
+ <div class="titleFont2"> Gastrointestinal Notes: </div>
+ <textarea class="note" name='gastrointestinalNotes' rows="4"></textarea>
+</div>
+</div>
+<div class="row"> 
+  <div class="col">
+    <div class="box2">
+      <div class="titleFont"> Intestinal </div>
+      <div> Date of last bowel movement: 
+        <input type="text" name="lastBowel" class="datepicker form-control">
       </div>
+      <div> Continence of bowel: </div>
+      <label class="ckbxContainer"> Continent
+       <input type="radio" name="continence" value="continent">
+       <span class="radiomark"></span>
+     </label>
+     <label class="ckbxContainer"> Incontinent
+       <input type="radio" name="continence" value="incontinent">
+       <span class="radiomark"></span>
+     </label>
+     <label class="ckbxContainer"> Occosionally incontinent
+       <input type="radio" name="continence" value="occassionally">
+       <span class="radiomark"></span>
+     </label>
+     <div> Bowel sounds: </div>
+     <div>  Mark all that apply: </div>
+     <label class="ckbxContainer"> Active x 4 quadrants
+       <input type="checkbox" name="bowelSounds" value="active">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Hyperactive
+       <input type="checkbox" name="bowelSounds" value="hyperactive">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Hypoactive/sluggish
+       <input type="checkbox" name="bowelSounds" value="hypoactive">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Not heard
+       <input type="checkbox" name="bowelSounds" value="notHeard">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Other (describe in notes)
+       <input type="checkbox" name="bowelSounds" value="other">
+       <span class="checkmark"></span>
+     </label>
+   </div>
+   <div class="box2">
+    <div> Rectum: </div>
+    <label class="ckbxContainer"> No reported rectal problems
+     <input type="checkbox" name="rectal" value="noProblem">
+     <span class="checkmark"></span>
+   </label>
+   <div>  Mark all that apply: </div>
+   <div class="scrollable">
+     <label class="ckbxContainer"> Redness
+       <input type="checkbox" name="rectum" value="redness">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Irritation
+       <input type="checkbox" name="rectum" value="irritation">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Hemorhoids
+       <input type="checkbox" name="rectum" value="hemorhoids">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Anal fistula
+       <input type="checkbox" name="rectum" value="fistula">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Anal abscess
+       <input type="checkbox" name="rectum" value="abscess">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Anal tissure
+       <input type="checkbox" name="rectum" value="tissure">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Rectal prolapse
+       <input type="checkbox" name="rectum" value="prolapse">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Rectal itching
+       <input type="checkbox" name="rectum" value="itching">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Rectal trauma
+       <input type="checkbox" name="rectum" value="trauma">
+       <span class="checkmark"></span>
+     </label>
+   </div>
+ </div>
+</div>
+<div class="col">
+ <div class="titleFont"> &nbsp; </div>
+ <div class="titleFont2"> Intestinal assessment: </div>
+ <div class="box2">
+   <label class="ckbxContainer"> No bowel problems noted
+     <input type="checkbox" name="intestinal" value="noProblem">
+     <span class="checkmark"></span>
+   </label>
+   <div>  Mark all that apply: </div>
+   <div class="scrollable">
+    <label class="ckbxContainer"> Occasional diarrhea
+     <input type="checkbox" name="bowel" value="occasionalDiarrhea">
+     <span class="checkmark"></span>
+   </label>
+   <label class="ckbxContainer"> Frequent diarrhea
+     <input type="checkbox" name="bowel" value="frequentDiarrhea">
+     <span class="checkmark"></span>
+   </label>
+   <label class="ckbxContainer"> Explosive diarrhea
+     <input type="checkbox" name="bowel" value="explosiveDiarrhea">
+     <span class="checkmark"></span>
+   </label>
+   <label class="ckbxContainer"> Occasional constipation
+     <input type="checkbox" name="bowel" value="occasionalConstipation">
+     <span class="checkmark"></span>
+   </label>
+   <label class="ckbxContainer"> Frequent constipation
+     <input type="checkbox" name="bowel" value="frequentConstipation">
+     <span class="checkmark"></span>
+   </label>
+   <label class="ckbxContainer"> Bloating
+     <input type="checkbox" name="bowel" value="bloating">
+     <span class="checkmark"></span>
+   </label>
+   <label class="ckbxContainer"> Frequent belching
+     <input type="checkbox" name="bowel" value="belching">
+     <span class="checkmark"></span>
+   </label>
+   <label class="ckbxContainer"> Frequent flatulence
+     <input type="checkbox" name="bowel" value="flatulence">
+     <span class="checkmark"></span>
+   </label>
+ </div>
+</div>
+<div class="box2">
+  <div> Stool characteristics: </div>
+  <div> Mark all that apply: </div>
+  <div class="scrollable">
+   <label class="ckbxContainer"> Firm
+     <input type="checkbox" name="stool" value="firm">
+     <span class="checkmark"></span>
+   </label>
+   <label class="ckbxContainer"> Loose
+     <input type="checkbox" name="stool" value="loose">
+     <span class="checkmark"></span>
+   </label>
+   <label class="ckbxContainer"> Watery
+     <input type="checkbox" name="stool" value="watery">
+     <span class="checkmark"></span>
+   </label>
+   <label class="ckbxContainer"> Hard
+     <input type="checkbox" name="stool" value="hard">
+     <span class="checkmark"></span>
+   </label>
+   <label class="ckbxContainer"> Brown
+     <input type="checkbox" name="stool" value="brown">
+     <span class="checkmark"></span>
+   </label>
+   <label class="ckbxContainer"> Black
+     <input type="checkbox" name="stool" value="black">
+     <span class="checkmark"></span>
+   </label>
+   <label class="ckbxContainer"> Green
+     <input type="checkbox" name="stool" value="green">
+     <span class="checkmark"></span>
+   </label>
+   <label class="ckbxContainer"> Grey
+     <input type="checkbox" name="stool" value="grey">
+     <span class="checkmark"></span>
+   </label>
+   <label class="ckbxContainer"> Yellow
+     <input type="checkbox" name="stool" value="yellow">
+     <span class="checkmark"></span>
+   </label>
+   <label class="ckbxContainer"> Tarry
+     <input type="checkbox" name="stool" value="tarry">
+     <span class="checkmark"></span>
+   </label>
+   <label class="ckbxContainer"> Tan
+     <input type="checkbox" name="stool" value="tan">
+     <span class="checkmark"></span>
+   </label>
+   <label class="ckbxContainer"> Rusty
+     <input type="checkbox" name="stool" value="rusty">
+     <span class="checkmark"></span>
+   </label>
+   <label class="ckbxContainer"> Blood-streaked
+     <input type="checkbox" name="stool" value="bloodStreaked">
+     <span class="checkmark"></span>
+   </label>
+   <label class="ckbxContainer"> Frank blood
+     <input type="checkbox" name="stool" value="frankBlood">
+     <span class="checkmark"></span>
+   </label>
+   <label class="ckbxContainer"> Foul odor
+     <input type="checkbox" name="stool" value="foulOdor">
+     <span class="checkmark"></span>
+   </label>
+ </div>
+ <div> Intestinal diversion: </div>
+ <div class="box2">
+   <label class="ckbxContainer"> Patient has ostomy
+     <input type="checkbox" name="ostomy" value="hasOstomy">
+     <span class="checkmark"></span>
+   </label>
+ </div>
+ <div> Document characteristics and care in graphical body:  TODO: THIS? </div>
+ <div class="titleFont2"> Intestinal Notes: </div>
+ <textarea class="note" name='intestinalNotes' rows="4"></textarea>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="card">
+  <div class="card-header" id="genitourinary">
+    <h5 class="mb-0">
+      <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseGenitourinary" aria-expanded="false" aria-controls="collapseGenitourinary">
+        Genitourinary
+      </button>
+    </h5>
+  </div>
+  <div id="collapseGenitourinary" class="collapse" aria-labelledby="genitourinary" data-parent="#accordion">
+    <div class="card-body">
+       <div class="row">
+      <div class="col">
+        <div class="titleFont"> Genitourinary </div>
+        <div class="titleFont2"> Urinary System Assessment </div>
+        <div class="box2">
+          <div> Urination mode </div>
+          <label class="ckbxContainer"> Voiding
+           <input type="radio" name="urinationMode" value="voiding">
+           <span class="radiomark"></span>
+         </label>
+          <label class="ckbxContainer">Foley catheter to gravity drain
+           <input type="radio" name="urinationMode" value="foleyCatheter">
+           <span class="radiomark"></span>
+         </label>
+          <label class="ckbxContainer"> Straight catheter by self/family
+           <input type="radio" name="urinationMode" value="selfCatheter">
+           <span class="radiomark"></span>
+         </label>
+          <label class="ckbxContainer"> Straight catheter by nursing staff
+           <input type="radio" name="urinationMode" value="nurseCatheter">
+           <span class="radiomark"></span>
+         </label>
+          <label class="ckbxContainer"> Urinary diversion
+           <input type="radio" name="urinationMode" value="diversion">
+           <span class="radiomark"></span>
+         </label>
+          <label class="ckbxContainer"> Anuric
+           <input type="radio" name="urinationMode" value="anuric">
+           <span class="radiomark"></span>
+         </label>
+        
     </div>
   </div>
-   <div class="card">
-    <div class="card-header" id="gastroinestinal">
-      <h5 class="mb-0">
-        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseGastrointestinal" aria-expanded="false" aria-controls="collapseGastrointestinal">
-          Gastrointestinal
-        </button>
-      </h5>
-    </div>
-    <div id="collapseGastrointestinal" class="collapse" aria-labelledby="gastroinestinal" data-parent="#accordion">
-      <div class="card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
+  <div class="col">
+    <div class="titleFont2"> Dialysis </div>
+    <div class="">
+  </div>
+</div>
+  <div class="row">
+    <div class="col">
+    <div class="titleFont"> Urine Color / Characteristics </div>
+    <div class="box2">
+      <div> Color: </div>
+       <label class="ckbxContainer"> Yellow
+           <input type="radio" name="urineColor" value="yellow">
+           <span class="radiomark"></span>
+         </label>
+         <label class="ckbxContainer"> Straw-colored
+           <input type="radio" name="urineColor" value="straw">
+           <span class="radiomark"></span>
+         </label>
+         <label class="ckbxContainer"> Pale yellow
+           <input type="radio" name="urineColor" value="paleYellow">
+           <span class="radiomark"></span>
+         </label>
+         <label class="ckbxContainer"> Dark yellow
+           <input type="radio" name="urineColor" value="darkYellow">
+           <span class="radiomark"></span>
+         </label>
+         <label class="ckbxContainer"> Amber
+           <input type="radio" name="urineColor" value="amber">
+           <span class="radiomark"></span>
+         </label>
+         <label class="ckbxContainer"> Dark brown
+           <input type="radio" name="urineColor" value="darkBrown">
+           <span class="radiomark"></span>
+         </label>
+         <label class="ckbxContainer"> Green-brown
+           <input type="radio" name="urineColor" value="green-brown">
+           <span class="radiomark"></span>
+         </label>
+         <label class="ckbxContainer"> Orange-red
+           <input type="radio" name="urineColor" value="orange-red">
+           <span class="radiomark"></span>
+         </label>
+         <label class="ckbxContainer"> Orange-brown
+           <input type="radio" name="urineColor" value="orange-brown">
+           <span class="radiomark"></span>
+         </label>
+         <label class="ckbxContainer"> Red-brown
+           <input type="radio" name="urineColor" value="red-brown">
+           <span class="radiomark"></span>
+         </label>
+         <label class="ckbxContainer"> Frank blood
+           <input type="radio" name="urineColor" value="blood">
+           <span class="radiomark"></span>
+         </label>
+       </div>
+       <div> Characteristics </div>
+       <div class="box2">
+        <label class="ckbxContainer"> Clear
+           <input type="radio" name="urineCharacteristics" value="clear">
+           <span class="radiomark"></span>
+         </label>
+         <label class="ckbxContainer"> Cloudy
+           <input type="radio" name="urineCharacteristics" value="cloudy">
+           <span class="radiomark"></span>
+         </label>
+         <label class="ckbxContainer"> Precipitates, sediment visible
+           <input type="radio" name="urineCharacteristics" value="precipitates">
+           <span class="radiomark"></span>
+         </label>
+         <label class="ckbxContainer"> Clots visible
+           <input type="radio" name="urineCharacteristics" value="clots">
+           <span class="radiomark"></span>
+         </label>
+       </div>
+       <div class="titleFont"> Male </div>
+       <div class="box2">
+    <div> Penis assessment </div>
+    <label class="ckbxContainer"> No  problems noted
+     <input type="checkbox" name="penis" value="noProblem">
+     <span class="checkmark"></span>
+   </label>
+   <div>  Mark all that apply: </div>
+   <div class="scrollable">
+     <label class="ckbxContainer"> Lesion (describe in notes)
+       <input type="checkbox" name="penis" value="lesion">
+       <span class="checkmark"></span>
+     </label>
+      <label class="ckbxContainer"> Nodules (describe in notes)
+       <input type="checkbox" name="penis" value="nodules">
+       <span class="checkmark"></span>
+     </label>
+      <label class="ckbxContainer"> Inflammation
+       <input type="checkbox" name="penis" value="inflammation">
+       <span class="checkmark"></span>
+     </label>
+      <label class="ckbxContainer"> Redness
+       <input type="checkbox" name="penis" value="Redness">
+       <span class="checkmark"></span>
+     </label>
+     <label class="ckbxContainer"> Swelling
+       <input type="checkbox" name="penis" value="Swelling">
+       <span class="checkmark"></span>
+     </label>
+           <label class="ckbxContainer"> Discharge
+       <input type="checkbox" name="penis" value="Discharge">
+       <span class="checkmark"></span>
+     </label>
+      <label class="ckbxContainer"> Genital warts
+       <input type="checkbox" name="penis" value="Genital warts">
+       <span class="checkmark"></span>
+     </label>
+      <label class="ckbxContainer"> Circumcised
+       <input type="checkbox" name="penis" value="Circumcised">
+       <span class="checkmark"></span>
+     </label>
+      <label class="ckbxContainer"> Not circumcised
+       <input type="checkbox" name="penis" value="Not circumcised">
+       <span class="checkmark"></span>
+     </label>
+      <label class="ckbxContainer"> Unable to retract foreskin
+       <input type="checkbox" name="penis" value="Unable to retract foreskin">
+       <span class="checkmark"></span>
+     </label>
+      <label class="ckbxContainer"> Displaced meatus
+       <input type="checkbox" name="penis" value="Displaced meatus">
+       <span class="checkmark"></span>
+     </label>
+  </div>
+</div>
+</div>
+  <div class="col">
+    col
+  </div>
+</div>
+</div>
+</div>
+<div class="card">
+  <div class="card-header" id="psychosocial">
+    <h5 class="mb-0">
+      <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapsePsychosocial" aria-expanded="false" aria-controls="collapsePsychosocial">
+        Psychosocial
+      </button>
+    </h5>
+  </div>
+  <div id="collapsePsychosocial" class="collapse" aria-labelledby="psychosocial" data-parent="#accordion">
+    <div class="card-body">
+      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
     </div>
   </div>
-   <div class="card">
-    <div class="card-header" id="genitourinary">
-      <h5 class="mb-0">
-        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseGenitourinary" aria-expanded="false" aria-controls="collapseGenitourinary">
-          Genitourinary
-        </button>
-      </h5>
-    </div>
-    <div id="collapseGenitourinary" class="collapse" aria-labelledby="genitourinary" data-parent="#accordion">
-      <div class="card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
+</div>
+<div class="card">
+  <div class="card-header" id="pain">
+    <h5 class="mb-0">
+      <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapsePain" aria-expanded="false" aria-controls="collapsePain">
+        Pain
+      </button>
+    </h5>
+  </div>
+  <div id="collapsePain" class="collapse" aria-labelledby="pain" data-parent="#accordion">
+    <div class="card-body">
+      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
     </div>
   </div>
-   <div class="card">
-    <div class="card-header" id="psychosocial">
-      <h5 class="mb-0">
-        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapsePsychosocial" aria-expanded="false" aria-controls="collapsePsychosocial">
-          Psychosocial
-        </button>
-      </h5>
-    </div>
-    <div id="collapsePsychosocial" class="collapse" aria-labelledby="psychosocial" data-parent="#accordion">
-      <div class="card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
-    </div>
-  </div>
-   <div class="card">
-    <div class="card-header" id="pain">
-      <h5 class="mb-0">
-        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapsePain" aria-expanded="false" aria-controls="collapsePain">
-          Pain
-        </button>
-      </h5>
-    </div>
-    <div id="collapsePain" class="collapse" aria-labelledby="pain" data-parent="#accordion">
-      <div class="card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
-    </div>
-  </div>
+</div>
 </div>
 
 </div>

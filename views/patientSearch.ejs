@@ -183,7 +183,7 @@ crossorigin="anonymous"></script>
 
 
         <div class="dropdown">
-          <input type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" value="Sort by: Last Name">
+          <input type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" value="Sort/search by: Last Name" id="#test">
           <ul id="nameSort" class="dropdown-menu">
             <input type="hidden" id="admin_id" class="form-control">
             <li id="1"><a href="#">Last Name</a></li>
@@ -267,9 +267,6 @@ crossorigin="anonymous"></script>
          var patients;
 
          $(document).ready(function(){
-          console.log("here");
-          $('#userfname').text('<%=firstname%>');
-          $('#userlname').text('<%=lastname%>');
             // Initial Page Load
             /*
             $.ajax({
@@ -300,19 +297,36 @@ crossorigin="anonymous"></script>
 
             // On Search
             $('#search').bind('input', function(){
-              console.log("here");
-              console.log($('#search').val());
               var searchstring = $('#search').val();
+              var val = $(".dropdown-menu li a").get(0).parentElement.id;
+              //console.log(document.getElementById('#test').value);
+              test = document.getElementById('#test').value;
+              console.log(test);
+              var fieldstring = 'lastName';
+                switch(test) {
+                  case 'Sort/search by: First Name':
+                  fieldstring = 'firstName';
+                  break;
+                  case 'Sort/search by: Age':
+                  fieldstring = 'age';
+                  break;
+                  case 'Sort/search by: Center':
+                  fieldstring = 'center';
+                  break;
+                  default:
+                  //console.log('rigged')
+                }
+              console.log(fieldstring);
               $.ajax({
                 type: 'POST',
                 url: '/getPatientKeys',
                 data: {
                   search: searchstring,
-                  field: 'lastName',
+                  field: fieldstring,
                 },
                 success: function(result) {
                   patients = result.patient;
-                  console.log(patients)
+                  //console.log(patients);
                   updatePatientKeys(result.patient);
                 }
               });
@@ -335,12 +349,45 @@ crossorigin="anonymous"></script>
             });
             */
             $(".dropdown-menu li a").click(function(){
-              console.log(patients);
-              var selText = 'Sort by: ' + $(this).text();
+              //console.log($(this));
+              //console.log(patients);
+              var selText = 'Sort/search by: ' + $(this).text();
               $(this).parents('.dropdown').find('.dropdown-toggle').val(selText);
-
+              //console.log($(this).parents('.dropdown').find('.dropdown-toggle').val(selText));
               var sortBy = $(this).parents('.dropdown-menu').get(0).id;
+              //console.log(sortBy);
               var val = $(this).get(0).parentElement.id;
+              //console.log(typeof val);
+
+              var searchstring = $('#search').val();
+              var fieldstring = 'lastName';
+                switch(val) {
+                  case '2':
+                  fieldstring = 'firstName';
+                  break;
+                  case '3':
+                  fieldstring = 'age';
+                  break;
+                  case '4':
+                  fieldstring = 'center';
+                  break;
+                  default:
+                  //console.log('rigged')
+                }
+              //console.log(fieldstring);
+              $.ajax({
+                type: 'POST',
+                url: '/getPatientKeys',
+                data: {
+                  search: searchstring,
+                  field: fieldstring,
+                },
+                success: function(result) {
+                  patients = result.patient;
+                  //console.log(patients);
+                  updatePatientKeys(result.patient);
+                }
+              });
 
               if (sortBy == 'ageSort') {
                 if (val == 1) {
@@ -370,7 +417,7 @@ crossorigin="anonymous"></script>
          var updatePatientKeys = function(patient) {
           document.getElementById('patientCards').innerHTML = "";
 
-          console.log('here:' + patient);
+          //console.log('here:' + patient);
           var cards = "";
           var date = new Date(2018,2,12);
           var contents = "";
@@ -483,6 +530,49 @@ crossorigin="anonymous"></script>
                 if(age.length>1) age.splice(age.length-1,0,' and ');    
                 return age.join('');
               }
+
+          function getAge(fromdate, todate){
+          if(todate) todate= new Date(todate);
+          else todate= new Date();
+
+          var age= [], fromdate= new Date(fromdate),
+          y= [todate.getFullYear(), fromdate.getFullYear()],
+          ydiff= y[0]-y[1],
+          m= [todate.getMonth() + 1, fromdate.getMonth()],
+          mdiff= m[0]-m[1],
+          d= [todate.getDate(), fromdate.getDate()],
+          ddiff= d[0]-d[1];
+
+          if(mdiff < 0 || (mdiff=== 0 && ddiff<0))--ydiff;
+          if(mdiff<0) mdiff+= 12;
+          if(ddiff<0){
+            fromdate.setMonth(m[1]+1, 0);
+            ddiff= fromdate.getDate()-d[1]+d[0];
+            --mdiff;
+          }
+          w = Math.floor(ddiff/7);
+          ddiff = ddiff % 7;
+                          // 3 or older -> show year
+                          if (ydiff > 2) age.push(ydiff+ ' year'+(ydiff> 1? 's ':' '));
+                          else if (ydiff> 0) {
+                            // Over a year -> show year and month
+                            age.push(ydiff+ ' year'+(ydiff> 1? 's ':' '));
+                            if(mdiff> 0) age.push(mdiff+ ' month'+(mdiff> 1? 's':''));
+                            // Less than a year -> show month and day
+                        } else if (mdiff> 3) {
+                          age.push(mdiff+ ' month'+(mdiff> 1? 's':''));
+                          if (w> 0) age.push(w+ ' week' + (w> 1? 's':''));
+                        } else if (mdiff>0) {
+                          age.push(mdiff+ ' month'+(mdiff> 1? 's ':' '));
+                          if(w> 0) age.push(w+ ' week'+(w> 1? 's':''));
+                        } else {
+                          if(w> 0) age.push(w+ ' week'+(w> 1? 's':''));
+                          if(ddiff> 0) age.push(ddiff+ ' day'+(ddiff> 1? 's':''));
+                        }
+
+                        if(age.length>1) age.splice(age.length-1,0,' and ');    
+                        return age.join('');
+                    }
 
 
 

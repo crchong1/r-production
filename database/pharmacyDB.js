@@ -10,11 +10,6 @@ pharmacy.once('open', function () {
 
 
 var pharmacySchema = mongoose.Schema({
-    id: {
-        type: Number,
-        required: true,
-        unique: true,
-    },
     entries: [{
         section:{
             type: String,
@@ -69,12 +64,13 @@ var pharmacySchema = mongoose.Schema({
 
 var Pharmacy = pharmacy.model('Pharmacy', pharmacySchema);
 
-var putNewPharmacy = function (id, genericName, proprietaryName,
+var putNewPharmacy = function (section, genericName, proprietaryName,
     drugClass, type, description, manufactureDate, expirationDate, lotNumber, concentration, amountPerUnit, 
     unitsRemaining, route_callback) {
     console.log("putNewPharmacy called in pharmacyDB")
     // what is unique about the data is now that it is all stored in an array
     newJSON = [{
+        section: section,
         genericName: genericName,
         proprietaryName: proprietaryName,
         drugClass: drugClass,
@@ -88,14 +84,13 @@ var putNewPharmacy = function (id, genericName, proprietaryName,
         unitsRemaining: unitsRemaining
     }];
     var newPharmacy = new Pharmacy({
-        id: id,
         entries: newJSON
     });
     // Here we save this line into the MongoDB Database
     newPharmacy.save(function (err, data) {
         if (err) return console.error(err);
         // we re-find the item so we can send back the data
-        Pharmacy.find({ id: id }, function (err, res) {
+        Pharmacy.find({}, function (err, res) {
             if (err) {
                 console.log(err);
             }
@@ -107,12 +102,13 @@ var putNewPharmacy = function (id, genericName, proprietaryName,
     });
 };
 
-// this function updates the data
-var putPharmacyEntry = function (id, genericName, proprietaryName,
+// // this function updates the data
+var putPharmacyEntry = function (section, genericName, proprietaryName,
     drugClass, type, description, manufactureDate, expirationDate, lotNumber, concentration, amountPerUnit, 
     unitsRemaining, route_callback) {
     // create a new JSON object to put into the table; NOT an array
     newJSON = {
+        section: section,
         genericName: genericName,
         proprietaryName: proprietaryName,
         drugClass: drugClass,
@@ -126,17 +122,16 @@ var putPharmacyEntry = function (id, genericName, proprietaryName,
         unitsRemaining: unitsRemaining
     };
     Pharmacy.findOneAndUpdate(
-        { id: id }, //find a document with id
+        {}, //find a document with id --> make empty b/c find document itself
+        //if empty find doesn't work, hardcode pharmacy name into schema
         { $push: { entries: newJSON } },
         function (err, doc) { //callback
             if (err) {
-                console.log("error in finding and updating pharmacy for "
-                    + id);
                 console.log('error: ' + err);
                 route_callback(null, "error" + { error: err })
             }
             else {
-                Pharmacy.find({ id: id }, function (err, res) {
+                Pharmacy.find({}, function (err, res) {
                     if (err) {
                         console.log(err);
                     }
@@ -151,9 +146,9 @@ var putPharmacyEntry = function (id, genericName, proprietaryName,
     )
 };
 
-var getAllPharmacy = function (id, route_callback) {
+var getAllPharmacy = function (route_callback) {
     // console.log("getting all weights");
-    Pharmacy.find({ id: id }, function (err, res) {
+    Pharmacy.find({}, function (err, res) {
         if (err) {
             route_callback(null, "Patient's pharmacy not found" + err);
         }
@@ -164,28 +159,19 @@ var getAllPharmacy = function (id, route_callback) {
 };
 
 // this function edits an existing entry in the data 
-var editPharmacy = function (id, genericName, proprietaryName,
+var editPharmacy = function (section, genericName, proprietaryName,
     drugClass, type, description, manufactureDate, expirationDate, lotNumber, concentration, amountPerUnit, 
-    unitsRemaining, preEditData, route_callback) {
+    unitsRemaining, _id, route_callback) {
+        console.log("_id in editPharmacy in pharmacyDB: ")
+        console.log(_id)
     console.log("editPharmacy called in pharmacyDB");
-    console.log("preEditData genericName in editPharmacy in pharmacyDB: " + preEditData.genericName);
     Pharmacy.findOneAndUpdate(
         {
-            id: id,
-            'entries.genericName': preEditData.genericName,
-            'entries.proprietaryName': preEditData.proprietaryName,
-            'entries.drugClass': preEditData.drugClass,
-            'entries.type': preEditData.type,
-            'entries.description': preEditData.description,
-            'entries.manufactureDate': preEditData.manufactureDate,
-            'entries.expirationDate': preEditData.expirationDate,
-            'entries.lotNumber': preEditData.lotNumber,
-            'entries.concentration': preEditData.concentration,
-            'entries.amountPerUnit': preEditData.amountPerUnit,
-            'entries.unitsRemaining': preEditData.unitsRemaining
-        }, //find a document with the pre-edit data 
+            'entries._id': _id
+        }, //find an entry with the unique id
         {
             $set: {
+                'entries.$.section': section,
                 'entries.$.genericName': genericName,
                 'entries.$.proprietaryName': proprietaryName,
                 'entries.$.drugClass': drugClass,
@@ -201,13 +187,11 @@ var editPharmacy = function (id, genericName, proprietaryName,
         },
         function (err, doc) { //callback
             if (err) {
-                console.log("error in finding and updating pharmacy for "
-                    + id);
                 console.log('error: ' + err);
                 route_callback(null, "error" + { error: err })
             }
             else {
-                Pharmacy.find({ id: id }, function (err, res) {
+                Pharmacy.find({}, function (err, res) {
                     if (err) {
                         console.log(err);
                     }
@@ -222,37 +206,23 @@ var editPharmacy = function (id, genericName, proprietaryName,
 };
 
 // this function deletes an existing entry 
-var deletePharmacy = function (id, preEditData, route_callback) {
+var deletePharmacy = function (_id, route_callback) {
     console.log("deletePharmacy called in pharmacyDB");
-    console.log("preEditData genericName in deletePharmacy in pharmacyDB: " + preEditData.genericName);
     Pharmacy.findOneAndUpdate(
         {},
         {
             $pull: {
                 entries: {
-                    genericName: preEditData.genericName,
-                    proprietaryName: preEditData.proprietaryName,
-                    drugClass: preEditData.drugClass,
-                    type: preEditData.type,
-                    description: preEditData.description,
-                    manufactureDate: preEditData.manufactureDate,
-                    expirationDate: preEditData.expirationDate,
-                    lotNumber: preEditData.lotNumber,
-                    concentration: preEditData.concentration,
-                    amountPerUnit: preEditData.amountPerUnit,
-                    unitsRemaining: preEditData.unitsRemaining
+                    _id: _id
                 }
             }
         },
         function (err, doc) { //callback
             if (err) {
-                console.log("error in finding and updating pharmacy for "
-                    + id);
-                console.log('error: ' + err);
                 route_callback(null, "error" + { error: err })
             }
             else {
-                Pharmacy.find({ id: id }, function (err, res) {
+                Pharmacy.find({}, function (err, res) {
                     if (err) {
                         console.log(err);
                     }
