@@ -205,57 +205,43 @@ var editPharmacy = function (section, genericName, proprietaryName,
     )
 };
 
-// // this function deletes an existing entry 
-// var deletePharmacy = function (id, preEditData, route_callback) {
-//     console.log("deletePharmacy called in pharmacyDB");
-//     console.log("preEditData genericName in deletePharmacy in pharmacyDB: " + preEditData.genericName);
-//     Pharmacy.findOneAndUpdate(
-//         {},
-//         {
-//             $pull: {
-//                 entries: {
-//                     genericName: preEditData.genericName,
-//                     proprietaryName: preEditData.proprietaryName,
-//                     drugClass: preEditData.drugClass,
-//                     type: preEditData.type,
-//                     description: preEditData.description,
-//                     manufactureDate: preEditData.manufactureDate,
-//                     expirationDate: preEditData.expirationDate,
-//                     lotNumber: preEditData.lotNumber,
-//                     concentration: preEditData.concentration,
-//                     amountPerUnit: preEditData.amountPerUnit,
-//                     unitsRemaining: preEditData.unitsRemaining
-//                 }
-//             }
-//         },
-//         function (err, doc) { //callback
-//             if (err) {
-//                 console.log("error in finding and updating pharmacy for "
-//                     + id);
-//                 console.log('error: ' + err);
-//                 route_callback(null, "error" + { error: err })
-//             }
-//             else {
-//                 Pharmacy.find({ id: id }, function (err, res) {
-//                     if (err) {
-//                         console.log(err);
-//                     }
-//                     else {
-//                         console.log('pharmacyDB deletePharmacy response: ' + res);
-//                         route_callback(res, null);
-//                     }
-//                 });
-//             }
-//         }
-//     )
-// };
+// this function deletes an existing entry 
+var deletePharmacy = function (_id, route_callback) {
+    console.log("deletePharmacy called in pharmacyDB");
+    Pharmacy.findOneAndUpdate(
+        {},
+        {
+            $pull: {
+                entries: {
+                    _id: _id
+                }
+            }
+        },
+        function (err, doc) { //callback
+            if (err) {
+                route_callback(null, "error" + { error: err })
+            }
+            else {
+                Pharmacy.find({}, function (err, res) {
+                    if (err) {
+                        console.log(err);
+                    }
+                    else {
+                        console.log('pharmacyDB deletePharmacy response: ' + res);
+                        route_callback(res, null);
+                    }
+                });
+            }
+        }
+    )
+};
 
 var pharmacyDB = {
     putNewPharmacy: putNewPharmacy,
     putPharmacyEntry: putPharmacyEntry,
     getAllPharmacy: getAllPharmacy,
     editPharmacy: editPharmacy,
-    // deletePharmacy: deletePharmacy
+    deletePharmacy: deletePharmacy
 };
 
 module.exports = pharmacyDB;

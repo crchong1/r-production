@@ -111,7 +111,7 @@
    app.post('/getAllPharmacy', pharmacyRoutes.get_all_pharmacy);
    app.post('/pharmacy', pharmacyRoutes.submit_pharmacy);
    app.post('/editPharmacy', pharmacyRoutes.edit_pharmacy);
-//    app.post('/deletePharmacy', pharmacyRoutes.delete_pharmacy);
+   app.post('/deletePharmacy', pharmacyRoutes.delete_pharmacy);
    
    /* Run the server */
    console.log('Author: Connor Chong (conchong)');

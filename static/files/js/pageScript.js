@@ -93,6 +93,7 @@ var setCss = function (thiss) {
 }
 
 var editEntryGeneric = function (row) {
+	console.log("editEntryGeneric called in pageScript")
 	// getting values from row
 	var data = [];
 
@@ -108,6 +109,7 @@ var editEntryGeneric = function (row) {
 	var items = $("#editForm :input").map(function (index, elm) {
 		return { name: elm.name, type: elm.type, value: $(elm).val() };
 	});
+	console.log("data in editEntryGeneric")
 	console.log(data)
 	console.log(items)
 	// setting form name attributes to be same as previous values
@@ -150,6 +152,7 @@ var editEntryGeneric = function (row) {
 	}
 }
 	// finalizing form appearance
+	console.log("finalizing form appearance in pageScript")
 	$('#editForm').attr('class', 'tr editForm')
 	$('#editForm').show();
 	$('#editForm').find("[name='cancel']").attr('class', 'formSubmit cancelEdit')
