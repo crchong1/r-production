@@ -193,9 +193,16 @@
                   <input type="text" name="description" placeholder="Description">
                 </span>
                 <span class="td">
+                  <input type="date" name="manufactureDate" class="datepicker form-control">
                 </span>
                 <span class="td">
                   <input type="date" name="expirationDate" class="datepicker form-control">
+                </span>
+                <span class="td">
+                  <input type="text" name="lotNumber" placeholder="Lot Number">
+                </span>
+                <span class="td">
+                  <input type="text" name="concentration" placeholder="Concentration">
                 </span>
                 <span class="td">
                   <input type="text" name="amountPerUnit" placeholder="Amount Per Unit">
@@ -205,14 +212,13 @@
                 </span>
 
                 <input type="submit" value="Submit" id="pharmacySubmit" name="pharmacySubmit" class="pharmacySubmit btn btn-primary formSubmit">
-                <input type="button" value="Cancel" name="cancel" class="btn btn-danger formSubmit cancel" data-toggle="collapse" data-target="#antibiotics">
+                <input type="button" value="Cancel" name="cancel" class="btn btn-danger formSubmit cancel" data-toggle="collapse" data-target="#allergyMedicine">
 
               </form>
               <div>
                 <button id="addPharmacy" class="add" data-toggle="collapse" data-target="#antibiotics" aria-expanded="false" aria-controls="collapseExample">
                   + </button>
               </div>
-
             </div>
             <div id="list-antiepileptics" class="box card section">
               <table class="w3-table-all" id="medtable">
@@ -281,7 +287,7 @@
                 </span>
 
                 <input type="submit" value="Submit" id="pharmacySubmit" name="pharmacySubmit" class="pharmacySubmit btn btn-primary formSubmit">
-                <input type="button" value="Cancel" name="cancel" class="btn btn-danger formSubmit cancel" data-toggle="collapse" data-target="#antiepileptics">
+                <input type="button" value="Cancel" name="cancel" class="btn btn-danger formSubmit cancel" data-toggle="collapse" data-target="#allergyMedicine">
 
               </form>
               <div>
@@ -355,7 +361,7 @@
                 </span>
 
                 <input type="submit" value="Submit" id="pharmacySubmit" name="pharmacySubmit" class="pharmacySubmit btn btn-primary formSubmit">
-                <input type="button" value="Cancel" name="cancel" class="btn btn-danger formSubmit cancel" data-toggle="collapse" data-target="#antifungals">
+                <input type="button" value="Cancel" name="cancel" class="btn btn-danger formSubmit cancel" data-toggle="collapse" data-target="#allergyMedicine">
 
               </form>
               <div>
@@ -431,7 +437,7 @@
                 </span>
 
                 <input type="submit" value="Submit" id="pharmacySubmit" name="pharmacySubmit" class="pharmacySubmit btn btn-primary formSubmit">
-                <input type="button" value="Cancel" name="cancel" class="btn btn-danger formSubmit cancel" data-toggle="collapse" data-target="#antivirals">
+                <input type="button" value="Cancel" name="cancel" class="btn btn-danger formSubmit cancel" data-toggle="collapse" data-target="#allergyMedicine">
 
               </form>
               <div>
@@ -507,7 +513,7 @@
                 </span>
 
                 <input type="submit" value="Submit" id="pharmacySubmit" name="pharmacySubmit" class="pharmacySubmit btn btn-primary formSubmit">
-                <input type="button" value="Cancel" name="cancel" class="btn btn-danger formSubmit cancel" data-toggle="collapse" data-target="#asthma">
+                <input type="button" value="Cancel" name="cancel" class="btn btn-danger formSubmit cancel" data-toggle="collapse" data-target="#allergyMedicine">
 
               </form>
               <div>
@@ -583,7 +589,7 @@
                 </span>
 
                 <input type="submit" value="Submit" id="pharmacySubmit" name="pharmacySubmit" class="pharmacySubmit btn btn-primary formSubmit">
-                <input type="button" value="Cancel" name="cancel" class="btn btn-danger formSubmit cancel" data-toggle="collapse" data-target="#decongestants">
+                <input type="button" value="Cancel" name="cancel" class="btn btn-danger formSubmit cancel" data-toggle="collapse" data-target="#allergyMedicine">
 
               </form>
               <div>
@@ -659,7 +665,7 @@
                 </span>
 
                 <input type="submit" value="Submit" id="pharmacySubmit" name="pharmacySubmit" class="pharmacySubmit btn btn-primary formSubmit">
-                <input type="button" value="Cancel" name="cancel" class="btn btn-danger formSubmit cancel" data-toggle="collapse" data-target="#steroids">
+                <input type="button" value="Cancel" name="cancel" class="btn btn-danger formSubmit cancel" data-toggle="collapse" data-target="#allergyMedicine">
 
               </form>
               <div>
@@ -735,7 +741,7 @@
                 </span>
 
                 <input type="submit" value="Submit" id="pharmacySubmit" name="pharmacySubmit" class="pharmacySubmit btn btn-primary formSubmit">
-                <input type="button" value="Cancel" name="cancel" class="btn btn-danger formSubmit cancel" data-toggle="collapse" data-target="#supplements">
+                <input type="button" value="Cancel" name="cancel" class="btn btn-danger formSubmit cancel" data-toggle="collapse" data-target="#allergyMedicine">
 
               </form>
               <div>
@@ -777,7 +783,6 @@
               </table>
 
               <form id="other" class="tr addForm collapse">
-                <input type="hidden" name="tableName" value="other">
                 <span class="td">
                   <input type="text" name="genericName" placeholder="Generic Drug Name">
                 </span>
@@ -813,7 +818,7 @@
                 </span>
 
                 <input type="submit" value="Submit" id="pharmacySubmit" name="pharmacySubmit" class="pharmacySubmit btn btn-primary formSubmit">
-                <input type="button" value="Cancel" name="cancel" class="btn btn-danger formSubmit cancel" data-toggle="collapse" data-target="#other">
+                <input type="button" value="Cancel" name="cancel" class="btn btn-danger formSubmit cancel" data-toggle="collapse" data-target="#allergyMedicine">
 
               </form>
               <div>
