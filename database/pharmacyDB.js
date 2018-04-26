@@ -158,63 +158,52 @@ var getAllPharmacy = function (route_callback) {
     });
 };
 
-// // this function edits an existing entry in the data 
-// var editPharmacy = function (id, genericName, proprietaryName,
-//     drugClass, type, description, manufactureDate, expirationDate, lotNumber, concentration, amountPerUnit, 
-//     unitsRemaining, preEditData, route_callback) {
-//     console.log("editPharmacy called in pharmacyDB");
-//     console.log("preEditData genericName in editPharmacy in pharmacyDB: " + preEditData.genericName);
-//     Pharmacy.findOneAndUpdate(
-//         {
-//             id: id,
-//             'entries.genericName': preEditData.genericName,
-//             'entries.proprietaryName': preEditData.proprietaryName,
-//             'entries.drugClass': preEditData.drugClass,
-//             'entries.type': preEditData.type,
-//             'entries.description': preEditData.description,
-//             'entries.manufactureDate': preEditData.manufactureDate,
-//             'entries.expirationDate': preEditData.expirationDate,
-//             'entries.lotNumber': preEditData.lotNumber,
-//             'entries.concentration': preEditData.concentration,
-//             'entries.amountPerUnit': preEditData.amountPerUnit,
-//             'entries.unitsRemaining': preEditData.unitsRemaining
-//         }, //find a document with the pre-edit data 
-//         {
-//             $set: {
-//                 'entries.$.genericName': genericName,
-//                 'entries.$.proprietaryName': proprietaryName,
-//                 'entries.$.drugClass': drugClass,
-//                 'entries.$.type': type,
-//                 'entries.$.description': description,
-//                 'entries.$.manufactureDate': manufactureDate,
-//                 'entries.$.expirationDate': expirationDate,
-//                 'entries.$.lotNumber': lotNumber,
-//                 'entries.$.concentration': concentration,
-//                 'entries.$.amountPerUnit': amountPerUnit,
-//                 'entries.$.unitsRemaining': unitsRemaining
-//             }
-//         },
-//         function (err, doc) { //callback
-//             if (err) {
-//                 console.log("error in finding and updating pharmacy for "
-//                     + id);
-//                 console.log('error: ' + err);
-//                 route_callback(null, "error" + { error: err })
-//             }
-//             else {
-//                 Pharmacy.find({ id: id }, function (err, res) {
-//                     if (err) {
-//                         console.log(err);
-//                     }
-//                     else {
-//                         console.log('pharmacyDB editPharmacy response: ' + res);
-//                         route_callback(res, null);
-//                     }
-//                 });
-//             }
-//         }
-//     )
-// };
+// this function edits an existing entry in the data 
+var editPharmacy = function (section, genericName, proprietaryName,
+    drugClass, type, description, manufactureDate, expirationDate, lotNumber, concentration, amountPerUnit, 
+    unitsRemaining, _id, route_callback) {
+        console.log("_id in editPharmacy in pharmacyDB: ")
+        console.log(_id)
+    console.log("editPharmacy called in pharmacyDB");
+    Pharmacy.findOneAndUpdate(
+        {
+            'entries._id': _id
+        }, //find an entry with the unique id
+        {
+            $set: {
+                'entries.$.section': section,
+                'entries.$.genericName': genericName,
+                'entries.$.proprietaryName': proprietaryName,
+                'entries.$.drugClass': drugClass,
+                'entries.$.type': type,
+                'entries.$.description': description,
+                'entries.$.manufactureDate': manufactureDate,
+                'entries.$.expirationDate': expirationDate,
+                'entries.$.lotNumber': lotNumber,
+                'entries.$.concentration': concentration,
+                'entries.$.amountPerUnit': amountPerUnit,
+                'entries.$.unitsRemaining': unitsRemaining
+            }
+        },
+        function (err, doc) { //callback
+            if (err) {
+                console.log('error: ' + err);
+                route_callback(null, "error" + { error: err })
+            }
+            else {
+                Pharmacy.find({}, function (err, res) {
+                    if (err) {
+                        console.log(err);
+                    }
+                    else {
+                        console.log('pharmacyDB editPharmacy response: ' + res);
+                        route_callback(res, null);
+                    }
+                });
+            }
+        }
+    )
+};
 
 // // this function deletes an existing entry 
 // var deletePharmacy = function (id, preEditData, route_callback) {
@@ -265,7 +254,7 @@ var pharmacyDB = {
     putNewPharmacy: putNewPharmacy,
     putPharmacyEntry: putPharmacyEntry,
     getAllPharmacy: getAllPharmacy,
-    // editPharmacy: editPharmacy,
+    editPharmacy: editPharmacy,
     // deletePharmacy: deletePharmacy
 };
 

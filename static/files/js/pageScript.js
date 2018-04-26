@@ -222,21 +222,21 @@ function getAge(fromdate, todate) {
 	return age.join('');
 }
 
-getRecentWeight()
-function getRecentWeight(){
-	$.ajax({
-		type: 'POST',
-		url: '/getAllWeights',
-		data: {
-			id: patientId
-		},
+// getRecentWeight()
+// function getRecentWeight(){
+// 	$.ajax({
+// 		type: 'POST',
+// 		url: '/getAllWeights',
+// 		data: {
+// 			id: patientId
+// 		},
 
-		success: function (result) {
-			console.log("success ")
-			console.log(result);
-		},
-		error: function(XMLHttpRequest, textStatus, errorThrown) {
-			console.error("error: " + errorThrown);
-		}
-	});
-}
+// 		success: function (result) {
+// 			console.log("success ")
+// 			console.log(result);
+// 		},
+// 		error: function(XMLHttpRequest, textStatus, errorThrown) {
+// 			console.error("error: " + errorThrown);
+// 		}
+// 	});
+// }

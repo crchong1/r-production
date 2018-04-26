@@ -3,12 +3,12 @@
 
 <head>
 
- <title>Pharmacy</title>
+  <title>Pharmacy</title>
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Nunito" />
   <link rel="stylesheet" href="/files/bootstrap-4/css/bootstrap.css" />
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Pacifico" />
-    <link rel="stylesheet" type="text/css" href="/files/css/views.css">
-      <link rel="stylesheet" type="text/css" href="/files/css/w3.css">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Pacifico" />
+  <link rel="stylesheet" type="text/css" href="/files/css/views.css">
+  <link rel="stylesheet" type="text/css" href="/files/css/w3.css">
   <link rel="stylesheet" type="text/css" href="/files/css/datepicker.css">
   <script src="/files/js/jquery-3.3.1.js"></script>
   <script type="text/javascript" src="/files/js/pageScript.js"></script>
@@ -28,7 +28,7 @@
             <div class="list-group" id="sideScroll">
               <a class="list-group-item list-group-item-action" href="#list-allergy">Allergy Medication</a>
               <a class="list-group-item list-group-item-action" href="#list-antiBiotics">Antibiotics</a>
-              <a class="list-group-item list-group-item-action" href="#list-antiEpileptics">Anti-Epileptics</a>
+              <a class="list-group-item list-group-item-action" href="#list-antiepileptics">Anti-Epileptics</a>
               <a class="list-group-item list-group-item-action" href="#list-antiFungal">Antifungals</a>
               <a class="list-group-item list-group-item-action" href="#list-antiVirals">Antivirals</a>
               <a class="list-group-item list-group-item-action" href="#list-asthmaBreathing">Asthma/Breathing Treatments</a>
@@ -146,7 +146,7 @@
             </div>
 
 
-            <div id="list-antiBiotics" class="box card section">
+            <div id="list-antibiotics" class="box card section">
               <table class="w3-table-all" id="medtable">
                 <div class="subTitle">
                   Antibiotics
@@ -214,7 +214,7 @@
               </div>
 
             </div>
-            <div id="list-antiEpileptics" class="box card section">
+            <div id="list-antiepileptics" class="box card section">
               <table class="w3-table-all" id="medtable">
                 <div class="subTitle">
                   Anti-Epileptics
@@ -241,11 +241,11 @@
                   </tr>
 
                 </thead>
-                <tbody id="antiEpilepticsTableBody">
+                <tbody id="antiepilepticsTableBody">
                   <th></th>
                 </tbody>
               </table>
-              <form id="antiEpileptics" class="tr addForm collapse">
+              <form id="antiepileptics" class="tr addForm collapse">
                 <span class="td">
                   <input type="text" name="genericName" placeholder="Generic Drug Name">
                 </span>
@@ -281,16 +281,16 @@
                 </span>
 
                 <input type="submit" value="Submit" id="pharmacySubmit" name="pharmacySubmit" class="pharmacySubmit btn btn-primary formSubmit">
-                <input type="button" value="Cancel" name="cancel" class="btn btn-danger formSubmit cancel" data-toggle="collapse" data-target="#antiEpileptics">
+                <input type="button" value="Cancel" name="cancel" class="btn btn-danger formSubmit cancel" data-toggle="collapse" data-target="#antiepileptics">
 
               </form>
               <div>
-                <button id="addPharmacy" class="add" data-toggle="collapse" data-target="#antiEpileptics" aria-expanded="false" aria-controls="collapseExample">
+                <button id="addPharmacy" class="add" data-toggle="collapse" data-target="#antiepileptics" aria-expanded="false" aria-controls="collapseExample">
                   + </button>
               </div>
 
             </div>
-            <div id="list-antiFungal" class="box card section">
+            <div id="list-antifungals" class="box card section">
               <table class="w3-table-all" id="medtable">
                 <div class="subTitle">
                   Antifungals
@@ -364,7 +364,7 @@
               </div>
 
             </div>
-            <div id="list-antiVirals" class="box card section">
+            <div id="list-antivirals" class="box card section">
               <table class="w3-table-all" id="medtable">
                 <div class="subTitle">
                   Antivirals
@@ -440,7 +440,7 @@
               </div>
 
             </div>
-            <div id="list-asthmaBreathing" class="box card section">
+            <div id="list-asthma" class="box card section">
               <table class="w3-table-all" id="medtable">
                 <div class="subTitle">
                   Asthma/Breathing Treatments
@@ -516,7 +516,7 @@
               </div>
 
             </div>
-            <div id="list-decogestants" class="box card section">
+            <div id="list-decongestants" class="box card section">
               <table class="w3-table-all" id="medtable">
                 <div class="subTitle">
                   Decongestants
@@ -881,11 +881,86 @@
     });
   });
 
+  //This function saves unique id and section name when the edit button is clicked 
+  var _id;
+  var sectionName;
+  $('.section').on('click', '.editBtn', function (event) {
+    console.log("edit button clicked");
+    event.preventDefault();
+    // // find and hide the edit button
+
+    // gets the row of the edit button that was clicked
+    var row = $(this).parent().parent();
+    console.log("row when edit button clicked in pharmacy: ")
+    console.log(row)
+
+    // sets the record id of the row that is being edited
+    _id = $(row).attr('id')
+    sectionName = $(row).attr('title')
+    console.log("_id when edit button clicked in pharmacy: ")
+    console.log(_id);
+    console.log("sectionName when edit button clicked in pharmacy: ")
+    console.log(sectionName);
+    setCss(this);
+    row.hide();
+    //  editEntry(row);
+    editEntryGeneric(row);
+  });
+
+  //Edit existing entry
+  $('.section').on('click', '.pharmacySubmit', function (event) {
+    event.preventDefault();
+    //'this' is editForm (targetted form)
+    var input = $(this).parent().serializeArray();
+    console.log("sectionName in pharmacy edit: ")
+    console.log(sectionName)
+    console.log("edit pharmacy entry");
+    console.log(input);
+    $.ajax({
+      type: 'POST',
+      url: '/editPharmacy',
+      data: {
+        section: sectionName,
+        genericName: input[0].value,
+        proprietaryName: input[1].value,
+        drugClass: input[2].value,
+        type: input[3].value,
+        description: input[4].value,
+        manufactureDate: input[5].value,
+        expirationDate: input[6].value,
+        lotNumber: input[7].value,
+        concentration: input[8].value,
+        amountPerUnit: input[9].value,
+        unitsRemaining: input[10].value,
+        _id: _id
+      },
+      success: function (result) {
+        console.log("EDIT SUCESS HTML");
+        //console.log(result);
+        var form = '#' + result.data.form;
+        var hiddenRow = $(form).prev();
+        hiddenRow.remove();
+
+        // console.log(result.data.type)
+        // $(form).hide();
+        $('.editBtn').show();
+        $('#editForm').remove();
+        console.log("data: ");
+        console.log(result.data);
+        updateTablePharmacy(result.data[0].entries);
+      },
+      error: function (XMLHttpRequest, textStatus, errorThrown) {
+        console.log("EDIT ERROR");
+        console.error("error: " + errorThrown);
+      }
+    });
+  });
+
   var updateTablePharmacy = function (data) {
-    // [{tablename: tablename, date: date}]
+    //initialize empty arrays
     var allergyArray = [];
     var antibioticsArray = [];
-    var antiEpilepticsArray = [];
+    var antiepilepticsArray = [];
     var antifungalsArray = [];
     var antiviralsArray = [];
     var asthmaArray = [];
@@ -895,6 +970,7 @@
     var otherArray = [];
     console.log("data in updateTablePharmacy: ");
     console.log(data);
+    //update arrays with passed in data 
     for (var i = 0; i < data.length; i++) {
       if (data[i].section === 'allergyMedicine') {
         allergyArray.push(data[i])
@@ -902,8 +978,8 @@
       else if (data[i].section === 'antibiotics') {
         antibioticsArray.push(data[i])
       }
-      else if (data[i].section === 'antiEpileptics') {
-        antiEpilepticsArray.push(data[i])
+      else if (data[i].section === 'antiepileptics') {
+        antiepilepticsArray.push(data[i])
       }
       else if (data[i].section === 'antifungals') {
         antifungalsArray.push(data[i])
@@ -928,9 +1004,10 @@
       }
     }
 
+    //update each table with the corresponding arrays 
     updateTableHelper(allergyArray, 'allergyMedicine');
     updateTableHelper(antibioticsArray, 'antibiotics');
-    updateTableHelper(antiEpilepticsArray, 'antiEpileptics');
+    updateTableHelper(antiepilepticsArray, 'antiepileptics');
     updateTableHelper(antifungalsArray, 'antifungals');
     updateTableHelper(antiviralsArray, 'antivirals');
     updateTableHelper(asthmaArray, 'asthma');
@@ -940,13 +1017,12 @@
     updateTableHelper(otherArray, 'other');
   };
 
-  // function that takes in JSON with two fields: height and date and renders the table as such
+  //helper to build the table given the data (as an array) and section name
   var updateTableHelper = function (data, section) {
-    console.log("section Name in updateTableHelper");
-    console.log(section);
     var table1 = '';
     for (var i = 0; i < data.length; i++) {
-      var line = '<tr><td>' + data[i].genericName + '</td>';
+      var line = '<tr id=' + data[i]._id + ' title=' + data[i].section + '>';
+      line += '<td>' + data[i].genericName + '</td>';
       line += '<td>' + data[i].proprietaryName + '</td>';
       line += '<td>' + data[i].drugClass + '</td>';
       line += '<td>' + data[i].type + '</td>';
